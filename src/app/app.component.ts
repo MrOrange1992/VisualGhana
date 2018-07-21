@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MapTypeStyle} from '@agm/core';
 import {MapComponent} from './map/map.component';
 
 @Component({
