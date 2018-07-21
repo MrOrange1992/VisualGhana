@@ -1,0 +1,16 @@
+.column {
+  float: left;
+  width: 33.33%;
+  background-color: darkgray;
+  height: 1200px;
+}
+
+.left, .right {
+  width: 25%;
+}
+
+.middle {
+  width: 50%;
+  overflow: hidden;
+}
+

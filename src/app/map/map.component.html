@@ -1,0 +1,19 @@
+<agm-map
+  [latitude]="latitude"
+  [longitude]="longitude"
+  [styles]="customMapStyles"
+  [mapDraggable]="mapDraggable">
+
+  <ng-container *ngFor="let point of testPoints">
+    <agm-marker [latitude]=point.latitude [longitude]=point.longitude></agm-marker>
+  </ng-container>
+
+  <ng-container *ngFor="let pol of testPolygons">
+    <agm-polygon [paths]=pol.coordinates></agm-polygon>
+  </ng-container>
+
+  <agm-data-layer [geoJson]=ghanaBorders ></agm-data-layer>
+
+</agm-map>
+
+

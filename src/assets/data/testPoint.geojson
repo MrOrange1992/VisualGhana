@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Point1",
+    "latitude": 8.01,
+    "longitude": -0.65
+  },
+  {
+    "type": "Point2",
+    "latitude": 8.1,
+    "longitude": -0.7
+  }
+]

@@ -1,0 +1,14 @@
+
+.column {
+  float: left;
+  width: 10%;
+  background-color: lightgray;
+  height: 100px;
+}
+
+.remaining {
+  float: right;
+  background-color: lightgray;
+  width: 70%;
+  height: 100px;
+}
