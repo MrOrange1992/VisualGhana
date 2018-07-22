@@ -1,14 +1,25 @@
-
 .column {
   float: left;
   width: 10%;
-  background-color: lightgray;
   height: 100px;
+  text-align: center;
+  font-size: large;
+}
+
+.first {
+  background-color: blanchedalmond;
+}
+
+.second {
+  background-color: darkslategray;
+}
+
+.third {
+  background-color: slategray;
 }
 
 .remaining {
   float: right;
-  background-color: lightgray;
+  background: linear-gradient(141deg, blanchedalmond 0%, darkslategrey 40%, slategray 70%);
   width: 70%;
-  height: 100px;
 }

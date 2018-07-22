@@ -1,8 +1,11 @@
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+
 .column {
   float: left;
   width: 33.33%;
-  background-color: darkgray;
   height: 1200px;
+  background: lightgray;
 }
 
 .left, .right {
@@ -14,3 +17,10 @@
   overflow: hidden;
 }
 
+.mainButton {
+  width: 100%;
+  height: 100px;
+  background-color: slategray;
+  color: blanchedalmond;
+  font-size: large;
+}
