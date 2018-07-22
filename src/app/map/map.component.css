@@ -1,11 +1,10 @@
 agm-map
 {
-  height: 110%;
+  height: 120%;
   width: 100%;
 }
 
 .map {
-  height: 110%;
   overflow: hidden;
 }
 

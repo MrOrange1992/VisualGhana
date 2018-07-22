@@ -4,7 +4,7 @@
 .column {
   float: left;
   width: 33.33%;
-  height: 1200px;
+  height: 90%;
   background: lightgray;
 }
 
@@ -23,4 +23,8 @@
   background-color: slategray;
   color: blanchedalmond;
   font-size: large;
+}
+
+.row {
+  height: 100vh;
 }

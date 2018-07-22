@@ -1,25 +1,34 @@
 .column {
   float: left;
-  width: 10%;
-  height: 100px;
+  height: 10%;
   text-align: center;
   font-size: large;
 }
 
 .first {
-  background-color: blanchedalmond;
+  width: 10%;
+
+  background-color: #28536C;
 }
 
 .second {
-  background-color: darkslategray;
+  width: 10%;
+
+  background-color: #806315;
 }
 
 .third {
-  background-color: slategray;
+  width: 10%;
+
+  background-color: #AA5439;
 }
 
 .remaining {
   float: right;
-  background: linear-gradient(141deg, blanchedalmond 0%, darkslategrey 40%, slategray 70%);
+  background: linear-gradient(141deg, #28536C 0%, #806315 40%, #AA5439 70%);
   width: 70%;
+}
+
+.navBar {
+
 }
