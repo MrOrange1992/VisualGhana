@@ -33,6 +33,14 @@ export class MapService {
   }
 
   /**
+   * Loads solar stations on grid points geojson data
+   * @returns
+   */
+  loadGhanaSolarStations() {
+    return this.httpClient.get('../../assets/data/ghanaSolarStations.geojson');
+  }
+
+  /**
    * Test function for custom point parsing from json
    * @returns {Observable<Point[]>}
    */

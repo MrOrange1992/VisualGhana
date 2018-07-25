@@ -1,2 +1,19 @@
-Map as background
-https://snazzymaps.com/style/72543/assassins-creed-iv
+Styles
+  - Map as background
+    https://snazzymaps.com/style/72543/assassins-creed-iv
+  - Layout
+    -> Layout_concept_24_07_18.jpg
+  - Style Points / Lines (img, color etc.)
+  - Color Master
+    -> styles.css -> dynamic
+
+Data Processing
+  - Parse CSV data
+  - GeoJson Lint
+
+
+
+
+
+
+Terry Cruise Easter Egg Power Plants

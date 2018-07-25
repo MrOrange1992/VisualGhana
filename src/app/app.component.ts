@@ -27,5 +27,8 @@ export class AppComponent implements AfterViewInit {
   loadHealthSites() {
     this.child.loadHealthSites();
   }
+    ghanaSolarStations() {
+      this.child.loadSolarStations();
+  }
   ngAfterViewInit() {}
 }

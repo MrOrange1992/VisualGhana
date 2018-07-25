@@ -22,6 +22,9 @@ export class MapComponent implements OnInit {
   // object to store health site geojson data
   healthSites;
 
+  // object to store solarstations geojson data
+  ghanaSolarStations;
+
   // property for custom map styles, edit in file ../assets/mapStyles.json
   customMapStyles: MapTypeStyle[] = [];
 
@@ -51,8 +54,13 @@ export class MapComponent implements OnInit {
     this.mapService.loadTestPoints().subscribe(resPointData => this.testPoints = resPointData);
   }
 
+
   loadHealthSites() {
     this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
+  }
+
+  loadSolarStations() {
+    this.mapService.loadGhanaSolarStations().subscribe(resPointData => this.ghanaSolarStations = resPointData);
   }
 
 }
