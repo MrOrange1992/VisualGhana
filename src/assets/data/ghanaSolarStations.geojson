@@ -1,0 +1,545 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 1,
+        "DATE": "1998",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Accra Metropolitan Assembly",
+        "INSTITUTION NAME": "Ministry of Energy",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 50.0,
+        "LOCALITY": "Accra",
+        "LATITUDE": "05.5514N",
+        "LONGITUDE": "000.2008W",
+        "X": -0.2008,
+        "Y": 5.5514
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2008,
+          5.5514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 2,
+        "DATE": "8-May",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Accra Metropolitan Assembly",
+        "INSTITUTION NAME": "Energy Commission",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.25,
+        "LOCALITY": "Accra",
+        "LATITUDE": "05.5975N",
+        "LONGITUDE": "000.1829W",
+        "X": -0.1829,
+        "Y": 5.5975
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1829,
+          5.5975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 3,
+        "DATE": "8-May",
+        "REGION": "Ashanti Region",
+        "METRO/MUNICIPAL/DISTRICT": "KMA",
+        "INSTITUTION NAME": "KNUST",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.0,
+        "LOCALITY": "Kumasi",
+        "LATITUDE": "06.6735N",
+        "LONGITUDE": "001.5654W",
+        "X": -1.5654,
+        "Y": 6.6735
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5654,
+          6.6735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 4,
+        "DATE": "12-Mar",
+        "REGION": "Ashanti Region",
+        "METRO/MUNICIPAL/DISTRICT": "KMA",
+        "INSTITUTION NAME": "KNUST",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 20.0,
+        "LOCALITY": "Kumasi",
+        "LATITUDE": "06.6735N",
+        "LONGITUDE": "001.5654W",
+        "X": -1.5654,
+        "Y": 6.6735
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5654,
+          6.6735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 5,
+        "DATE": "10-May",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Ga East",
+        "INSTITUTION NAME": "Valley View University",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 8.36,
+        "LOCALITY": "Oyibi",
+        "LATITUDE": "05.7974N",
+        "LONGITUDE": "000.1224W",
+        "X": -0.1224,
+        "Y": 5.7974
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1224,
+          5.7974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 6,
+        "DATE": "10-May",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Ga East",
+        "INSTITUTION NAME": "Presby Women's Centre",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.18,
+        "LOCALITY": "Abokobi",
+        "LATITUDE": "05.7386N",
+        "LONGITUDE": "000.2046W",
+        "X": -0.2046,
+        "Y": 5.7386
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2046,
+          5.7386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 7,
+        "DATE": "10-May",
+        "REGION": "Brong Ahafo Region",
+        "METRO/MUNICIPAL/DISTRICT": "Kintampo Municipal",
+        "INSTITUTION NAME": "Pure Company Ltd",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.18,
+        "LOCALITY": "Benkrom",
+        "LATITUDE": "08.7610N",
+        "LONGITUDE": "001.4493W",
+        "X": -1.4493,
+        "Y": 8.761
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.4493,
+          8.761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 8,
+        "DATE": "10-May",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Accra Metropolitan Assembly",
+        "INSTITUTION NAME": "V. Attafuah - Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.18,
+        "LOCALITY": "East Airport, Spintex Rd, Accra",
+        "LATITUDE": "05.6227N",
+        "LONGITUDE": "000.1416W",
+        "X": -0.1416,
+        "Y": 5.6227
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1416,
+          5.6227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 9,
+        "DATE": "10-May",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Accra Metropolitan Assembly",
+        "INSTITUTION NAME": "V. Adomako - Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.18,
+        "LOCALITY": "Dzowulu, Accra",
+        "LATITUDE": "05.6154N",
+        "LONGITUDE": "000.1950W",
+        "X": -0.195,
+        "Y": 5.6154
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.195,
+          5.6154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 10,
+        "DATE": "11-Sep",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Tema",
+        "INSTITUTION NAME": "S. Adjei - Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.0,
+        "LOCALITY": "Tema",
+        "LATITUDE": "05.6431N",
+        "LONGITUDE": "000.0151W",
+        "X": -0.0151,
+        "Y": 5.6431
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0151,
+          5.6431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 11,
+        "DATE": "11-Sep",
+        "REGION": "Eastern Region",
+        "METRO/MUNICIPAL/DISTRICT": "Akwapim South ",
+        "INSTITUTION NAME": "G Mills - Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 3.8,
+        "LOCALITY": "Peduase",
+        "LATITUDE": "05.8050N",
+        "LONGITUDE": "000.1760W",
+        "X": -0.176,
+        "Y": 5.805
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.176,
+          5.805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 12,
+        "DATE": "11-Nov",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Ledzokuku",
+        "INSTITUTION NAME": "Abdulai -  Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 3.29,
+        "LOCALITY": "Tesijriganor",
+        "LATITUDE": "05.6413N",
+        "LONGITUDE": "000.1343W",
+        "X": -0.1343,
+        "Y": 5.6413
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1343,
+          5.6413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 13,
+        "DATE": "11-Nov",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Ga East",
+        "INSTITUTION NAME": "Trade Works Company Ltd (Office)",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 10.575,
+        "LOCALITY": "South Dome",
+        "LATITUDE": "05.6491N",
+        "LONGITUDE": "000.2506W",
+        "X": -0.2506,
+        "Y": 5.6491
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2506,
+          5.6491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 14,
+        "DATE": "11-Nov",
+        "REGION": "Eastern Region",
+        "METRO/MUNICIPAL/DISTRICT": "Asuogyaman",
+        "INSTITUTION NAME": "Wienco Gh Ltd ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 42.77,
+        "LOCALITY": "Atempoku",
+        "LATITUDE": "06.2777N",
+        "LONGITUDE": "000.0718E",
+        "X": 0.0718,
+        "Y": 6.2777
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0718,
+          6.2777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 15,
+        "DATE": "11-Dec",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Adenta",
+        "INSTITUTION NAME": "O Asante - Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 0.8,
+        "LOCALITY": "Fafraha-Ashyie",
+        "LATITUDE": "05.7357N",
+        "LONGITUDE": "000.1465W",
+        "X": -0.1465,
+        "Y": 5.7357
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1465,
+          5.7357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 16,
+        "DATE": "11-Dec",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Tema",
+        "INSTITUTION NAME": "Dr. George Puplampu Clinic",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.0,
+        "LOCALITY": "Sakumono",
+        "LATITUDE": "05.6304N",
+        "LONGITUDE": "000.0751W",
+        "X": -0.0751,
+        "Y": 5.6304
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0751,
+          5.6304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 17,
+        "DATE": "12-Oct",
+        "REGION": "Eastern Region",
+        "METRO/MUNICIPAL/DISTRICT": "Akwapim South ",
+        "INSTITUTION NAME": "Rita Marley Music Studio",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.0,
+        "LOCALITY": "Aburi",
+        "LATITUDE": "05.8321N",
+        "LONGITUDE": "000.18321W",
+        "X": -0.18321,
+        "Y": 5.8321
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.18321,
+          5.8321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 18,
+        "DATE": "12-Oct",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Ningo Prampram",
+        "INSTITUTION NAME": "R. Marley - Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 4.0,
+        "LOCALITY": "Prampram",
+        "LATITUDE": "05.7160N",
+        "LONGITUDE": "000.1315E",
+        "X": 0.1315,
+        "Y": 5.716
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.1315,
+          5.716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 19,
+        "DATE": "12-Oct",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Tema",
+        "INSTITUTION NAME": "R. Tuffour - Residence ",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 7.6,
+        "LOCALITY": "Sakumono",
+        "LATITUDE": "05.6306N",
+        "LONGITUDE": "000.0564W",
+        "X": -0.0564,
+        "Y": 5.6306
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0564,
+          5.6306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 20,
+        "DATE": "13-Apr",
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": "Accra Metropolitan Assembly",
+        "INSTITUTION NAME": "Noguchi Mem. Institute, Uni. Of Ghana",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 315.0,
+        "LOCALITY": "Legon, Accra",
+        "LATITUDE": "05.6330N",
+        "LONGITUDE": "000.1817W",
+        "X": -0.1817,
+        "Y": 5.633
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1817,
+          5.633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 21,
+        "DATE": "13-May",
+        "REGION": "Upper East Region",
+        "METRO/MUNICIPAL/DISTRICT": "Kassena Nandani East",
+        "INSTITUTION NAME": "Volta River Authority (VRA)",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 2500.0,
+        "LOCALITY": "Navrongo",
+        "LATITUDE": "10.9234N",
+        "LONGITUDE": "001.0550W",
+        "X": -1.055,
+        "Y": 10.9234
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.055,
+          10.9234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 22,
+        "DATE": null,
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": null,
+        "INSTITUTION NAME": "Residence installed by TW",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 2.82,
+        "LOCALITY": "Regimanual Estates, Kwabenya",
+        "LATITUDE": null,
+        "LONGITUDE": null,
+        "X": null,
+        "Y": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 23,
+        "DATE": null,
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": null,
+        "INSTITUTION NAME": "Residence installed by TW",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 5.17,
+        "LOCALITY": "West Legon",
+        "LATITUDE": null,
+        "LONGITUDE": null,
+        "X": null,
+        "Y": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "SERIAL NO": 24,
+        "DATE": null,
+        "REGION": "Greater Accra Region",
+        "METRO/MUNICIPAL/DISTRICT": null,
+        "INSTITUTION NAME": "Residence installed by TW",
+        "INSTALLED CAPACITY(kW) GRIDCONNECTED": 1.41,
+        "LOCALITY": null,
+        "LATITUDE": null,
+        "LONGITUDE": null,
+        "X": null,
+        "Y": null
+      },
+      "geometry": null
+    }
+  ]
+}

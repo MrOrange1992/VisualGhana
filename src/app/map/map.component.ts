@@ -13,8 +13,14 @@ export class MapComponent implements OnInit {
   latitude = 7.95;
   longitude = -1;
 
+  // zoom factor for google maps
+  zoom = 7.9;
+
   // object to store geojson data for ghana border polyline
   ghanaBorders;
+
+  // object to store health site geojson data
+  healthSites;
 
   // property for custom map styles, edit in file ../assets/mapStyles.json
   customMapStyles: MapTypeStyle[] = [];
@@ -23,7 +29,7 @@ export class MapComponent implements OnInit {
   testPoints: Point[] = [];
 
   // disables draggable map functionality
-  mapDraggable = false;
+  mapDraggable = true;
 
   constructor(private mapService: MapService) {}
 
@@ -35,12 +41,6 @@ export class MapComponent implements OnInit {
     this.mapService.loadCustomMapStyles().subscribe(data => {
       Object.values(data).forEach(value => this.customMapStyles.push(value));
     });
-  }
-
-  /**
-   * Loads and displays polyline showing Ghana borders
-   */
-  loadGhanaBorders() {
     this.mapService.loadGhanaBorders().subscribe(data => this.ghanaBorders = data);
   }
 
@@ -49,6 +49,10 @@ export class MapComponent implements OnInit {
    */
   loadTestPoints() {
     this.mapService.loadTestPoints().subscribe(resPointData => this.testPoints = resPointData);
+  }
+
+  loadHealthSites() {
+    this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
   }
 
 }

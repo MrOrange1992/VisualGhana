@@ -24,5 +24,8 @@ export class AppComponent implements AfterViewInit {
     this.child.loadGhanaBorders();
   }
 
+  loadHealthSites() {
+    this.child.loadHealthSites();
+  }
   ngAfterViewInit() {}
 }

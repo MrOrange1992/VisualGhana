@@ -18,10 +18,18 @@ export class MapService {
 
   /**
    * Loads polyline geojson data
-   * @returns {Observable<Object>}
+   * @returns
    */
   loadGhanaBorders() {
     return this.httpClient.get('../../assets/data/ghanaBorders.geojson');
+  }
+
+  /**
+   * Loads healthsites points geojson data
+   * @returns
+   */
+  loadHealthSites() {
+    return this.httpClient.get('../../assets/data/ghanaHealthsites.geojson');
   }
 
   /**
