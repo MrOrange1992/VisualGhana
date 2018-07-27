@@ -14,7 +14,7 @@ export class MapComponent implements OnInit {
   longitude = -3.5;
 
   // zoom factor for google maps
-  zoom = 7.9;
+  zoom = 6.5;
 
   // object to store geojson data for ghana border polyline
   borders;
@@ -88,8 +88,31 @@ export class MapComponent implements OnInit {
 
   loadTransportation() {
     this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
-    this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
+    //this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
 
+  }
+
+
+  // define line thickness for elements in data layer
+
+
+  loadTest(feature) {
+    return ({
+             clickable: false,
+         strokeWeight: 2
+
+       });
+
+// load image for data layer
+  }
+  loadCircles(feature) {
+    return ({
+      clickable: false,
+      icon: "../../assets/img/testBanana.png"
+
+
+  })
+    ;
   }
 
 }
