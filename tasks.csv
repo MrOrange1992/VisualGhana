@@ -6,5 +6,6 @@ Data processing/sanitizing/searching,H,IP,,
 Implement displaying graphics,L,TODO,if enough time,
 Styling info property tags from json on map components,H,TODO,,
 Easter Eggs,L,TODO,,
-investigating .klm file for road data,M,IP,Due to large file size
-Port data layer styles(markers) to json files,H,IP,"Tested inside .ts code"
+investigating .klm file for road data,M,IP,Due to large file size,
+Port data layer styles(markers) to json files,H,IP,"Tested inside .ts code",
+Add toogle functionality for buttons,H,TODO,,
