@@ -5,11 +5,15 @@
   [zoom]="zoom"
   [mapDraggable]="mapDraggable">
 
-  <ng-container *ngFor="let point of testPoints">
+
+
+  <ng-container *ngFor="let point of solarStations">
     <agm-marker
       [latitude]=point.latitude
       [longitude]=point.longitude
       [iconUrl]="'../../assets/img/testBanana.png'"
+
+
       >
     </agm-marker>
   </ng-container>

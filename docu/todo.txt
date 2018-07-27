@@ -11,6 +11,11 @@ Data Processing
   - Parse CSV data
   - GeoJson Lint
 
+Functionality
+  - button on/off
+  -custom icon for .igm data layer
+  -
+
 
 
 
