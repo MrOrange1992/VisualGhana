@@ -10,8 +10,8 @@ import {MapTypeStyle} from '@agm/core';
 export class MapComponent implements OnInit {
 
   // coordinates for map init
-  latitude = 7.95;
-  longitude = -1;
+  latitude = 7.2;
+  longitude = -3.5;
 
   // zoom factor for google maps
   zoom = 7.9;
@@ -41,7 +41,7 @@ export class MapComponent implements OnInit {
   testPoints: Point[] = [];
 
   // disables draggable map functionality
-  mapDraggable = true;
+  mapDraggable = false;
 
   constructor(private mapService: MapService) {}
 
@@ -73,6 +73,17 @@ export class MapComponent implements OnInit {
   }
 
   loadAirports() {
+    this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
+  }
+
+
+  loadPower() {
+    this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
+    this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
+    this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
+  }
+
+  loadTransportation() {
     this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
   }
 

@@ -5,6 +5,37 @@ agm-map
 }
 
 .map {
+  height: 100%;
   overflow: hidden;
 }
 
+.infoPanel {
+  z-index: +1;
+  width: 40%;
+  height: 110%;
+  float: left;
+  left: 10px;
+  top: 10px;
+  position: absolute;
+  background-color: rgba(25%, 25%, 25%, 0.5);
+  color: white;
+
+}
+
+.mainButton {
+  width: 40px;
+  height: 40px;
+  background-color: slategray;
+}
+
+.szenarios {
+  height: 15%;
+}
+
+.clickables {
+  height: 15%;
+}
+
+.info {
+  height: 70%;
+}
