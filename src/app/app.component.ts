@@ -9,26 +9,25 @@ import {MapComponent} from './map/map.component';
 export class AppComponent implements AfterViewInit {
   @ViewChild(MapComponent) child;
 
-  /**
-   * Call function from child MapComponent for test point display
-   */
-  callTestPoints() {
-    this.child.loadTestPoints();
-  }
-
-  /**
-   * Call function from MapComponent to display Ghana borders as polyline
-   * Called onClick
-   */
-  loadGhanaBorders() {
-    this.child.loadGhanaBorders();
-  }
-
   loadHealthSites() {
     this.child.loadHealthSites();
   }
-    ghanaSolarStations() {
-      this.child.loadSolarStations();
+
+  loadSolarStations() {
+    this.child.loadSolarStations();
   }
+
+  loadPowerLines() {
+    this.child.loadPowerLines();
+  }
+
+  loadPowerPlants() {
+    this.child.loadPowerPlants();
+  }
+
+  loadAirports() {
+    this.child.loadAirports();
+  }
+
   ngAfterViewInit() {}
 }

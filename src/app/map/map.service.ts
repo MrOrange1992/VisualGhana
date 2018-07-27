@@ -20,7 +20,7 @@ export class MapService {
    * Loads polyline geojson data
    * @returns
    */
-  loadGhanaBorders() {
+  loadBorders() {
     return this.httpClient.get('../../assets/data/ghanaBorders.geojson');
   }
 
@@ -36,15 +36,31 @@ export class MapService {
    * Loads solar stations on grid points geojson data
    * @returns
    */
-  loadGhanaSolarStations() {
+  loadSolarStations() {
     return this.httpClient.get('../../assets/data/ghanaSolarStations.geojson');
   }
 
   /**
-   * Test function for custom point parsing from json
-   * @returns {Observable<Point[]>}
+   * Loads power lines geojson data
+   * @returns
    */
-  loadTestPoints(): Observable<Point[]> {
-    return this.httpClient.get<Point[]>('../../assets/data/testPoint.geojson');
+  loadPowerLines() {
+    return this.httpClient.get('../../assets/data/ghanaPowerLines.geojson');
+  }
+
+  /**
+   * Loads power plants geojson data
+   * @returns
+   */
+  loadPowerPlants() {
+    return this.httpClient.get('../../assets/data/ghanaPowerPlants.geojson');
+  }
+
+  /**
+   * Loads air ports geojson data
+   * @returns
+   */
+  loadAirports() {
+    return this.httpClient.get('../../assets/data/ghanaAirports.geojson');
   }
 }

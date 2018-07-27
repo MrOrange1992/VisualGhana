@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.16678600013256073,
+          5.605189800262451
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Kotoka International Airport",
+        "type": "large_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5908199548721313,
+          6.714560031890869
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Kumasi Airport",
+        "type": "medium_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.8632140159606934,
+          9.55718994140625
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Tamale Airport",
+        "type": "medium_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.057761,
+          6.114864
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Kpong Airfield",
+        "type": "small_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.7747600078582764,
+          4.896059989929199
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Takoradi Airport",
+        "type": "medium_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.3287599086761475,
+          7.361830234527588
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Sunyani Airport",
+        "type": "medium_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.100000023841858,
+          10.899999618530273
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Navrongo Airport",
+        "type": "small_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.507689952850342,
+          10.0826997756958
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Wa Airport",
+        "type": "small_airport"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.004722000099718571,
+          9.425000190734863
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Yendi Airport",
+        "type": "small_airport"
+      }
+    }
+  ]  
+}

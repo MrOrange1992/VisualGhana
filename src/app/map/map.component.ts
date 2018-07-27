@@ -17,13 +17,22 @@ export class MapComponent implements OnInit {
   zoom = 7.9;
 
   // object to store geojson data for ghana border polyline
-  ghanaBorders;
+  borders;
 
   // object to store health site geojson data
   healthSites;
 
   // object to store solarstations geojson data
-  ghanaSolarStations;
+  solarStations;
+
+  // power lines
+  powerLines;
+
+  // power plants
+  powerPlants;
+
+  // airports
+  airports;
 
   // property for custom map styles, edit in file ../assets/mapStyles.json
   customMapStyles: MapTypeStyle[] = [];
@@ -44,23 +53,27 @@ export class MapComponent implements OnInit {
     this.mapService.loadCustomMapStyles().subscribe(data => {
       Object.values(data).forEach(value => this.customMapStyles.push(value));
     });
-    this.mapService.loadGhanaBorders().subscribe(data => this.ghanaBorders = data);
+    this.mapService.loadBorders().subscribe(data => this.borders = data);
   }
-
-  /**
-   * Test point display
-   */
-  loadTestPoints() {
-    this.mapService.loadTestPoints().subscribe(resPointData => this.testPoints = resPointData);
-  }
-
 
   loadHealthSites() {
     this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
   }
 
   loadSolarStations() {
-    this.mapService.loadGhanaSolarStations().subscribe(resPointData => this.ghanaSolarStations = resPointData);
+    this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
+  }
+
+  loadPowerLines() {
+    this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
+  }
+
+  loadPowerPlants() {
+    this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
+  }
+
+  loadAirports() {
+    this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
   }
 
 }

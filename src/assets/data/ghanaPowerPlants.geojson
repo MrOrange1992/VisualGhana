@@ -1,0 +1,192 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.657228,
+          4.971667
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Takoradi Thermal Power Station",
+        "community": "Takoradi",
+        "capacity(MW)": 550,
+        "yearCompleted": 2000,
+        "type": "Thermal"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.037500,
+          5.673900
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Kpone Thermal Power Station II",
+        "community": "Kpone",
+        "capacity(MW)": 340,
+        "yearCompleted": 2017,
+        "type": "Thermal"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.010548,
+          5.734998
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Kpone Thermal Power Station I",
+        "community": "Kpone",
+        "capacity(MW)": 230,
+        "yearCompleted": 2016,
+        "type": "Thermal"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.015828,
+          5.677362
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Tema Thermal Power Station",
+        "community": "Thema",
+        "capacity(MW)": 236,
+        "yearCompleted": 2008,
+        "type": "Thermal"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.047368,
+          5.68029
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Sonon Asogli Thermal Power Station",
+        "community": "Kpone",
+        "capacity(MW)": 200,
+        "yearCompleted": 2010,
+        "type": "Thermal"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.059444,
+          6.299722
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Akosombo Hydroelectric Power Station",
+        "community": "Ajena",
+        "capacity(MW)": 1038,
+        "yearCompleted": 1965,
+        "type": "Hydroelectric"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.236935,
+          8.278602
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Bui Hydroelectric Power Station",
+        "community": "Bui Gorge",
+        "capacity(MW)": 400,
+        "yearCompleted": 2010,
+        "type": "Hydroelectric"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.125000,
+          6.119989
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Kpong Hydroelectric Power Station",
+        "community": "Akuse",
+        "capacity(MW)": 160,
+        "yearCompleted": 1982,
+        "type": "Hydroelectric"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.419711,
+          6.155567
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Nzema Solar Power Station",
+        "community": "Aiwiaso Village",
+        "capacity(MW)": 155,
+        "yearCompleted": 2019,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.701991,
+          5.347484
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Gomoa Onyandze",
+        "community": "Onyandze, Gomoa East",
+        "capacity(MW)": 20,
+        "yearCompleted": 2016,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.102778,
+          10.880000
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Navrongo Solar Power Station",
+        "community": "Navrongo",
+        "capacity(MW)": 2.5,
+        "yearCompleted": 2013,
+        "type": "Solar Power"
+      }
+    }
+  ]
+}
