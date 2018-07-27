@@ -34,6 +34,9 @@ export class MapComponent implements OnInit {
   // airports
   airports;
 
+  // roads
+  roads;
+
   // property for custom map styles, edit in file ../assets/mapStyles.json
   customMapStyles: MapTypeStyle[] = [];
 
@@ -85,6 +88,8 @@ export class MapComponent implements OnInit {
 
   loadTransportation() {
     this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
+    this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
+
   }
 
 }

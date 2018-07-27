@@ -5,42 +5,21 @@
   [zoom]="zoom"
   [mapDraggable]="mapDraggable">
 
-
-
-  <ng-container *ngFor="let point of solarStations">
-    <agm-marker
-      [latitude]=point.latitude
-      [longitude]=point.longitude
-      [iconUrl]="'../../assets/img/testBanana.png'"
-
-
-      >
-    </agm-marker>
-  </ng-container>
-
-
-
-
   <agm-data-layer [geoJson]=borders ></agm-data-layer>
   <agm-data-layer [geoJson]=healthSites ></agm-data-layer>
   <agm-data-layer [geoJson]=solarStations ></agm-data-layer>
   <agm-data-layer [geoJson]=powerLines ></agm-data-layer>
   <agm-data-layer [geoJson]=powerPlants ></agm-data-layer>
-
+  <agm-data-layer [geoJson]=roads ></agm-data-layer>
   <agm-data-layer [geoJson]=airports ></agm-data-layer>
 
-
-
 </agm-map>
-
-
 
 <div class="infoPanel">
 
   <div class="szenarios">
     VISUAL GHANA
   </div>
-
 
   <div class="clickables">
     <input type="image" class="mainButton" src="../../assets/img/electricity.png" (click)="loadPower()"/>
@@ -53,11 +32,6 @@
     HOLLLADRIO!!
   </div>
 
-  <!--button class="mainButton" (click)="loadSolarStations()" >Display solar stations</button>
-  <button class="mainButton" (click)="loadHealthSites()" >Display health sites</button>
-  <button class="mainButton" (click)="loadPowerLines()" >Display power lines</button>
-  <button class="mainButton" (click)="loadAirports()" >Display airports</button>
-  <button class="mainButton" (click)="loadPowerPlants()" >Display power plants</button-->
 </div>
 
 

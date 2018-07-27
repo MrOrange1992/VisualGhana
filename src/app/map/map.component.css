@@ -12,7 +12,7 @@ agm-map
 .infoPanel {
   z-index: +1;
   width: 40%;
-  height: 110%;
+  height: 100%;
   float: left;
   left: 10px;
   top: 10px;

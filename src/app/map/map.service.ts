@@ -63,4 +63,8 @@ export class MapService {
   loadAirports() {
     return this.httpClient.get('../../assets/data/ghanaAirports.geojson');
   }
+
+  loadRoads() {
+    return this.httpClient.get('../../assets/data/ghanaRoads.geojson');
+  }
 }
