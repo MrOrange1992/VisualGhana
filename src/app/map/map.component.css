@@ -17,9 +17,31 @@ agm-map
   left: 10px;
   top: 10px;
   position: absolute;
-  background-color: rgba(25%, 25%, 25%, 0.5);
+  margin-left: 10px;
+
   color: white;
 
+}
+
+.infrastructureButton {
+  width: 20%;
+  height: 50%;
+  background: #28536C;
+  color: white;
+}
+
+.technologyButton {
+  width: 20%;
+  height: 50%;
+  background-color: #AA5439;
+  color: white;
+}
+
+.concepteButton {
+  width: 20%;
+  height: 50%;
+  background-color: #806315;
+  color: white;
 }
 
 .mainButton {
@@ -28,18 +50,38 @@ agm-map
   background-color: slategray;
 }
 
+.title {
+  height: 10%;
+  padding: 20px;
+  background-color: rgba(25%, 25%, 25%, 0.5);
+  margin-top: 10px;
+
+
+}
+
 .szenarios {
-  height: 15%;
+  height: 10%;
+  padding: 20px;
+  background-color: rgba(25%, 25%, 25%, 0.5);
+  margin-top: 10px;
+
 }
 
 .clickables {
-  height: 15%;
+  height: 10%;
+  background-color: rgba(25%, 25%, 25%, 0.5);
+  margin-top: 10px;
 }
 
 .info {
-  height: 70%;
+  height: 60%;
+  background-color: rgba(25%, 25%, 25%, 0.5);
+  margin-top: 10px;
+
 }
 
-.test {
 
+.powerPlantStyle {
+  width: 10px;
+  height: 10px;
 }

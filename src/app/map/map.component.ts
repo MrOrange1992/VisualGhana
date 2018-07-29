@@ -105,10 +105,16 @@ export class MapComponent implements OnInit {
 
 // load image for data layer
   }
-  loadCircles(feature) {
+  loadPowerPlantsStyles(feature) {
     return ({
       clickable: false,
-      icon: "../../assets/img/testBanana.png"
+      icon: '../../assets/img/thermalplant.png',
+      //width: 0.001,
+      //height: 0.001
+
+
+
+
 
 
   })
