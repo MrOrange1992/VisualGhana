@@ -48,20 +48,23 @@ agm-map
   width: 40px;
   height: 40px;
   background-color: slategray;
+
 }
 
 .title {
-  height: 10%;
+  height: 5%;
   padding: 20px;
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
+
 
 
 }
 
 .szenarios {
   height: 10%;
-  padding: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
 
@@ -71,17 +74,21 @@ agm-map
   height: 10%;
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
+  padding-left: 20%;
+  padding-top: 20px;
+
 }
 
 .info {
-  height: 60%;
+  height: 55%;
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
+  padding-left: 20px;
 
 }
 
 
-.powerPlantStyle {
-  width: 10px;
-  height: 10px;
+.loadpowerPlantStyle {
+  width: 50%;
+  //height: 10px;
 }

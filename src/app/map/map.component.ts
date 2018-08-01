@@ -11,10 +11,12 @@ export class MapComponent implements OnInit {
 
   // coordinates for map init
   latitude = 7.2;
-  longitude = -3.5;
+  longitude = -3.9;
+
+
 
   // zoom factor for google maps
-  zoom = 6.5;
+  zoom = 6.9;
 
   // object to store geojson data for ghana border polyline
   borders;
@@ -109,7 +111,7 @@ export class MapComponent implements OnInit {
     return ({
       clickable: false,
       icon: '../../assets/img/thermalplant.png',
-      //width: 0.001,
+      //width: 50%,
       //height: 0.001
 
 
