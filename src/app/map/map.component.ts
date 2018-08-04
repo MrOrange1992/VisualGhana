@@ -16,7 +16,7 @@ export class MapComponent implements OnInit {
 
 
   // zoom factor for google maps
-  zoom = 6.9;
+  zoom: number = 6.9;
 
   // object to store geojson data for ghana border polyline
   borders;
@@ -48,6 +48,18 @@ export class MapComponent implements OnInit {
   // disables draggable map functionality
   mapDraggable = false;
 
+  // toggle for power
+
+  powerActive: boolean = false;
+
+  // toggle for healthcare
+
+  healthCareActive: boolean = false;
+
+  // toggle for transportation
+
+  transportationActive: boolean = false;
+
   constructor(private mapService: MapService) {}
 
   /**
@@ -62,8 +74,13 @@ export class MapComponent implements OnInit {
   }
 
   loadHealthSites() {
-    this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
-  }
+
+    if (this.healthSites)
+      this.healthSites = null;
+
+    else
+      this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
+}
 
   loadSolarStations() {
     this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
@@ -83,14 +100,41 @@ export class MapComponent implements OnInit {
 
 
   loadPower() {
-    this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
-    this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
-    this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
+
+    if (!this.powerActive)
+    {
+      this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
+      this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
+      this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
+      this.powerActive = true;
+    }
+    else
+    {
+      this.solarStations = null;
+      this.powerLines = null;
+      this.powerPlants = null;
+      this.powerActive = false;
+
+    }
   }
 
+
   loadTransportation() {
-    this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
-    //this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
+
+    if (!this.transportationActive)
+    {
+      this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
+
+      //this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
+      this.transportationActive = true;
+       }
+       else
+    {
+      this.airports = null;
+      //this.roads = null;
+      this.transportationActive = false;
+    }
+
 
   }
 
@@ -107,20 +151,43 @@ export class MapComponent implements OnInit {
 
 // load image for data layer
   }
-  loadPowerPlantsStyles(feature) {
+  loadPowerPlantsStyles(feature)
+  {
     return ({
       clickable: false,
       icon: '../../assets/img/thermalplant.png',
       //width: 50%,
       //height: 0.001
 
-
-
-
-
-
-  })
-    ;
+    });
   }
+
+  // load Infrastructure config
+
+  loadInfrastructureConfig(){
+
+    this.zoom = 6.9;
+    this.latitude = 7.2;
+    this.longitude = -3.9;
+  }
+
+  // load Technology config
+
+  loadTechnologyConfig(){
+
+    this.zoom = 4;
+    this.latitude = 3.751479;
+    this.longitude = 22.454407;
+  }
+
+  // load Concept config
+
+  loadConceptConfig(){
+
+    this.zoom = 9;
+    this.latitude = 6.629198;
+    this.longitude = -1.451813;
+  }
+
 
 }
