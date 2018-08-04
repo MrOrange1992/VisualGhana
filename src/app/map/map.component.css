@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'V-GERB';
+  src: url('../../assets/fonts/V-GERB(bold).ttf') format('truetype') /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 agm-map
 {
   height: 120%;
@@ -30,6 +35,8 @@ agm-map
   background: #28536C;
   color: white;
   float: left;
+
+
 }
 
 .technologyButton {
@@ -38,6 +45,8 @@ agm-map
   background-color: #AA5439;
   color: white;
   float: left;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .concepteButton {
@@ -57,11 +66,12 @@ agm-map
 }
 
 .title {
+  font-size: 200%;
   height: 5%;
   padding: 20px;
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
-
+  font-family: V-GERB;
 
 
 }
