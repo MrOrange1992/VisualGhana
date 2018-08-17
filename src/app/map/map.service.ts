@@ -13,7 +13,7 @@ export class MapService {
    * @returns {Observable<Object>}
    */
   loadCustomMapStyles() {
-    return this.httpClient.get('../../assets/mapStyles.json');
+    return this.httpClient.get('../../assets/styles/mapStyles.json');
   }
 
   /**

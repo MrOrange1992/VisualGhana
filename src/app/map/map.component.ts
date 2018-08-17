@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
 import {MapTypeStyle} from '@agm/core';
+import * as borderStyles from '../../assets/styles/borderStyles.json';
+import * as powerLineStyles from '../../assets/styles/powerLineStyles.json';
+import * as powerPlantStyles from '../../assets/styles/powerPlantStyles.json';
+import * as healthCareStyles from '../../assets/styles/healthCareStyles.json';
+import * as solarStyles from '../../assets/styles/solarStyles.json';
 
 @Component({
   selector: 'app-map',
@@ -9,56 +14,23 @@ import {MapTypeStyle} from '@agm/core';
 })
 export class MapComponent implements OnInit {
 
-  // coordinates for map init
-  latitude = 7.2;
-  longitude = -3.9;
-
-
-
-  // zoom factor for google maps
-  zoom: number = 6.9;
-
-  // object to store geojson data for ghana border polyline
-  borders;
-
-  // object to store health site geojson data
-  healthSites;
-
-  // object to store solarstations geojson data
-  solarStations;
-
-  // power lines
-  powerLines;
-
-  // power plants
-  powerPlants;
-
-  // airports
-  airports;
-
-  // roads
-  roads;
-
+  // attributes for map styles and config
+  latitude;
+  longitude;
+  zoom;
   // property for custom map styles, edit in file ../assets/mapStyles.json
   customMapStyles: MapTypeStyle[] = [];
-
-  // test custom point display from json
-  testPoints: Point[] = [];
-
   // disables draggable map functionality
   mapDraggable = false;
 
-  // toggle for power
-
-  powerActive: boolean = false;
-
-  // toggle for healthcare
-
-  healthCareActive: boolean = false;
-
-  // toggle for transportation
-
-  transportationActive: boolean = false;
+  // attributes to store agm data layer objects
+  borders;
+  healthSites;
+  solarStations;
+  powerLines;
+  powerPlants;
+  airports;
+  roads;
 
   constructor(private mapService: MapService) {}
 
@@ -66,124 +38,83 @@ export class MapComponent implements OnInit {
    * Function is called on map initialize
    * Custom mapstyles are loaded here
    */
-  ngOnInit() {
+  ngOnInit()
+  {
     this.mapService.loadCustomMapStyles().subscribe(data => {
       Object.values(data).forEach(value => this.customMapStyles.push(value));
     });
+
+    // additionally ghana borders polyline is loaded here
     this.mapService.loadBorders().subscribe(data => this.borders = data);
+
+    // start in infrastructure configuration
+    this.loadInfrastructureConfig();
   }
 
-  loadHealthSites() {
-
-    if (this.healthSites)
-      this.healthSites = null;
-
-    else
-      this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
-}
-
-  loadSolarStations() {
-    this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
+  /**
+   * Load / reset data for healthsites to be displayed
+   */
+  loadHealthSites()
+  {
+    if (this.healthSites) this.healthSites = null;
+    else this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
   }
 
-  loadPowerLines() {
-    this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
+  /**
+   * Load / reset data for transportation to be be displayed
+   */
+  loadTransportation()
+  {
+    if (this.airports) this.airports = null;
+    else this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
   }
 
-  loadPowerPlants() {
-    this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
-  }
-
-  loadAirports() {
-    this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
-  }
-
-
-  loadPower() {
-
-    if (!this.powerActive)
-    {
-      this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
-      this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
-      this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
-      this.powerActive = true;
-    }
-    else
+  /**
+   * Load / reset data for power related data to be displayed
+   */
+  loadPower()
+  {
+    if (this.powerLines)
     {
       this.solarStations = null;
       this.powerLines = null;
       this.powerPlants = null;
-      this.powerActive = false;
-
+    }
+    else
+    {
+      this.mapService.loadSolarStations().subscribe(resPointData => this.solarStations = resPointData);
+      this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
+      this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
     }
   }
 
+  // return json styles for objects to display from import statements
+  loadBorderStyles() { return borderStyles; }
+  loadPowerPlantsStyles() { return powerPlantStyles; }
+  loadPowerLineStyles() { return powerLineStyles; }
+  loadHealthcareStyles() { return healthCareStyles; }
+  loadSolarStyles() { return solarStyles; }
 
-  loadTransportation() {
-
-    if (!this.transportationActive)
-    {
-      this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
-
-      //this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
-      this.transportationActive = true;
-       }
-       else
-    {
-      this.airports = null;
-      //this.roads = null;
-      this.transportationActive = false;
-    }
-
-
-  }
-
-
-  // define line thickness for elements in data layer
-
-
-  loadTest(feature) {
-    return ({
-             clickable: false,
-         strokeWeight: 2
-
-       });
-
-// load image for data layer
-  }
-  loadPowerPlantsStyles(feature)
-  {
-    return ({
-      clickable: false,
-      icon: '../../assets/img/thermalplant.png',
-      //width: 50%,
-      //height: 0.001
-
-    });
-  }
 
   // load Infrastructure config
-
-  loadInfrastructureConfig(){
-
-    this.zoom = 6.9;
-    this.latitude = 7.2;
+  loadInfrastructureConfig()
+  {
+    this.zoom = 8;
+    this.latitude = 7.35;
     this.longitude = -3.9;
   }
 
   // load Technology config
-
-  loadTechnologyConfig(){
-
+  loadTechnologyConfig()
+  {
     this.zoom = 4;
     this.latitude = 3.751479;
     this.longitude = 22.454407;
   }
 
   // load Concept config
-
-  loadConceptConfig(){
-
+  loadConceptConfig()
+  {
     this.zoom = 9;
     this.latitude = 6.629198;
     this.longitude = -1.451813;
