@@ -10,17 +10,18 @@ import {MapService} from './map/map.service';
 import {GoogleMapsConfig} from './map/mapconfig.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ConfigService} from './map/config.service';
-import { HeaderComponent } from './header/header.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES),
-    HttpClientModule
+    HttpClientModule,
   ],
-  declarations: [ AppComponent, MapComponent, HeaderComponent],
+  declarations: [ AppComponent, MapComponent],
   bootstrap: [ AppComponent ],
   providers: [
     {

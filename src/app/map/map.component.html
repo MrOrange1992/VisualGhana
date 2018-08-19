@@ -3,15 +3,31 @@
   [longitude]="longitude"
   [styles]="customMapStyles"
   [zoom]="zoom"
-  [mapDraggable]="mapDraggable">
+  [mapDraggable]="mapDraggable"
+  (mapClick)="clickedMap($event)">
+
 
   <agm-data-layer [style]="loadBorderStyles" [geoJson]=borders></agm-data-layer>
-  <agm-data-layer [style]="loadHealthcareStyles" [geoJson]=healthSites ></agm-data-layer>
+  <agm-data-layer [style]="loadHealthcareStyles" [geoJson]=healthSites (layerClick)="clickedHealthCare($event)" ></agm-data-layer>
   <agm-data-layer [style]="loadSolarStyles" [geoJson]=solarStations ></agm-data-layer>
   <agm-data-layer [style]="loadPowerLineStyles" [geoJson]=powerLines ></agm-data-layer>
   <agm-data-layer [style]="loadPowerPlantsStyles" [geoJson]=powerPlants ></agm-data-layer>
   <agm-data-layer [geoJson]=roads ></agm-data-layer>
   <agm-data-layer [geoJson]=airports ></agm-data-layer>
+
+  <!--agm-kml-layer [url]="'../../assets/data/test.kml'" ></agm-kml-layer-->
+  <!-- This is WORKING! -->
+  <!--agm-kml-layer [url]="'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml'" ></agm-kml-layer-->
+
+
+  <!-- INFO WINDOW on click event -->
+  <agm-marker [latitude]="infoLatitude" [longitude]="infoLongitude" [visible]="false">
+    <agm-info-window [disableAutoPan]="true" [isOpen]="infoVisible" #infoWindow>
+      <div *ngIf="infoGeoJsonObject">
+        <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
+      </div>
+    </agm-info-window>
+  </agm-marker>
 
 </agm-map>
 
@@ -34,7 +50,16 @@
   </div>
 
   <div class="info">
-    INFO!
+    <div *ngIf="infoGeoJsonObject">
+      <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
+      <p *ngIf="infoGeoJsonObject.completeness">Completeness: <strong>{{infoGeoJsonObject.completeness}}</strong></p>
+      <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
+    </div>
+
+    <div *ngIf="chart">
+      <canvas id="canvas">{{chart}}</canvas>
+    </div>
+
   </div>
 
 </div>

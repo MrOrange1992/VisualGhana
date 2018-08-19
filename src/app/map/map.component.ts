@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
 import {MapTypeStyle} from '@agm/core';
+import {Chart, ChartComponent} from 'chart.js';
 import * as borderStyles from '../../assets/styles/borderStyles.json';
 import * as powerLineStyles from '../../assets/styles/powerLineStyles.json';
 import * as powerPlantStyles from '../../assets/styles/powerPlantStyles.json';
@@ -14,7 +15,7 @@ import * as solarStyles from '../../assets/styles/solarStyles.json';
 })
 export class MapComponent implements OnInit {
 
-  // attributes for map styles and config
+  // MAP CONFIG / STYLES
   latitude;
   longitude;
   zoom;
@@ -23,7 +24,7 @@ export class MapComponent implements OnInit {
   // disables draggable map functionality
   mapDraggable = false;
 
-  // attributes to store agm data layer objects
+  // AGM DATA LAYER OBJECTS
   borders;
   healthSites;
   solarStations;
@@ -31,6 +32,16 @@ export class MapComponent implements OnInit {
   powerPlants;
   airports;
   roads;
+
+  // ONMAP INFO
+  infoVisible = false;
+  infoLatitude;
+  infoLongitude;
+  infoGeoJsonObject: Object;
+
+  // CHART
+  chart = [];
+
 
   constructor(private mapService: MapService) {}
 
@@ -40,9 +51,7 @@ export class MapComponent implements OnInit {
    */
   ngOnInit()
   {
-    this.mapService.loadCustomMapStyles().subscribe(data => {
-      Object.values(data).forEach(value => this.customMapStyles.push(value));
-    });
+    this.mapService.loadCustomMapStyles().subscribe(data => { Object.values(data).forEach(value => this.customMapStyles.push(value)); });
 
     // additionally ghana borders polyline is loaded here
     this.mapService.loadBorders().subscribe(data => this.borders = data);
@@ -56,8 +65,32 @@ export class MapComponent implements OnInit {
    */
   loadHealthSites()
   {
-    if (this.healthSites) this.healthSites = null;
-    else this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
+    let data = [];
+    let allCount = 0;
+    let greaterHalfCount = 0;
+
+    let completeness;
+
+    if (this.healthSites)
+    {
+      this.healthSites = null;
+    }
+    else
+    {
+      this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
+
+      this.chart = new Chart('canvas', {
+        type: 'pie',
+        data: {
+          labels: ['hospital', 'clinic'],
+          datasets: [{
+            label: 'Hospital / Clinic',
+            data: [120, 102],
+          }]
+        }
+      });
+    }
+
   }
 
   /**
@@ -65,8 +98,17 @@ export class MapComponent implements OnInit {
    */
   loadTransportation()
   {
-    if (this.airports) this.airports = null;
-    else this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
+    if (this.airports)
+    {
+      this.airports = null;
+      this.roads = null;
+
+    }
+    else
+    {
+      this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
+      // this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
+    }
   }
 
   /**
@@ -119,6 +161,20 @@ export class MapComponent implements OnInit {
     this.latitude = 6.629198;
     this.longitude = -1.451813;
   }
+
+  clickedMap(clickEvent)
+  {
+    this.infoVisible = false;
+  }
+
+  clickedHealthCare(clickEvent)
+  {
+    this.infoVisible = true;
+    this.infoLatitude = clickEvent.latLng.lat();
+    this.infoLongitude = clickEvent.latLng.lng();
+    this.infoGeoJsonObject = clickEvent.feature.f;
+  }
+
 
 
 }
