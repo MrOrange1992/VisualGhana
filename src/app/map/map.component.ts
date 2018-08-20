@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
 import {MapTypeStyle} from '@agm/core';
 import {Chart, ChartComponent} from 'chart.js';
+
 import * as borderStyles from '../../assets/styles/borderStyles.json';
 import * as powerLineStyles from '../../assets/styles/powerLineStyles.json';
 import * as powerPlantStyles from '../../assets/styles/powerPlantStyles.json';
@@ -79,6 +80,8 @@ export class MapComponent implements OnInit {
     {
       this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
 
+
+
       this.chart = new Chart('canvas', {
         type: 'pie',
         data: {
@@ -107,7 +110,7 @@ export class MapComponent implements OnInit {
     else
     {
       this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
-      // this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData);
+      /* this.mapService.loadRoads().subscribe(resLineData => this.roads = resLineData); */
     }
   }
 

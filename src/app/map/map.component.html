@@ -17,7 +17,8 @@
 
   <!--agm-kml-layer [url]="'../../assets/data/test.kml'" ></agm-kml-layer-->
   <!-- This is WORKING! -->
-  <!--agm-kml-layer [url]="'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml'" ></agm-kml-layer-->
+  <!--agm-kml-layer [url]="'http://dl.dropboxusercontent.com/s/e0gz8ltodgvj55x/hotosm_gha_roads_lines.kml'" ></agm-kml-layer-->
+
 
 
   <!-- INFO WINDOW on click event -->
@@ -25,6 +26,8 @@
     <agm-info-window [disableAutoPan]="true" [isOpen]="infoVisible" #infoWindow>
       <div *ngIf="infoGeoJsonObject">
         <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
+
       </div>
     </agm-info-window>
   </agm-marker>

@@ -4,4 +4,5 @@ mast,27-07-2018,16,"Concept/Design work, component styling",
 mast,29-07-2018,3,"info panel style",
 fera,17-08-2018,2,"exported json styles to external files, some code cleanup",
 fera,19-08-2018,2,"tested agm-info-window, tested Chart.js library",
-
+fera,20-08-2018,2,"tested kml url call over dropbox link -> FAIL",
+mast,20-08-2018,2,"tested kml url call over dropbox link -> FAIL",
