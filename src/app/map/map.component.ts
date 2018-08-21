@@ -11,6 +11,7 @@ import * as solarStyles from '../../assets/styles/solarStyles.json';
 import * as primaryRoadStyles from '../../assets/styles/primaryRoadStyles.json';
 import * as secondaryRoadStyles from '../../assets/styles/secondaryRoadStyles.json';
 import * as tertiaryRoadStyles from '../../assets/styles/tertiaryRoadStyles.json';
+import {PieChart} from '../entities/PieChart';
 
 
 @Component({
@@ -97,8 +98,11 @@ export class MapComponent implements OnInit {
       this.mapService.loadHealthSites().subscribe(resPointData => this.healthSites = resPointData);
 
 
+      const pieChart = new PieChart('TestPie', 'canvas', [120, 102], ['hospital', 'clinic'], ['#28536C', '#28436C']);
 
-      this.chart = new Chart('canvas', {
+      this.chart = pieChart.chart;
+
+      /*this.chart = new Chart('canvas', {
         type: 'pie',
         data: {
           labels: ['hospital', 'clinic'],
@@ -108,6 +112,7 @@ export class MapComponent implements OnInit {
           }]
         }
       });
+      */
     }
 
   }
@@ -171,8 +176,9 @@ export class MapComponent implements OnInit {
 
 
   // load Infrastructure config
-  loadInfrastructureConfig() {
-    this.zoom = 8;
+  loadInfrastructureConfig()
+  {
+    this.zoom = 6.98;
     this.latitude = 7.35;
     this.longitude = -3.9;
   }

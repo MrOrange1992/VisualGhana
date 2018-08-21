@@ -1,4 +1,7 @@
 {
   "clickable": false,
-  "icon": "../../assets/img/thermalplant.png"
+  "icon": "../../assets/img/thermalplant.png",
+  "icon": "../../assets/img/circle_blue.png",
+  "opacity":0.8
+
 }
