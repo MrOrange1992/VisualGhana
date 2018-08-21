@@ -12,8 +12,8 @@ export class MapService {
    * Loads custom map styles for google map
    * @returns {Observable<Object>}
    */
-  loadCustomMapStyles() {
-    return this.httpClient.get('../../assets/styles/mapStyles.json');
+  loadCustomMapStyles(file) {
+    return this.httpClient.get(`../../assets/styles/${file}.json`);
   }
 
   /**
@@ -64,7 +64,7 @@ export class MapService {
     return this.httpClient.get('../../assets/data/ghanaAirports.geojson');
   }
 
-  loadRoads(): Observable<any> {
+  loadRoads() {
     return this.httpClient.get('../../assets/data/ghanaRoads.geojson');
   }
 }

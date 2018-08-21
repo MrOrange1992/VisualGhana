@@ -12,7 +12,13 @@
   <agm-data-layer [style]="loadSolarStyles" [geoJson]=solarStations ></agm-data-layer>
   <agm-data-layer [style]="loadPowerLineStyles" [geoJson]=powerLines ></agm-data-layer>
   <agm-data-layer [style]="loadPowerPlantsStyles" [geoJson]=powerPlants ></agm-data-layer>
-  <agm-data-layer [geoJson]=roads ></agm-data-layer>
+  <agm-data-layer [style]="loadPrimaryRoadStyles" [geoJson]=primaryRoads></agm-data-layer>
+  <agm-data-layer [style]="loadSecondaryRoadStyles" [geoJson]=secondaryRoads></agm-data-layer>
+  <agm-data-layer [style]="loadTertiaryRoadStyles" [geoJson]=tertiaryRoads></agm-data-layer>
+  <agm-data-layer [style]="loadPrimaryRoadStyles" [geoJson]=surfaceRoads></agm-data-layer>
+
+  <agm-data-layer [geoJson]=unclassifiedRoads></agm-data-layer>
+
   <agm-data-layer [geoJson]=airports ></agm-data-layer>
 
   <!--agm-kml-layer [url]="'../../assets/data/test.kml'" ></agm-kml-layer-->
