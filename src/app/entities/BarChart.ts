@@ -1,12 +1,13 @@
 import{Chart} from 'chart.js';
-export class PieChart {
+
+export class BarChart {
 
   chart: Chart;
   type: string;
 
-  constructor (context: string, type: string, titleText: string, data: number[], labels: string[], colors: string[]) {
+  constructor (context: string, titleText: string, data: number[], labels: string[], colors: string[]) {
     this.chart = new Chart(context, {
-      type: type,
+      type: 'bar',
       data: {
         labels: labels,
         datasets: [{

@@ -48,7 +48,7 @@ agm-map
 
 }
 
-.infrastructureButton: :after {
+.infrastructureButton::after {
   content: "";
   border-radius: 2px;
   position: absolute;
@@ -96,7 +96,7 @@ agm-map
 
 }
 
-.technologyButton: :after {
+.technologyButton::after {
   content: "";
   border-radius: 2px;
   position: absolute;
@@ -143,7 +143,7 @@ agm-map
 
 }
 
-.concepteButton: :after {
+.concepteButton::after {
   content: "";
   border-radius: 2px;
   position: absolute;
@@ -217,7 +217,7 @@ agm-map
 }
 
 .powerPlantCircle {
-  opacity: 50%;
+  opacity: 0.5;
   vertical-align: center;
 }
 

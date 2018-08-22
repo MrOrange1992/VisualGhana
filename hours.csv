@@ -8,3 +8,5 @@ fera,20-08-2018,2,"tested kml url call over dropbox link -> FAIL",
 mast,20-08-2018,2,"tested kml url call over dropbox link -> FAIL",
 fera,21-08-2018,6,"road data processing",
 mast,21-08-2018,6,"scenario button animation",
+fera,22-08-2018,3,"Implemented/Tested agm-circle for solarstations and healthsites",
+
