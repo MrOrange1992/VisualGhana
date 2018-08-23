@@ -184,12 +184,7 @@ export class MapComponent implements OnInit {
             cap * 100
           );
         });
-
         console.log(this.solarStations);
-
-
-
-
       });
       this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
       this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
@@ -219,7 +214,6 @@ export class MapComponent implements OnInit {
     this.stdRadius = 10000;
 
     if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
-
   }
 
   // load Technology config

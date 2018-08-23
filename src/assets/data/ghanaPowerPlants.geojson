@@ -187,6 +187,312 @@
         "yearCompleted": 2013,
         "type": "Solar Power"
       }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2008,
+          5.5514
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Ministry of Energy",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.05,
+        "yearCompleted": 1998,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1829,
+          5.5975
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Energy Commission",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.00425,
+        "yearCompleted": 2008,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5654,
+          6.6735
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "KNUST",
+        "community": "Ashanti Region",
+        "capacity(MW)": 0.02,
+        "yearCompleted": 2012,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1224,
+          5.7974
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Valley View University",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.00836,
+        "yearCompleted": 2010,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2046,
+          5.7386
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Presby Women's Centre",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.00418,
+        "yearCompleted": 2010,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.4493,
+          8.761
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Pure Company Ltd",
+        "community": "Brong Ahafo Region",
+        "capacity(MW)": 0.00418,
+        "yearCompleted": 2010,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1416,
+          5.6227
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "V. Attafuah - Residence",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.00418,
+        "yearCompleted": 2010,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0151,
+          5.6431
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "S. Adjei - Residence",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.004,
+        "yearCompleted": 2011,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.176,
+          5.805
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "G Mills - Residence",
+        "community": "Eastern Region",
+        "capacity(MW)": 0.0038,
+        "yearCompleted": 2011,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1343,
+          5.6413
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Abdulai -  Residence",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.00329,
+        "yearCompleted": 2011,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2506,
+          5.6491
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Trade Works Company Ltd (Office)",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.01056,
+        "yearCompleted": 2011,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0718,
+          6.2777
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Wienco Gh Ltd",
+        "community": "Eastern Region",
+        "capacity(MW)": 0.04277,
+        "yearCompleted": 2011,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1465,
+          5.7357
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "O Asante - Residence",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.0008,
+        "yearCompleted": 2011,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0751,
+          5.6304
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Dr. George Puplampu Clinic",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.004,
+        "yearCompleted": 2011,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.18321,
+          5.8321
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Rita Marley Music Studio",
+        "community": "Eastern Region",
+        "capacity(MW)": 0.004,
+        "yearCompleted": 2012,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0564,
+          5.6306
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "R. Tuffour - Residence",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.0076,
+        "yearCompleted": 2012,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1817,
+          5.633
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Noguchi Mem. Institute, Uni. Of Ghana",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.315,
+        "yearCompleted": 2013,
+        "type": "Solar Power"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.055,
+          10.9234
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "name": "Noguchi Mem. Institute, Uni. Of Ghana",
+        "community": "Greater Accra Region",
+        "capacity(MW)": 0.315,
+        "yearCompleted": 2013,
+        "type": "Solar Power"
+      }
     }
   ]
 }

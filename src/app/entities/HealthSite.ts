@@ -6,7 +6,6 @@ export class HealthSite {
   type: string;
   radius: number;
 
-
   constructor(name: string, latitude: number, longitude: number, completeness: number, type: string, radius: number) {
     this.name = name;
     this.latitude = latitude;
