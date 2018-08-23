@@ -9,6 +9,16 @@ agm-map
   width: 100%;
 }
 
+::-webkit-scrollbar{
+  width:5px;
+
+}
+
+::-webkit-scrollbar-thumb{
+  background: black;
+}
+
+
 .map {
   height: 100%;
   overflow: hidden;
@@ -22,7 +32,6 @@ agm-map
   left: 10px;
   top: 10px;
   position: absolute;
-  margin-left: 10px;
   color: white;
 
 }
@@ -213,6 +222,13 @@ agm-map
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
   padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: auto;
+  direction: rtl;
+
+
 
 }
 

@@ -62,6 +62,7 @@ export class MapComponent implements OnInit {
 
   // MISC
   stdRadius;
+  showrwandaimg = false;
 
 
   constructor(private mapService: MapService) {}
@@ -115,7 +116,7 @@ export class MapComponent implements OnInit {
         const hospitalCount = data.length - clinicCount;
         console.log(data, clinicCount, hospitalCount);
 
-        const pieChart = new PieChart('canvas', 'doughnut', 'Feature Completeness',
+        const pieChart = new PieChart('canvas', 'doughnut', 'Healthsite Type Distribution',
           [clinicCount, hospitalCount], ['Clinic', 'Hospital'], Object.keys(this.colors).map(key => this.colors[key]));
         this.chart = pieChart.chart;
 
@@ -183,11 +184,22 @@ export class MapComponent implements OnInit {
             feature.properties.community,
             cap,
             cap * 100,
-            feature.properties.yearCompleted
+            feature.properties.yearCompleted,
+            feature.properties.type
           );
         });
-        console.log(this.powerPlants);
+
+        const thermalCapacity = this.powerPlants.filter(res => res.type === 'Thermal').map(a => a.capacity).reduceRight((first, next) => first + next);
+        const hydroCapacity = this.powerPlants.filter(res => res.type === 'Hydroelectric').map(a => a.capacity).reduceRight((first, next) => first + next);
+        const solarCapacity = this.powerPlants.filter(res => res.type === 'Solar Power').map(a => a.capacity).reduceRight((first, next) => first + next).toFixed(0);
+
+        console.log(thermalCapacity, hydroCapacity, solarCapacity);
+
+        const pieChart = new PieChart('canvas', 'doughnut', 'Powerplant capacity distribution [MW]', [+thermalCapacity, +hydroCapacity, +solarCapacity], ['Thermal', 'Hydroelectric', 'Solar Power'], Object.keys(this.colors).map(key => this.colors[key]));
+        this.chart = pieChart.chart;
       });
+
+      console.log(this.powerPlants);
     } else {
       this.powerLines = null;
       this.powerPlants = null;
@@ -224,8 +236,6 @@ export class MapComponent implements OnInit {
     this.stdRadius = 20000;
 
     if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
-    // if (this.powerPlants) this.powerPlants.forEach(site => site.radius = this.stdRadius + (+site['capacity(MW)'] *10));
-
   }
 
   // load Concept config
@@ -236,19 +246,23 @@ export class MapComponent implements OnInit {
     this .stdRadius = 2000;
 
     if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
-    // if (this.powerPlants) this.powerPlants.forEach(site => site.radius = this.stdRadius + (+site['capacity(MW)'] *10));
-
   }
 
   // used to hide the info window when random location on map is clicked
   clickedMap() { this.infoVisible = false; }
 
-  clickedHealthCare(healthSite) {
-    console.log('Clicked Health Site!\n', healthSite);
+  clickedObject(object) {
+    console.log('Clicked object!\n', object);
     this.infoVisible = true;
-    this.infoLatitude = healthSite.latitude;
-    this.infoLongitude = healthSite.longitude;
-    this.infoGeoJsonObject = healthSite;
+    this.infoLatitude = object.latitude;
+    this.infoLongitude = object.longitude;
+    this.infoGeoJsonObject = object;
+  }
+
+  loadrwandaimage(){
+    if (this.showrwandaimg) this.showrwandaimg = false;
+    else this.showrwandaimg = true;
+
   }
 
 

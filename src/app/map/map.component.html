@@ -20,6 +20,14 @@
   <!--agm-data-layer [geoJson]=unclassifiedRoads></agm-data-layer-->
   <agm-data-layer [geoJson]=airports ></agm-data-layer>
 
+  <agm-marker
+    [latitude]="-1.865506"
+    [longitude]="29.917652"
+    (markerClick)="loadrwandaimage()"
+  >
+
+  </agm-marker>
+
 
   <agm-circle *ngFor="let powerPlant of powerPlants"
               [latitude]="powerPlant.latitude"
@@ -29,6 +37,7 @@
               [fillColor]="'yellow'"
               [fillOpacity]="0.2"
               [radius]="powerPlant.radius"
+              (circleClick)="clickedObject(powerPlant)"
   ></agm-circle>
 
   <agm-circle *ngFor="let healthSite of healthSites"
@@ -39,7 +48,7 @@
               [fillColor]="healthSite.type === 'clinic' ?  colors.darkBlue : colors.creamRed"
               [fillOpacity]="0.5"
               [(radius)]="healthSite.radius"
-              (circleClick)="clickedHealthCare(healthSite)"
+              (circleClick)="clickedObject(healthSite)"
 
   ></agm-circle>
 
@@ -55,6 +64,8 @@
       <div *ngIf="infoGeoJsonObject">
         <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
         <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW]</p>
+
 
       </div>
     </agm-info-window>
@@ -81,15 +92,21 @@
   </div>
 
   <div class="info">
+
+    <div *ngIf="showrwandaimg">
+      <img src="../../assets/img/dummy_technology.png" width="100%" >
+    </div>
+
     <div *ngIf="infoGeoJsonObject">
       <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
-      <p *ngIf="infoGeoJsonObject.completeness">Completeness: <strong>{{infoGeoJsonObject.completeness}}</strong></p>
+      <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW] </p>
       <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
     </div>
 
     <div *ngIf="chart">
       <canvas class = "chartCanvas" id="canvas">{{chart}}</canvas>
     </div>
+
 
   </div>
 
