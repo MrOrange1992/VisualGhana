@@ -33,6 +33,7 @@ agm-map
   top: 10px;
   position: absolute;
   color: white;
+  display: inline-block;
 
 }
 
@@ -53,27 +54,29 @@ agm-map
   color: white;
   float: left;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
+  align-items: center;
+
 
 }
 
 .infrastructureButton::after {
   content: "";
-  border-radius: 2px;
   position: absolute;
+  border-radius: 2px;
   z-index: 2;
   top: 0;
   left: 0;
   width: 20%;
   height: 50%;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 2);
+  /*box-shadow: 3px 3px 3px rgba(0, 0, 0, 3);*/
   opacity: 0;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   color: white;
   float: left;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
 
 }
 
@@ -118,7 +121,7 @@ agm-map
   float: left;
   text-align: center;
   vertical-align: middle;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 3);
+  /*box-shadow: 5px 5px 15px rgba(0, 0, 0, 3);*/
   opacity: 0;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -161,7 +164,7 @@ agm-map
   left: 0;
   width: 20%;
   height: 50%;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  /*box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);*/
   opacity: 0;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -182,10 +185,13 @@ agm-map
 }
 
 
+
+
 .mainButton {
   width: 20%;
   height: 80%;
   background-color: #28536C;
+  display: inline-block;
 
 
 }
@@ -207,6 +213,8 @@ agm-map
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
 
+
+
 }
 
 .clickables {
@@ -214,6 +222,8 @@ agm-map
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
   padding-left: 20%;
+  display: inline-block;
+
 
 }
 

@@ -15,6 +15,8 @@ import {PieChart} from '../entities/PieChart';
 import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
 import {Colors} from '../entities/Colors';
+import {Airport} from '../entities/Airport';
+import {Road} from '../entities/Road';
 
 
 @Component({
@@ -41,14 +43,14 @@ export class MapComponent implements OnInit {
   healthSites: HealthSite[];
   powerLines;
   powerPlants: PowerPlant[];
-  airports;
+  airports: Airport[];
   // ROAD types
   roadData;
   primaryRoads;
   secondaryRoads;
   tertiaryRoads;
   unclassifiedRoads;
-  surfaceRoads;
+  surfaceRoads: Road[];
 
   // ONMAP INFO
   infoVisible = false;
@@ -75,12 +77,12 @@ export class MapComponent implements OnInit {
     this.mapService.loadCustomMapStyles('mapStyles').subscribe(data => this.customMapStyles = data);
 
     // additionally ghana borders polyline is loaded here
-    this.mapService.loadBorders().subscribe(data => this.borders = data);
+    //this.mapService.loadBorders().subscribe(data => this.borders = data);
 
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
 
-    // this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log(this.roadData); });
+    this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log(this.roadData); });
     }
 
   /**
@@ -136,18 +138,44 @@ export class MapComponent implements OnInit {
 
     }
     else {
-      this.mapService.loadAirports().subscribe(resPointData => this.airports = resPointData);
+      this.mapService.loadAirports().subscribe(resPointData => {
+        const airportData = resPointData;
+
+        // console.log(airportData);
+
+        this.airports = airportData['features'].map(feature => {
+          return new Airport(
+            feature.properties.name,
+            +feature.geometry.coordinates[0],
+            +feature.geometry.coordinates[1],
+            feature.properties.type,
+            this.stdRadius
+          );
+        });
+
+        // console.log(this.airports);
+
+      });
 
       this.mapService.loadCustomMapStyles('mapStylesRoad').subscribe(data => this.customMapStyles = data );
 
-      // const filteredData = this.roadData['features'].filter(data => data.properties.highway === 'primary');
-      // console.log(filteredData);
 
-      // this.primaryRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.highway === 'primary') };
-      // this.secondaryRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.highway === 'secondary') };
-      // this.tertiaryRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.highway === 'tertiary') };
-      // this.unclassifiedRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.highway === 'unclassified') };
-      //console.log(this.primaryRoads, this.secondaryRoads, this.tertiaryRoads);
+/*
+      const surfaceRoadData = this.roadData['features'].filter(data => data.properties.surface != null);
+
+      this.surfaceRoads = surfaceRoadData.map(road => {
+        console.log(road);
+
+        return new Road(
+          road.geometry.coordinates,
+          road.properties.name,
+          road.properties.highway,
+          road.properties.surface
+        );
+      });
+
+      console.log(this.surfaceRoads);
+*/
 
       this.surfaceRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.surface != null) };
       console.log(this.surfaceRoads);
