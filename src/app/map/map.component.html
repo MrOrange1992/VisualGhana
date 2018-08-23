@@ -36,7 +36,7 @@
               [longitude]="healthSite.longitude"
               [circleDraggable]="false"
               [editable]="false"
-              [fillColor]="'red'"
+              [fillColor]="healthSite.completeness > 50 ?  colors.darkBlue : colors.creamRed"
               [fillOpacity]="0.5"
               [(radius)]="healthSite.radius"
               (circleClick)="clickedHealthCare(healthSite)"
@@ -88,7 +88,7 @@
     </div>
 
     <div *ngIf="chart">
-      <canvas class = "canvas" id="canvas">{{chart}}</canvas>
+      <canvas class = "chartCanvas" id="canvas">{{chart}}</canvas>
     </div>
 
   </div>

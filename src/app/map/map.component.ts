@@ -14,6 +14,7 @@ import * as tertiaryRoadStyles from '../../assets/styles/tertiaryRoadStyles.json
 import {PieChart} from '../entities/PieChart';
 import {SolarStation} from '../entities/SolarStation';
 import {HealthSite} from '../entities/HealthSite';
+import {Colors} from '../entities/Colors';
 
 
 @Component({
@@ -31,6 +32,9 @@ export class MapComponent implements OnInit {
   customMapStyles;
   // disables draggable map functionality
   mapDraggable = false;
+
+  colors = Colors;
+
 
   // AGM DATA LAYER OBJECTS
   borders;
@@ -87,6 +91,7 @@ export class MapComponent implements OnInit {
 
     if (this.healthSites) {
       this.healthSites = null;
+      this.chart = [];
     }
     else {
 
@@ -106,14 +111,13 @@ export class MapComponent implements OnInit {
         });
         console.log(this.healthSites);
 
-
         const data = this.healthSites.map(site => site.completeness);
         const overHalf = data.filter(res => res > 50).length;
         const lesserHalf = data.length - overHalf;
         console.log(data, overHalf, lesserHalf);
 
         const pieChart = new PieChart('canvas', 'doughnut', 'Feature Completeness',
-          [overHalf, lesserHalf], ['Greater 50%', 'Less 50%'], ['#28536C', '#28436C']);
+          [overHalf, lesserHalf], ['Greater 50%', 'Less 50%'], Object.keys(this.colors).map(key => this.colors[key]));
         this.chart = pieChart.chart;
 
       });
