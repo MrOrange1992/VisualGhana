@@ -3,7 +3,7 @@
   [longitude]="longitude"
   [styles]="customMapStyles"
   [zoom]="zoom"
-  [mapDraggable]="mapDraggable"
+  [mapDraggable]="true"
   (mapClick)="clickedMap($event)">
 
 
@@ -21,14 +21,14 @@
   <agm-data-layer [geoJson]=airports ></agm-data-layer>
 
 
-  <agm-circle *ngFor="let solarStation of solarStations"
-              [latitude]="solarStation.latitude"
-              [longitude]="solarStation.longitude"
+  <agm-circle *ngFor="let powerPlant of powerPlants"
+              [latitude]="powerPlant.latitude"
+              [longitude]="powerPlant.longitude"
               [circleDraggable]="false"
               [editable]="false"
               [fillColor]="'yellow'"
               [fillOpacity]="0.2"
-              [radius]="solarStation.radius"
+              [radius]="powerPlant.radius"
   ></agm-circle>
 
   <agm-circle *ngFor="let healthSite of healthSites"
@@ -36,7 +36,7 @@
               [longitude]="healthSite.longitude"
               [circleDraggable]="false"
               [editable]="false"
-              [fillColor]="healthSite.completeness > 50 ?  colors.darkBlue : colors.creamRed"
+              [fillColor]="healthSite.type === 'clinic' ?  colors.darkBlue : colors.creamRed"
               [fillOpacity]="0.5"
               [(radius)]="healthSite.radius"
               (circleClick)="clickedHealthCare(healthSite)"

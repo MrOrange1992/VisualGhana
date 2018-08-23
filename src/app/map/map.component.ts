@@ -12,7 +12,7 @@ import * as primaryRoadStyles from '../../assets/styles/primaryRoadStyles.json';
 import * as secondaryRoadStyles from '../../assets/styles/secondaryRoadStyles.json';
 import * as tertiaryRoadStyles from '../../assets/styles/tertiaryRoadStyles.json';
 import {PieChart} from '../entities/PieChart';
-import {SolarStation} from '../entities/SolarStation';
+import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
 import {Colors} from '../entities/Colors';
 
@@ -39,9 +39,8 @@ export class MapComponent implements OnInit {
   // AGM DATA LAYER OBJECTS
   borders;
   healthSites: HealthSite[];
-  solarStations: SolarStation[];
   powerLines;
-  powerPlants;
+  powerPlants: PowerPlant[];
   airports;
   // ROAD types
   roadData;
@@ -80,7 +79,7 @@ export class MapComponent implements OnInit {
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
 
-    this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log(this.roadData); });
+    // this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log(this.roadData); });
     }
 
   /**
@@ -111,13 +110,13 @@ export class MapComponent implements OnInit {
         });
         console.log(this.healthSites);
 
-        const data = this.healthSites.map(site => site.completeness);
-        const overHalf = data.filter(res => res > 50).length;
-        const lesserHalf = data.length - overHalf;
-        console.log(data, overHalf, lesserHalf);
+        const data = this.healthSites.map(site => site.type);
+        const clinicCount = data.filter(res => res === 'clinic').length;
+        const hospitalCount = data.length - clinicCount;
+        console.log(data, clinicCount, hospitalCount);
 
         const pieChart = new PieChart('canvas', 'doughnut', 'Feature Completeness',
-          [overHalf, lesserHalf], ['Greater 50%', 'Less 50%'], Object.keys(this.colors).map(key => this.colors[key]));
+          [clinicCount, hospitalCount], ['Clinic', 'Hospital'], Object.keys(this.colors).map(key => this.colors[key]));
         this.chart = pieChart.chart;
 
       });
@@ -165,31 +164,31 @@ export class MapComponent implements OnInit {
    */
   loadPower() {
     if (!this.powerLines) {
-      this.mapService.loadSolarStations().subscribe(resPointData => {
-        const solarStationData = resPointData;
 
-        console.log(solarStationData);
+      this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
+      this.mapService.loadPowerPlants().subscribe(resPointData => {
+        const powerPlantData = resPointData;
 
-        this.solarStations = solarStationData['features'].map(feature => {
+        console.log(powerPlantData);
 
-          const cap = +feature.properties['INSTALLED CAPACITY(kW) GRIDCONNECTED'];
+        this.powerPlants = powerPlantData['features'].map(feature => {
 
-          return new SolarStation(
-            feature.properties['INSTITUTION NAME'],
-            +feature.properties.X,
-            +feature.properties.Y,
-            feature.properties.REGION,
-            feature.properties.LOCALITY,
+          const cap = +feature.properties['capacity(MW)'];
+
+
+          return new PowerPlant(
+            feature.properties.name,
+            +feature.geometry.coordinates[0],
+            +feature.geometry.coordinates[1],
+            feature.properties.community,
             cap,
-            cap * 100
+            cap * 100,
+            feature.properties.yearCompleted
           );
         });
-        console.log(this.solarStations);
+        console.log(this.powerPlants);
       });
-      this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
-      this.mapService.loadPowerPlants().subscribe(resPointData => this.powerPlants = resPointData);
     } else {
-      this.solarStations = null;
       this.powerLines = null;
       this.powerPlants = null;
     }
@@ -214,6 +213,7 @@ export class MapComponent implements OnInit {
     this.stdRadius = 10000;
 
     if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
+
   }
 
   // load Technology config
@@ -224,16 +224,20 @@ export class MapComponent implements OnInit {
     this.stdRadius = 20000;
 
     if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
+    // if (this.powerPlants) this.powerPlants.forEach(site => site.radius = this.stdRadius + (+site['capacity(MW)'] *10));
+
   }
 
   // load Concept config
   loadConceptConfig() {
     this.zoom = 9;
-    this.latitude = 6.629198;
+    this.latitude = 6.63333;
     this.longitude = -1.451813;
     this .stdRadius = 2000;
 
     if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
+    // if (this.powerPlants) this.powerPlants.forEach(site => site.radius = this.stdRadius + (+site['capacity(MW)'] *10));
+
   }
 
   // used to hide the info window when random location on map is clicked
