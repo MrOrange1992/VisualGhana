@@ -1,21 +1,43 @@
+import {Colors} from './Colors';
+
 export class PowerPlant {
   name: string;
   longitude: number;
   latitude: number;
   community: string;
   capacity: number;
-  radius: number;
+  private _radius: number;
   yearCompleted: number;
   type: string;
+  private _color: string;
 
-  constructor(name: string, longitude: number, latitude: number, community: string, capacity: number, radius: number, yearCompleted: number, type: string) {
-    this.name = name;
-    this.longitude = longitude;
-    this.latitude = latitude;
-    this.community = community;
-    this.capacity = capacity;
-    this.radius = radius;
-    this.yearCompleted = yearCompleted;
-    this.type = type;
+  constructor(feature, radius: number) {
+    this.name = feature.properties.name;
+    this.longitude = +feature.geometry.coordinates[0];
+    this.latitude = +feature.geometry.coordinates[1];
+    this.community = feature.properties.community;
+    this.capacity = +feature.properties['capacity(MW)'];
+    this._radius = radius; // +feature.properties['capacity(MW)'] * 100;
+    this.yearCompleted = feature.properties.yearCompleted;
+    this.type = feature.properties.type;
+
+    if (feature.properties.type === 'Thermal') {
+      this._color = Colors.darkBlue;
+    } else if (feature.properties.type === 'Hydroelectric') {
+      this._color =  Colors.creamRed;
+    } else if (feature.properties.type === 'Solar Power') {
+      this._color =  Colors.gold;
+    } else {
+      this._color =  null;
+    }
   }
+
+
+  get radius(): number { return this._radius; }
+
+  set radius(value: number) { this._radius = value; }
+
+  get color(): string { return this._color; }
+
+  set color(value: string) { this._color = value; }
 }

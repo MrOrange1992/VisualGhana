@@ -3,20 +3,11 @@ import {MapService} from './map.service';
 import {MapTypeStyle} from '@agm/core';
 import {Chart, ChartComponent} from 'chart.js';
 
-import * as borderStyles from '../../assets/styles/borderStyles.json';
-import * as powerLineStyles from '../../assets/styles/powerLineStyles.json';
-import * as powerPlantStyles from '../../assets/styles/powerPlantStyles.json';
-import * as healthCareStyles from '../../assets/styles/healthCareStyles.json';
-import * as solarStyles from '../../assets/styles/solarStyles.json';
-import * as primaryRoadStyles from '../../assets/styles/primaryRoadStyles.json';
-import * as secondaryRoadStyles from '../../assets/styles/secondaryRoadStyles.json';
-import * as tertiaryRoadStyles from '../../assets/styles/tertiaryRoadStyles.json';
 import {PieChart} from '../entities/PieChart';
 import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
 import {Colors} from '../entities/Colors';
 import {Airport} from '../entities/Airport';
-import {Road} from '../entities/Road';
 
 
 @Component({
@@ -35,22 +26,19 @@ export class MapComponent implements OnInit {
   // disables draggable map functionality
   mapDraggable = false;
 
-  colors = Colors;
-
-
   // AGM DATA LAYER OBJECTS
-  borders;
+  // POINT
   healthSites: HealthSite[];
-  powerLines;
   powerPlants: PowerPlant[];
   airports: Airport[];
-  // ROAD types
+
+  // LINE
+  powerLines;
   roadData;
-  primaryRoads;
-  secondaryRoads;
-  tertiaryRoads;
-  unclassifiedRoads;
-  surfaceRoads: Road[];
+  surfaceRoads;
+
+  // POLYGON
+  overlay;
 
   // ONMAP INFO
   infoVisible = false;
@@ -61,11 +49,10 @@ export class MapComponent implements OnInit {
   // CHART
   chart = [];
 
-
   // MISC
   stdRadius;
   showrwandaimg = false;
-
+  colors = Colors;
 
   constructor(private mapService: MapService) {}
 
@@ -74,15 +61,24 @@ export class MapComponent implements OnInit {
    * Custom mapstyles are loaded here
    */
   ngOnInit() {
+    console.log('Loading all data, please wait ...');
+
     this.mapService.loadCustomMapStyles('mapStyles').subscribe(data => this.customMapStyles = data);
 
-    // additionally ghana borders polyline is loaded here
-    //this.mapService.loadBorders().subscribe(data => this.borders = data);
+    this.mapService.loadOverlay().subscribe(response => {
+      this.overlay = response;
+      console.log('NGOninit, Overlay data available!!!: ', this.overlay);
+    });
 
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
 
-    this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log(this.roadData); });
+    this.mapService.loadRoads().subscribe(result => {
+      this.roadData = result;
+      console.log('NGOninit, Road data available!!!: ', this.roadData);
+    });
+
+
     }
 
   /**
@@ -94,32 +90,22 @@ export class MapComponent implements OnInit {
     if (this.healthSites) {
       this.healthSites = null;
       this.chart = [];
-    }
-    else {
+    } else {
 
       this.mapService.loadHealthSites().subscribe(resPointData => {
         const healthSiteData = resPointData;
-        console.log(healthSiteData);
+        console.log('Loading healthsites...', healthSiteData);
 
-        this.healthSites = healthSiteData['features'].map(feature => {
-          return new HealthSite(
-            feature.properties.name,
-            +feature.geometry.coordinates[1],
-            +feature.geometry.coordinates[0],
-            +feature.properties.completeness.slice(0, -1),
-            feature.properties.type,
-            this.stdRadius
-          );
-        });
-        console.log(this.healthSites);
+        this.healthSites = healthSiteData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
 
         const data = this.healthSites.map(site => site.type);
         const clinicCount = data.filter(res => res === 'clinic').length;
         const hospitalCount = data.length - clinicCount;
-        console.log(data, clinicCount, hospitalCount);
+        // console.log(data, clinicCount, hospitalCount);
 
         const pieChart = new PieChart('canvas', 'doughnut', 'Healthsite Type Distribution',
-          [clinicCount, hospitalCount], ['Clinic', 'Hospital'], Object.keys(this.colors).map(key => this.colors[key]));
+          [clinicCount, hospitalCount], ['Clinic', 'Hospital'], Object.keys(this.colors).map(key => this.colors[key])
+        );
         this.chart = pieChart.chart;
 
       });
@@ -135,51 +121,40 @@ export class MapComponent implements OnInit {
       this.airports = null;
       this.surfaceRoads = null;
       this.mapService.loadCustomMapStyles('mapStyles').subscribe(data => this.customMapStyles = data );
-
     }
     else {
       this.mapService.loadAirports().subscribe(resPointData => {
-        const airportData = resPointData;
+        // const airportData = resPointData;
 
-        // console.log(airportData);
+        console.log('Loading airports...');
 
-        this.airports = airportData['features'].map(feature => {
-          return new Airport(
-            feature.properties.name,
-            +feature.geometry.coordinates[0],
-            +feature.geometry.coordinates[1],
-            feature.properties.type,
-            this.stdRadius
-          );
-        });
-
-        // console.log(this.airports);
+        this.airports = resPointData['features'].map(feature => new Airport(feature, this.getStdRadius(this.zoom)));
+        console.log('Loading airport data...\n', this.airports);
 
       });
 
-      this.mapService.loadCustomMapStyles('mapStylesRoad').subscribe(data => this.customMapStyles = data );
-
-
-/*
-      const surfaceRoadData = this.roadData['features'].filter(data => data.properties.surface != null);
-
-      this.surfaceRoads = surfaceRoadData.map(road => {
-        console.log(road);
-
-        return new Road(
-          road.geometry.coordinates,
-          road.properties.name,
-          road.properties.highway,
-          road.properties.surface
-        );
+      this.mapService.loadCustomMapStyles('mapStylesRoad').subscribe(data => {
+        console.log('Loading custom map styles');
+        this.customMapStyles = data;
       });
 
-      console.log(this.surfaceRoads);
-*/
+      /*
+      const surfaceArray = this.roadData['features']
+        .map(feature => feature.properties.surface)
+        .filter((index, value, plant) => plant.indexOf(index) === value);
+      surfaceArray.forEach(surface => console.log(surface));
+      */
 
+      console.log('Loading road data including surfaces...');
       this.surfaceRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.surface != null) };
-      console.log(this.surfaceRoads);
 
+
+
+      /*
+      this.mapService.loadRoads().subscribe(response => {
+        this.surfaceRoads = response;
+      });
+      */
 
 
       // const pieChart = new PieChart('canvas', 'doughnut', 'Road Surfaces', [overHalf, lesserHalf], ['Greater 50%', 'Less 50%'], ['#28536C', '#28436C']);
@@ -193,41 +168,56 @@ export class MapComponent implements OnInit {
    */
   loadPower() {
     if (!this.powerLines) {
+      // Load power line data
+      this.mapService.loadPowerLines().subscribe(resLineData => {
+        this.powerLines = resLineData;
 
-      this.mapService.loadPowerLines().subscribe(resLineData => this.powerLines = resLineData);
+        console.log('Loading powerline data...\n', this.powerLines);
+      });
+
+      // Load power plant data and pasre to PowerPlant objects
       this.mapService.loadPowerPlants().subscribe(resPointData => {
         const powerPlantData = resPointData;
+        console.log('Loading powerplants...\n', powerPlantData);
+        this.powerPlants = powerPlantData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));
 
-        console.log(powerPlantData);
+        // Prepare data for pie chart
+        const thermalCapacity = this.powerPlants
+          .filter(res => res.type === 'Thermal')
+          .map(a => a.capacity)
+          .reduceRight((first, next) => first + next);
 
-        this.powerPlants = powerPlantData['features'].map(feature => {
+        const hydroCapacity = this.powerPlants
+          .filter(res => res.type === 'Hydroelectric')
+          .map(a => a.capacity)
+          .reduceRight((first, next) => first + next);
 
-          const cap = +feature.properties['capacity(MW)'];
+        const solarCapacity = this.powerPlants
+          .filter(res => res.type === 'Solar Power')
+          .map(a => a.capacity)
+          .reduceRight((first, next) => first + next)
+          .toFixed(0);
 
+        // Compute set of unique lables out of all powerplant types
+        const labels = this.powerPlants
+          .map(powerPlant => powerPlant.type)
+          .filter((index, value, plant) => plant.indexOf(index) === value);
 
-          return new PowerPlant(
-            feature.properties.name,
-            +feature.geometry.coordinates[0],
-            +feature.geometry.coordinates[1],
-            feature.properties.community,
-            cap,
-            cap * 100,
-            feature.properties.yearCompleted,
-            feature.properties.type
-          );
-        });
+        // console.log(thermalCapacity, hydroCapacity, solarCapacity);
 
-        const thermalCapacity = this.powerPlants.filter(res => res.type === 'Thermal').map(a => a.capacity).reduceRight((first, next) => first + next);
-        const hydroCapacity = this.powerPlants.filter(res => res.type === 'Hydroelectric').map(a => a.capacity).reduceRight((first, next) => first + next);
-        const solarCapacity = this.powerPlants.filter(res => res.type === 'Solar Power').map(a => a.capacity).reduceRight((first, next) => first + next).toFixed(0);
+        // create pie chart
+        const pieChart = new PieChart(
+          'canvas',                                                           // Context
+          'doughnut',                                                         // Chart type
+          'Powerplant capacity distribution [MW]',                            // Chart title
+          [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
+          labels,                                                             // Labels
+          Object.keys(this.colors).map(key => this.colors[key])     // Colors
+        );
 
-        console.log(thermalCapacity, hydroCapacity, solarCapacity);
-
-        const pieChart = new PieChart('canvas', 'doughnut', 'Powerplant capacity distribution [MW]', [+thermalCapacity, +hydroCapacity, +solarCapacity], ['Thermal', 'Hydroelectric', 'Solar Power'], Object.keys(this.colors).map(key => this.colors[key]));
         this.chart = pieChart.chart;
       });
 
-      console.log(this.powerPlants);
     } else {
       this.powerLines = null;
       this.powerPlants = null;
@@ -235,49 +225,101 @@ export class MapComponent implements OnInit {
   }
 
   // return json styles for objects to display from import statements
-  loadBorderStyles() { return borderStyles; }
-  loadPowerPlantsStyles() { return powerPlantStyles; }
-  loadPowerLineStyles() { return powerLineStyles; }
-  loadHealthcareStyles() { return healthCareStyles; }
-  loadSolarStyles() { return solarStyles; }
-  loadPrimaryRoadStyles() {return primaryRoadStyles; }
-  loadSecondaryRoadStyles() {return secondaryRoadStyles; }
-  loadTertiaryRoadStyles() {return tertiaryRoadStyles; }
+  loadPowerLineStyles(feature) {
+    // console.log('Loading powerline styles', feature);
+    /* All voltages
+        161
+        35
+        225
+        330
+        69
+        30
+        11
+        33
+    const voltages = this.powerLines['features']
+      .map(powerLine => powerLine.properties.voltage_kV)
+      .filter((index, value, plant) => plant.indexOf(index) === value);
+    console.log(voltages);
+    */
+    if (feature.f.voltage_kV === 161) {
+      return { clickable: true, strokeWeight: 1, strokeColor: "yellow" };
+    } else if (feature.f.voltage_kV === 225) {
+      return { clickable: true, strokeWeight: 2, strokeColor: "yellow" };
+    } else if (feature.f.voltage_kV === 330) {
+      return { clickable: true, strokeWeight: 3, strokeColor: "yellow" };
+    } else {
+      return { clickable: false, strokeWeight: 0.2, strokeColor: "yellow" };
+    }
+  }
+
+  loadOverLayStyles() {
+    return {
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#000000',
+      fillOpacity: 0.75
+    };
+  }
 
 
+  loadRoadStyles(feature) {
+    /* ALl SURFACE types
+      asphalt
+      unpaved
+      paved
+      ground
+      dirt
+      sand
+      compacted
+      gravel
+      concrete
+      grass
+      mud
+      clay
+      ground‬
+      fine_gravel
+      earth
+      wood
+      soil
+      paving_stones
+      UN
+      un
+      GR
+      cobblestone
+      pebblestone
+      dirt/sand
+   */
+    // console.log('Loading road styles...\n', feature);
+
+    if (feature.f.surface === 'asphalt') {
+      return { clickable: true, strokeWeight: 2, strokeColor: '#F6F0ED' };
+    } else if (feature.f.surface === 'paved') {
+      return { clickable: true, strokeWeight: 2, strokeColor: '#AA5439' };
+    } else {
+      return { clickable: true, strokeWeight: 2, strokeColor: '#28536C' };
+    }
+  }
+
+  // SCENARIO CONFIGURATIONS
   // load Infrastructure config
-  loadInfrastructureConfig() {
-    this.zoom = 6.98;
-    this.latitude = 7.35;
-    this.longitude = -3.9;
-    this.stdRadius = 10000;
-
-    if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
-
-  }
-
+  loadInfrastructureConfig() { this.zoom = 7; this.latitude = 7.35; this.longitude = -3.9; }
   // load Technology config
-  loadTechnologyConfig() {
-    this.zoom = 4;
-    this.latitude = 3.751479;
-    this.longitude = 22.454407;
-    this.stdRadius = 20000;
-
-    if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
-  }
-
+  loadTechnologyConfig() { this.zoom = 4; this.latitude = 3.751479; this.longitude = 22.454407; }
   // load Concept config
-  loadConceptConfig() {
-    this.zoom = 9;
-    this.latitude = 6.63333;
-    this.longitude = -1.451813;
-    this .stdRadius = 2000;
-
-    if (this.healthSites) this.healthSites.forEach(site => site.radius = this.stdRadius);
-  }
+  loadConceptConfig() { this.zoom = 9; this.latitude = 6.63333; this.longitude = -1.451813; }
 
   // used to hide the info window when random location on map is clicked
   clickedMap() { this.infoVisible = false; }
+
+  zoomChange(actualZoom) {
+    console.log('Zoom changed to: ', actualZoom);
+    this.zoom = actualZoom;
+    this.stdRadius = this.getStdRadius(actualZoom);
+    if (this.healthSites) { this.healthSites.forEach(site => site.radius = this.getStdRadius(actualZoom)); }
+    if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom)); }
+    if (this.airports) { this.airports.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
+  }
 
   clickedObject(object) {
     console.log('Clicked object!\n', object);
@@ -287,12 +329,30 @@ export class MapComponent implements OnInit {
     this.infoGeoJsonObject = object;
   }
 
-  loadrwandaimage(){
-    if (this.showrwandaimg) this.showrwandaimg = false;
-    else this.showrwandaimg = true;
-
+  clickedSurfaceRoads(event) {
+    console.log(event);
   }
 
+  mouseOverObject(object) {
+    console.log('Mouse over object!\n', object);
+    if (object.capacity * this.getStdRadius(this.zoom) < this.getStdRadius(this.zoom)) {
+    } else {
+      object.radius = object.capacity * this.getStdRadius(this.zoom) / 10;
+    }
+  }
 
+  mouseOutObject(object) {
+    console.log('Mouse out object!\n', object);
+    object.radius = this.stdRadius;
+  }
 
+  loadrwandaimage() {
+    if (this.showrwandaimg) this.showrwandaimg = false;
+    else this.showrwandaimg = true;
+  }
+
+  getStdRadius(zoom) {
+    // calculation for reasonable results for circle radius when zooming in
+    return Math.round((15000000) / (zoom ** 4));
+  }
 }

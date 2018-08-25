@@ -4,14 +4,19 @@ export class HealthSite {
   longitude: number;
   completeness: number;
   type: string;
-  radius: number;
+  private _radius: number;
 
-  constructor(name: string, latitude: number, longitude: number, completeness: number, type: string, radius: number) {
-    this.name = name;
-    this.latitude = latitude;
-    this.longitude = longitude;
-    this.completeness = completeness;
-    this.type = type;
-    this.radius = radius;
+  constructor(feature, radius: number) {
+    this.name = feature.properties.name;
+    this.latitude = +feature.geometry.coordinates[1];
+    this.longitude = +feature.geometry.coordinates[0];
+    this.completeness = +feature.properties.completeness.slice(0, -1);
+    this.type = feature.properties.type;
+    this._radius = radius;
   }
+
+
+  get radius(): number { return this._radius; }
+
+  set radius(value: number) { this._radius = value; }
 }

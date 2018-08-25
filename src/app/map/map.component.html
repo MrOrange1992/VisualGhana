@@ -4,8 +4,9 @@
   [styles]="customMapStyles"
   [zoom]="zoom"
   [mapDraggable]="true"
-  (mapClick)="clickedMap($event)">
-
+  (mapClick)="clickedMap($event)"
+  (zoomChange)="zoomChange($event)"
+>
 
   <agm-data-layer [style]="loadBorderStyles" [geoJson]=borders></agm-data-layer>
   <!--agm-data-layer [style]="loadHealthcareStyles" [geoJson]=healthSites (layerClick)="clickedHealthCare($event)" ></agm-data-layer-->
@@ -15,7 +16,14 @@
   <!--agm-data-layer [style]="loadPrimaryRoadStyles" [geoJson]=primaryRoads></agm-data-layer>
   <agm-data-layer [style]="loadSecondaryRoadStyles" [geoJson]=secondaryRoads></agm-data-layer>
   <agm-data-layer [style]="loadTertiaryRoadStyles" [geoJson]=tertiaryRoads></agm-data-layer-->
-  <agm-data-layer [style]="loadPrimaryRoadStyles" [geoJson]=surfaceRoads></agm-data-layer>
+  <agm-data-layer
+    (layerClick)="clickedSurfaceRoads($event)"
+    [style]="loadRoadStyles"
+    [geoJson]="surfaceRoads"
+  ></agm-data-layer>
+
+  <agm-data-layer [style]="loadOverLayStyles" [geoJson]=overlay ></agm-data-layer>
+
 
   <!--agm-data-layer [geoJson]=unclassifiedRoads></agm-data-layer-->
   <!--agm-data-layer [geoJson]=airports ></agm-data-layer-->
@@ -25,7 +33,6 @@
     [longitude]="29.917652"
     (markerClick)="loadrwandaimage()"
   >
-
   </agm-marker>
 
 
@@ -34,10 +41,12 @@
               [longitude]="powerPlant.longitude"
               [circleDraggable]="false"
               [editable]="false"
-              [fillColor]="'yellow'"
-              [fillOpacity]="0.2"
+              [fillColor]="powerPlant.color"
+              [fillOpacity]="0.8"
               [radius]="powerPlant.radius"
               (circleClick)="clickedObject(powerPlant)"
+              (mouseOver)="mouseOverObject(powerPlant)"
+              (mouseOut)="mouseOutObject(powerPlant)"
   ></agm-circle>
 
   <agm-circle *ngFor="let healthSite of healthSites"
@@ -64,16 +73,16 @@
   ></agm-circle>
 
   <!--agm-polyline *ngFor="let road of surfaceRoads"
-                [strokeWeight]="5"
+                [strokeWeight]="1"
                 [strokeColor]="colors.creamRed"
   >
-
 
     <agm-polyline-point
       *ngFor="let point of road.coordinates"
       [latitude]="point[1]"
       [longitude]="point[0]"
     ></agm-polyline-point>
+
   </agm-polyline-->
 
 
@@ -127,6 +136,8 @@
       <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
       <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW] </p>
       <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
+      <p *ngIf="infoGeoJsonObject.radius">DEBUG: radius: <strong>{{infoGeoJsonObject.radius}}</strong></p>
+
     </div>
 
     <div *ngIf="chart">

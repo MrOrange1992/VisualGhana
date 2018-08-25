@@ -222,9 +222,6 @@ agm-map
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
   padding-left: 20%;
-  display: inline-block;
-
-
 }
 
 .info {
@@ -236,10 +233,6 @@ agm-map
   padding-top: 20px;
   padding-bottom: 20px;
   overflow: auto;
-  direction: rtl;
-
-
-
 }
 
 .powerPlantCircle {

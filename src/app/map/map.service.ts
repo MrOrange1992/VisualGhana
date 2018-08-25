@@ -24,6 +24,10 @@ export class MapService {
     return this.httpClient.get('../../assets/data/ghanaBorders.geojson');
   }
 
+  loadOverlay() {
+    return this.httpClient.get('../../assets/data/africaBorders.geojson');
+  }
+
   /**
    * Loads healthsites points geojson data
    * @returns
