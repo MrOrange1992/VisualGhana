@@ -22,11 +22,11 @@ export class PowerPlant {
     this.type = feature.properties.type;
 
     if (feature.properties.type === 'Thermal') {
-      this._color = Colors.darkBlue;
+      this._color = Colors.powerThermalplantColor;
     } else if (feature.properties.type === 'Hydroelectric') {
-      this._color =  Colors.creamRed;
+      this._color =  Colors.powerHydroplantColor;
     } else if (feature.properties.type === 'Solar Power') {
-      this._color =  Colors.gold;
+      this._color =  Colors.powerSolarplantColor;
     } else {
       this._color =  null;
     }

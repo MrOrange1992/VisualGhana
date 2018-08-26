@@ -64,13 +64,22 @@
   },
   {
     "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
     "elementType": "geometry.fill",
     "stylers": [
       {
         "color": "#000000"
       },
       {
-        "lightness": 20
+        "lightness": 0
       }
     ]
   },
@@ -82,10 +91,10 @@
         "color": "#000000"
       },
       {
-        "lightness": 17
+        "lightness": 0
       },
       {
-        "weight": 3
+        "weight": 0
       }
     ]
   },

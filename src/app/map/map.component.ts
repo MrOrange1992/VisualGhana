@@ -112,7 +112,7 @@ export class MapComponent implements OnInit {
           'Healthsite Type Distribution',
           [clinicCount, hospitalCount],
           ['Clinic', 'Hospital'],
-          Object.keys(this.colors).map(key => this.colors[key])
+          [this.colors.clinicColor, this.colors.hospitalColor]
         );
 
         this.chart = pieChart.chart;
@@ -206,7 +206,7 @@ export class MapComponent implements OnInit {
           'Powerplant capacity distribution [MW]',                            // Chart title
           [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
           labels,                                                             // Labels
-          Object.keys(this.colors).map(key => this.colors[key])     // Colors
+          [this.colors.powerThermalplantColor, this.colors.powerHydroplantColor, this.colors.powerSolarplantColor]    // Colors
         );
         if (this.chart) {
           console.log('Destroying active chart...\n', this.chart);
@@ -240,13 +240,13 @@ export class MapComponent implements OnInit {
     console.log(voltages);
     */
     if (feature.f.voltage_kV === 161) {
-      return { clickable: true, strokeWeight: 1, strokeOpacity: 0.6, strokeColor: "yellow" };
+      return { clickable: true, strokeWeight: 1, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor};
     } else if (feature.f.voltage_kV === 225) {
-      return { clickable: true, strokeWeight: 2, strokeOpacity: 0.6, strokeColor: "yellow" };
+      return { clickable: true, strokeWeight: 2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     } else if (feature.f.voltage_kV === 330) {
-      return { clickable: true, strokeWeight: 3, strokeOpacity: 0.6, strokeColor: "yellow" };
+      return { clickable: true, strokeWeight: 3, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     } else {
-      return { clickable: false, strokeWeight: 0.2, strokeOpacity: 0.6, strokeColor: "yellow" };
+      return { clickable: false, strokeWeight: 0.2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     }
   }
 
@@ -254,48 +254,52 @@ export class MapComponent implements OnInit {
     return {
       strokeColor: '#000000',
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: '#000000',
-      fillOpacity: 0.75
+      fillOpacity: 0.65
     };
   }
 
 
   loadRoadStyles(feature) {
     /* ALl SURFACE types
-      asphalt
-      unpaved
-      paved
-      ground
-      dirt
-      sand
-      compacted
-      gravel
-      concrete
-      grass
-      mud
-      clay
-      ground‬
-      fine_gravel
-      earth
-      wood
-      soil
-      paving_stones
+      asphalt paved
+      unpaved unpaved
+      paved   paved
+      ground  unpaved
+      dirt    unpaved
+      sand    unpaved
+      compacted paved
+      gravel    unpaved
+      concrete  paved
+      grass     unpaved
+      mud       unpaved
+      clay      unpaved
+      ground‬     unpaved
+      fine_gravel   unpaved
+      earth     unpaved
+      wood      unpaved
+      soil      unpaved
+      paving_stones  paved
       UN
       un
       GR
-      cobblestone
-      pebblestone
-      dirt/sand
+      cobblestone unpaved
+      pebblestone unpaved
+      dirt/sand   unpaved
    */
     // console.log('Loading road styles...\n', feature);
+    const surface = feature.f.surface;
 
-    if (feature.f.surface === 'asphalt') {
-      return { clickable: true, strokeWeight: 2, strokeColor: '#F6F0ED' };
-    } else if (feature.f.surface === 'paved') {
-      return { clickable: true, strokeWeight: 2, strokeColor: '#AA5439' };
+    if (surface === 'asphalt'
+      || surface === 'paved'
+      || surface === 'compacted'
+      || surface === 'concrete'
+      || surface === 'paving_stones'
+    ) {
+      return {clickable: true, strokeWeight: 1, strokeColor: Colors.roadPavedColor};
     } else {
-      return { clickable: true, strokeWeight: 2, strokeColor: '#28536C' };
+      return { clickable: true, strokeWeight: 2, strokeColor: Colors.roadUnpavedColor };
     }
   }
 
@@ -363,6 +367,11 @@ export class MapComponent implements OnInit {
 
   getStdRadius(zoom) {
     // calculation for reasonable results for circle radius when zooming in
-    return Math.round((15000000) / (zoom ** 4));
+    const radius = Math.round((15000000) / (zoom ** 4));
+    if (radius > 100000) {
+      return 100000;
+    } else{
+      return Math.round((15000000) / (zoom ** 4));
+    }
   }
 }

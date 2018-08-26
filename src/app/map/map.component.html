@@ -52,7 +52,7 @@
               [longitude]="healthSite.longitude"
               [circleDraggable]="false"
               [editable]="false"
-              [fillColor]="healthSite.type === 'clinic' ?  colors.darkBlue : colors.creamRed"
+              [fillColor]="healthSite.color"
               [fillOpacity]="0.5"
               [(radius)]="healthSite.radius"
               (circleClick)="clickedObject(healthSite)"
@@ -64,7 +64,7 @@
               [longitude]="airport.longitude"
               [circleDraggable]="false"
               [editable]="false"
-              [fillColor]="colors.darkBlue"
+              [fillColor]="colors.airPortColor"
               [fillOpacity]="0.8"
               [(radius)]="airport.radius"
               (circleClick)="clickedObject(airport)"
@@ -113,21 +113,15 @@
     VISUAL GHANA
   </div>
 
-  <div class="infoPanelSection">
+  <div class="infoPanelSection szenarios">
     <div class="szenarioButton infrastructureButton" (click)="loadInfrastructureConfig()">
-      <span class="szenarioText">
         Infrastructure
-      </span>
     </div>
     <div class="szenarioButton technologyButton" (click)="loadTechnologyConfig()">
-      <span class="szenarioText">
         Technology
-      </span>
     </div>
     <div class="szenarioButton concepteButton" (click)="loadConceptConfig()">
-      <span class="szenarioText">
         Concept
-      </span>
     </div>
   </div>
 

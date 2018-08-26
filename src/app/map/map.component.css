@@ -52,7 +52,6 @@ agm-map {
   padding: 20px;
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
-  text-align: center;
   font-family: V-GERB;
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -61,25 +60,34 @@ agm-map {
 
 /* SZENARIO SECTION */
 /* ------------------------------------------------------------------------------------------------------------------ */
+.szenarios {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}
 /* Super class for szenario buttons */
 .szenarioButton {
   position: relative;
-  margin-left: 5%;
-  margin-top: 2%;
-  width: 25%;
-  height: 70%;
+  display: flex;
+  width: 20%;
+  height: 50%;
+  background: #28536C;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
   border-radius: 2px;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: white;
   float: left;
+  align-items: center;
+  justify-content: center;
 }
 .szenarioText {
-  padding-top: 15%;
   width: 100%;
   font-size: 150%;
-  display: inline-block;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
 }
 .szenarioButton::after {

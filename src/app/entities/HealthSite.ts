@@ -1,9 +1,12 @@
+import {Colors} from './Colors';
+
 export class HealthSite {
   name: string;
   latitude: number;
   longitude: number;
   completeness: number;
   type: string;
+  private _color: string;
   private _radius: number;
 
   constructor(feature, radius: number) {
@@ -13,8 +16,20 @@ export class HealthSite {
     this.completeness = +feature.properties.completeness.slice(0, -1);
     this.type = feature.properties.type;
     this._radius = radius;
+
+    if (feature.properties.type === 'clinic') {
+      this._color = Colors.clinicColor;
+    } else if (feature.properties.type === 'hospital') {
+      this._color =  Colors.hospitalColor;
+    } else {
+      this._color =  Colors.hospitalColor;
+    }
   }
 
+
+  get color(): string { return this._color; }
+
+  set color(value: string) { this._color = value; }
 
   get radius(): number { return this._radius; }
 
