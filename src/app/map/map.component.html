@@ -110,23 +110,45 @@
 
 <div class="infoPanel">
 
-  <div class="title">
+  <div class="infoPanelSection title">
     VISUAL GHANA
   </div>
 
-  <div class="szenarios">
-    <div class="infrastructureButton" (click)="loadInfrastructureConfig()"> Infrastructure</div>
-    <div class="technologyButton" (click)="loadTechnologyConfig()"> Technology</div>
-    <div class="concepteButton" (click)="loadConceptConfig()"> Concept</div>
+  <div class="infoPanelSection">
+    <div class="szenarioButton infrastructureButton" (click)="loadInfrastructureConfig()">
+      <span class="szenarioText">
+        Infrastructure
+      </span>
+    </div>
+    <div class="szenarioButton technologyButton" (click)="loadTechnologyConfig()">
+      <span class="szenarioText">
+        Technology
+      </span>
+    </div>
+    <div class="szenarioButton concepteButton" (click)="loadConceptConfig()">
+      <span class="szenarioText">
+        Concept
+      </span>
+    </div>
   </div>
 
-  <div class="clickables">
-    <input type="image" class="mainButton" src="../../assets/img/electricity.png" (click)="loadPower()" />
+  <div class="infoPanelSection clickable">
+    <button class="loadButton" (click)="loadPower()">
+      Load Power
+    </button>
+    <button class="loadButton" (click)="loadHealthSites()">
+      Load Health Sites
+    </button>
+    <button class="loadButton" (click)="loadTransportation()">
+      Load Transportation
+    </button>
+
+    <!--input type="image" class="mainButton" src="../../assets/img/electricity.png" (click)="loadPower()" />
     <input type="image" class="mainButton" src="../../assets/img/healthcare.png" (click)="loadHealthSites()"/>
-    <input type="image" class="mainButton" src="../../assets/img/road.png" (click)="loadTransportation()"/>
+    <input type="image" class="mainButton" src="../../assets/img/road.png" (click)="loadTransportation()"/-->
   </div>
 
-  <div class="info">
+  <div class="infoPanelSection info">
 
     <div *ngIf="showrwandaimg">
       <img src="../../assets/img/dummy_technology.png" width="100%" >
