@@ -100,8 +100,8 @@
         <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
         <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
         <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW]</p>
-
-
+        <p *ngIf="infoGeoJsonObject.surface">Surface: <strong>{{infoGeoJsonObject.surface}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.highway">Road type: <strong>{{infoGeoJsonObject.highway}}</strong></p>
       </div>
     </agm-info-window>
   </agm-marker>
@@ -162,7 +162,7 @@
 
     </div>
 
-    <div *ngIf="chart">
+    <div class="canvasBlock">
       <canvas class = "chartCanvas" id="canvas">{{chart}}</canvas>
     </div>
 

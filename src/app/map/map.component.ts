@@ -47,7 +47,7 @@ export class MapComponent implements OnInit {
   infoGeoJsonObject: Object;
 
   // CHART
-  chart = [];
+  chart;
 
   // MISC
   stdRadius;
@@ -89,7 +89,7 @@ export class MapComponent implements OnInit {
 
     if (this.healthSites) {
       this.healthSites = null;
-      this.chart = [];
+      if (this.chart) { this.chart.destroy(); }
     } else {
 
       this.mapService.loadHealthSites().subscribe(resPointData => {
@@ -106,6 +106,7 @@ export class MapComponent implements OnInit {
         const pieChart = new PieChart('canvas', 'doughnut', 'Healthsite Type Distribution',
           [clinicCount, hospitalCount], ['Clinic', 'Hospital'], Object.keys(this.colors).map(key => this.colors[key])
         );
+        if (this.chart) { this.chart.destroy(); }
         this.chart = pieChart.chart;
 
       });
@@ -214,11 +215,12 @@ export class MapComponent implements OnInit {
           labels,                                                             // Labels
           Object.keys(this.colors).map(key => this.colors[key])     // Colors
         );
-
+        if (this.chart) { this.chart.destroy(); }
         this.chart = pieChart.chart;
       });
 
     } else {
+      if (this.chart) { this.chart.destroy(); }
       this.powerLines = null;
       this.powerPlants = null;
     }
@@ -331,6 +333,10 @@ export class MapComponent implements OnInit {
 
   clickedSurfaceRoads(event) {
     console.log(event);
+    this.infoVisible = true;
+    this.infoLatitude = event.latLng.lat();
+    this.infoLongitude = event.latLng.lng();
+    this.infoGeoJsonObject = event.feature.f;
   }
 
   mouseOverObject(object) {
