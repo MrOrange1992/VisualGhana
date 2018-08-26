@@ -8,14 +8,12 @@
   (zoomChange)="zoomChange($event)"
 >
 
-  <agm-data-layer [style]="loadBorderStyles" [geoJson]=borders></agm-data-layer>
-  <!--agm-data-layer [style]="loadHealthcareStyles" [geoJson]=healthSites (layerClick)="clickedHealthCare($event)" ></agm-data-layer-->
-  <!--agm-data-layer [style]="loadSolarStyles" [geoJson]=solarStations ></agm-data-layer-->
-  <agm-data-layer [style]="loadPowerLineStyles" [geoJson]=powerLines ></agm-data-layer>
-  <!--agm-data-layer [style]="loadPowerPlantsStyles" [geoJson]=powerPlants ></agm-data-layer-->
-  <!--agm-data-layer [style]="loadPrimaryRoadStyles" [geoJson]=primaryRoads></agm-data-layer>
-  <agm-data-layer [style]="loadSecondaryRoadStyles" [geoJson]=secondaryRoads></agm-data-layer>
-  <agm-data-layer [style]="loadTertiaryRoadStyles" [geoJson]=tertiaryRoads></agm-data-layer-->
+  <agm-data-layer
+    (layerClick)="clickedPowerLines($event)"
+    [style]="loadPowerLineStyles"
+    [geoJson]=powerLines
+  ></agm-data-layer>
+
   <agm-data-layer
     (layerClick)="clickedSurfaceRoads($event)"
     [style]="loadRoadStyles"
@@ -100,6 +98,7 @@
         <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
         <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
         <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW]</p>
+        <p *ngIf="infoGeoJsonObject.voltage_kV">Voltage: <strong>{{infoGeoJsonObject.voltage_kV}}</strong> [kV]</p>
         <p *ngIf="infoGeoJsonObject.surface">Surface: <strong>{{infoGeoJsonObject.surface}}</strong></p>
         <p *ngIf="infoGeoJsonObject.highway">Road type: <strong>{{infoGeoJsonObject.highway}}</strong></p>
       </div>
@@ -156,14 +155,14 @@
 
     <div *ngIf="infoGeoJsonObject">
       <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
-      <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW] </p>
+      <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}} [MW]</strong></p>
       <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
       <p *ngIf="infoGeoJsonObject.radius">DEBUG: radius: <strong>{{infoGeoJsonObject.radius}}</strong></p>
 
     </div>
 
     <div class="canvasBlock">
-      <canvas class = "chartCanvas" id="canvas">{{chart}}</canvas>
+      <canvas class="chartCanvas" id="chartCanvas">{{chart}}</canvas>
     </div>
 
 

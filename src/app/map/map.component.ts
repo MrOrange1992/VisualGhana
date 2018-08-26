@@ -98,17 +98,24 @@ export class MapComponent implements OnInit {
 
         this.healthSites = healthSiteData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
 
+        // Destroy any chart if existing
+        if (this.chart) { this.chart.destroy(); }
+
         const data = this.healthSites.map(site => site.type);
         const clinicCount = data.filter(res => res === 'clinic').length;
         const hospitalCount = data.length - clinicCount;
         // console.log(data, clinicCount, hospitalCount);
 
-        const pieChart = new PieChart('canvas', 'doughnut', 'Healthsite Type Distribution',
-          [clinicCount, hospitalCount], ['Clinic', 'Hospital'], Object.keys(this.colors).map(key => this.colors[key])
+        const pieChart = new PieChart(
+          'chartCanvas',
+          'doughnut',
+          'Healthsite Type Distribution',
+          [clinicCount, hospitalCount],
+          ['Clinic', 'Hospital'],
+          Object.keys(this.colors).map(key => this.colors[key])
         );
-        if (this.chart) { this.chart.destroy(); }
-        this.chart = pieChart.chart;
 
+        this.chart = pieChart.chart;
       });
     }
 
@@ -122,8 +129,7 @@ export class MapComponent implements OnInit {
       this.airports = null;
       this.surfaceRoads = null;
       this.mapService.loadCustomMapStyles('mapStyles').subscribe(data => this.customMapStyles = data );
-    }
-    else {
+    } else {
       this.mapService.loadAirports().subscribe(resPointData => {
         // const airportData = resPointData;
 
@@ -139,24 +145,8 @@ export class MapComponent implements OnInit {
         this.customMapStyles = data;
       });
 
-      /*
-      const surfaceArray = this.roadData['features']
-        .map(feature => feature.properties.surface)
-        .filter((index, value, plant) => plant.indexOf(index) === value);
-      surfaceArray.forEach(surface => console.log(surface));
-      */
-
       console.log('Loading road data including surfaces...');
       this.surfaceRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.surface != null) };
-
-
-
-      /*
-      this.mapService.loadRoads().subscribe(response => {
-        this.surfaceRoads = response;
-      });
-      */
-
 
       // const pieChart = new PieChart('canvas', 'doughnut', 'Road Surfaces', [overHalf, lesserHalf], ['Greater 50%', 'Less 50%'], ['#28536C', '#28436C']);
       // this.chart = pieChart.chart;
@@ -181,6 +171,9 @@ export class MapComponent implements OnInit {
         const powerPlantData = resPointData;
         console.log('Loading powerplants...\n', powerPlantData);
         this.powerPlants = powerPlantData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));
+
+        // Destroy any chart if existing
+        if (this.chart) { this.chart.destroy(); }
 
         // Prepare data for pie chart
         const thermalCapacity = this.powerPlants
@@ -208,14 +201,17 @@ export class MapComponent implements OnInit {
 
         // create pie chart
         const pieChart = new PieChart(
-          'canvas',                                                           // Context
+          'chartCanvas',                                                      // Context
           'doughnut',                                                         // Chart type
           'Powerplant capacity distribution [MW]',                            // Chart title
           [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
           labels,                                                             // Labels
           Object.keys(this.colors).map(key => this.colors[key])     // Colors
         );
-        if (this.chart) { this.chart.destroy(); }
+        if (this.chart) {
+          console.log('Destroying active chart...\n', this.chart);
+          this.chart.destroy();
+        }
         this.chart = pieChart.chart;
       });
 
@@ -244,13 +240,13 @@ export class MapComponent implements OnInit {
     console.log(voltages);
     */
     if (feature.f.voltage_kV === 161) {
-      return { clickable: true, strokeWeight: 1, strokeColor: "yellow" };
+      return { clickable: true, strokeWeight: 1, strokeOpacity: 0.6, strokeColor: "yellow" };
     } else if (feature.f.voltage_kV === 225) {
-      return { clickable: true, strokeWeight: 2, strokeColor: "yellow" };
+      return { clickable: true, strokeWeight: 2, strokeOpacity: 0.6, strokeColor: "yellow" };
     } else if (feature.f.voltage_kV === 330) {
-      return { clickable: true, strokeWeight: 3, strokeColor: "yellow" };
+      return { clickable: true, strokeWeight: 3, strokeOpacity: 0.6, strokeColor: "yellow" };
     } else {
-      return { clickable: false, strokeWeight: 0.2, strokeColor: "yellow" };
+      return { clickable: false, strokeWeight: 0.2, strokeOpacity: 0.6, strokeColor: "yellow" };
     }
   }
 
@@ -332,6 +328,14 @@ export class MapComponent implements OnInit {
   }
 
   clickedSurfaceRoads(event) {
+    console.log(event);
+    this.infoVisible = true;
+    this.infoLatitude = event.latLng.lat();
+    this.infoLongitude = event.latLng.lng();
+    this.infoGeoJsonObject = event.feature.f;
+  }
+
+  clickedPowerLines(event) {
     console.log(event);
     this.infoVisible = true;
     this.infoLatitude = event.latLng.lat();
