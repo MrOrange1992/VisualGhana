@@ -1,13 +1,13 @@
 export enum Colors {
 
-  hospitalColor = '#28536C',
-  clinicColor = '#B2321E',
-  powerThermalplantColor = '#AA5439',
-  powerHydroplantColor = '#30B277',
+  hospitalColor = '#001eff',
+  clinicColor = '#bd00ff',
+  powerThermalplantColor = '#711c91',
+  powerHydroplantColor = '#00b8ff',
   powerSolarplantColor = '#B2A61E',
   powerLinesColor = '#FFF15E',
-  airPortColor = '#806315',
-  roadPavedColor = '#F6F0ED',
-  roadUnpavedColor = '#BBB193'
+  airPortColor = '#d600ff',
+  roadPavedColor = '#0abdc6',
+  roadUnpavedColor = '#133e7c'
 
 }

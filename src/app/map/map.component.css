@@ -53,6 +53,10 @@ agm-map {
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
   font-family: V-GERB;
+  background: -webkit-linear-gradient(180deg, #28536C, #AA5439, #806315);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
 
@@ -89,6 +93,7 @@ agm-map {
   align-items: center;
   justify-content: center;
   color: white;
+
 }
 .szenarioButton::after {
   content: "";
@@ -110,13 +115,13 @@ agm-map {
 }
 
 .infrastructureButton {
-  background-color: #28536C;
+  background-color: #28536CA6;
 }
 .technologyButton {
-  background-color: #AA5439;
+  background-color: #AA5439A6;
 }
 .concepteButton {
-  background-color: #806315;
+  background-color: #806315A6;
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
 
@@ -126,17 +131,54 @@ agm-map {
 /* ------------------------------------------------------------------------------------------------------------------ */
 .loadButton {
   position: relative;
+  display: flex;
   background-color: #28536C;
   font-size: 120%;
   color: white;
   margin-left: 1%;
   margin-top: 2%;
   width: 30%;
-  height: 70%;
+  height: 40%;
+  align-items: center;
+  justify-content: center;
+  float: left;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
   border-radius: 2px;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: none;
+}
+
+.loadButton::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 50%;
+  /*box-shadow: 3px 3px 3px rgba(0, 0, 0, 3);*/
+  opacity: 0;
+}
+
+.loadButton:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+}
+
+
+
+/* color schemes for clickables */
+.loadPower {
+  background-color: #28536CA6;
+}
+
+.loadHealthSite {
+  background-color: #AA5439A6;
+}
+
+.loadTransportation {
+  background-color: #806315A6;
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
 
