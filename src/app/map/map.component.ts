@@ -349,7 +349,14 @@ export class MapComponent implements OnInit {
 
   mouseOverObject(object) {
     console.log('Mouse over object!\n', object);
-    if (object.capacity * this.getStdRadius(this.zoom) < this.getStdRadius(this.zoom)) {
+
+    console.log(object.capacity * this.getStdRadius(this.zoom) / 10);
+
+    const newRadius = object.capacity * this.getStdRadius(this.zoom) / 10;
+
+    if (newRadius > 30000) {
+      object.radius = 30000;
+    } else if (newRadius < this.getStdRadius(this.zoom)) {
     } else {
       object.radius = object.capacity * this.getStdRadius(this.zoom) / 10;
     }
@@ -357,7 +364,7 @@ export class MapComponent implements OnInit {
 
   mouseOutObject(object) {
     console.log('Mouse out object!\n', object);
-    object.radius = this.stdRadius;
+    object.radius = this.getStdRadius(this.zoom);
   }
 
   loadrwandaimage() {
@@ -367,11 +374,6 @@ export class MapComponent implements OnInit {
 
   getStdRadius(zoom) {
     // calculation for reasonable results for circle radius when zooming in
-    const radius = Math.round((15000000) / (zoom ** 4));
-    if (radius > 100000) {
-      return 100000;
-    } else{
-      return Math.round((15000000) / (zoom ** 4));
-    }
+    return Math.round((15000000) / (zoom ** 4));
   }
 }
