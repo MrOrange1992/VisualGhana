@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
-import {LatLng, LatLngBounds, LatLngBoundsLiteral, MapTypeStyle, GoogleMapsAPIWrapper} from '@agm/core';
+import {LatLngBoundsLiteral} from '@agm/core';
 import {Chart, ChartComponent} from 'chart.js';
 
 import {PieChart} from '../entities/PieChart';
@@ -17,8 +17,6 @@ import {Airport} from '../entities/Airport';
 export class MapComponent implements OnInit {
 
   // MAP CONFIG / STYLES
-  latitude;
-  longitude;
   zoom;
   // property for custom map styles, edit in file ../assets/mapStyles.json
   public customMapStyles;
@@ -50,13 +48,13 @@ export class MapComponent implements OnInit {
 
 
   // MISC
-  latlngBounds;
+  latlngBounds: LatLngBoundsLiteral;
 
   stdRadius;
   showrwandaimg = false;
   colors = Colors;
 
-  constructor(private mapService: MapService, private googleMapsAPIWrapper: GoogleMapsAPIWrapper) {}
+  constructor(private mapService: MapService) {}
 
   /**
    * Function is called on map initialize
@@ -75,11 +73,7 @@ export class MapComponent implements OnInit {
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
 
-
-    //this.googleMapsAPIWrapper.panToBounds
-
     this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
-
     }
 
   /**
@@ -322,11 +316,32 @@ export class MapComponent implements OnInit {
 
   // SCENARIO CONFIGURATIONS
   // load Infrastructure config
-  loadInfrastructureConfig() { this.zoom = 7; this.latitude = 7.35; this.longitude = -3.9; }
+  loadInfrastructureConfig() {
+    this.latlngBounds = {
+      north: 11,
+      east: 0,
+      south: 4,
+      west: -6
+    }
+  }
   // load Technology config
-  loadTechnologyConfig() { this.zoom = 4; this.latitude = 3.751479; this.longitude = 22.454407; }
+  loadTechnologyConfig() {
+    this.latlngBounds = {
+      north: 20,
+      east: 20,
+      south: -20,
+      west: -20
+    }
+  }
   // load Concept config
-  loadConceptConfig() { this.zoom = 9; this.latitude = 6.63333; this.longitude = -1.451813; }
+  loadConceptConfig() {
+    this.latlngBounds = {
+      north: 7,
+      east: -1,
+      south: 6,
+      west: -3
+    }
+  }
 
   // used to hide the info window when random location on map is clicked
   clickedMap() { this.infoVisible = false; }
@@ -367,15 +382,15 @@ export class MapComponent implements OnInit {
   mouseOverObject(object) {
     console.log('Mouse over object!\n', object);
 
-    console.log(object.capacity * this.getStdRadius(this.zoom) / 10);
+    if (this.zoom < 11) {
+      const newRadius = object.capacity * this.getStdRadius(this.zoom) / 10;
 
-    const newRadius = object.capacity * this.getStdRadius(this.zoom) / 10;
-
-    if (newRadius > 30000) {
-      object.radius = 30000;
-    } else if (newRadius < this.getStdRadius(this.zoom)) {
-    } else {
-      object.radius = object.capacity * this.getStdRadius(this.zoom) / 10;
+      if (newRadius > 30000) {
+        object.radius = 30000;
+      } else if (newRadius < this.getStdRadius(this.zoom)) {
+      } else {
+        object.radius = object.capacity * this.getStdRadius(this.zoom) / 10;
+      }
     }
   }
 
