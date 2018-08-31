@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
-import {MapTypeStyle} from '@agm/core';
+import {LatLng, LatLngBounds, LatLngBoundsLiteral, MapTypeStyle, GoogleMapsAPIWrapper} from '@agm/core';
 import {Chart, ChartComponent} from 'chart.js';
 
 import {PieChart} from '../entities/PieChart';
@@ -8,7 +8,6 @@ import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
 import {Colors} from '../entities/Colors';
 import {Airport} from '../entities/Airport';
-
 
 @Component({
   selector: 'app-map',
@@ -22,7 +21,7 @@ export class MapComponent implements OnInit {
   longitude;
   zoom;
   // property for custom map styles, edit in file ../assets/mapStyles.json
-  customMapStyles;
+  public customMapStyles;
   // disables draggable map functionality
   mapDraggable = false;
 
@@ -49,12 +48,15 @@ export class MapComponent implements OnInit {
   // CHART
   chart;
 
+
   // MISC
+  latlngBounds;
+
   stdRadius;
   showrwandaimg = false;
   colors = Colors;
 
-  constructor(private mapService: MapService) {}
+  constructor(private mapService: MapService, private googleMapsAPIWrapper: GoogleMapsAPIWrapper) {}
 
   /**
    * Function is called on map initialize
@@ -73,11 +75,10 @@ export class MapComponent implements OnInit {
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
 
-    this.mapService.loadRoads().subscribe(result => {
-      this.roadData = result;
-      console.log('NGOninit, Road data available!!!: ', this.roadData);
-    });
 
+    //this.googleMapsAPIWrapper.panToBounds
+
+    this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
 
     }
 
@@ -140,9 +141,25 @@ export class MapComponent implements OnInit {
 
       });
 
-      this.mapService.loadCustomMapStyles('mapStylesRoad').subscribe(data => {
-        console.log('Loading custom map styles');
-        this.customMapStyles = data;
+      this.customMapStyles = this.customMapStyles.map(feature => {
+        //console.log(feature);
+        if (feature.elementType === 'geometry' && feature.featureType === 'road') {
+          console.log(feature);
+          return {
+            featureType: "road",
+            elementType: "geometry",
+            stylers: [
+              {
+                visibility: "on"
+              },
+              {
+                color: "#7f8d89"
+              }
+            ]
+          };
+        } else {
+          return feature;
+        }
       });
 
       console.log('Loading road data including surfaces...');

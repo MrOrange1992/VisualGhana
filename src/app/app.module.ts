@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {NgModule, APP_INITIALIZER} from '@angular/core';
 
-import {AgmCoreModule, LAZY_MAPS_API_CONFIG} from '@agm/core';
+import {AgmCoreModule, GoogleMapsAPIWrapper, LAZY_MAPS_API_CONFIG} from '@agm/core';
 import {AppComponent} from './app.component';
 import { MapComponent } from './map/map.component';
 import {RouterModule} from '@angular/router';
@@ -35,6 +35,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
       useClass: GoogleMapsConfig
     },
     MapService,
+    GoogleMapsAPIWrapper,
     ConfigService
   ]
 })

@@ -68,6 +68,10 @@ export class MapService {
     return this.httpClient.get('../../assets/data/ghanaAirports.geojson');
   }
 
+  /**
+   * Loads road geojson data (file is ~244MB)
+   * @returns {Observable<Object>}
+   */
   loadRoads() {
     return this.httpClient.get('../../assets/data/ghanaRoads.geojson');
   }
