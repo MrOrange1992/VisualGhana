@@ -2980,50 +2980,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.200007949747102,
-          5.57755465
-        ]
-      },
-      "type": "Feature",
-      "properties": {
-        "source_url": "http://www.openstreetmap.org/way/381731531",
-        "what3words": "retailing.fondest.retrial",
-        "upstream": "OpenStreetMap¶w381731531",
-        "name": "Nima Goverment Clinic",
-        "completeness": "29.41%",
-        "uuid": "388cb6ae612c430388102e6a691c9927",
-        "date_modified": "2016-10-18T18:51:15Z",
-        "source": "OpenStreetMap",
-        "version": 2,
-        "type": "clinic"
-      }
-    },
-    {
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.19976095,
-          5.5774273
-        ]
-      },
-      "type": "Feature",
-      "properties": {
-        "source_url": "http://www.openstreetmap.org/way/448362548",
-        "what3words": "ivory.weary.dodging",
-        "upstream": "OpenStreetMap¶w448362548",
-        "name": "Nima Government Clinic",
-        "completeness": "29.41%",
-        "uuid": "505218114bb84d16a4456f446f4a5c84",
-        "date_modified": "2016-10-18T18:51:15Z",
-        "source": "OpenStreetMap",
-        "version": 2,
-        "type": "clinic"
-      }
-    },
-    {
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -0.200087174635193,
           5.5775841
         ]
