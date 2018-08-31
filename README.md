@@ -1,5 +1,9 @@
 # VisualGhana
 
+## Concept
+
+![Concept](/docu/Layout_concept_24_07_18.jpg)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
 
 ## Development server
