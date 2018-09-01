@@ -42,5 +42,6 @@ testem.log
 Thumbs.db
 
 src/assets/private/apiKey.txt
+src/assets/private/hereApi.json
 
 src/assets/data/ghanaRoads.geojson

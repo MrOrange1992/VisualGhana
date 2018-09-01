@@ -14,3 +14,4 @@ mast,23-08-2018,8,"powerplant functionality,circle functionality,updated clickab
 fera,25-08-2018,4,"Dynamic radius / line weights based on attribute values, overlay, code cleanup",
 fera,26-08-2018,5,"CSS mods and cleanup, chart.destroy/override, implemented powerline onClick",
 mast,26-08-2018,2,"merge css style changes, extended colorenum, classified roads",
+fera,31-08-2018,2,"map fit to bounds, integrated here-API for places search over REST API",

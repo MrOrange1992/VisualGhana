@@ -11,13 +11,17 @@ import {GoogleMapsConfig} from './map/mapconfig.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ConfigService} from './map/config.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot(),
+    AgmCoreModule.forRoot( {}
+    ),
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
   ],
@@ -32,7 +36,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     },
     {
       provide: LAZY_MAPS_API_CONFIG,
-      useClass: GoogleMapsConfig
+      useClass: GoogleMapsConfig,
     },
     MapService,
     ConfigService

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
-import {LatLngBoundsLiteral} from '@agm/core';
+import {LatLngBoundsLiteral, MapsAPILoader} from '@agm/core';
+import { } from 'googlemaps';
 import {Chart, ChartComponent} from 'chart.js';
 
 import {PieChart} from '../entities/PieChart';
@@ -8,6 +9,7 @@ import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
 import {Colors} from '../entities/Colors';
 import {Airport} from '../entities/Airport';
+import {EducationSite} from "../entities/EducationSite";
 
 @Component({
   selector: 'app-map',
@@ -17,6 +19,7 @@ import {Airport} from '../entities/Airport';
 export class MapComponent implements OnInit {
 
   // MAP CONFIG / STYLES
+  map;
   zoom;
   // property for custom map styles, edit in file ../assets/mapStyles.json
   public customMapStyles;
@@ -28,6 +31,7 @@ export class MapComponent implements OnInit {
   healthSites: HealthSite[];
   powerPlants: PowerPlant[];
   airports: Airport[];
+  educationSites: EducationSite[];
 
   // LINE
   powerLines;
@@ -54,14 +58,14 @@ export class MapComponent implements OnInit {
   showrwandaimg = false;
   colors = Colors;
 
-  constructor(private mapService: MapService) {}
+  constructor(private mapService: MapService, private mapsAPILoader: MapsAPILoader) {}
 
   /**
    * Function is called on map initialize
    * Custom mapstyles are loaded here
    */
   ngOnInit() {
-    console.log('Loading all data, please wait ...');
+    console.log('Loading map and data, please wait ...');
 
     this.mapService.loadCustomMapStyles('mapStyles').subscribe(data => this.customMapStyles = data);
 
@@ -72,6 +76,15 @@ export class MapComponent implements OnInit {
 
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
+
+    this.mapsAPILoader.load().then(() => {
+      // let result = new google.maps.Point(1,2);
+
+      // this.map = new google.maps.Map(document.getElementById("ghanaMap"));
+
+      // let result = new google.maps.places.PlacesService(this.map);
+
+    });
 
     this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
     }
@@ -231,6 +244,17 @@ export class MapComponent implements OnInit {
       this.powerLines = null;
       this.powerPlants = null;
     }
+  }
+
+  loadEducation() {
+    this.mapService.loadEducation().subscribe(response => {
+      //console.log(response['results']);
+      this.educationSites = response['results'].map(feature => {
+        if (feature.position)
+          new EducationSite(feature, this.getStdRadius(this.zoom));
+      })
+      //console.log(this.educationSites);
+    });
   }
 
   // return json styles for objects to display from import statements
