@@ -37,7 +37,7 @@ agm-map {
 }
 .infoPanelSection {
   height: 10%;
-  padding-left: 20px;
+  padding-left: 1px;
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
 }
@@ -47,7 +47,10 @@ agm-map {
 /* TITLE SECTION */
 /* ------------------------------------------------------------------------------------------------------------------ */
 .title {
-  font-size: 400%;
+  position: relative;
+  font-size: 300%;
+  display: flex;
+
   height: 5%;
   padding: 20px;
   background-color: rgba(25%, 25%, 25%, 0.5);
@@ -129,23 +132,27 @@ agm-map {
 
 /* CLICKABLE SECTION */
 /* ------------------------------------------------------------------------------------------------------------------ */
+.clickable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}
 .loadButton {
   position: relative;
   display: flex;
-  background-color: #28536C;
-  font-size: 120%;
-  color: white;
-  margin-left: 1%;
-  margin-top: 2%;
-  width: 30%;
-  height: 40%;
-  align-items: center;
-  justify-content: center;
-  float: left;
+  width: 20%;
+  height: 50%;
+  background: #28536C;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
   border-radius: 2px;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: white;
+  float: left;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
   border: none;
 }
 
@@ -166,7 +173,14 @@ agm-map {
   transform: scale(1.05, 1.05);
 }
 
-
+.clickableText {
+  width: 100%;
+  font-size: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 
 /* color schemes for clickables */
 .loadPower {
@@ -189,6 +203,7 @@ agm-map {
 .info {
   height: 65%;
   overflow: auto;
+  margin-left: 5px;
 }
 .canvasBlock {
   width: 100%;

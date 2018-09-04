@@ -25,14 +25,21 @@
 
   <!--agm-data-layer [geoJson]=unclassifiedRoads></agm-data-layer-->
   <!--agm-data-layer [geoJson]=airports ></agm-data-layer-->
-
+<!--load Rwanda-->
   <agm-marker
-    [latitude]="-1.865506"
-    [longitude]="29.917652"
+    [latitude]="-4.036878"
+    [longitude]="39.669571"
     (markerClick)="loadrwandaimage()"
   >
   </agm-marker>
 
+  <!--load Kenya-->
+  <agm-marker
+    [latitude]="-1.865506"
+    [longitude]="29.917652"
+    (markerClick)="loadkenyaimage()"
+  >
+  </agm-marker>
 
   <agm-circle *ngFor="let powerPlant of powerPlants"
               [latitude]="powerPlant.latitude"
@@ -148,6 +155,10 @@
 
     <div *ngIf="showrwandaimg">
       <img src="../../assets/img/dummy_technology.png" width="100%" >
+    </div>
+
+    <div *ngIf="showkenyaimg">
+      <img src="../../assets/img/m_kopa_solar.png" width="100%" >
     </div>
 
     <div *ngIf="infoGeoJsonObject">

@@ -56,6 +56,7 @@ export class MapComponent implements OnInit {
 
   stdRadius;
   showrwandaimg = false;
+  showkenyaimg = false;
   colors = Colors;
 
   constructor(private mapService: MapService, private mapsAPILoader: MapsAPILoader) {}
@@ -426,6 +427,12 @@ export class MapComponent implements OnInit {
   loadrwandaimage() {
     if (this.showrwandaimg) this.showrwandaimg = false;
     else this.showrwandaimg = true;
+  }
+
+
+  loadkenyaimage() {
+    if (this.showkenyaimg) this.showkenyaimg = false;
+    else this.showkenyaimg = true;
   }
 
   getStdRadius(zoom) {
