@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
-import {LatLngBoundsLiteral, MapsAPILoader} from '@agm/core';
-import { } from 'googlemaps';
+import {LatLngBoundsLiteral} from '@agm/core';
 import {Chart, ChartComponent} from 'chart.js';
-
 import {PieChart} from '../entities/PieChart';
 import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
 import {Colors} from '../entities/Colors';
 import {Airport} from '../entities/Airport';
-import {EducationSite} from "../entities/EducationSite";
+import {EducationSite} from '../entities/EducationSite';
+import {SchoolTypes} from '../entities/SchoolTypes';
 
 @Component({
   selector: 'app-map',
@@ -59,7 +58,7 @@ export class MapComponent implements OnInit {
   showkenyaimg = false;
   colors = Colors;
 
-  constructor(private mapService: MapService, private mapsAPILoader: MapsAPILoader) {}
+  constructor(private mapService: MapService) {}
 
   /**
    * Function is called on map initialize
@@ -77,15 +76,6 @@ export class MapComponent implements OnInit {
 
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
-
-    this.mapsAPILoader.load().then(() => {
-      // let result = new google.maps.Point(1,2);
-
-      // this.map = new google.maps.Map(document.getElementById("ghanaMap"));
-
-      // let result = new google.maps.places.PlacesService(this.map);
-
-    });
 
     this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
     }
@@ -154,14 +144,14 @@ export class MapComponent implements OnInit {
         if (feature.elementType === 'geometry' && feature.featureType === 'road') {
           console.log(feature);
           return {
-            featureType: "road",
-            elementType: "geometry",
+            featureType: 'road',
+            elementType: 'geometry',
             stylers: [
               {
-                visibility: "on"
+                visibility: 'on'
               },
               {
-                color: "#7f8d89"
+                color: '#7f8d89'
               }
             ]
           };
@@ -172,10 +162,6 @@ export class MapComponent implements OnInit {
 
       console.log('Loading road data including surfaces...');
       this.surfaceRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.surface != null) };
-
-      // const pieChart = new PieChart('canvas', 'doughnut', 'Road Surfaces', [overHalf, lesserHalf], ['Greater 50%', 'Less 50%'], ['#28536C', '#28436C']);
-      // this.chart = pieChart.chart;
-
     }
   }
 
@@ -248,14 +234,23 @@ export class MapComponent implements OnInit {
   }
 
   loadEducation() {
-    this.mapService.loadEducation().subscribe(response => {
-      //console.log(response['results']);
-      this.educationSites = response['results'].map(feature => {
-        if (feature.position)
-          new EducationSite(feature, this.getStdRadius(this.zoom));
-      })
-      console.log(this.educationSites);
-    });
+    if (!this.educationSites) {
+      this.educationSites = [];
+
+      Object.keys(SchoolTypes).forEach(query => {
+        console.log(query);
+        this.mapService.loadEducation(query, [6, -1], 1000).subscribe(response => {
+          //console.log(response['results']);
+          response['results'].map(feature => {
+            this.educationSites.push(new EducationSite(feature, query, this.getStdRadius(this.zoom)));
+          });
+          console.log(this.educationSites);
+        });
+      });
+    } else {
+      this.educationSites = null;
+    }
+
   }
 
   // return json styles for objects to display from import statements
@@ -378,6 +373,8 @@ export class MapComponent implements OnInit {
     if (this.healthSites) { this.healthSites.forEach(site => site.radius = this.getStdRadius(actualZoom)); }
     if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom)); }
     if (this.airports) { this.airports.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
+    if (this.educationSites) { this.educationSites.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
+
   }
 
   clickedObject(object) {
@@ -426,13 +423,20 @@ export class MapComponent implements OnInit {
 
   loadrwandaimage() {
     if (this.showrwandaimg) this.showrwandaimg = false;
-    else this.showrwandaimg = true;
+    else {
+      this.showrwandaimg = true;
+      this.showkenyaimg = false;
+    }
+
   }
 
 
   loadkenyaimage() {
     if (this.showkenyaimg) this.showkenyaimg = false;
-    else this.showkenyaimg = true;
+    else {
+      this.showkenyaimg = true;
+      this.showrwandaimg = false;
+    }
   }
 
   getStdRadius(zoom) {

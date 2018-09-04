@@ -2,17 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {ConfigService} from './config.service';
 
 @Injectable()
 export class MapService {
 
-  hereAPI;
+  googleMapsAPI;
 
   constructor(private httpClient: HttpClient) {
-   /* this.httpClient.get('../../assets/private/hereApi.json').subscribe(response =>  {
+   this.httpClient.get('../../assets/private/googleMapsData.json').subscribe(response =>  {
       console.log(response);
-      this.hereAPI = response;
-    });*/
+      this.googleMapsAPI = response;
+    });
   }
 
   /**
@@ -84,18 +85,18 @@ export class MapService {
   }
 
 
-  loadEducation() {
+  loadEducation(query: string, location: number[], radius: number) {
 
-    //https://maps.googleapis.com/maps/api/place/textsearch/json?query=school&location=6,-1&radius=100000&fields=id,photos&key=AIzaSyCSAhqBNgszAqDNKynLN8ctyJ-J4GdS8IA
     const url: string = 'https://maps.googleapis.com/maps/api/place/textsearch/json?';
 
-    const params = new HttpParams()
-      .set('query', "school")
-      .set('location', "6,-1")
-      .set('radius', '10000')
-      .set('key', 'AIzaSyCSAhqBNgszAqDNKynLN8ctyJ-J4GdS8IA');
+    console.log(this.googleMapsAPI);
 
-    //return this.httpClient.get(url, {params: params});
-    return this.httpClient.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=school&location=6,-1&radius=100000&fields=id,photos&key=AIzaSyCSAhqBNgszAqDNKynLN8ctyJ-J4GdS8IA");
+    const params = new HttpParams()
+      .set('query', query)
+      .set('location', `${location[0]}, ${location[1]}`)
+      .set('radius', radius.toString())
+      .set('key', this.googleMapsAPI.apiKey);
+
+    return this.httpClient.get(url, {params: params});
   }
 }

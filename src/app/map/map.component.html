@@ -23,8 +23,6 @@
   <agm-data-layer [style]="loadOverLayStyles" [geoJson]=overlay ></agm-data-layer>
 
 
-  <!--agm-data-layer [geoJson]=unclassifiedRoads></agm-data-layer-->
-  <!--agm-data-layer [geoJson]=airports ></agm-data-layer-->
 <!--load Rwanda-->
   <agm-marker
     [latitude]="-4.036878"
@@ -60,7 +58,7 @@
               [circleDraggable]="false"
               [editable]="false"
               [fillColor]="healthSite.color"
-              [fillOpacity]="0.5"
+              [fillOpacity]="0.8"
               [(radius)]="healthSite.radius"
               (circleClick)="clickedObject(healthSite)"
 
@@ -77,24 +75,16 @@
               (circleClick)="clickedObject(airport)"
   ></agm-circle>
 
-  <!--agm-polyline *ngFor="let road of surfaceRoads"
-                [strokeWeight]="1"
-                [strokeColor]="colors.creamRed"
-  >
-
-    <agm-polyline-point
-      *ngFor="let point of road.coordinates"
-      [latitude]="point[1]"
-      [longitude]="point[0]"
-    ></agm-polyline-point>
-
-  </agm-polyline-->
-
-
-
-  <!--agm-kml-layer [url]="'../../assets/data/test.kml'" ></agm-kml-layer-->
-  <!-- This is WORKING! -->
-  <!--agm-kml-layer [url]="'http://dl.dropboxusercontent.com/s/e0gz8ltodgvj55x/hotosm_gha_roads_lines.kml'" ></agm-kml-layer-->
+  <agm-circle *ngFor="let educationSite of educationSites"
+              [latitude]="educationSite.latitude"
+              [longitude]="educationSite.longitude"
+              [circleDraggable]="false"
+              [editable]="false"
+              [fillColor]="educationSite.color"
+              [fillOpacity]="0.8"
+              [(radius)]="educationSite.radius"
+              (circleClick)="clickedObject(educationSite)"
+  ></agm-circle>
 
 
 
@@ -146,9 +136,6 @@
       Load Education
     </button>
 
-    <!--input type="image" class="mainButton" src="../../assets/img/electricity.png" (click)="loadPower()" />
-    <input type="image" class="mainButton" src="../../assets/img/healthcare.png" (click)="loadHealthSites()"/>
-    <input type="image" class="mainButton" src="../../assets/img/road.png" (click)="loadTransportation()"/-->
   </div>
 
   <div class="infoPanelSection info">
