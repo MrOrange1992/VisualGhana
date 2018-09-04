@@ -254,7 +254,7 @@ export class MapComponent implements OnInit {
         if (feature.position)
           new EducationSite(feature, this.getStdRadius(this.zoom));
       })
-      //console.log(this.educationSites);
+      console.log(this.educationSites);
     });
   }
 

@@ -8,10 +8,10 @@ export class EducationSite {
   constructor(feature, radius: number) {
 
     console.log(feature);
-    this.name = feature.title;
-    this.vicinity = feature.vicinity;
-    this.latitude = feature.position[0];
-    this.longitude = feature.position[1];
+    this.name = feature.name;
+    this.latitude = feature.geometry.location[0];
+    this.longitude = feature.geometry.location[1];
     this.radius = radius;
   }
 }
+
