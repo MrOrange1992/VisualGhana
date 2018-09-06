@@ -233,26 +233,6 @@ export class MapComponent implements OnInit {
     }
   }
 
-  loadEducation() {
-    if (!this.educationSites) {
-      this.educationSites = [];
-
-      Object.keys(SchoolTypes).forEach(query => {
-        console.log(query);
-        this.mapService.loadEducation(query, [6, -1], 1000).subscribe(response => {
-          //console.log(response['results']);
-          response['results'].map(feature => {
-            this.educationSites.push(new EducationSite(feature, query, this.getStdRadius(this.zoom)));
-          });
-          console.log(this.educationSites);
-        });
-      });
-    } else {
-      this.educationSites = null;
-    }
-
-  }
-
   // return json styles for objects to display from import statements
   loadPowerLineStyles(feature) {
     // console.log('Loading powerline styles', feature);
@@ -278,6 +258,58 @@ export class MapComponent implements OnInit {
       return { clickable: true, strokeWeight: 3, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     } else {
       return { clickable: false, strokeWeight: 0.2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
+    }
+  }
+
+  loadEducation() {
+    if (!this.educationSites) {
+      this.educationSites = [];
+
+      Object.keys(SchoolTypes).forEach(query => {
+        console.log(query);
+        this.mapService.loadEducation(query, [6, -1], 1000).subscribe(response => {
+          //console.log(response['results']);
+          response['results'].map(feature => {
+            this.educationSites.push(new EducationSite(feature, query, this.getStdRadius(this.zoom)));
+          });
+          console.log(this.educationSites);
+
+
+          if (this.chart) { this.chart.destroy(); }
+
+          const data = this.educationSites.map(site => site.type);
+          const primarySchool = data.filter(res => res === 'primarySchool').length;
+          const middleSchool = data.filter(res => res === 'middleSchool').length;
+          const highSchool = data.filter(res => res === 'highSchool').length;
+          const university = data.filter(res => res === 'university').length;
+
+          // labels
+          const labels = this.educationSites
+            .map(educationSite => educationSite.type)
+            .filter((index, value, plant) => plant.indexOf(index) === value);
+
+          // console.log(thermalCapacity, hydroCapacity, solarCapacity);
+
+          // create pie chart
+          const pieChart = new PieChart(
+            'chartCanvas',                                                      // Context
+            'doughnut',                                                         // Chart type
+            'School type distribution',                            // Chart title
+            [+primarySchool, +middleSchool, +highSchool, +university],                 // Data
+            labels,                                                             // Labels
+            [this.colors.educationSitePrimarySchoolColor, this.colors.educationSiteMiddleSchoolColor, this.colors.educationSiteHighSchoolColor, this.colors.educationSiteUniversityColor]    // Colors
+          );
+          if (this.chart) {
+            console.log('Destroying active chart...\n', this.chart);
+            this.chart.destroy();
+          }
+          this.chart = pieChart.chart;
+
+        });
+      });
+    } else {
+      if (this.chart) { this.chart.destroy(); }
+      this.educationSites = null;
     }
   }
 
