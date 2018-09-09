@@ -67,9 +67,9 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     console.log('Loading map and data, please wait ...');
 
-    this.mapService.loadCustomMapStyles('mapStyles').subscribe(data => this.customMapStyles = data);
+    this.mapService.loadStyles('mapStyles.json').subscribe(data => this.customMapStyles = data);
 
-    this.mapService.loadOverlay().subscribe(response => {
+    this.mapService.loadData('africaBorders.geojson').subscribe(response => {
       this.overlay = response;
       console.log('NGOninit, Overlay data available!!!: ', this.overlay);
     });
@@ -77,7 +77,7 @@ export class MapComponent implements OnInit {
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
 
-    this.mapService.loadRoads().subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
+    this.mapService.loadData('ghanaRoads.geojson').subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
     }
 
   /**
@@ -91,7 +91,7 @@ export class MapComponent implements OnInit {
       if (this.chart) { this.chart.destroy(); }
     } else {
 
-      this.mapService.loadHealthSites().subscribe(resPointData => {
+      this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
         const healthSiteData = resPointData;
         console.log('Loading healthsites...', healthSiteData);
 
@@ -127,9 +127,9 @@ export class MapComponent implements OnInit {
     if (this.airports) {
       this.airports = null;
       this.surfaceRoads = null;
-      this.mapService.loadCustomMapStyles('mapStyles').subscribe(data => this.customMapStyles = data );
+      this.mapService.loadStyles('mapStyles.json').subscribe(data => this.customMapStyles = data );
     } else {
-      this.mapService.loadAirports().subscribe(resPointData => {
+      this.mapService.loadData('ghanaAirports.geojson').subscribe(resPointData => {
         // const airportData = resPointData;
 
         console.log('Loading airports...');
@@ -171,14 +171,14 @@ export class MapComponent implements OnInit {
   loadPower() {
     if (!this.powerLines) {
       // Load power line data
-      this.mapService.loadPowerLines().subscribe(resLineData => {
+      this.mapService.loadData('ghanaPowerLines.geojson').subscribe(resLineData => {
         this.powerLines = resLineData;
 
         console.log('Loading powerline data...\n', this.powerLines);
       });
 
       // Load power plant data and pasre to PowerPlant objects
-      this.mapService.loadPowerPlants().subscribe(resPointData => {
+      this.mapService.loadData('ghanaPowerPlants.geojson').subscribe(resPointData => {
         const powerPlantData = resPointData;
         console.log('Loading powerplants...\n', powerPlantData);
         this.powerPlants = powerPlantData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));

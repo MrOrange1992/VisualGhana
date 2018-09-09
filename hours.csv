@@ -17,3 +17,4 @@ mast,26-08-2018,2,"merge css style changes, extended colorenum, classified roads
 fera,31-08-2018,2,"map fit to bounds, integrated here-API for places search over REST API",
 fera,04-09-2018,3,"educationsites research, here/googleMaps Urls API",
 mast,04-09-2018,3,"educationsite urls API implementation, extended colorenum, schooltypes",
+fera,09-09-2018,2,"Code cleanup/improvements",
