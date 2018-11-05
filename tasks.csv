@@ -1,6 +1,6 @@
 task,priority,progress,comment,
 Link logo (VisualGhana) back to Home,H,TODO,,
-Implement legends/scale,TODO,,
+Implement legends/scale,H,TODO,,
 Implement chart for comparing multiple map objects,M,TODO,,
 Creating Intro panel/tooltipps on start up,H,IP,,
 Data processing/sanitizing/searching,H,IP,"Get Education Data / Schools, email Ghana ministry of education",
