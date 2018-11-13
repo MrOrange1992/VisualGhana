@@ -49,7 +49,7 @@ agm-map {
 .title {
   position: relative;
   font-size: 300%;
-  display: flex;
+  /*display: flex;*/
 
   height: 5%;
   padding: 20px;

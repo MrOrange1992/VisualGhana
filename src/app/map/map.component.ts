@@ -9,6 +9,7 @@ import {Colors} from '../entities/Colors';
 import {Airport} from '../entities/Airport';
 import {EducationSite} from '../entities/EducationSite';
 import {SchoolTypes} from '../entities/SchoolTypes';
+import {BarChart} from '../entities/BarChart';
 
 @Component({
   selector: 'app-map',
@@ -39,6 +40,7 @@ export class MapComponent implements OnInit {
 
   // POLYGON
   overlay;
+  populationTiles;
 
   // ONMAP INFO
   infoVisible = false;
@@ -211,9 +213,8 @@ export class MapComponent implements OnInit {
         // console.log(thermalCapacity, hydroCapacity, solarCapacity);
 
         // create pie chart
-        const pieChart = new PieChart(
+        const barChart = new BarChart(
           'chartCanvas',                                                      // Context
-          'doughnut',                                                         // Chart type
           'Powerplant capacity distribution [MW]',                            // Chart title
           [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
           labels,                                                             // Labels
@@ -223,13 +224,14 @@ export class MapComponent implements OnInit {
           console.log('Destroying active chart...\n', this.chart);
           this.chart.destroy();
         }
-        this.chart = pieChart.chart;
+        this.chart = barChart.chart;
       });
 
     } else {
       if (this.chart) { this.chart.destroy(); }
       this.powerLines = null;
       this.powerPlants = null;
+      this.infoGeoJsonObject = null;
     }
   }
 
@@ -250,32 +252,43 @@ export class MapComponent implements OnInit {
       .filter((index, value, plant) => plant.indexOf(index) === value);
     console.log(voltages);
     */
-    if (feature.f.voltage_kV === 161) {
+
+    if (feature['l'].voltage_kV === 161) {
       return { clickable: true, strokeWeight: 1, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor};
-    } else if (feature.f.voltage_kV === 225) {
+    } else if (feature['l'].voltage_kV === 225) {
       return { clickable: true, strokeWeight: 2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
-    } else if (feature.f.voltage_kV === 330) {
+    } else if (feature['l'].voltage_kV === 330) {
       return { clickable: true, strokeWeight: 3, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     } else {
       return { clickable: false, strokeWeight: 0.2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     }
   }
 
-  loadEducation() {
-    if (!this.educationSites) {
+  /*loadEducation() {
+    if (!this.educationSites)
+    {
       this.educationSites = [];
 
-      Object.keys(SchoolTypes).forEach(query => {
-        console.log(query);
-        this.mapService.loadEducation(query, [6, -1], 1000).subscribe(response => {
-          //console.log(response['results']);
+
+        this.mapService.loadData('primarySchools.json').subscribe(response =>
+        {
+          console.log(response['results']);
           response['results'].map(feature => {
-            this.educationSites.push(new EducationSite(feature, query, this.getStdRadius(this.zoom)));
+            this.educationSites.push(new EducationSite(feature, SchoolTypes.primarySchool, this.getStdRadius(this.zoom)));
           });
           console.log(this.educationSites);
 
+          /*Object.keys(SchoolTypes).forEach(query => {
+            console.log(query);
+            this.mapService.loadEducation(query, [6, -1], 1000).subscribe(response => {
+              //console.log(response['results']);
+              response['results'].map(feature => {
+                this.educationSites.push(new EducationSite(feature, query, this.getStdRadius(this.zoom)));
+              });
+              console.log(this.educationSites);*/
 
-          if (this.chart) { this.chart.destroy(); }
+
+         /* if (this.chart) { this.chart.destroy(); }
 
           const data = this.educationSites.map(site => site.type);
           const primarySchool = data.filter(res => res === 'primarySchool').length;
@@ -306,10 +319,24 @@ export class MapComponent implements OnInit {
           this.chart = pieChart.chart;
 
         });
-      });
     } else {
       if (this.chart) { this.chart.destroy(); }
       this.educationSites = null;
+
+    }
+  }*/
+
+  loadPopulationTiles() {
+    if (!this.populationTiles) {
+      // Load power line data
+      this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
+        this.populationTiles = resPolygonData;
+
+        console.log('Loading populationDensity data...\n', this.populationTiles);
+
+
+      });
+
     }
   }
 
@@ -320,6 +347,21 @@ export class MapComponent implements OnInit {
       strokeWeight: 1,
       fillColor: '#000000',
       fillOpacity: 0.65
+    };
+  }
+
+  loadPopulationTileStyles(feature) {
+    // parsing popdens distribution values for usage as opacity factor
+    let avg = feature['l'].avg * 1000;
+
+    //observing starnge render behaviour if opacity > 1
+    //values > 1 occur sporadically for larger city locations
+    if (avg > 1) avg = 1;
+
+    return {
+      strokeOpacity: 0,
+      fillColor: Colors.populationDensityColor,
+      fillOpacity: avg
     };
   }
 
@@ -352,7 +394,7 @@ export class MapComponent implements OnInit {
       dirt/sand   unpaved
    */
     // console.log('Loading road styles...\n', feature);
-    const surface = feature.f.surface;
+    const surface = feature['l'].surface;
 
     if (surface === 'asphalt'
       || surface === 'paved'
@@ -373,15 +415,15 @@ export class MapComponent implements OnInit {
       north: 11,
       east: 0,
       south: 4,
-      west: -6
+      west: -7
     }
   }
   // load Technology config
   loadTechnologyConfig() {
     this.latlngBounds = {
-      north: 20,
+      north: 18,
       east: 20,
-      south: -20,
+      south: -22,
       west: -20
     }
   }

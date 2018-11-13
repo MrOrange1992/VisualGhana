@@ -91,10 +91,10 @@
         "color": "#000000"
       },
       {
-        "lightness": 0
+        "lightness": 1
       },
       {
-        "weight": 0
+        "weight": 1
       }
     ]
   },

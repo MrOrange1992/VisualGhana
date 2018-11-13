@@ -15,8 +15,8 @@ export class EducationSite {
     //console.log(feature.geometry.location.lat);
     this.name = feature.name;
     this.type = type;
-    this.latitude = feature.geometry.location.lat;
-    this.longitude = feature.geometry.location.lng;
+    this.latitude = feature.position[0];
+    this.longitude = feature.position[1];
     this.radius = radius;
 
 

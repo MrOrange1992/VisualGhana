@@ -4,14 +4,15 @@ export enum Colors {
   clinicColor = '#bd00ff',
   powerThermalplantColor = '#711c91',
   powerHydroplantColor = '#00b8ff',
-  powerSolarplantColor = '#B2A61E',
+  powerSolarplantColor = '#FF8600',
   powerLinesColor = '#FFF15E',
   airPortColor = '#d600ff',
   roadPavedColor = '#0abdc6',
-  roadUnpavedColor = '#133e7c',
+  roadUnpavedColor = '#bd00ff',
   educationSitePrimarySchoolColor = '#CAFFEE',
   educationSiteMiddleSchoolColor = '#AFFE00',
   educationSiteHighSchoolColor = '#DEADBE',
-  educationSiteUniversityColor = '#C0DEAA'
+  educationSiteUniversityColor = '#C0DEAA',
+  populationDensityColor = '#FF0000'
 
 }

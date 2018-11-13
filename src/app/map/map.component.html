@@ -22,19 +22,21 @@
 
   <agm-data-layer [style]="loadOverLayStyles" [geoJson]=overlay ></agm-data-layer>
 
+  <agm-data-layer [style]="loadPopulationTileStyles" [geoJson]=populationTiles ></agm-data-layer>
+
 
 <!--load Rwanda-->
   <agm-marker
-    [latitude]="-4.036878"
-    [longitude]="39.669571"
+    [latitude]="-1.882"
+    [longitude]="29.787"
     (markerClick)="loadrwandaimage()"
   >
   </agm-marker>
 
   <!--load Kenya-->
   <agm-marker
-    [latitude]="-1.865506"
-    [longitude]="29.917652"
+    [latitude]="-0.0217"
+    [longitude]="37.5819"
     (markerClick)="loadkenyaimage()"
   >
   </agm-marker>
@@ -134,6 +136,9 @@
     </button>
     <button class="loadButton" (click)="loadEducation()">
       Load Education
+    </button>
+    <button class="loadButton" (click)="loadPopulationTiles()">
+      Load Population Density
     </button>
 
   </div>
