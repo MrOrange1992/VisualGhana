@@ -1,4 +1,5 @@
 task,priority,progress,comment,
+implement access to electricity.csv,H,TODO,,
 modify Phyton script to parse list of districts with related amount of school,M,IP,,
 find geojson for district boundaries (google API),M,IP,,
 Link logo (VisualGhana) back to Home,H,TODO,,
