@@ -25,19 +25,35 @@
   <agm-data-layer [style]="loadPopulationTileStyles" [geoJson]=populationTiles ></agm-data-layer>
 
 
-<!--load Rwanda-->
+<!--load Zipline-->
   <agm-marker
     [latitude]="-1.882"
     [longitude]="29.787"
-    (markerClick)="loadrwandaimage()"
+    (markerClick)="loadziplineimage()"
   >
   </agm-marker>
 
-  <!--load Kenya-->
+  <!--load MKopa-->
   <agm-marker
     [latitude]="-0.0217"
     [longitude]="37.5819"
-    (markerClick)="loadkenyaimage()"
+    (markerClick)="loadmkopaimage()"
+  >
+  </agm-marker>
+
+  <!--load DR.One-->
+  <!--<agm-marker
+    [latitude]="9.1029"
+    [longitude]="-1.2660"
+    (markerClick)="loaddroneimage()"
+  >
+  </agm-marker>-->
+
+  <!--load PEGAfrica-->
+  <agm-marker
+    [latitude]="6.2680"
+    [longitude]="-1.2457"
+    (markerClick)="loadpegafricaimage()"
   >
   </agm-marker>
 
@@ -126,31 +142,39 @@
 
   <div class="infoPanelSection clickable">
     <button class="loadButton loadPower" (click)="loadPower()">
-      Load Power
+       Power
     </button>
     <button class="loadButton loadHealthSite" (click)="loadHealthSites()">
-      Load Health Sites
+       Health Sites
     </button>
     <button class="loadButton loadTransportation" (click)="loadTransportation()">
-      Load Transportation
+       Transportation
     </button>
     <button class="loadButton" (click)="loadEducation()">
-      Load Education
+       Education
     </button>
     <button class="loadButton" (click)="loadPopulationTiles()">
-      Load Population Density
+       Population Density
     </button>
 
   </div>
 
   <div class="infoPanelSection info">
 
-    <div *ngIf="showrwandaimg">
-      <img src="../../assets/img/dummy_technology.png" width="100%" >
+    <div *ngIf="showziplineimg">
+      <img src="../../assets/img/Zipline.png" width="100%"  >
     </div>
 
-    <div *ngIf="showkenyaimg">
-      <img src="../../assets/img/m_kopa_solar.png" width="100%" >
+    <div *ngIf="showmkopaimg">
+      <img src="../../assets/img/MKopa.png" width="100%" >
+    </div>
+
+    <div *ngIf="showdroneimg">
+      <img src="../../assets/img/DrOne.png" width="100%" >
+    </div>
+
+    <div *ngIf="showpegafricaimg">
+      <img src="../../assets/img/PEGAfrica.png" width="100%" >
     </div>
 
     <div *ngIf="infoGeoJsonObject">

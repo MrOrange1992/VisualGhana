@@ -56,8 +56,10 @@ export class MapComponent implements OnInit {
   latlngBounds: LatLngBoundsLiteral;
 
   stdRadius;
-  showrwandaimg = false;
-  showkenyaimg = false;
+  showziplineimg = false;
+  showmkopaimg = false;
+  showdroneimg = false;
+  showpegafricaimg = false;
   colors = Colors;
 
   constructor(private mapService: MapService) {}
@@ -328,7 +330,7 @@ export class MapComponent implements OnInit {
 
   loadPopulationTiles() {
     if (!this.populationTiles) {
-      // Load power line data
+
       this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
         this.populationTiles = resPolygonData;
 
@@ -337,6 +339,10 @@ export class MapComponent implements OnInit {
 
       });
 
+    }
+    else {
+
+      this.populationTiles = null;
     }
   }
 
@@ -495,21 +501,40 @@ export class MapComponent implements OnInit {
     object.radius = this.getStdRadius(this.zoom);
   }
 
-  loadrwandaimage() {
-    if (this.showrwandaimg) this.showrwandaimg = false;
+  loadziplineimage() {
+    if (this.showziplineimg) this.showziplineimg = false;
     else {
-      this.showrwandaimg = true;
-      this.showkenyaimg = false;
+      this.showziplineimg = true;
+      this.showmkopaimg = false;
+      this.showpegafricaimg = false;
     }
 
   }
 
-
-  loadkenyaimage() {
-    if (this.showkenyaimg) this.showkenyaimg = false;
+  loadmkopaimage() {
+    if (this.showmkopaimg) this.showmkopaimg = false;
     else {
-      this.showkenyaimg = true;
-      this.showrwandaimg = false;
+      this.showmkopaimg = true;
+      this.showziplineimg = false;
+      this.showpegafricaimg = false;
+    }
+  }
+
+  loaddroneimage() {
+    if (this.showdroneimg) this.showdroneimg = false;
+    else {
+      this.showdroneimg = true;
+      this.showziplineimg = false;
+      this.showmkopaimg = false;
+    }
+  }
+
+  loadpegafricaimage() {
+    if (this.showpegafricaimg) this.showpegafricaimg = false;
+    else {
+      this.showpegafricaimg = true;
+      this.showmkopaimg = false;
+
     }
   }
 

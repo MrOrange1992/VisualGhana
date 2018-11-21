@@ -38,7 +38,7 @@ agm-map {
 .infoPanelSection {
   height: 10%;
   padding-left: 1px;
-  background-color: rgba(25%, 25%, 25%, 0.5);
+  /*background-color: rgba(25%, 25%, 25%, 0.5);*/
   margin-top: 10px;
 }
 
@@ -56,7 +56,7 @@ agm-map {
   background-color: rgba(25%, 25%, 25%, 0.5);
   margin-top: 10px;
   font-family: V-GERB;
-  background: -webkit-linear-gradient(180deg, #28536C, #AA5439, #806315);
+  background: -webkit-linear-gradient(360deg, #28536C, #AA5439, #806315);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -204,8 +204,10 @@ agm-map {
   height: 65%;
   overflow: auto;
   margin-left: 5px;
+  background-color: rgba(25%, 25%, 25%, 0.5);
 }
 .canvasBlock {
   width: 100%;
+
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
