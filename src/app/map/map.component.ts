@@ -37,6 +37,7 @@ export class MapComponent implements OnInit {
   powerLines;
   roadData;
   surfaceRoads;
+  aulaTerra;
 
   // POLYGON
   overlay;
@@ -372,6 +373,26 @@ export class MapComponent implements OnInit {
   }
 
 
+  loadAulaterraRoad () {
+
+    if(!this.aulaTerra){
+      this.mapService.loadData('accraKwaso.geojson').subscribe(resLineData => {
+        this.aulaTerra = resLineData;
+
+        console.log('Loading aulaTerra data...\n', this.aulaTerra);
+      });
+    }
+  }
+
+  loadAulaTerraRoadStyles() {
+    return {
+      strokeColor: Colors.aulaTerraColor,
+      strokeOpacity: 1,
+      strokeWeight: 1
+    };
+
+  }
+
   loadRoadStyles(feature) {
     /* ALl SURFACE types
       asphalt paved
@@ -474,6 +495,14 @@ export class MapComponent implements OnInit {
   }
 
   clickedPowerLines(event) {
+    console.log(event);
+    this.infoVisible = true;
+    this.infoLatitude = event.latLng.lat();
+    this.infoLongitude = event.latLng.lng();
+    this.infoGeoJsonObject = event.feature.f;
+  }
+
+  clickedAulaTerraRoad(event) {
     console.log(event);
     this.infoVisible = true;
     this.infoLatitude = event.latLng.lat();

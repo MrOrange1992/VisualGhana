@@ -20,6 +20,12 @@
     [geoJson]="surfaceRoads"
   ></agm-data-layer>
 
+  <agm-data-layer
+    (layerClick)="clickedAulaTerraRoad($event)"
+    [style]="loadAulaTerraRoadStyles"
+    [geoJson]="aulaTerra"
+  ></agm-data-layer>
+
   <agm-data-layer [style]="loadOverLayStyles" [geoJson]=overlay ></agm-data-layer>
 
   <agm-data-layer [style]="loadPopulationTileStyles" [geoJson]=populationTiles ></agm-data-layer>
@@ -126,6 +132,9 @@
 
   <div class="infoPanelSection title">
     VISUAL GHANA
+    <button class="aulaterraButton" (click)="loadAulaterraRoad()">
+      Aula Terra
+    </button>
   </div>
 
   <div class="infoPanelSection szenarios">
@@ -189,8 +198,9 @@
       <canvas class="chartCanvas" id="chartCanvas">{{chart}}</canvas>
     </div>
 
-
   </div>
+
+
 
 </div>
 

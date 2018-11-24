@@ -13,6 +13,6 @@ export enum Colors {
   educationSiteMiddleSchoolColor = '#AFFE00',
   educationSiteHighSchoolColor = '#DEADBE',
   educationSiteUniversityColor = '#C0DEAA',
-  populationDensityColor = '#FF0000'
-
+  populationDensityColor = '#FF0000',
+  aulaTerraColor = 'green'
 }
