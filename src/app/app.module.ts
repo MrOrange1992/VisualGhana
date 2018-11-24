@@ -9,8 +9,10 @@ import {APP_ROUTES} from './app.routes';
 import {MapService} from './map/map.service';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MglTimelineModule } from 'angular-mgl-timeline';
+import {StylesService} from './map/styles.service';
+import {EventService} from './map/event.service';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MglTimelineModule,
     AgmCoreModule.forRoot( {
       apiKey: GoogleMapsData.apiKey
       }
@@ -28,7 +31,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   declarations: [ AppComponent, MapComponent],
   bootstrap: [ AppComponent ],
   providers: [
-    MapService
+    MapService,
+    StylesService,
+    EventService
   ]
 })
 export class AppModule {

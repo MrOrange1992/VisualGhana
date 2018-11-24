@@ -1,5 +1,5 @@
-import {SchoolTypes} from './SchoolTypes';
-import {Colors} from './Colors';
+import {SchoolTypes} from '../enums/SchoolTypes';
+import {Colors} from '../enums/Colors';
 
 
 export class EducationSite {

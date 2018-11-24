@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {MapService} from './map.service';
 import {LatLngBoundsLiteral} from '@agm/core';
 import {Chart, ChartComponent} from 'chart.js';
-import {PieChart} from '../entities/PieChart';
+import {PieChart} from '../charts/PieChart';
 import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
-import {Colors} from '../entities/Colors';
+import {Colors} from '../enums/Colors';
 import {Airport} from '../entities/Airport';
 import {EducationSite} from '../entities/EducationSite';
-import {SchoolTypes} from '../entities/SchoolTypes';
-import {BarChart} from '../entities/BarChart';
+import {SchoolTypes} from '../enums/SchoolTypes';
+import {BarChart} from '../charts/BarChart';
+import {StylesService} from './styles.service';
+import {EventService} from './event.service';
+
 
 @Component({
   selector: 'app-map',
@@ -42,6 +45,7 @@ export class MapComponent implements OnInit {
   // POLYGON
   overlay;
   populationTiles;
+  regions;
 
   // ONMAP INFO
   infoVisible = false;
@@ -61,9 +65,8 @@ export class MapComponent implements OnInit {
   showmkopaimg = false;
   showdroneimg = false;
   showpegafricaimg = false;
-  colors = Colors;
 
-  constructor(private mapService: MapService) {}
+  constructor(private mapService: MapService, private stylesService: StylesService, private eventService: EventService) {}
 
   /**
    * Function is called on map initialize
@@ -116,7 +119,7 @@ export class MapComponent implements OnInit {
           'Healthsite Type Distribution',
           [clinicCount, hospitalCount],
           ['Clinic', 'Hospital'],
-          [this.colors.clinicColor, this.colors.hospitalColor]
+          [Colors.clinicColor, Colors.hospitalColor]
         );
 
         this.chart = pieChart.chart;
@@ -221,7 +224,7 @@ export class MapComponent implements OnInit {
           'Powerplant capacity distribution [MW]',                            // Chart title
           [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
           labels,                                                             // Labels
-          [this.colors.powerThermalplantColor, this.colors.powerHydroplantColor, this.colors.powerSolarplantColor]    // Colors
+          [Colors.powerThermalplantColor, Colors.powerHydroplantColor, Colors.powerSolarplantColor]    // Colors
         );
         if (this.chart) {
           console.log('Destroying active chart...\n', this.chart);
@@ -238,34 +241,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  // return json styles for objects to display from import statements
-  loadPowerLineStyles(feature) {
-    // console.log('Loading powerline styles', feature);
-    /* All voltages
-        161
-        35
-        225
-        330
-        69
-        30
-        11
-        33
-    const voltages = this.powerLines['features']
-      .map(powerLine => powerLine.properties.voltage_kV)
-      .filter((index, value, plant) => plant.indexOf(index) === value);
-    console.log(voltages);
-    */
 
-    if (feature['l'].voltage_kV === 161) {
-      return { clickable: true, strokeWeight: 1, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor};
-    } else if (feature['l'].voltage_kV === 225) {
-      return { clickable: true, strokeWeight: 2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
-    } else if (feature['l'].voltage_kV === 330) {
-      return { clickable: true, strokeWeight: 3, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
-    } else {
-      return { clickable: false, strokeWeight: 0.2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
-    }
-  }
 
   /*loadEducation() {
     if (!this.educationSites)
@@ -329,6 +305,24 @@ export class MapComponent implements OnInit {
     }
   }*/
 
+  loadRegions() {
+    if (!this.regions) {
+
+      this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+        this.regions = resPolygonData;
+
+        console.log('Loading provinces...\n', this.regions);
+
+        resPolygonData['features'].forEach(feature => console.log(feature.properties.adm2));
+      });
+
+    }
+    else {
+
+      this.regions = null;
+    }
+  }
+
   loadPopulationTiles() {
     if (!this.populationTiles) {
 
@@ -347,30 +341,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  loadOverLayStyles() {
-    return {
-      strokeColor: '#000000',
-      strokeOpacity: 0.8,
-      strokeWeight: 1,
-      fillColor: '#000000',
-      fillOpacity: 0.65
-    };
-  }
 
-  loadPopulationTileStyles(feature) {
-    // parsing popdens distribution values for usage as opacity factor
-    let avg = feature['l'].avg * 1000;
-
-    //observing starnge render behaviour if opacity > 1
-    //values > 1 occur sporadically for larger city locations
-    if (avg > 1) avg = 1;
-
-    return {
-      strokeOpacity: 0,
-      fillColor: Colors.populationDensityColor,
-      fillOpacity: avg
-    };
-  }
 
 
   loadAulaterraRoad () {
@@ -384,57 +355,6 @@ export class MapComponent implements OnInit {
     }
   }
 
-  loadAulaTerraRoadStyles() {
-    return {
-      strokeColor: Colors.aulaTerraColor,
-      strokeOpacity: 1,
-      strokeWeight: 1
-    };
-
-  }
-
-  loadRoadStyles(feature) {
-    /* ALl SURFACE types
-      asphalt paved
-      unpaved unpaved
-      paved   paved
-      ground  unpaved
-      dirt    unpaved
-      sand    unpaved
-      compacted paved
-      gravel    unpaved
-      concrete  paved
-      grass     unpaved
-      mud       unpaved
-      clay      unpaved
-      ground‬     unpaved
-      fine_gravel   unpaved
-      earth     unpaved
-      wood      unpaved
-      soil      unpaved
-      paving_stones  paved
-      UN
-      un
-      GR
-      cobblestone unpaved
-      pebblestone unpaved
-      dirt/sand   unpaved
-   */
-    // console.log('Loading road styles...\n', feature);
-    const surface = feature['l'].surface;
-
-    if (surface === 'asphalt'
-      || surface === 'paved'
-      || surface === 'compacted'
-      || surface === 'concrete'
-      || surface === 'paving_stones'
-    ) {
-      return {clickable: true, strokeWeight: 1, strokeColor: Colors.roadPavedColor};
-    } else {
-      return { clickable: true, strokeWeight: 2, strokeColor: Colors.roadUnpavedColor };
-    }
-  }
-
   // SCENARIO CONFIGURATIONS
   // load Infrastructure config
   loadInfrastructureConfig() {
@@ -443,7 +363,7 @@ export class MapComponent implements OnInit {
       east: 0,
       south: 4,
       west: -7
-    }
+    };
   }
   // load Technology config
   loadTechnologyConfig() {
@@ -452,7 +372,7 @@ export class MapComponent implements OnInit {
       east: 20,
       south: -22,
       west: -20
-    }
+    };
   }
   // load Concept config
   loadConceptConfig() {
@@ -461,7 +381,7 @@ export class MapComponent implements OnInit {
       east: -1,
       south: 6,
       west: -3
-    }
+    };
   }
 
   // used to hide the info window when random location on map is clicked
@@ -474,7 +394,7 @@ export class MapComponent implements OnInit {
     if (this.healthSites) { this.healthSites.forEach(site => site.radius = this.getStdRadius(actualZoom)); }
     if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom)); }
     if (this.airports) { this.airports.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
-    if (this.educationSites) { this.educationSites.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
+    if (this.educationSites) { this.educationSites.forEach(edu => edu.radius = this.getStdRadius(actualZoom)); }
 
   }
 
@@ -508,6 +428,10 @@ export class MapComponent implements OnInit {
     this.infoLatitude = event.latLng.lat();
     this.infoLongitude = event.latLng.lng();
     this.infoGeoJsonObject = event.feature.f;
+  }
+
+  clickedRegion(event) {
+    console.log(event);
   }
 
   mouseOverObject(object) {

@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
     "ajv": "^6.5.1",
+    "angular-mgl-timeline": "^0.2.2",
+    "angular-timeline": "^1.7.0",
     "chart.js": "^2.7.2",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",

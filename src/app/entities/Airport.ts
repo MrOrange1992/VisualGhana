@@ -1,9 +1,12 @@
+import {Colors} from '../enums/Colors';
+
 export class Airport {
 
   name: string;
   longitude: number;
   latitude: number;
   type: string;
+  color: string;
   private _radius: number;
 
   constructor(feature, radius: number) {
@@ -11,6 +14,7 @@ export class Airport {
     this.longitude = +feature.geometry.coordinates[0];
     this.latitude = +feature.geometry.coordinates[1];
     this.type = feature.properties.type;
+    this.color = Colors.airPortColor;
     this._radius = radius;
   }
 

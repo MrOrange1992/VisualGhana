@@ -8,30 +8,53 @@
   (zoomChange)="zoomChange($event)"
 >
 
+  <!---------------------------- LINES ----------------------------->
+
+  <!-- POWERLINES -->
   <agm-data-layer
     (layerClick)="clickedPowerLines($event)"
-    [style]="loadPowerLineStyles"
+    [style]="stylesService.loadPowerLineStyles"
     [geoJson]=powerLines
   ></agm-data-layer>
 
+  <!-- ROADS -->
   <agm-data-layer
     (layerClick)="clickedSurfaceRoads($event)"
-    [style]="loadRoadStyles"
+    [style]="stylesService.loadRoadStyles"
     [geoJson]="surfaceRoads"
   ></agm-data-layer>
 
+  <!-- AULA TERRA -->
   <agm-data-layer
     (layerClick)="clickedAulaTerraRoad($event)"
-    [style]="loadAulaTerraRoadStyles"
+    [style]="stylesService.loadAulaTerraRoadStyles"
     [geoJson]="aulaTerra"
   ></agm-data-layer>
 
-  <agm-data-layer [style]="loadOverLayStyles" [geoJson]=overlay ></agm-data-layer>
+  <!---------------------------- POLYGONS ----------------------------->
 
-  <agm-data-layer [style]="loadPopulationTileStyles" [geoJson]=populationTiles ></agm-data-layer>
+  <!-- OVERLAY (rest of africa) -->
+  <agm-data-layer
+    [style]="stylesService.loadOverLayStyles"
+    [geoJson]=overlay
+  ></agm-data-layer>
 
+  <!-- POPULATION DENSITY -->
+  <agm-data-layer
+    [style]="stylesService.loadPopulationTileStyles"
+    [geoJson]=populationTiles
+  ></agm-data-layer>
 
-<!--load Zipline-->
+  <!-- DISTRICTS -->
+  <agm-data-layer
+    (layerClick)="clickedRegion($event)"
+    [style]=""
+    [geoJson]=regions
+  ></agm-data-layer>
+
+  <!---------------------------- POINTS ----------------------------->
+
+  <!--load Zipline-->
   <agm-marker
     [latitude]="-1.882"
     [longitude]="29.787"
@@ -63,6 +86,25 @@
   >
   </agm-marker>-->
 
+  <!-- INFO WINDOW on click event -->
+  <agm-marker [latitude]="infoLatitude" [longitude]="infoLongitude" [visible]="false">
+    <agm-info-window [disableAutoPan]="true" [isOpen]="infoVisible" #infoWindow>
+      <div *ngIf="infoGeoJsonObject">
+        <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW]</p>
+        <p *ngIf="infoGeoJsonObject.voltage_kV">Voltage: <strong>{{infoGeoJsonObject.voltage_kV}}</strong> [kV]</p>
+        <p *ngIf="infoGeoJsonObject.surface">Surface: <strong>{{infoGeoJsonObject.surface}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.highway">Road type: <strong>{{infoGeoJsonObject.highway}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.vicinity">Vicinity: <strong>{{infoGeoJsonObject.vicinity}}</strong></p>
+        <p *ngIf="infoGeoJsonObject.adm2">Province: <strong>{{infoGeoJsonObject.adm2}}</strong></p>
+
+      </div>
+    </agm-info-window>
+  </agm-marker>
+
+  <!---------------------------- CIRCLES ----------------------------->
+
   <agm-circle *ngFor="let powerPlant of powerPlants"
               [latitude]="powerPlant.latitude"
               [longitude]="powerPlant.longitude"
@@ -93,7 +135,7 @@
               [longitude]="airport.longitude"
               [circleDraggable]="false"
               [editable]="false"
-              [fillColor]="colors.airPortColor"
+              [fillColor]="airport.color"
               [fillOpacity]="0.8"
               [(radius)]="airport.radius"
               (circleClick)="clickedObject(airport)"
@@ -109,24 +151,8 @@
               [(radius)]="educationSite.radius"
               (circleClick)="clickedObject(educationSite)"
   ></agm-circle>
-
-
-
-  <!-- INFO WINDOW on click event -->
-  <agm-marker [latitude]="infoLatitude" [longitude]="infoLongitude" [visible]="false">
-    <agm-info-window [disableAutoPan]="true" [isOpen]="infoVisible" #infoWindow>
-      <div *ngIf="infoGeoJsonObject">
-        <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW]</p>
-        <p *ngIf="infoGeoJsonObject.voltage_kV">Voltage: <strong>{{infoGeoJsonObject.voltage_kV}}</strong> [kV]</p>
-        <p *ngIf="infoGeoJsonObject.surface">Surface: <strong>{{infoGeoJsonObject.surface}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.highway">Road type: <strong>{{infoGeoJsonObject.highway}}</strong></p>
-      </div>
-    </agm-info-window>
-  </agm-marker>
-
 </agm-map>
+
 
 <div class="infoPanel">
 
@@ -165,10 +191,27 @@
     <button class="loadButton" (click)="loadPopulationTiles()">
        Population Density
     </button>
+    <button class="loadButton" (click)="loadRegions()">
+      Provinces
+    </button>
 
   </div>
 
   <div class="infoPanelSection info">
+
+
+
+    <mgl-timeline>
+      <mgl-timeline-entry>
+
+
+
+        <mgl-timeline-entry-dot
+
+        ></mgl-timeline-entry-dot>
+      </mgl-timeline-entry>
+
+    </mgl-timeline>
 
     <div *ngIf="showziplineimg">
       <img src="../../assets/img/Zipline.png" width="100%"  >
@@ -190,8 +233,6 @@
       <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
       <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}} [MW]</strong></p>
       <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
-      <!--p *ngIf="infoGeoJsonObject.radius">DEBUG: radius: <strong>{{infoGeoJsonObject.radius}}</strong></p-->
-
     </div>
 
     <div class="canvasBlock">
