@@ -353,6 +353,11 @@ export class MapComponent implements OnInit {
         console.log('Loading aulaTerra data...\n', this.aulaTerra);
       });
     }
+
+    else {
+
+      this.aulaTerra = null;
+    }
   }
 
   // SCENARIO CONFIGURATIONS
