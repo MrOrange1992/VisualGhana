@@ -382,13 +382,20 @@ export class MapComponent implements OnInit {
         console.log('Loading aulaTerra data...\n', this.aulaTerra);
       });
     }
+
+    else {
+
+      this.aulaTerra = null;
+    }
   }
+
+
 
   loadAulaTerraRoadStyles() {
     return {
       strokeColor: Colors.aulaTerraColor,
       strokeOpacity: 1,
-      strokeWeight: 1
+      strokeWeight: 3
     };
 
   }
