@@ -5,7 +5,7 @@ export class BarChart {
   chart: Chart;
   type: string;
 
-  constructor (context: string, titleText: string, data: number[], labels: string[], colors: string[]) {
+  constructor (context: string, titleText: string, data: number[], labels: string[], colors: any) {
     this.chart = new Chart(context, {
       type: 'bar',
       data: {

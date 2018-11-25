@@ -1,12 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {Colors} from '../enums/Colors';
 
 
 @Injectable()
 export class StylesService {
 
-  constructor() { }
+  constructor() {}
 
+  educationTypeSelector;
+
+  getEducationTypeSelector(){ return this.educationTypeSelector; }
+  setEducationTypeSelector(educationTypeSelector){ this.educationTypeSelector = educationTypeSelector }
 
   loadOverLayStyles() {
     return {
@@ -111,5 +115,51 @@ export class StylesService {
       return { clickable: true, strokeWeight: 2, strokeColor: Colors.roadUnpavedColor };
     }
   }
+
+  loadPrimarySchoolsDistributionStyles(feature) {
+
+    return {
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 0.8,
+      fillColor: Colors.educationPrimarySchoolColor,
+      fillOpacity: feature.l.primaryschool / 100
+    }
+  }
+
+  loadMiddleSchoolsDistributionStyles(feature) {
+
+    return {
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 0.8,
+      fillColor: Colors.educationMiddleSchoolColor,
+      fillOpacity: feature.l.middleschool / 10
+    }
+  }
+
+  loadHighSchoolsDistributionStyles(feature) {
+
+    return {
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 0.8,
+      fillColor: Colors.educationHighSchoolColor,
+      fillOpacity: feature.l.highschool / 100
+    }
+  }
+
+  loadUniversitiesDistributionStyles(feature) {
+
+    return {
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 0.8,
+      fillColor: Colors.educationUniversityColor,
+      fillOpacity: feature.l.university / 100
+    }
+  }
+
+
 
 }

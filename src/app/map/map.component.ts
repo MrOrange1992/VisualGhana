@@ -7,8 +7,6 @@ import {PowerPlant} from '../entities/PowerPlant';
 import {HealthSite} from '../entities/HealthSite';
 import {Colors} from '../enums/Colors';
 import {Airport} from '../entities/Airport';
-import {EducationSite} from '../entities/EducationSite';
-import {SchoolTypes} from '../enums/SchoolTypes';
 import {BarChart} from '../charts/BarChart';
 import {StylesService} from './styles.service';
 import {EventService} from './event.service';
@@ -26,6 +24,7 @@ export class MapComponent implements OnInit {
   zoom;
   // property for custom map styles, edit in file ../assets/mapStyles.json
   public customMapStyles;
+  public educationDistributionStyles;
   // disables draggable map functionality
   mapDraggable = false;
 
@@ -34,7 +33,6 @@ export class MapComponent implements OnInit {
   healthSites: HealthSite[];
   powerPlants: PowerPlant[];
   airports: Airport[];
-  educationSites: EducationSite[];
 
   // LINE
   powerLines;
@@ -45,7 +43,10 @@ export class MapComponent implements OnInit {
   // POLYGON
   overlay;
   populationTiles;
-  regions;
+  districtsPrimarySchools;
+  districtsMiddleSchools;
+  districtsHighSchools;
+  districtsUniversities;
 
   // ONMAP INFO
   infoVisible = false;
@@ -58,15 +59,20 @@ export class MapComponent implements OnInit {
 
 
   // MISC
+  colors = Colors;
   latlngBounds: LatLngBoundsLiteral;
-
+  educationMode = false;
   stdRadius;
   showziplineimg = false;
   showmkopaimg = false;
   showdroneimg = false;
   showpegafricaimg = false;
 
-  constructor(private mapService: MapService, private stylesService: StylesService, private eventService: EventService) {}
+  constructor(
+    private mapService: MapService,
+    private stylesService: StylesService,
+    private eventService: EventService)
+  {}
 
   /**
    * Function is called on map initialize
@@ -241,85 +247,95 @@ export class MapComponent implements OnInit {
     }
   }
 
-
-
-  /*loadEducation() {
-    if (!this.educationSites)
-    {
-      this.educationSites = [];
-
-
-        this.mapService.loadData('primarySchools.json').subscribe(response =>
-        {
-          console.log(response['results']);
-          response['results'].map(feature => {
-            this.educationSites.push(new EducationSite(feature, SchoolTypes.primarySchool, this.getStdRadius(this.zoom)));
-          });
-          console.log(this.educationSites);
-
-          /*Object.keys(SchoolTypes).forEach(query => {
-            console.log(query);
-            this.mapService.loadEducation(query, [6, -1], 1000).subscribe(response => {
-              //console.log(response['results']);
-              response['results'].map(feature => {
-                this.educationSites.push(new EducationSite(feature, query, this.getStdRadius(this.zoom)));
-              });
-              console.log(this.educationSites);*/
-
-
-         /* if (this.chart) { this.chart.destroy(); }
-
-          const data = this.educationSites.map(site => site.type);
-          const primarySchool = data.filter(res => res === 'primarySchool').length;
-          const middleSchool = data.filter(res => res === 'middleSchool').length;
-          const highSchool = data.filter(res => res === 'highSchool').length;
-          const university = data.filter(res => res === 'university').length;
-
-          // labels
-          const labels = this.educationSites
-            .map(educationSite => educationSite.type)
-            .filter((index, value, plant) => plant.indexOf(index) === value);
-
-          // console.log(thermalCapacity, hydroCapacity, solarCapacity);
-
-          // create pie chart
-          const pieChart = new PieChart(
-            'chartCanvas',                                                      // Context
-            'doughnut',                                                         // Chart type
-            'School type distribution',                            // Chart title
-            [+primarySchool, +middleSchool, +highSchool, +university],                 // Data
-            labels,                                                             // Labels
-            [this.colors.educationSitePrimarySchoolColor, this.colors.educationSiteMiddleSchoolColor, this.colors.educationSiteHighSchoolColor, this.colors.educationSiteUniversityColor]    // Colors
-          );
-          if (this.chart) {
-            console.log('Destroying active chart...\n', this.chart);
-            this.chart.destroy();
-          }
-          this.chart = pieChart.chart;
-
-        });
-    } else {
-      if (this.chart) { this.chart.destroy(); }
-      this.educationSites = null;
-
-    }
-  }*/
-
-  loadRegions() {
-    if (!this.regions) {
-
-      this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
-        this.regions = resPolygonData;
-
-        console.log('Loading provinces...\n', this.regions);
-
-        resPolygonData['features'].forEach(feature => console.log(feature.properties.adm2));
-      });
-
-    }
+  loadEducation() {
+    if (!this.educationMode) this.educationMode = true;
     else {
+      this.educationMode = false;
+      this.districtsPrimarySchools = null;
+      this.districtsMiddleSchools = null;
+      this.districtsHighSchools = null;
+      this.districtsUniversities = null;
+    }
+  }
 
-      this.regions = null;
+  loadEducationDistribution(type) {
+    this.districtsPrimarySchools = null;
+    this.districtsMiddleSchools = null;
+    this.districtsHighSchools = null;
+    this.districtsUniversities = null;
+
+    switch (type) {
+      case 'primaryschool': {
+        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+          this.districtsPrimarySchools = resPolygonData;
+
+          if (this.chart) { this.chart.destroy(); }
+
+          this.chart = new BarChart(
+            'chartCanvas',
+            'Primary school distribution',
+            [],
+            [],
+            Colors.educationPrimarySchoolColor
+          ).chart;
+        });
+
+        break;
+      }
+
+      case 'middleschool': {
+        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+          this.districtsMiddleSchools = resPolygonData;
+
+          if (this.chart) { this.chart.destroy(); }
+
+          this.chart = new BarChart(
+            'chartCanvas',
+            'Middle school distribution',
+            [],
+            [],
+            Colors.educationMiddleSchoolColor
+          ).chart;
+        });
+
+        break;
+      }
+
+      case 'highschool': {
+        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+          this.districtsHighSchools = resPolygonData;
+
+          if (this.chart) { this.chart.destroy(); }
+
+          this.chart = new BarChart(
+            'chartCanvas',
+            'Middle school distribution',
+            [],
+            [],
+            Colors.educationHighSchoolColor
+          ).chart;
+        });
+
+        break;
+      }
+
+      case 'university': {
+        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+          this.districtsUniversities = resPolygonData;
+
+          if (this.chart) { this.chart.destroy(); }
+
+          this.chart = new BarChart(
+            'chartCanvas',
+            'Middle school distribution',
+            [],
+            [],
+            Colors.educationUniversityColor
+          ).chart;
+        });
+
+        break;
+      }
     }
   }
 
@@ -330,19 +346,11 @@ export class MapComponent implements OnInit {
         this.populationTiles = resPolygonData;
 
         console.log('Loading populationDensity data...\n', this.populationTiles);
-
-
       });
 
     }
-    else {
-
-      this.populationTiles = null;
-    }
+    else this.populationTiles = null;
   }
-
-
-
 
   loadAulaterraRoad () {
 
@@ -353,11 +361,7 @@ export class MapComponent implements OnInit {
         console.log('Loading aulaTerra data...\n', this.aulaTerra);
       });
     }
-
-    else {
-
-      this.aulaTerra = null;
-    }
+    else this.aulaTerra = null;
   }
 
   // SCENARIO CONFIGURATIONS
@@ -399,8 +403,6 @@ export class MapComponent implements OnInit {
     if (this.healthSites) { this.healthSites.forEach(site => site.radius = this.getStdRadius(actualZoom)); }
     if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom)); }
     if (this.airports) { this.airports.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
-    if (this.educationSites) { this.educationSites.forEach(edu => edu.radius = this.getStdRadius(actualZoom)); }
-
   }
 
   clickedObject(object) {
@@ -435,8 +437,32 @@ export class MapComponent implements OnInit {
     this.infoGeoJsonObject = event.feature.f;
   }
 
-  clickedRegion(event) {
-    console.log(event);
+  clickedDistricts(event, type) {
+
+    // add clicked district to chart data
+    function addData(chart, label, data) {
+      chart.data.labels.push(label);
+      chart.data.datasets.forEach((dataset) => dataset.data.push(data));
+      chart.update();
+    }
+
+    function removeFirstDataPoint(chart) {
+      chart.data.labels.splice(0,1);
+      chart.data.datasets.forEach((dataset) => dataset.data.splice(0,1));
+      chart.update();
+    }
+
+    // remove first data point if too many
+    if (this.chart.data.labels.length >= 3) removeFirstDataPoint(this.chart);
+
+    console.log(type);
+
+    switch(type){
+      case 'primaryschool': addData(this.chart, event.feature.l.adm2, event.feature.l.primaryschool); break;
+      case 'middleschool': addData(this.chart, event.feature.l.adm2, event.feature.l.middleschool); break;
+      case 'highschool': addData(this.chart, event.feature.l.adm2, event.feature.l.highschool); break;
+      case 'university': addData(this.chart, event.feature.l.adm2, event.feature.l.university); break;
+    }
   }
 
   mouseOverObject(object) {

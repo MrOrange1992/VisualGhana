@@ -45,11 +45,30 @@
     [geoJson]=populationTiles
   ></agm-data-layer>
 
-  <!-- DISTRICTS -->
+  <!-- EDUCATION DISTRIBUTION -->
+
   <agm-data-layer
-    (layerClick)="clickedRegion($event)"
-    [style]=""
-    [geoJson]=regions
+    [style]="stylesService.loadPrimarySchoolsDistributionStyles"
+    [geoJson]=districtsPrimarySchools
+    (layerClick)="clickedDistricts($event, 'primaryschool')"
+  ></agm-data-layer>
+
+  <agm-data-layer
+    [style]="stylesService.loadMiddleSchoolsDistributionStyles"
+    [geoJson]=districtsMiddleSchools
+    (layerClick)="clickedDistricts($event, 'middleschool')"
+  ></agm-data-layer>
+
+  <agm-data-layer
+    [style]="stylesService.loadHighSchoolsDistributionStyles"
+    [geoJson]=districtsHighSchools
+    (layerClick)="clickedDistricts($event, 'highschool')"
+  ></agm-data-layer>
+
+  <agm-data-layer
+    [style]="stylesService.loadUniversitiesDistributionStyles"
+    [geoJson]=districtsUniversities
+    (layerClick)="clickedDistricts($event, 'university')"
   ></agm-data-layer>
 
   <!---------------------------- POINTS ----------------------------->
@@ -141,16 +160,6 @@
               (circleClick)="clickedObject(airport)"
   ></agm-circle>
 
-  <agm-circle *ngFor="let educationSite of educationSites"
-              [latitude]="educationSite.latitude"
-              [longitude]="educationSite.longitude"
-              [circleDraggable]="false"
-              [editable]="false"
-              [fillColor]="educationSite.color"
-              [fillOpacity]="0.8"
-              [(radius)]="educationSite.radius"
-              (circleClick)="clickedObject(educationSite)"
-  ></agm-circle>
 </agm-map>
 
 
@@ -192,27 +201,38 @@
     <button class="loadButton" (click)="loadPopulationTiles()">
        Population Density
     </button>
-    <button class="loadButton" (click)="loadRegions()">
-      Provinces
-    </button>
 
   </div>
 
   <div class="infoPanelSection info">
 
+    <div *ngIf="educationMode" class="infoPanelSection clickable">
+      <button
+        class="loadButton"
+        (click)="loadEducationDistribution('primaryschool')"
+        [ngStyle]="{'background-color': colors.educationPrimarySchoolColor}">
+        Primary Schools
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadEducationDistribution('middleschool')"
+        [ngStyle]="{'background-color': colors.educationMiddleSchoolColor}">
+        Middle Schools
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadEducationDistribution('highschool')"
+        [ngStyle]="{'background-color': colors.educationHighSchoolColor}">
+        High Schools
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadEducationDistribution('university')"
+        [ngStyle]="{'background-color': colors.educationUniversityColor}">
+        Universities
+      </button>
+    </div>
 
-
-    <mgl-timeline>
-      <mgl-timeline-entry>
-
-
-
-        <mgl-timeline-entry-dot
-
-        ></mgl-timeline-entry-dot>
-      </mgl-timeline-entry>
-
-    </mgl-timeline>
 
     <div *ngIf="showziplineimg">
       <img src="../../assets/img/Zipline.png" width="100%"  >
