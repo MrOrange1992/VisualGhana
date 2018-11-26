@@ -24,6 +24,7 @@ export class MapComponent implements OnInit {
   zoom;
   // property for custom map styles, edit in file ../assets/mapStyles.json
   public customMapStyles;
+  public customMapStylesAulaTerra;
   public educationDistributionStyles;
   // disables draggable map functionality
   mapDraggable = false;
@@ -53,6 +54,8 @@ export class MapComponent implements OnInit {
   infoLatitude;
   infoLongitude;
   infoGeoJsonObject: Object;
+  markerVisible = false;
+  techmarkerVisible = false;
 
   // CHART
   chart;
@@ -67,6 +70,10 @@ export class MapComponent implements OnInit {
   showmkopaimg = false;
   showdroneimg = false;
   showpegafricaimg = false;
+  showaulaterraimg = false;
+  showKwasoKoraseimg = false;
+  showKwasoKoraseWaterimg = false;
+  showKwasoKoraseFilm = false;
 
   constructor(
     private mapService: MapService,
@@ -355,13 +362,36 @@ export class MapComponent implements OnInit {
   loadAulaterraRoad () {
 
     if(!this.aulaTerra){
-      this.mapService.loadData('accraKwaso.geojson').subscribe(resLineData => {
+      this.mapService.loadData('kwasoKorase.geojson').subscribe(resLineData => {
         this.aulaTerra = resLineData;
+        this.mapService.loadStyles('mapStylesAulaTerra.json').subscribe(data => this.customMapStylesAulaTerra = data );
 
         console.log('Loading aulaTerra data...\n', this.aulaTerra);
       });
     }
     else this.aulaTerra = null;
+
+    this.customMapStyles = this.customMapStyles.map(feature => {
+      //console.log(feature);
+      if (feature.elementType === 'geometry' && feature.featureType === 'road') {
+        console.log(feature);
+        return {
+          featureType: 'road',
+          elementType: 'geometry',
+          stylers: [
+            {
+              visibility: 'on'
+            },
+            {
+              color: '#7f8d89'
+            }
+          ]
+        };
+      } else {
+        return feature;
+
+      }
+    });
   }
 
   // SCENARIO CONFIGURATIONS
@@ -392,9 +422,23 @@ export class MapComponent implements OnInit {
       west: -3
     };
   }
+// load aulaterra config
 
+  loadAulaTerraConfig() {
+      this.latlngBounds = {
+        north: 6.6448,
+        east: -1.4223,
+        south: 6.604,
+        west: -1.5126
+      };
+  }
   // used to hide the info window when random location on map is clicked
-  clickedMap() { this.infoVisible = false; }
+  clickedMap() {
+    this.infoVisible = false;
+    this.markerVisible = false;
+    this.techmarkerVisible = false;
+    this.aulaTerra = false;
+  }
 
   zoomChange(actualZoom) {
     console.log('Zoom changed to: ', actualZoom);
@@ -431,10 +475,15 @@ export class MapComponent implements OnInit {
 
   clickedAulaTerraRoad(event) {
     console.log(event);
-    this.infoVisible = true;
-    this.infoLatitude = event.latLng.lat();
-    this.infoLongitude = event.latLng.lng();
-    this.infoGeoJsonObject = event.feature.f;
+
+    this.markerVisible = true;
+    else this.markerVisible = null;
+  }
+
+  clickedTechnology(event) {
+    console.log(event);
+    this.techmarkerVisible = true;
+
   }
 
   clickedDistricts(event, type) {
@@ -521,6 +570,45 @@ export class MapComponent implements OnInit {
 
     }
   }
+
+  loadaulaterraschool() {
+    if (this.showaulaterraimg) this.showaulaterraimg = false;
+    else {
+      this.showaulaterraimg = true;
+      this.showKwasoKoraseimg = false;
+
+    }
+  }
+
+  loadKwasoKorase() {
+    if (this.showKwasoKoraseimg) this.showKwasoKoraseimg = false;
+    else {
+      this.showKwasoKoraseimg = true;
+      this.showaulaterraimg = false;
+
+    }
+  }
+
+  loadKwasoKoraseWater() {
+    if (this.showKwasoKoraseWaterimg) this.showKwasoKoraseWaterimg = false;
+    else {
+      this.showKwasoKoraseWaterimg = true;
+      this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = false;
+
+    }
+  }
+
+  loadKwasoKoraseFilm() {
+    if (this.showKwasoKoraseFilm) this.showKwasoKoraseFilm = false;
+    else {
+      this.showKwasoKoraseFilm = true;
+      this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = false;
+
+    }
+  }
+
 
   getStdRadius(zoom) {
     // calculation for reasonable results for circle radius when zooming in

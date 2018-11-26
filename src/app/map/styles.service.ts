@@ -25,7 +25,7 @@ export class StylesService {
   loadAulaTerraRoadStyles() {
     return {
       strokeColor: Colors.aulaTerraColor,
-      strokeOpacity: 1,
+      strokeOpacity: 2,
       strokeWeight: 1
     };
   }
