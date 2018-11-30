@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MglTimelineModule } from 'angular-mgl-timeline';
 import {StylesService} from './map/styles.service';
 import {EventService} from './map/event.service';
+import { FilteryearPipe } from './pipes/filteryear.pipe';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import {EventService} from './map/event.service';
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
   ],
-  declarations: [ AppComponent, MapComponent],
+  declarations: [ AppComponent, MapComponent, FilteryearPipe],
   bootstrap: [ AppComponent ],
   providers: [
     MapService,

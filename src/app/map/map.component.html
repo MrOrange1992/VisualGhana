@@ -35,6 +35,7 @@
     (layerClick)="clickedAulaTerraRoad($event)"
     [style]="stylesService.loadAulaTerraRoadStyles"
     [geoJson]="aulaTerra"
+
   ></agm-data-layer>
 
   <!---------------------------- POLYGONS ----------------------------->
@@ -81,6 +82,18 @@
   <!---------------------------- POINTS ----------------------------->
 
   <!--Aula Terra points-->
+
+  <!--Kwaso points-->
+  <agm-marker
+    [latitude]="6.638786580458306"
+    [longitude]="-1.4502972364425657"
+    (markerClick)="loadKwasoRoad()"
+    [visible]="markerVisible"
+    iconUrl="../../assets/img/camera.png"
+
+  >
+  </agm-marker>
+
   <!--Korase points-->
   <agm-marker
     [latitude]="6.617797376164622"
@@ -88,6 +101,17 @@
     (markerClick)="loadaulaterraschool()"
     [visible]="markerVisible"
     iconUrl="../../assets/img/camera.png"
+
+  >
+  </agm-marker>
+
+  <!--Korase entry points-->
+  <agm-marker
+    [latitude]="6.617307137821674"
+    [longitude]="-1.4318382740020752"
+    (markerClick)="loadKoraseEntry()"
+    [visible]="markerVisible"
+    iconUrl="../../assets/img/film.png"
 
   >
   </agm-marker>
@@ -114,11 +138,33 @@
   >
   </agm-marker>
 
+  <!--Kwaso-Korase-water-film points-->
+  <agm-marker
+    [latitude]="6.623680198310998"
+    [longitude]="-1.4390158653259277"
+    (markerClick)="loadWaterFilm()"
+    [visible]="markerVisible"
+    iconUrl="../../assets/img/film.png"
+
+  >
+  </agm-marker>
+
   <!--Kwaso-Korasefilm-->
   <agm-marker
     [latitude]="6.619864897734731"
     [longitude]="-1.4338821172714233"
     (markerClick)="loadKwasoKoraseFilm()"
+    [visible]="markerVisible"
+    iconUrl="../../assets/img/film.png"
+
+  >
+  </agm-marker>
+
+  <!--Bikefilm-->
+  <agm-marker
+    [latitude]="6.6216499931562405"
+    [longitude]="-1.4352178573608398"
+    (markerClick)="loadBikeFilm()"
     [visible]="markerVisible"
     iconUrl="../../assets/img/film.png"
 
@@ -179,22 +225,23 @@
     </agm-info-window>
   </agm-marker>
 
+
   <!---------------------------- CIRCLES ----------------------------->
+    <agm-circle *ngFor="let powerPlant of (powerPlants | filteryear : activeTimeLineYear)"
+                [latitude]="powerPlant.latitude"
+                [longitude]="powerPlant.longitude"
+                [circleDraggable]="false"
+                [editable]="false"
+                [fillColor]="powerPlant.color"
+                [fillOpacity]="0.8"
+                [radius]="powerPlant.radius"
+                (circleClick)="clickedObject(powerPlant)"
+                (mouseOver)="mouseOverObject(powerPlant)"
+                (mouseOut)="mouseOutObject(powerPlant)"
+    ></agm-circle>
 
-  <agm-circle *ngFor="let powerPlant of powerPlants"
-              [latitude]="powerPlant.latitude"
-              [longitude]="powerPlant.longitude"
-              [circleDraggable]="false"
-              [editable]="false"
-              [fillColor]="powerPlant.color"
-              [fillOpacity]="0.8"
-              [radius]="powerPlant.radius"
-              (circleClick)="clickedObject(powerPlant)"
-              (mouseOver)="mouseOverObject(powerPlant)"
-              (mouseOut)="mouseOutObject(powerPlant)"
-  ></agm-circle>
 
-  <agm-circle *ngFor="let healthSite of healthSites"
+  <agm-circle *ngFor="let healthSite of filteredHealthSites"
               [latitude]="healthSite.latitude"
               [longitude]="healthSite.longitude"
               [circleDraggable]="false"
@@ -222,14 +269,9 @@
 
 <div class="infoPanel">
 
-  <div class="infoPanelSection title">
+  <div class="infoPanelSection title" onClick="history.go(0)"  >
     VISUAL GHANA
 
-    <div class="aulaterraButton" (click)="loadAulaterraRoad()"  (click)="loadAulaTerraConfig()" (click)="clickedAulaTerraRoad()" >
-      <img src="../../assets/img/aulaterra.jpeg" width="100%" height="200%"  >
-
-      Aulaterra
-    </div>
   </div>
 
   <div class="infoPanelSection szenarios">
@@ -242,22 +284,26 @@
     <div class="szenarioButton concepteButton" (click)="loadConceptConfig()">
         Forecast
     </div>
+    <div class="szenarioButton aulaterraButton" (click)="loadAulaterraRoad()"  (click)="loadAulaTerraConfig()" (click)="clickedAulaTerraRoad()" >
+      <img src="../../assets/img/aulaterra.jpeg" width="100%" height="100%"  >
+
+    </div>
   </div>
 
   <div class="infoPanelSection clickable">
     <button class="loadButton loadPower" (click)="loadPower()">
        Power
     </button>
-    <button class="loadButton loadHealthSite" (click)="loadHealthSites()">
+    <button class="loadButton loadHealthSite" (click)="prepareHealthSites()">
        Health Sites
     </button>
     <button class="loadButton loadTransportation" (click)="loadTransportation()">
        Transportation
     </button>
-    <button class="loadButton" (click)="loadEducation()">
+    <button class="loadButton loadEducation" (click)="loadEducation()">
        Education
     </button>
-    <button class="loadButton" (click)="loadPopulationTiles()">
+    <button class="loadButton loadPopulation" (click)="loadPopulationTiles()">
        Population Density
     </button>
 
@@ -292,6 +338,35 @@
       </button>
     </div>
 
+    <div *ngIf="healthMode" class="infoPanelSection clickable">
+      <button
+      class="loadButton"
+      (click)="loadHealthSiteType('Hospital')"
+      [ngStyle]="{'background-color': colors.hospitalColor}">
+      Hospitals
+    </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthSiteType('Clinic')"
+        [ngStyle]="{'background-color': colors.clinicColor}">
+        Clinics
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthSiteType('Children Healthcare')"
+        [ngStyle]="{'background-color': colors.maternityColor}">
+        Children Healthcare
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthSiteType('Others')"
+        [ngStyle]="{'background-color': '#000'}">
+        Others
+      </button>
+
+
+    </div>
+
 
     <div *ngIf="showziplineimg">
       <img src="../../assets/img/Zipline.png" width="100%"  >
@@ -317,6 +392,10 @@
       <img src="../../assets/img/kwasoKorasePOI.jpeg" width="100%" >
     </div>
 
+    <div *ngIf="showKwasoRoad">
+      <img src="../../assets/img/kwasoRoad.jpg" width="100%" >
+    </div>
+
     <div *ngIf="showKwasoKoraseWaterimg">
       <img src="../../assets/img/kwasoKoraseWater.jpg" width="100%" >
     </div>
@@ -324,7 +403,28 @@
     <div *ngIf="showKwasoKoraseFilm">
 
       <video width="100%" controls Autoplay=autoplay>
-        <source src="../../assets/img/road.mp4" type="video/mp4">
+        <source src="../../assets/img/roadPeople.mp4" type="video/mp4">
+      </video>
+    </div>
+
+      <div *ngIf="showKoraseEntry">
+
+    <video width="100%" controls Autoplay=autoplay>
+      <source src="../../assets/img/entryKorase.mp4" type="video/mp4">
+    </video>
+  </div>
+
+    <div *ngIf="showWaterFilm">
+
+      <video width="100%" controls Autoplay=autoplay>
+        <source src="../../assets/img/water.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div *ngIf="showBikeFilm">
+
+      <video width="100%" controls Autoplay=autoplay>
+        <source src="../../assets/img/bike.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -341,6 +441,34 @@
   </div>
 
 
+
+
+
+</div>
+
+<div class="timeLineWindow">
+
+  <!--div id="timeline"-->
+  <div>
+
+    <!--ul  *ngFor="let year of years">
+      <!--li><a href="#1965" class="selected">1965</a></li>
+      <li><a href="#{{year}}">{{year}}</a></li>
+
+
+    </ul-->
+    <ul *ngFor="let year of years">
+      <!--li id="1965" class="selected">
+        <h1>1965</h1>
+      </li-->
+      <li id="{{year}}">
+        <h1 (click)="clickedYear(year)">{{year}}</h1>
+      </li>
+    </ul>
+
+    <!--a href="#" id="next">+</a>
+    <a href="#" id="prev">-</a-->
+  </div>
 
 </div>
 

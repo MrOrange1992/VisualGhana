@@ -30,8 +30,13 @@ export class MapComponent implements OnInit {
   // AGM DATA LAYER OBJECTS
   // POINT
   healthSites: HealthSite[];
+  filteredHealthSites: HealthSite[];
   powerPlants: PowerPlant[];
   airports: Airport[];
+  //hospitals;
+  //clinics;
+  //maternities;
+  //otherHealthsites;
 
   // LINE
   powerLines;
@@ -63,7 +68,23 @@ export class MapComponent implements OnInit {
   colors = Colors;
   latlngBounds: LatLngBoundsLiteral;
   educationMode = false;
+  healthMode = false;
   stdRadius;
+  activeTimeLineYear = 2018;
+  years: number[] =  Array(
+1965,
+    1982,
+    2000,
+    2008,
+    2010,
+    2013,
+    2016,
+    2017,
+    2020,
+    2030,
+    2040,
+    2050
+  );
   showziplineimg = false;
   showmkopaimg = false;
   showdroneimg = false;
@@ -72,6 +93,10 @@ export class MapComponent implements OnInit {
   showKwasoKoraseimg = false;
   showKwasoKoraseWaterimg = false;
   showKwasoKoraseFilm = false;
+  showKoraseEntry = false;
+  showWaterFilm = false;
+  showBikeFilm = false;
+  showKwasoRoad = false;
 
   constructor(
     private mapService: MapService,
@@ -96,45 +121,87 @@ export class MapComponent implements OnInit {
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
 
-    this.mapService.loadData('ghanaRoads.geojson').subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
+    //this.mapService.loadData('ghanaRoads.geojson').subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
     }
 
-  /**
-   * Load / reset data for healthsites to be displayed
-   * Completeness specifies the completeness of attributes for each object/entry
-   */
-  loadHealthSites() {
 
-    if (this.healthSites) {
-      this.healthSites = null;
-      if (this.chart) { this.chart.destroy(); }
-    } else {
+
+  prepareHealthSites() {
+    if (!this.healthMode) {
+      this.healthMode = true;
 
       this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
+
         const healthSiteData = resPointData;
         console.log('Loading healthsites...', healthSiteData);
+
 
         this.healthSites = healthSiteData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
 
         // Destroy any chart if existing
-        if (this.chart) { this.chart.destroy(); }
+        if (this.chart) this.chart.destroy();
 
         const data = this.healthSites.map(site => site.type);
-        const clinicCount = data.filter(res => res === 'clinic').length;
-        const hospitalCount = data.length - clinicCount;
+
+        const clinicCount = data.filter(res => res === 'Clinic').length;
+        const hospitalCount = data.filter(res =>
+          res === 'Hospitals' ||
+          res === 'District Hospital' ||
+          res === 'Health Centre' ||
+          res === 'Regional Hospital').length;
+        const maternityCount = data.filter(res => res === 'Maternity Home' || res === 'RCH').length;
+        const otherlenght = data.length - clinicCount - hospitalCount - maternityCount;
         // console.log(data, clinicCount, hospitalCount);
 
         const pieChart = new PieChart(
           'chartCanvas',
           'doughnut',
           'Healthsite Type Distribution',
-          [clinicCount, hospitalCount],
-          ['Clinic', 'Hospital'],
-          [Colors.clinicColor, Colors.hospitalColor]
+          [clinicCount, hospitalCount, maternityCount, otherlenght],
+          ['Clinic', 'Hospital', 'Children Healthcare', 'Others'],
+          [Colors.clinicColor, Colors.hospitalColor, Colors.maternityColor, '#000']
         );
 
         this.chart = pieChart.chart;
       });
+
+
+    }
+    else {
+      this.healthMode = false;
+      this.healthSites = null;
+    }
+  }
+
+  loadHealthSiteType(type) {
+    this.filteredHealthSites = null;
+    switch (type) {
+      case 'Hospital':
+        console.log(this.healthSites.length);
+        this.filteredHealthSites = this.healthSites.filter(site =>
+          site.type === 'Hospitals' ||
+          site.type === 'District Hospital' ||
+          site.type === 'Health Centre' ||
+          site.type === 'Regional Hospital');
+
+        break;
+      case 'Clinic':
+        console.log(this.healthSites.length);
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
+        break;
+      case 'Children Healthcare':
+        console.log(this.healthSites.filter(site => site.type === type));
+        this.filteredHealthSites = this.healthSites.filter(site =>
+          site.type === 'Maternity Home' ||
+          site.type === 'RCH');
+        break;
+      case 'Others':
+        console.log(this.healthSites.length);
+        this.filteredHealthSites = this.healthSites.filter(site =>
+          site.type === 'CHPS');
+        break;
+      default:
+        console.log('Unknown healthsite type specified: ' + type.toString());
     }
 
   }
@@ -208,16 +275,19 @@ export class MapComponent implements OnInit {
         // Prepare data for pie chart
         const thermalCapacity = this.powerPlants
           .filter(res => res.type === 'Thermal')
+          .filter(res => res.yearCompleted <= this.activeTimeLineYear)
           .map(a => a.capacity)
           .reduceRight((first, next) => first + next);
 
         const hydroCapacity = this.powerPlants
           .filter(res => res.type === 'Hydroelectric')
+          .filter(res => res.yearCompleted <= this.activeTimeLineYear)
           .map(a => a.capacity)
           .reduceRight((first, next) => first + next);
 
         const solarCapacity = this.powerPlants
           .filter(res => res.type === 'Solar Power')
+          .filter(res => res.yearCompleted <= this.activeTimeLineYear)
           .map(a => a.capacity)
           .reduceRight((first, next) => first + next)
           .toFixed(0);
@@ -227,7 +297,16 @@ export class MapComponent implements OnInit {
           .map(powerPlant => powerPlant.type)
           .filter((index, value, plant) => plant.indexOf(index) === value);
 
-        // console.log(thermalCapacity, hydroCapacity, solarCapacity);
+
+        /*
+        type tupleType = [string, number];
+
+        const thermalTuple: tupleType = ['Thermal', +thermalCapacity];
+        const hydroTuple: tupleType = ['Thermal', +hydroCapacity];
+        const solarTuple: tupleType = ['Thermal', +solarCapacity];
+
+        const values = Array(thermalTuple, hydroTuple, solarTuple).sort(((n1[2], n2[2]) => n1[2] - n2[2]));
+        */
 
         // create pie chart
         const barChart = new BarChart(
@@ -427,7 +506,7 @@ export class MapComponent implements OnInit {
         north: 6.6448,
         east: -1.4223,
         south: 6.604,
-        west: -1.5126
+        west: -1.490
       };
   }
   // used to hide the info window when random location on map is clicked
@@ -475,7 +554,7 @@ export class MapComponent implements OnInit {
     console.log(event);
 
     this.markerVisible = true;
-    //else this.markerVisible = null;
+    this.markerVisible = null;
   }
 
   clickedTechnology(event) {
@@ -511,6 +590,47 @@ export class MapComponent implements OnInit {
       case 'university': addData(this.chart, event.feature.l.adm2, event.feature.l.university); break;
     }
   }
+
+  clickedYear(year) {
+
+    console.log('clicked Timeline: ' + year.toString());
+    this.activeTimeLineYear = year;
+
+
+    // Prepare data for pie chart
+    const thermalCapacity = this.powerPlants
+      .filter(res => res.type === 'Thermal')
+      .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+      .map(a => a.capacity)
+      .reduceRight((first, next) => first + next);
+
+    const hydroCapacity = this.powerPlants
+      .filter(res => res.type === 'Hydroelectric')
+      .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+      .map(a => a.capacity)
+      .reduceRight((first, next) => first + next);
+
+    const solarCapacity = this.powerPlants
+      .filter(res => res.type === 'Solar Power')
+      .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+      .map(a => a.capacity)
+      .reduceRight((first, next) => first + next)
+      .toFixed(0);
+
+
+
+
+
+    this.chart.data.datasets.forEach((dataset) => dataset.data.push([+thermalCapacity, +hydroCapacity, +solarCapacity]));
+    this.chart.update();
+
+
+
+
+
+
+  }
+
 
   mouseOverObject(object) {
     console.log('Mouse over object!\n', object);
@@ -572,8 +692,29 @@ export class MapComponent implements OnInit {
   loadaulaterraschool() {
     if (this.showaulaterraimg) this.showaulaterraimg = false;
     else {
+      this.showBikeFilm = false;
       this.showaulaterraimg = true;
       this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = false;
+
+    }
+  }
+
+  loadKwasoRoad() {
+    if (this.showKwasoRoad) this.showKwasoRoad = false;
+    else {
+      this.showBikeFilm = false;
+      this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = true;
 
     }
   }
@@ -581,8 +722,14 @@ export class MapComponent implements OnInit {
   loadKwasoKorase() {
     if (this.showKwasoKoraseimg) this.showKwasoKoraseimg = false;
     else {
-      this.showKwasoKoraseimg = true;
+      this.showBikeFilm = false;
       this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = true;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = false;
 
     }
   }
@@ -590,9 +737,14 @@ export class MapComponent implements OnInit {
   loadKwasoKoraseWater() {
     if (this.showKwasoKoraseWaterimg) this.showKwasoKoraseWaterimg = false;
     else {
-      this.showKwasoKoraseWaterimg = true;
+      this.showBikeFilm = false;
       this.showaulaterraimg = false;
       this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = true;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = false;
 
     }
   }
@@ -600,12 +752,63 @@ export class MapComponent implements OnInit {
   loadKwasoKoraseFilm() {
     if (this.showKwasoKoraseFilm) this.showKwasoKoraseFilm = false;
     else {
-      this.showKwasoKoraseFilm = true;
+      this.showBikeFilm = false;
       this.showaulaterraimg = false;
       this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = true;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = false;
 
     }
   }
+
+  loadKoraseEntry() {
+    if (this.showKoraseEntry) this.showKoraseEntry = false;
+    else {
+      this.showBikeFilm = false;
+      this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = true;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = false;
+
+    }
+  }
+
+  loadWaterFilm() {
+    if (this.showWaterFilm) this.showWaterFilm = false;
+    else {
+      this.showBikeFilm = false;
+      this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = true;
+      this.showKwasoRoad = false;
+
+    }
+  }
+
+  loadBikeFilm() {
+    if (this.showBikeFilm) this.showBikeFilm = false;
+    else {
+      this.showBikeFilm = true;
+      this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = false;
+
+    }
+  }
+
 
 
   getStdRadius(zoom) {

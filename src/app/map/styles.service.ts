@@ -112,7 +112,7 @@ export class StylesService {
     ) {
       return {clickable: true, strokeWeight: 1, strokeColor: Colors.roadPavedColor};
     } else {
-      return { clickable: true, strokeWeight: 2, strokeColor: Colors.roadUnpavedColor };
+      return { clickable: true, strokeWeight: 1, strokeColor: Colors.roadUnpavedColor };
     }
   }
 

@@ -4,25 +4,31 @@ export class HealthSite {
   name: string;
   latitude: number;
   longitude: number;
-  completeness: number;
   type: string;
+  ownership: string;
+  district: string;
   private _color: string;
   private _radius: number;
 
   constructor(feature, radius: number) {
-    this.name = feature.properties.name;
+    this.name = feature.properties.FaciltyName;
     this.latitude = +feature.geometry.coordinates[1];
     this.longitude = +feature.geometry.coordinates[0];
-    this.completeness = +feature.properties.completeness.slice(0, -1);
-    this.type = feature.properties.type;
+    this.type = feature.properties.Type;
     this._radius = radius;
 
-    if (feature.properties.type === 'clinic') {
+    if (feature.properties.Type === 'Clinic') {
       this._color = Colors.clinicColor;
-    } else if (feature.properties.type === 'hospital') {
+    } else if (feature.properties.Type === 'Hospital' ||
+      feature.properties.Type === 'District Hospital' ||
+      feature.properties.Type === 'Health Centre' ||
+      feature.properties.Type === 'Regional Hospital') {
       this._color =  Colors.hospitalColor;
-    } else {
-      this._color =  Colors.hospitalColor;
+    } else if (feature.properties.Type === 'Maternity Home' ||
+      feature.properties.Type === 'RCH')
+      this._color = Colors.maternityColor;
+    else {
+      this._color =  '#000';
     }
   }
 

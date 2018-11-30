@@ -493,6 +493,855 @@
         "yearCompleted": 2013,
         "type": "Solar Power"
       }
+    },
+
+    {
+      "geometry": {
+        "coordinates": [
+          -2.7496719360351562,
+          10.997142116308444
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0.01,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.76031494140625,
+          10.859269573489106
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0.3,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.7084732055664062,
+          10.850165714234954
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.6882171630859375,
+          10.976920330393234
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.7318191528320312,
+          10.776313074671757
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.340087890625,
+          10.941191793456522
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.4042892456054688,
+          10.861292615648182
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.2212982177734375,
+          10.980964798406333
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.7859649658203125,
+          10.647786594787553
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.031097412109375,
+          10.702442312228573
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.2857437133789062,
+          10.73516355399347
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.8347167968750002,
+          9.97967088558205
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.527099609375,
+          10.098670120603392
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.2805938720703125,
+          10.23857310022179
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2020,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.28814697265625,
+          10.14193168613103
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.28265380859375,
+          10.027005365174599
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.3787841796874998,
+          9.538457618319674
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.421600341796875,
+          9.929624096148341
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.215606689453125,
+          9.92827137382399
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.10711669921875,
+          10.466205555063882
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.37078857421875,
+          10.552621801948721
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.0164794921875,
+          10.287896197088958
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.1043701171875,
+          9.60887417379781
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.0164794921875,
+          9.462608141517805
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.34606933593749994,
+          9.213271266974521
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.14556884765625,
+          8.700499129275828
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.0384521484375,
+          8.85522059144095
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.17852783203125,
+          8.703214095359394
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.02197265625,
+          8.548429781881927
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.8539428710937498,
+          10.137876162180557
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2030,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.78802490234375,
+          9.080400104155315
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.7410888671875,
+          7.819847426192587
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.79327392578125,
+          7.544932807153521
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.333465576171875,
+          5.874233885400152
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.285400390625,
+          5.704814473185652
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.539459228515625,
+          5.618719211551533
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.76629638671875,
+          5.773134857924344
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.7529067993164062,
+          5.644002482243414
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.0006866455078125,
+          8.654341698550427
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.1778411865234375,
+          10.853537546298755
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.05973815917968749,
+          10.143283516037895
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.2877044677734375,
+          10.142607601797696
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2040,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.33096313476562494,
+          10.217625353199578
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -1.9679260253906248,
+          10.304785899037453
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.65643310546875,
+          8.229159679427793
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.8843994140625,
+          8.002117033082156
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.248565673828125,
+          8.2536236403235
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.14007568359375,
+          8.153039937210457
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.308990478515625,
+          7.924594291794748
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -2.819366455078125,
+          5.819588021308272
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.036346435546875,
+          6.125535041789388
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.0919647216796875,
+          6.666653574466242
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -3.0438995361328125,
+          6.991177641747396
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "capacity(MW)": 0,
+        "yearCompleted": 2050,
+        "community": "",
+        "type": "Solar Power"
+      },
+      "type": "Feature"
     }
   ]
 }
