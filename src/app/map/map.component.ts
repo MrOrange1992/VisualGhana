@@ -26,8 +26,6 @@ export class MapComponent implements OnInit {
   public customMapStyles;
   public customMapStylesAulaTerra;
   public educationDistributionStyles;
-  // disables draggable map functionality
-  mapDraggable = false;
 
   // AGM DATA LAYER OBJECTS
   // POINT
@@ -477,7 +475,7 @@ export class MapComponent implements OnInit {
     console.log(event);
 
     this.markerVisible = true;
-    else this.markerVisible = null;
+    //else this.markerVisible = null;
   }
 
   clickedTechnology(event) {

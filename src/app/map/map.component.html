@@ -3,7 +3,13 @@
   [styles]="customMapStyles"
   [zoom]="zoom"
   [fitBounds]="latlngBounds"
+  [disableDefaultUI]="true"
   [mapDraggable]="true"
+  [zoomControl]="false"
+  [scaleControl]="false"
+  [streetViewControl]="false"
+  [rotateControl]="false"
+  [fullscreenControl]="false"
   (mapClick)="clickedMap($event)"
   (zoomChange)="zoomChange($event)"
 >
