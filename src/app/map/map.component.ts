@@ -81,6 +81,7 @@ export class MapComponent implements OnInit {
     2040,
     2050
   );
+  foreCastMode = false;
   showziplineimg = false;
   showmkopaimg = false;
   showdroneimg = false;
@@ -124,7 +125,7 @@ export class MapComponent implements OnInit {
 
 
   prepareHealthSites() {
-    this.resetMap();
+
 
     this.healthMode = true;
 
@@ -195,7 +196,7 @@ export class MapComponent implements OnInit {
   }
 
   loadTransportation() {
-    this.resetMap();
+
     this.mapService.loadData('ghanaRoads.geojson').subscribe(result => {
       console.log('Loading road data ...');
       this.roadData = result;
@@ -226,7 +227,7 @@ export class MapComponent implements OnInit {
    * Load / reset data for power related data to be displayed
    */
   loadPower() {
-    this.resetMap();
+
     // Load power line data
     this.mapService.loadData('ghanaPowerLines.geojson').subscribe(resLineData => {
       this.powerLines = resLineData;
@@ -296,7 +297,7 @@ export class MapComponent implements OnInit {
   }
 
   prepareEducation() {
-    this.resetMap();
+
     this.educationMode = true;
   }
 
@@ -377,7 +378,7 @@ export class MapComponent implements OnInit {
   }
 
   loadPopulationTiles() {
-    this.resetMap();
+
 
     this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
       this.populationTiles = resPolygonData;
@@ -388,7 +389,7 @@ export class MapComponent implements OnInit {
 
   loadAulaterraRoad () {
 
-    this.resetMap();
+
 
     if(!this.aulaTerra){
       this.mapService.loadData('kwasoKorase.geojson').subscribe(resLineData => {
@@ -426,6 +427,7 @@ export class MapComponent implements OnInit {
   // SCENARIO CONFIGURATIONS
   // load Infrastructure config
   loadInfrastructureConfig() {
+    this.resetMap();
     this.latlngBounds = {
       north: 11,
       east: 0,
@@ -435,6 +437,7 @@ export class MapComponent implements OnInit {
   }
   // load Technology config
   loadTechnologyConfig() {
+    this.resetMap();
     this.latlngBounds = {
       north: 18,
       east: 20,
@@ -444,11 +447,27 @@ export class MapComponent implements OnInit {
   }
   // load Concept config
   loadConceptConfig() {
+    this.resetMap();
     this.latlngBounds = {
-      north: 7,
-      east: -1,
-      south: 6,
-      west: -3
+      north: 11,
+      east: 0,
+      south: 4,
+      west: -7
+    };
+    if (this.foreCastMode) this.foreCastMode = false;
+    else {
+      this.foreCastMode = true;
+    }
+  }
+
+  // load ghost config
+  loadGhostConfig() {
+    this.resetMap();
+    this.latlngBounds = {
+      north: 9,
+      east: -0.28,
+      south: 5.62,
+      west: -2.64
     };
   }
 // load aulaterra config
@@ -767,8 +786,10 @@ export class MapComponent implements OnInit {
     this.educationMode = false;
     this.healthMode = false;
     this.infoGeoJsonObject = null;
-
-
+    this.markerVisible = false;
+    this.techmarkerVisible = false;
+    this.foreCastMode = false;
+   //
     this.healthSites = null;
     this.filteredHealthSites= null;
     this.powerPlants = null;

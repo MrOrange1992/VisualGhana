@@ -18,7 +18,7 @@ export class BarChart {
       },
       options: {
         legend: {
-          display: true,
+          display: false,
           labels: {
             fontColor: 'white'
           }

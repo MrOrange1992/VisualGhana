@@ -18005,81 +18005,6 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -0.31051,5.30355 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Awutu Senya",
-    "FacilityName":"Chirsty's Maternity Home",
-    "Type":"Maternity Home",
-    "Town":"Senya Bereku",
-    "Ownership":"Private"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -0.31051,5.30355 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Awutu Senya",
-    "FacilityName":"Marfred Maternity Home",
-    "Type":"Maternity Home",
-    "Town":"",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -0.31051,5.30355 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Awutu Senya",
-    "FacilityName":"Mighty Crag Marternity Home",
-    "Type":"Maternity Home",
-    "Town":"",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -0.2626,5.32045 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Awutu Senya",
-    "FacilityName":"Wesely Maternity Home",
-    "Type":"Maternity Home",
-    "Town":"Kasoa",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -0.30544,5.30437 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Awutu Senya",
-    "FacilityName":"Thinking Clinic",
-    "Type":"Clinic",
-    "Town":"Senya Bereku",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
        "coordinates":  [ -0.30544,5.30437 ]
     },
     "properties": {
@@ -18740,21 +18665,6 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -0.3727,5.20189 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Efutu Municipal",
-    "FacilityName":"Winniba Health Centre",
-    "Type":"Health Centre",
-    "Town":"Winneba",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
        "coordinates":  [ -0.37295,5.20174 ]
     },
     "properties": {
@@ -18764,21 +18674,6 @@
     "Type":"DHD",
     "Town":"Winneba",
     "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -0.37478,5.22095 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Efutu Municipal",
-    "FacilityName":"University Clinic",
-    "Type":"Clinic",
-    "Town":"Winneba",
-    "Ownership":"Quasi-Government"
     }
   },
   {

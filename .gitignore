@@ -43,3 +43,5 @@ Thumbs.db
 
 src/assets/private/apiKey.txt
 src/assets/private/googleMapsData.json
+
+src/assets/data/educationData.json
