@@ -43,7 +43,7 @@ export class MapComponent implements OnInit {
   overlay;
   populationTiles;
   districtsPrimarySchools;
-  districtsMiddleSchools;
+  //districtsMiddleSchools;
   districtsHighSchools;
   districtsUniversities;
 
@@ -302,6 +302,10 @@ export class MapComponent implements OnInit {
   }
 
   loadEducationDistribution(type) {
+    this.districtsPrimarySchools = null;
+    this.districtsHighSchools = null;
+    this.districtsUniversities = null;
+
     switch (type) {
       case 'primaryschool': {
         this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
@@ -321,6 +325,7 @@ export class MapComponent implements OnInit {
         break;
       }
 
+      /*
       case 'middleschool': {
         this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
           this.districtsMiddleSchools = resPolygonData;
@@ -338,6 +343,7 @@ export class MapComponent implements OnInit {
 
         break;
       }
+      */
 
       case 'highschool': {
         this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
@@ -347,7 +353,7 @@ export class MapComponent implements OnInit {
 
           this.chart = new BarChart(
             'chartCanvas',
-            'Middle school distribution',
+            'High school distribution',
             [],
             [],
             Colors.educationHighSchoolColor
@@ -365,7 +371,7 @@ export class MapComponent implements OnInit {
 
           this.chart = new BarChart(
             'chartCanvas',
-            'Middle school distribution',
+            'University distribution',
             [],
             [],
             Colors.educationUniversityColor
@@ -539,7 +545,7 @@ export class MapComponent implements OnInit {
 
     function removeFirstDataPoint(chart) {
       chart.data.labels.splice(0,1);
-      chart.data.datasets.forEach((dataset) => dataset.data.splice(0,1));
+      chart.data.datasets.forEach((dataset) => dataset.data.splice(0, 1));
       chart.update();
     }
 
@@ -548,9 +554,9 @@ export class MapComponent implements OnInit {
 
     console.log(type);
 
-    switch(type){
+    switch (type) {
       case 'primaryschool': addData(this.chart, event.feature.l.adm2, event.feature.l.primaryschool); break;
-      case 'middleschool': addData(this.chart, event.feature.l.adm2, event.feature.l.middleschool); break;
+      //case 'middleschool': addData(this.chart, event.feature.l.adm2, event.feature.l.middleschool); break;
       case 'highschool': addData(this.chart, event.feature.l.adm2, event.feature.l.highschool); break;
       case 'university': addData(this.chart, event.feature.l.adm2, event.feature.l.university); break;
     }
@@ -561,38 +567,33 @@ export class MapComponent implements OnInit {
     console.log('clicked Timeline: ' + year.toString());
     this.activeTimeLineYear = year;
 
-
     // Prepare data for pie chart
     const thermalCapacity = this.powerPlants
       .filter(res => res.type === 'Thermal')
       .filter(res => res.yearCompleted <= this.activeTimeLineYear)
       .map(a => a.capacity)
-      .reduceRight((first, next) => first + next);
+      .reduceRight((first, next) => first + next, 0);
 
     const hydroCapacity = this.powerPlants
       .filter(res => res.type === 'Hydroelectric')
       .filter(res => res.yearCompleted <= this.activeTimeLineYear)
       .map(a => a.capacity)
-      .reduceRight((first, next) => first + next);
+      .reduceRight((first, next) => first + next, 0);
 
     const solarCapacity = this.powerPlants
       .filter(res => res.type === 'Solar Power')
       .filter(res => res.yearCompleted <= this.activeTimeLineYear)
       .map(a => a.capacity)
-      .reduceRight((first, next) => first + next)
+      .reduceRight((first, next) => first + next, 0)
       .toFixed(0);
 
+    // add clicked district to chart data
+    function updateChartData(chart, data) {
+      chart.data.datasets.forEach((dataset) => dataset.data = data);
+      chart.update();
+    }
 
-
-
-
-    this.chart.data.datasets.forEach((dataset) => dataset.data.push([+thermalCapacity, +hydroCapacity, +solarCapacity]));
-    this.chart.update();
-
-
-
-
-
+    updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
 
   }
 
@@ -803,7 +804,7 @@ export class MapComponent implements OnInit {
     // POLYGON
     this.populationTiles = null;
     this.districtsPrimarySchools = null;
-    this.districtsMiddleSchools= null;
+    //this.districtsMiddleSchools= null;
     this.districtsHighSchools = null;
     this.districtsUniversities = null;
 

@@ -61,11 +61,11 @@
     (layerClick)="clickedDistricts($event, 'primaryschool')"
   ></agm-data-layer>
 
-  <agm-data-layer
+  <!--agm-data-layer
     [style]="stylesService.loadMiddleSchoolsDistributionStyles"
     [geoJson]=districtsMiddleSchools
     (layerClick)="clickedDistricts($event, 'middleschool')"
-  ></agm-data-layer>
+  ></agm-data-layer-->
 
   <agm-data-layer
     [style]="stylesService.loadHighSchoolsDistributionStyles"
@@ -314,12 +314,12 @@
         [ngStyle]="{'background-color': colors.educationPrimarySchoolColor}">
         Primary Schools
       </button>
-      <button
+      <!--button
         class="loadButton"
         (click)="loadEducationDistribution('middleschool')"
         [ngStyle]="{'background-color': colors.educationMiddleSchoolColor}">
         Middle Schools
-      </button>
+      </button-->
       <button
         class="loadButton"
         (click)="loadEducationDistribution('highschool')"
@@ -421,11 +421,11 @@
       </video>
     </div>
 
-    <div *ngIf="infoGeoJsonObject">
+    <!--div *ngIf="infoGeoJsonObject">
       <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
       <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}} [MW]</strong></p>
       <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
-    </div>
+    </div-->
 
     <div class="canvasBlock">
       <canvas class="chartCanvas" id="chartCanvas">{{chart}}</canvas>
