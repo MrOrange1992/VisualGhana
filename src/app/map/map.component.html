@@ -18,16 +18,16 @@
 
   <!-- POWERLINES -->
   <agm-data-layer
-    (layerClick)="clickedPowerLines($event)"
+    (layerClick)="clickedLine($event)"
     [style]="stylesService.loadPowerLineStyles"
     [geoJson]=powerLines
   ></agm-data-layer>
 
   <!-- ROADS -->
   <agm-data-layer
-    (layerClick)="clickedSurfaceRoads($event)"
+    (layerClick)="clickedLine($event)"
     [style]="stylesService.loadRoadStyles"
-    [geoJson]="surfaceRoads"
+    [geoJson]="roadData"
   ></agm-data-layer>
 
   <!-- AULA TERRA -->
@@ -212,15 +212,11 @@
   <agm-marker [latitude]="infoLatitude" [longitude]="infoLongitude" [visible]="false">
     <agm-info-window [disableAutoPan]="true" [isOpen]="infoVisible" #infoWindow>
       <div *ngIf="infoGeoJsonObject">
-        <p *ngIf="infoGeoJsonObject.name">Name: <strong>{{infoGeoJsonObject.name}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.type">Type: <strong>{{infoGeoJsonObject.type}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.capacity">Capacity: <strong>{{infoGeoJsonObject.capacity}}</strong> [MW]</p>
-        <p *ngIf="infoGeoJsonObject.voltage_kV">Voltage: <strong>{{infoGeoJsonObject.voltage_kV}}</strong> [kV]</p>
-        <p *ngIf="infoGeoJsonObject.surface">Surface: <strong>{{infoGeoJsonObject.surface}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.highway">Road type: <strong>{{infoGeoJsonObject.highway}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.vicinity">Vicinity: <strong>{{infoGeoJsonObject.vicinity}}</strong></p>
-        <p *ngIf="infoGeoJsonObject.adm2">Province: <strong>{{infoGeoJsonObject.adm2}}</strong></p>
-
+        <ul *ngFor="let property of objectKeys(infoGeoJsonObject)">
+          <li>
+            {{property}}: {{infoGeoJsonObject[property]}}
+          </li>
+        </ul>
       </div>
     </agm-info-window>
   </agm-marker>
@@ -300,7 +296,7 @@
     <button class="loadButton loadTransportation" (click)="loadTransportation()">
        Transportation
     </button>
-    <button class="loadButton loadEducation" (click)="loadEducation()">
+    <button class="loadButton loadEducation" (click)="prepareEducation()">
        Education
     </button>
     <button class="loadButton loadPopulation" (click)="loadPopulationTiles()">
@@ -363,10 +359,7 @@
         [ngStyle]="{'background-color': '#000'}">
         Others
       </button>
-
-
     </div>
-
 
     <div *ngIf="showziplineimg">
       <img src="../../assets/img/Zipline.png" width="100%"  >

@@ -33,15 +33,10 @@ export class MapComponent implements OnInit {
   filteredHealthSites: HealthSite[];
   powerPlants: PowerPlant[];
   airports: Airport[];
-  //hospitals;
-  //clinics;
-  //maternities;
-  //otherHealthsites;
 
   // LINE
   powerLines;
   roadData;
-  surfaceRoads;
   aulaTerra;
 
   // POLYGON
@@ -65,6 +60,7 @@ export class MapComponent implements OnInit {
 
 
   // MISC
+  objectKeys = Object.keys;
   colors = Colors;
   latlngBounds: LatLngBoundsLiteral;
   educationMode = false;
@@ -111,73 +107,67 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     console.log('Loading map and data, please wait ...');
 
-    this.mapService.loadStyles('mapStyles.json').subscribe(data => this.customMapStyles = data);
+    this.mapService.loadStyles('mapStyles.json').subscribe(data => {
+      console.log('Loading map styles ...');
+      this.customMapStyles = data;
+    });
 
     this.mapService.loadData('africaBorders.geojson').subscribe(response => {
+      console.log('Loading overlay data ...');
       this.overlay = response;
-      console.log('NGOninit, Overlay data available!!!: ', this.overlay);
     });
 
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
-
-    //this.mapService.loadData('ghanaRoads.geojson').subscribe(result => { this.roadData = result; console.log('NGOninit, Road data available!!!: ', this.roadData); });
     }
 
 
 
   prepareHealthSites() {
-    if (!this.healthMode) {
-      this.healthMode = true;
+    this.resetMap();
 
-      this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
+    this.healthMode = true;
 
-        const healthSiteData = resPointData;
-        console.log('Loading healthsites...', healthSiteData);
+    this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
 
-
-        this.healthSites = healthSiteData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
-
-        // Destroy any chart if existing
-        if (this.chart) this.chart.destroy();
-
-        const data = this.healthSites.map(site => site.type);
-
-        const clinicCount = data.filter(res => res === 'Clinic').length;
-        const hospitalCount = data.filter(res =>
-          res === 'Hospitals' ||
-          res === 'District Hospital' ||
-          res === 'Health Centre' ||
-          res === 'Regional Hospital').length;
-        const maternityCount = data.filter(res => res === 'Maternity Home' || res === 'RCH').length;
-        const otherlenght = data.length - clinicCount - hospitalCount - maternityCount;
-        // console.log(data, clinicCount, hospitalCount);
-
-        const pieChart = new PieChart(
-          'chartCanvas',
-          'doughnut',
-          'Healthsite Type Distribution',
-          [clinicCount, hospitalCount, maternityCount, otherlenght],
-          ['Clinic', 'Hospital', 'Children Healthcare', 'Others'],
-          [Colors.clinicColor, Colors.hospitalColor, Colors.maternityColor, '#000']
-        );
-
-        this.chart = pieChart.chart;
-      });
+      const healthSiteData = resPointData;
+      console.log('Loading healthsites...', healthSiteData);
 
 
-    }
-    else {
-      this.healthMode = false;
-      this.healthSites = null;
-    }
+      this.healthSites = healthSiteData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
+
+      // Destroy any chart if existing
+      if (this.chart) this.chart.destroy();
+
+      const data = this.healthSites.map(site => site.type);
+
+      const clinicCount = data.filter(res => res === 'Clinic').length;
+      const hospitalCount = data.filter(res =>
+        res === 'Hospitals' ||
+        res === 'District Hospital' ||
+        res === 'Health Centre' ||
+        res === 'Regional Hospital').length;
+      const maternityCount = data.filter(res => res === 'Maternity Home' || res === 'RCH').length;
+      const otherlenght = data.length - clinicCount - hospitalCount - maternityCount;
+      // console.log(data, clinicCount, hospitalCount);
+
+      const pieChart = new PieChart(
+        'chartCanvas',
+        'doughnut',
+        'Healthsite Type Distribution',
+        [clinicCount, hospitalCount, maternityCount, otherlenght],
+        ['Clinic', 'Hospital', 'Children Healthcare', 'Others'],
+        [Colors.clinicColor, Colors.hospitalColor, Colors.maternityColor, '#000']
+      );
+
+      this.chart = pieChart.chart;
+    });
   }
 
   loadHealthSiteType(type) {
     this.filteredHealthSites = null;
     switch (type) {
       case 'Hospital':
-        console.log(this.healthSites.length);
         this.filteredHealthSites = this.healthSites.filter(site =>
           site.type === 'Hospitals' ||
           site.type === 'District Hospital' ||
@@ -190,13 +180,11 @@ export class MapComponent implements OnInit {
         this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
         break;
       case 'Children Healthcare':
-        console.log(this.healthSites.filter(site => site.type === type));
         this.filteredHealthSites = this.healthSites.filter(site =>
           site.type === 'Maternity Home' ||
           site.type === 'RCH');
         break;
       case 'Others':
-        console.log(this.healthSites.length);
         this.filteredHealthSites = this.healthSites.filter(site =>
           site.type === 'CHPS');
         break;
@@ -206,148 +194,113 @@ export class MapComponent implements OnInit {
 
   }
 
-  /**
-   * Load / reset data for transportation to be be displayed
-   */
   loadTransportation() {
-    if (this.airports) {
-      this.airports = null;
-      this.surfaceRoads = null;
-      this.mapService.loadStyles('mapStyles.json').subscribe(data => this.customMapStyles = data );
-    } else {
-      this.mapService.loadData('ghanaAirports.geojson').subscribe(resPointData => {
-        // const airportData = resPointData;
+    this.resetMap();
+    this.mapService.loadData('ghanaRoads.geojson').subscribe(result => {
+      console.log('Loading road data ...');
+      this.roadData = result;
+    });
 
-        console.log('Loading airports...');
+    this.mapService.loadData('ghanaAirports.geojson').subscribe(resPointData => {
+      console.log('Loading airport data ...');
+      this.airports = resPointData['features'].map(feature => new Airport(feature, this.getStdRadius(this.zoom)));
+    });
+    /*
+    this.customMapStyles = this.customMapStyles.map(feature => {
+      if (feature.elementType === 'geometry' && feature.featureType === 'road') {
+        return {
+          featureType: 'road',
+          elementType: 'geometry',
+          stylers: [{visibility: 'on'}, {color: '#7f8d89'}]
+        };
+      } else {
+        return feature;
+      }
+    });
+    */
 
-        this.airports = resPointData['features'].map(feature => new Airport(feature, this.getStdRadius(this.zoom)));
-        console.log('Loading airport data...\n', this.airports);
-
-      });
-
-      this.customMapStyles = this.customMapStyles.map(feature => {
-        //console.log(feature);
-        if (feature.elementType === 'geometry' && feature.featureType === 'road') {
-          console.log(feature);
-          return {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [
-              {
-                visibility: 'on'
-              },
-              {
-                color: '#7f8d89'
-              }
-            ]
-          };
-        } else {
-          return feature;
-        }
-      });
-
-      console.log('Loading road data including surfaces...');
-      this.surfaceRoads = {'type': 'FeatureCollection', 'features': this.roadData['features'].filter(data => data.properties.surface != null) };
-    }
+      //this.mapService.loadStyles('mapStyles.json').subscribe(data => this.customMapStyles = data );
   }
 
   /**
    * Load / reset data for power related data to be displayed
    */
   loadPower() {
-    if (!this.powerLines) {
-      // Load power line data
-      this.mapService.loadData('ghanaPowerLines.geojson').subscribe(resLineData => {
-        this.powerLines = resLineData;
+    this.resetMap();
+    // Load power line data
+    this.mapService.loadData('ghanaPowerLines.geojson').subscribe(resLineData => {
+      this.powerLines = resLineData;
 
-        console.log('Loading powerline data...\n', this.powerLines);
-      });
+      console.log('Loading powerline data...\n', this.powerLines);
+    });
 
-      // Load power plant data and pasre to PowerPlant objects
-      this.mapService.loadData('ghanaPowerPlants.geojson').subscribe(resPointData => {
-        const powerPlantData = resPointData;
-        console.log('Loading powerplants...\n', powerPlantData);
-        this.powerPlants = powerPlantData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));
+    // Load power plant data and pasre to PowerPlant objects
+    this.mapService.loadData('ghanaPowerPlants.geojson').subscribe(resPointData => {
+      const powerPlantData = resPointData;
+      console.log('Loading powerplants...\n', powerPlantData);
+      this.powerPlants = powerPlantData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));
 
-        // Destroy any chart if existing
-        if (this.chart) { this.chart.destroy(); }
-
-        // Prepare data for pie chart
-        const thermalCapacity = this.powerPlants
-          .filter(res => res.type === 'Thermal')
-          .filter(res => res.yearCompleted <= this.activeTimeLineYear)
-          .map(a => a.capacity)
-          .reduceRight((first, next) => first + next);
-
-        const hydroCapacity = this.powerPlants
-          .filter(res => res.type === 'Hydroelectric')
-          .filter(res => res.yearCompleted <= this.activeTimeLineYear)
-          .map(a => a.capacity)
-          .reduceRight((first, next) => first + next);
-
-        const solarCapacity = this.powerPlants
-          .filter(res => res.type === 'Solar Power')
-          .filter(res => res.yearCompleted <= this.activeTimeLineYear)
-          .map(a => a.capacity)
-          .reduceRight((first, next) => first + next)
-          .toFixed(0);
-
-        // Compute set of unique lables out of all powerplant types
-        const labels = this.powerPlants
-          .map(powerPlant => powerPlant.type)
-          .filter((index, value, plant) => plant.indexOf(index) === value);
-
-
-        /*
-        type tupleType = [string, number];
-
-        const thermalTuple: tupleType = ['Thermal', +thermalCapacity];
-        const hydroTuple: tupleType = ['Thermal', +hydroCapacity];
-        const solarTuple: tupleType = ['Thermal', +solarCapacity];
-
-        const values = Array(thermalTuple, hydroTuple, solarTuple).sort(((n1[2], n2[2]) => n1[2] - n2[2]));
-        */
-
-        // create pie chart
-        const barChart = new BarChart(
-          'chartCanvas',                                                      // Context
-          'Powerplant capacity distribution [MW]',                            // Chart title
-          [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
-          labels,                                                             // Labels
-          [Colors.powerThermalplantColor, Colors.powerHydroplantColor, Colors.powerSolarplantColor]    // Colors
-        );
-        if (this.chart) {
-          console.log('Destroying active chart...\n', this.chart);
-          this.chart.destroy();
-        }
-        this.chart = barChart.chart;
-      });
-
-    } else {
+      // Destroy any chart if existing
       if (this.chart) { this.chart.destroy(); }
-      this.powerLines = null;
-      this.powerPlants = null;
-      this.infoGeoJsonObject = null;
-    }
+
+      // Prepare data for pie chart
+      const thermalCapacity = this.powerPlants
+        .filter(res => res.type === 'Thermal')
+        .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+        .map(a => a.capacity)
+        .reduceRight((first, next) => first + next);
+
+      const hydroCapacity = this.powerPlants
+        .filter(res => res.type === 'Hydroelectric')
+        .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+        .map(a => a.capacity)
+        .reduceRight((first, next) => first + next);
+
+      const solarCapacity = this.powerPlants
+        .filter(res => res.type === 'Solar Power')
+        .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+        .map(a => a.capacity)
+        .reduceRight((first, next) => first + next)
+        .toFixed(0);
+
+      // Compute set of unique lables out of all powerplant types
+      const labels = this.powerPlants
+        .map(powerPlant => powerPlant.type)
+        .filter((index, value, plant) => plant.indexOf(index) === value);
+
+
+      /*
+      type tupleType = [string, number];
+
+      const thermalTuple: tupleType = ['Thermal', +thermalCapacity];
+      const hydroTuple: tupleType = ['Thermal', +hydroCapacity];
+      const solarTuple: tupleType = ['Thermal', +solarCapacity];
+
+      const values = Array(thermalTuple, hydroTuple, solarTuple).sort(((n1[2], n2[2]) => n1[2] - n2[2]));
+      */
+
+      // create pie chart
+      const barChart = new BarChart(
+        'chartCanvas',                                                      // Context
+        'Powerplant capacity distribution [MW]',                            // Chart title
+        [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
+        labels,                                                             // Labels
+        [Colors.powerThermalplantColor, Colors.powerHydroplantColor, Colors.powerSolarplantColor]    // Colors
+      );
+      if (this.chart) {
+        console.log('Destroying active chart...\n', this.chart);
+        this.chart.destroy();
+      }
+      this.chart = barChart.chart;
+    });
   }
 
-  loadEducation() {
-    if (!this.educationMode) this.educationMode = true;
-    else {
-      this.educationMode = false;
-      this.districtsPrimarySchools = null;
-      this.districtsMiddleSchools = null;
-      this.districtsHighSchools = null;
-      this.districtsUniversities = null;
-    }
+  prepareEducation() {
+    this.resetMap();
+    this.educationMode = true;
   }
 
   loadEducationDistribution(type) {
-    this.districtsPrimarySchools = null;
-    this.districtsMiddleSchools = null;
-    this.districtsHighSchools = null;
-    this.districtsUniversities = null;
-
     switch (type) {
       case 'primaryschool': {
         this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
@@ -424,19 +377,18 @@ export class MapComponent implements OnInit {
   }
 
   loadPopulationTiles() {
-    if (!this.populationTiles) {
+    this.resetMap();
 
-      this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
-        this.populationTiles = resPolygonData;
+    this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
+      this.populationTiles = resPolygonData;
 
-        console.log('Loading populationDensity data...\n', this.populationTiles);
-      });
-
-    }
-    else this.populationTiles = null;
+      console.log('Loading populationDensity data...\n', this.populationTiles);
+    });
   }
 
   loadAulaterraRoad () {
+
+    this.resetMap();
 
     if(!this.aulaTerra){
       this.mapService.loadData('kwasoKorase.geojson').subscribe(resLineData => {
@@ -534,20 +486,14 @@ export class MapComponent implements OnInit {
     this.infoGeoJsonObject = object;
   }
 
-  clickedSurfaceRoads(event) {
-    console.log(event);
+  clickedLine(event) {
+    //event.feature.forEachProperty(prop => console.log(prop));
     this.infoVisible = true;
     this.infoLatitude = event.latLng.lat();
     this.infoLongitude = event.latLng.lng();
-    this.infoGeoJsonObject = event.feature.f;
-  }
+    //this.infoGeoJsonObject = Object.keys(event.feature.l);
+    this.infoGeoJsonObject = event.feature.l;
 
-  clickedPowerLines(event) {
-    console.log(event);
-    this.infoVisible = true;
-    this.infoLatitude = event.latLng.lat();
-    this.infoLongitude = event.latLng.lng();
-    this.infoGeoJsonObject = event.feature.f;
   }
 
   clickedAulaTerraRoad(event) {
@@ -814,5 +760,32 @@ export class MapComponent implements OnInit {
   getStdRadius(zoom) {
     // calculation for reasonable results for circle radius when zooming in
     return Math.round((15000000) / (zoom ** 4));
+  }
+
+
+  resetMap() {
+    this.educationMode = false;
+    this.healthMode = false;
+    this.infoGeoJsonObject = null;
+
+
+    this.healthSites = null;
+    this.filteredHealthSites= null;
+    this.powerPlants = null;
+    this.airports = null;
+
+    // LINE
+    this.powerLines = null;
+    this.roadData = null;
+    this.aulaTerra = null;
+
+    // POLYGON
+    this.populationTiles = null;
+    this.districtsPrimarySchools = null;
+    this.districtsMiddleSchools= null;
+    this.districtsHighSchools = null;
+    this.districtsUniversities = null;
+
+    if (this.chart) this.chart.destroy();
   }
 }

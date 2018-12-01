@@ -7,11 +7,6 @@ export class StylesService {
 
   constructor() {}
 
-  educationTypeSelector;
-
-  getEducationTypeSelector(){ return this.educationTypeSelector; }
-  setEducationTypeSelector(educationTypeSelector){ this.educationTypeSelector = educationTypeSelector }
-
   loadOverLayStyles() {
     return {
       strokeColor: '#000000',
@@ -75,6 +70,9 @@ export class StylesService {
   }
 
   loadRoadStyles(feature) {
+
+    return { clickable: true, strokeWeight: 1, strokeColor: Colors.roadPavedColor };
+
     /* ALl SURFACE types
       asphalt paved
       unpaved unpaved
@@ -100,7 +98,7 @@ export class StylesService {
       cobblestone unpaved
       pebblestone unpaved
       dirt/sand   unpaved
-   */
+
     // console.log('Loading road styles...\n', feature);
     const surface = feature['l'].surface;
 
@@ -112,8 +110,8 @@ export class StylesService {
     ) {
       return {clickable: true, strokeWeight: 1, strokeColor: Colors.roadPavedColor};
     } else {
-      return { clickable: true, strokeWeight: 1, strokeColor: Colors.roadUnpavedColor };
     }
+    */
   }
 
   // TODO -> district styles calc fillOpacity -> _/max(all_features)
