@@ -196,11 +196,11 @@ agm-map {
 }
 
 .loadEducation {
-  background-color: #28774FA6;
+  background-color: #953255A6;
 }
 
 .loadPopulation {
-  background-color: #FF0000A6;
+  background-color: #FF000066;
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
 
@@ -216,8 +216,8 @@ agm-map {
 }
 .canvasBlock {
   width: 100%;
-
 }
+
 /* ------------------------------------------------------------------------------------------------------------------ */
 /*Aula Terra Button section*/
 
@@ -255,7 +255,7 @@ agm-map {
 
 .timeLineWindow {
   z-index: +1;
-  width: 20%;
+  width: 10%;
   height: 100%;
   background-color: rgba(25%, 25%, 25%, 0.5);
   position: absolute;
@@ -304,9 +304,11 @@ h1,h2,h4,h5,h6 {
 }
 h1 {
   font-size: 18px;
+  top: 20%;
 }
 h2 {
   font-size: 14px;
+  top: 20%;
 }
 .sociales {
   text-align: center;
@@ -414,11 +416,11 @@ margin: 10px 30px 10px 50px;
   background-position:  0 0;
 }
 #next {
-  bottom: 0;
+  bottom: 10px;
   background-image: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/next_v.png');
 }
 #prev {
-  top: 0;
+  top: -10px;
   background-image: url('http://www.csslab.cl/ejemplos/timelinr/latest/images/prev_v.png');
 }
 #next.disabled,

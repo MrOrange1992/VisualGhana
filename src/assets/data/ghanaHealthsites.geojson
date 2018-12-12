@@ -18005,36 +18005,6 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -0.30544,5.30437 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Awutu Senya",
-    "FacilityName":"Adawukwa CHPS",
-    "Type":"CHPS",
-    "Town":"Adawukwa",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -0.31457,5.33206 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Awutu Senya",
-    "FacilityName":"Ahentia CHPS",
-    "Type":"CHPS",
-    "Town":"Ahentia",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
        "coordinates":  [ -0.56952,5.61691 ]
     },
     "properties": {
@@ -18673,21 +18643,6 @@
     "FacilityName":"Winniba Municipal Health Directorate",
     "Type":"DHD",
     "Town":"Winneba",
-    "Ownership":"Government"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -0.34361,5.23474 ]
-    },
-    "properties": {
-    "Region":"Central",
-    "District":"Efutu Municipal",
-    "FacilityName":"Gyangyanadze CHPS",
-    "Type":"CHPS",
-    "Town":"Gyangyanadze",
     "Ownership":"Government"
     }
   },

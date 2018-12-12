@@ -10,6 +10,7 @@ import {Airport} from '../entities/Airport';
 import {BarChart} from '../charts/BarChart';
 import {StylesService} from './styles.service';
 import {EventService} from './event.service';
+import {LineChart} from '../charts/LineChart';
 
 
 @Component({
@@ -33,11 +34,13 @@ export class MapComponent implements OnInit {
   filteredHealthSites: HealthSite[];
   powerPlants: PowerPlant[];
   airports: Airport[];
+  popOverYearData;
 
   // LINE
   powerLines;
   roadData;
   aulaTerra;
+  popOverYears;
 
   // POLYGON
   overlay;
@@ -53,7 +56,7 @@ export class MapComponent implements OnInit {
   infoLongitude;
   infoGeoJsonObject: Object;
   markerVisible = false;
-  techmarkerVisible = false;
+  techmarkerVisible = true;
 
   // CHART
   chart;
@@ -94,6 +97,7 @@ export class MapComponent implements OnInit {
   showWaterFilm = false;
   showBikeFilm = false;
   showKwasoRoad = false;
+  showSolarImg = false;
 
   constructor(
     private mapService: MapService,
@@ -389,8 +393,36 @@ export class MapComponent implements OnInit {
     this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
       this.populationTiles = resPolygonData;
 
+
       console.log('Loading populationDensity data...\n', this.populationTiles);
     });
+
+  }
+
+  loadPopOverYears() {
+    this.mapService.loadData('popOverYears.json').subscribe(resPointData => {
+
+      const population = resPointData['content'].map(line => line.Population);
+      const years = resPointData['content'].map(line => line.Year);
+      console.log(population, years);
+
+
+      // Destroy any chart if existing
+      if (this.chart) { this.chart.destroy(); }
+
+      // create pie chart
+      const lineChart = new LineChart(
+        'chartCanvas',                                                      // Context
+        'Population over the years',                            // Chart title
+        population,               // Data
+         years,                                                             // Labels
+        Colors.populationOverYearsColor    // Colors
+      );
+
+      this.chart = lineChart.chart;
+
+    });
+
   }
 
   loadAulaterraRoad () {
@@ -479,6 +511,7 @@ export class MapComponent implements OnInit {
 // load aulaterra config
 
   loadAulaTerraConfig() {
+      this.resetMap();
       this.latlngBounds = {
         north: 6.6448,
         east: -1.4223,
@@ -486,6 +519,7 @@ export class MapComponent implements OnInit {
         west: -1.490
       };
   }
+
   // used to hide the info window when random location on map is clicked
   clickedMap() {
     this.infoVisible = false;
@@ -624,6 +658,7 @@ export class MapComponent implements OnInit {
       this.showziplineimg = true;
       this.showmkopaimg = false;
       this.showpegafricaimg = false;
+      this.showdroneimg = false;
     }
 
   }
@@ -634,6 +669,7 @@ export class MapComponent implements OnInit {
       this.showmkopaimg = true;
       this.showziplineimg = false;
       this.showpegafricaimg = false;
+      this.showdroneimg = false;
     }
   }
 
@@ -643,6 +679,7 @@ export class MapComponent implements OnInit {
       this.showdroneimg = true;
       this.showziplineimg = false;
       this.showmkopaimg = false;
+      this.showpegafricaimg = false;
     }
   }
 
@@ -651,6 +688,8 @@ export class MapComponent implements OnInit {
     else {
       this.showpegafricaimg = true;
       this.showmkopaimg = false;
+      this.showziplineimg = false;
+      this.showdroneimg = false;
 
     }
   }
@@ -764,6 +803,22 @@ export class MapComponent implements OnInit {
     if (this.showBikeFilm) this.showBikeFilm = false;
     else {
       this.showBikeFilm = true;
+      this.showaulaterraimg = false;
+      this.showKwasoKoraseimg = false;
+      this.showKwasoKoraseWaterimg = false;
+      this.showKwasoKoraseFilm = false;
+      this.showKoraseEntry = false;
+      this.showWaterFilm = false;
+      this.showKwasoRoad = false;
+
+    }
+  }
+
+  loadSolarImg() {
+    if (this.showSolarImg) this.showSolarImg = false;
+    else {
+      this.showSolarImg = true;
+      this.showBikeFilm = false;
       this.showaulaterraimg = false;
       this.showKwasoKoraseimg = false;
       this.showKwasoKoraseWaterimg = false;

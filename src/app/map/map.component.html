@@ -91,6 +91,18 @@
     [visible]="markerVisible"
     iconUrl="../../assets/img/camera.png"
 
+
+  >
+  </agm-marker>
+
+  <!--KwasoSolar points-->
+  <agm-marker
+    [latitude]="6.636348809388389"
+    [longitude]="-1.449945867061615"
+    (markerClick)="loadSolarImg()"
+    [visible]="markerVisible"
+    iconUrl="../../assets/img/camera.png"
+
   >
   </agm-marker>
 
@@ -280,9 +292,8 @@
     <div class="szenarioButton concepteButton" (click)="loadConceptConfig()">
         Forecast
     </div>
-    <div class="szenarioButton aulaterraButton" (click)="loadAulaterraRoad()" (click)="loadGhostConfig" (click)="loadAulaTerraConfig()" (click)="clickedAulaTerraRoad()" >
+    <div class="szenarioButton aulaterraButton" (click)="loadAulaterraRoad()" (click)="loadGhostConfig" (click)="loadAulaTerraConfig()" (click)="clickedAulaTerraRoad()"  >
       <img src="../../assets/img/aulaterra.jpeg" width="100%" height="100%"  >
-
     </div>
   </div>
 
@@ -299,7 +310,7 @@
     <button class="loadButton loadEducation" (click)="prepareEducation()">
        Education
     </button>
-    <button class="loadButton loadPopulation" (click)="loadPopulationTiles()">
+    <button class="loadButton loadPopulation" (click)="loadPopulationTiles()" (click)="loadPopOverYears()">
        Population Density
     </button>
 
@@ -357,7 +368,7 @@
         class="loadButton"
         (click)="loadHealthSiteType('Others')"
         [ngStyle]="{'background-color': '#000'}">
-        Others
+        CHPS
       </button>
     </div>
 
@@ -390,7 +401,11 @@
     </div>
 
     <div *ngIf="showKwasoKoraseWaterimg">
-      <img src="../../assets/img/kwasoKoraseWater.jpg" width="100%" >
+    <img src="../../assets/img/kwasoKoraseWater.jpg" width="100%" >
+  </div>
+
+    <div *ngIf="showSolarImg">
+      <img src="../../assets/img/solarImg.jpg" width="100%" >
     </div>
 
     <div *ngIf="showKwasoKoraseFilm">
