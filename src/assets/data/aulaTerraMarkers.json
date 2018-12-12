@@ -1,0 +1,104 @@
+{
+  "content": [
+    {
+      "name": "Kwaso road",
+      "latitude": 6.638786580458306,
+      "longitude": -1.4502972364425657,
+      "src": "../../assets/img/kwasoRoad.jpg",
+      "type": "image",
+      "iconUrl": "../../assets/img/camera.png"
+    },
+    {
+      "name": "Kwaso solar",
+      "latitude": 6.636348809388389,
+      "longitude": -1.449945867061615,
+      "src": "../../assets/img/solarImg.jpg",
+      "type": "image",
+      "iconUrl": "../../assets/img/camera.png"
+    },
+    {
+      "name": "Aula terra school",
+      "latitude": 6.617797376164622,
+      "longitude": -1.4308029413223264,
+      "src": "../../assets/img/aulaterra_school.jpeg",
+      "type": "image",
+      "iconUrl": "../../assets/img/camera.png"
+    },
+    {
+      "name": "Korase entry",
+      "latitude": 6.617307137821674,
+      "longitude": -1.4318382740020752,
+      "src": "../../assets/img/entryKorase.mp4",
+      "type": "video",
+      "iconUrl": "../../assets/img/film.png"
+    },
+    {
+      "name": "Kwaso korase POI",
+      "latitude": 6.625598494718633,
+      "longitude": -1.4417946338653564,
+      "src": "../../assets/img/kwasoKorasePOI.jpeg",
+      "type": "image",
+      "iconUrl": "../../assets/img/camera.png"
+    },
+    {
+      "name": "Kwaso korase water",
+      "latitude": 6.6226304607304955,
+      "longitude:": -1.437610387802124,
+      "src": "../../assets/img/kwasoKoraseWater.jpg",
+      "type": "image",
+      "iconUrl": "../../assets/img/camera.png"
+    },
+    {
+      "name": "Kwaso korase water film",
+      "latitude": 6.623680198310998,
+      "longitude": -1.4390158653259277,
+      "src": "../../assets/img/water.mp4",
+      "type": "video",
+      "iconUrl": "../../assets/img/film.png"
+    },
+    {
+      "name": "Road people",
+      "latitude": 6.619864897734731,
+      "longitude": -1.4338821172714233,
+      "src": "../../assets/img/roadPeople.mp4",
+      "type": "video",
+      "iconUrl": "../../assets/img/film.png"
+    },
+    {
+      "name": "Bike",
+      "latitude": 6.6216499931562405,
+      "longitude": -1.4352178573608398,
+      "src": "../../assets/img/bike.mp4",
+      "type": "video",
+      "iconUrl": "../../assets/img/film.png"
+    },
+    {
+      "name": "Zip line",
+      "latitude": -1.882,
+      "longitude": 29.787,
+      "src": "../../assets/img/Zipline.png",
+      "type": "technology"
+    },
+    {
+      "name": "MKopa",
+      "latitude": -0.0217,
+      "longitude": 37.5819,
+      "src": "../../assets/img/MKopa.png",
+      "type": "technology"
+    },
+    {
+      "name": "DR. One",
+      "latitude": 9.1029,
+      "longitude": -1.2660,
+      "src": "../../assets/img/DrOne.png",
+      "type": "technology"
+    },
+    {
+      "name": "PEGAfrica",
+      "latitude": 6.2680,
+      "longitude": -1.2457,
+      "src": "../../assets/img/PEGAfrica.png",
+      "type": "technology"
+    }
+  ]
+}

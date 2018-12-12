@@ -32,9 +32,9 @@
 
   <!-- AULA TERRA -->
   <agm-data-layer
-    (layerClick)="clickedAulaTerraRoad($event)"
+    (layerClick)="clickedLine($event)"
     [style]="stylesService.loadAulaTerraRoadStyles"
-    [geoJson]="aulaTerra"
+    [geoJson]="aulaTerraRoad"
 
   ></agm-data-layer>
 
@@ -61,12 +61,6 @@
     (layerClick)="clickedDistricts($event, 'primaryschool')"
   ></agm-data-layer>
 
-  <!--agm-data-layer
-    [style]="stylesService.loadMiddleSchoolsDistributionStyles"
-    [geoJson]=districtsMiddleSchools
-    (layerClick)="clickedDistricts($event, 'middleschool')"
-  ></agm-data-layer-->
-
   <agm-data-layer
     [style]="stylesService.loadHighSchoolsDistributionStyles"
     [geoJson]=districtsHighSchools
@@ -81,144 +75,14 @@
 
   <!---------------------------- POINTS ----------------------------->
 
-  <!--Aula Terra points-->
+  <!--Aula Terra markers-->
+  <agm-marker *ngFor="let marker of aulaTerraMarkers"
+    [latitude] = "marker.latitude"
+    [longitude] = "marker.longitude"
+    (markerClick)="loadMediaSource(marker.src, marker.type)"
+    [iconUrl]="marker.iconUrl"
+  ></agm-marker>
 
-  <!--Kwaso points-->
-  <agm-marker
-    [latitude]="6.638786580458306"
-    [longitude]="-1.4502972364425657"
-    (markerClick)="loadKwasoRoad()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/camera.png"
-
-
-  >
-  </agm-marker>
-
-  <!--KwasoSolar points-->
-  <agm-marker
-    [latitude]="6.636348809388389"
-    [longitude]="-1.449945867061615"
-    (markerClick)="loadSolarImg()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/camera.png"
-
-  >
-  </agm-marker>
-
-  <!--Korase points-->
-  <agm-marker
-    [latitude]="6.617797376164622"
-    [longitude]="-1.4308029413223264"
-    (markerClick)="loadaulaterraschool()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/camera.png"
-
-  >
-  </agm-marker>
-
-  <!--Korase entry points-->
-  <agm-marker
-    [latitude]="6.617307137821674"
-    [longitude]="-1.4318382740020752"
-    (markerClick)="loadKoraseEntry()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/film.png"
-
-  >
-  </agm-marker>
-
-  <!--Kwaso-Korase points-->
-  <agm-marker
-    [latitude]="6.625598494718633"
-    [longitude]="-1.4417946338653564"
-    (markerClick)="loadKwasoKorase()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/camera.png"
-
-  >
-  </agm-marker>
-
-  <!--Kwaso-Korase-water points-->
-  <agm-marker
-    [latitude]="6.6226304607304955"
-    [longitude]="-1.437610387802124"
-    (markerClick)="loadKwasoKoraseWater()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/camera.png"
-
-  >
-  </agm-marker>
-
-  <!--Kwaso-Korase-water-film points-->
-  <agm-marker
-    [latitude]="6.623680198310998"
-    [longitude]="-1.4390158653259277"
-    (markerClick)="loadWaterFilm()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/film.png"
-
-  >
-  </agm-marker>
-
-  <!--Kwaso-Korasefilm-->
-  <agm-marker
-    [latitude]="6.619864897734731"
-    [longitude]="-1.4338821172714233"
-    (markerClick)="loadKwasoKoraseFilm()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/film.png"
-
-  >
-  </agm-marker>
-
-  <!--Bikefilm-->
-  <agm-marker
-    [latitude]="6.6216499931562405"
-    [longitude]="-1.4352178573608398"
-    (markerClick)="loadBikeFilm()"
-    [visible]="markerVisible"
-    iconUrl="../../assets/img/film.png"
-
-  >
-  </agm-marker>
-
-  <!--load Zipline-->
-  <agm-marker
-
-    [latitude]="-1.882"
-    [longitude]="29.787"
-    (markerClick)="loadziplineimage()"
-    [visible]="techmarkerVisible"
-  >
-  </agm-marker>
-
-  <!--load MKopa-->
-  <agm-marker
-    [latitude]="-0.0217"
-    [longitude]="37.5819"
-    (markerClick)="loadmkopaimage()"
-    [visible]="techmarkerVisible"
-  >
-  </agm-marker>
-
-  <!--load DR.One-->
-  <agm-marker
-    [latitude]="9.1029"
-    [longitude]="-1.2660"
-    (markerClick)="loaddroneimage()"
-    [visible]="techmarkerVisible"
-  >
-  </agm-marker>
-
-  <!--load PEGAfrica-->
-  <agm-marker
-    [latitude]="6.2680"
-    [longitude]="-1.2457"
-    (markerClick)="loadpegafricaimage()"
-    [visible]="techmarkerVisible"
-  >
-  </agm-marker>
 
   <!-- INFO WINDOW on click event -->
   <agm-marker [latitude]="infoLatitude" [longitude]="infoLongitude" [visible]="false">
@@ -277,22 +141,22 @@
 
 <div class="infoPanel">
 
-  <div class="infoPanelSection title" onClick="history.go(0)"  >
+  <!--div class="infoPanelSection title" onClick="history.go(0)">VISUAL GHANA</div-->
+  <div class="infoPanelSection title" (click)="resetMap()">
     VISUAL GHANA
-
   </div>
 
   <div class="infoPanelSection szenarios">
     <div class="szenarioButton infrastructureButton" (click)="loadInfrastructureConfig()">
         Infrastructure
     </div>
-    <div class="szenarioButton technologyButton" (click)="loadTechnologyConfig()" (click)="clickedTechnology()" >
+    <div class="szenarioButton technologyButton" (click)="loadTechnologyConfig()" >
         Technology
     </div>
     <div class="szenarioButton concepteButton" (click)="loadConceptConfig()">
         Forecast
     </div>
-    <div class="szenarioButton aulaterraButton" (click)="loadAulaterraRoad()" (click)="loadGhostConfig" (click)="loadAulaTerraConfig()" (click)="clickedAulaTerraRoad()"  >
+    <div class="szenarioButton aulaterraButton" (click)="loadAulaterraRoad()">
       <img src="../../assets/img/aulaterra.jpeg" width="100%" height="100%"  >
     </div>
   </div>
@@ -325,12 +189,6 @@
         [ngStyle]="{'background-color': colors.educationPrimarySchoolColor}">
         Primary Schools
       </button>
-      <!--button
-        class="loadButton"
-        (click)="loadEducationDistribution('middleschool')"
-        [ngStyle]="{'background-color': colors.educationMiddleSchoolColor}">
-        Middle Schools
-      </button-->
       <button
         class="loadButton"
         (click)="loadEducationDistribution('highschool')"
@@ -372,68 +230,9 @@
       </button>
     </div>
 
-    <div *ngIf="showziplineimg">
-      <img src="../../assets/img/Zipline.png" width="100%"  >
-    </div>
-
-    <div *ngIf="showmkopaimg">
-      <img src="../../assets/img/MKopa.png" width="100%" >
-    </div>
-
-    <div *ngIf="showdroneimg">
-      <img src="../../assets/img/DrOne.png" width="100%" >
-    </div>
-
-    <div *ngIf="showpegafricaimg">
-      <img src="../../assets/img/PEGAfrica.png" width="100%" >
-    </div>
-
-    <div *ngIf="showaulaterraimg">
-    <img src="../../assets/img/aulaterra_school.jpeg" width="100%" >
-  </div>
-
-    <div *ngIf="showKwasoKoraseimg">
-      <img src="../../assets/img/kwasoKorasePOI.jpeg" width="100%" >
-    </div>
-
-    <div *ngIf="showKwasoRoad">
-      <img src="../../assets/img/kwasoRoad.jpg" width="100%" >
-    </div>
-
-    <div *ngIf="showKwasoKoraseWaterimg">
-    <img src="../../assets/img/kwasoKoraseWater.jpg" width="100%" >
-  </div>
-
-    <div *ngIf="showSolarImg">
-      <img src="../../assets/img/solarImg.jpg" width="100%" >
-    </div>
-
-    <div *ngIf="showKwasoKoraseFilm">
-
-      <video width="100%" controls Autoplay=autoplay>
-        <source src="../../assets/img/roadPeople.mp4" type="video/mp4">
-      </video>
-    </div>
-
-      <div *ngIf="showKoraseEntry">
-
-    <video width="100%" controls Autoplay=autoplay>
-      <source src="../../assets/img/entryKorase.mp4" type="video/mp4">
-    </video>
-  </div>
-
-    <div *ngIf="showWaterFilm">
-
-      <video width="100%" controls Autoplay=autoplay>
-        <source src="../../assets/img/water.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div *ngIf="showBikeFilm">
-
-      <video width="100%" controls Autoplay=autoplay>
-        <source src="../../assets/img/bike.mp4" type="video/mp4">
-      </video>
+    <div *ngIf="mediaSource.src">
+      <img *ngIf="mediaSource.type == 'image'" src={{mediaSource.src}} width="100%">
+      <video *ngIf="mediaSource.type == 'video'" width="100%" controls Autoplay=autoplay src="{{mediaSource.src}}"></video>
     </div>
 
     <!--div *ngIf="infoGeoJsonObject">

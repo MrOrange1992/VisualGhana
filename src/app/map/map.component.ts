@@ -25,7 +25,6 @@ export class MapComponent implements OnInit {
   zoom;
   // property for custom map styles, edit in file ../assets/mapStyles.json
   public customMapStyles;
-  public customMapStylesAulaTerra;
   public educationDistributionStyles;
 
   // AGM DATA LAYER OBJECTS
@@ -35,18 +34,18 @@ export class MapComponent implements OnInit {
   powerPlants: PowerPlant[];
   airports: Airport[];
   popOverYearData;
+  aulaTerraMarkers;
 
   // LINE
   powerLines;
   roadData;
-  aulaTerra;
+  aulaTerraRoad;
   popOverYears;
 
   // POLYGON
   overlay;
   populationTiles;
   districtsPrimarySchools;
-  //districtsMiddleSchools;
   districtsHighSchools;
   districtsUniversities;
 
@@ -55,12 +54,17 @@ export class MapComponent implements OnInit {
   infoLatitude;
   infoLongitude;
   infoGeoJsonObject: Object;
-  markerVisible = false;
-  techmarkerVisible = true;
+  //markerVisible = false;
+  //techmarkerVisible = true;
 
   // CHART
   chart;
 
+  //IMAGE/VIDEO
+  mediaSource = {
+    type: null,
+    src: null
+  };
 
   // MISC
   objectKeys = Object.keys;
@@ -71,7 +75,7 @@ export class MapComponent implements OnInit {
   stdRadius;
   activeTimeLineYear = 2018;
   years: number[] =  Array(
-1965,
+    1965,
     1982,
     2000,
     2008,
@@ -84,20 +88,9 @@ export class MapComponent implements OnInit {
     2040,
     2050
   );
+
   foreCastMode = false;
-  showziplineimg = false;
-  showmkopaimg = false;
-  showdroneimg = false;
-  showpegafricaimg = false;
-  showaulaterraimg = false;
-  showKwasoKoraseimg = false;
-  showKwasoKoraseWaterimg = false;
-  showKwasoKoraseFilm = false;
-  showKoraseEntry = false;
-  showWaterFilm = false;
-  showBikeFilm = false;
-  showKwasoRoad = false;
-  showSolarImg = false;
+  aulaTerraMode = false;
 
   constructor(
     private mapService: MapService,
@@ -129,7 +122,6 @@ export class MapComponent implements OnInit {
 
 
   prepareHealthSites() {
-
 
     this.healthMode = true;
 
@@ -314,86 +306,35 @@ export class MapComponent implements OnInit {
       case 'primaryschool': {
         this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
           this.districtsPrimarySchools = resPolygonData;
-
           if (this.chart) { this.chart.destroy(); }
-
-          this.chart = new BarChart(
-            'chartCanvas',
-            'Primary school distribution',
-            [],
-            [],
-            Colors.educationPrimarySchoolColor
-          ).chart;
+          this.chart = new BarChart('chartCanvas', 'Primary school distribution', [], [], Colors.educationPrimarySchoolColor).chart;
         });
-
         break;
       }
-
-      /*
-      case 'middleschool': {
-        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
-          this.districtsMiddleSchools = resPolygonData;
-
-          if (this.chart) { this.chart.destroy(); }
-
-          this.chart = new BarChart(
-            'chartCanvas',
-            'Middle school distribution',
-            [],
-            [],
-            Colors.educationMiddleSchoolColor
-          ).chart;
-        });
-
-        break;
-      }
-      */
 
       case 'highschool': {
         this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
           this.districtsHighSchools = resPolygonData;
-
           if (this.chart) { this.chart.destroy(); }
-
-          this.chart = new BarChart(
-            'chartCanvas',
-            'High school distribution',
-            [],
-            [],
-            Colors.educationHighSchoolColor
-          ).chart;
+          this.chart = new BarChart('chartCanvas', 'High school distribution', [], [], Colors.educationHighSchoolColor).chart;
         });
-
         break;
       }
 
       case 'university': {
         this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
           this.districtsUniversities = resPolygonData;
-
           if (this.chart) { this.chart.destroy(); }
-
-          this.chart = new BarChart(
-            'chartCanvas',
-            'University distribution',
-            [],
-            [],
-            Colors.educationUniversityColor
-          ).chart;
+          this.chart = new BarChart('chartCanvas', 'University distribution', [], [], Colors.educationUniversityColor).chart;
         });
-
         break;
       }
     }
   }
 
   loadPopulationTiles() {
-
-
     this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
       this.populationTiles = resPolygonData;
-
-
       console.log('Loading populationDensity data...\n', this.populationTiles);
     });
 
@@ -406,59 +347,44 @@ export class MapComponent implements OnInit {
       const years = resPointData['content'].map(line => line.Year);
       console.log(population, years);
 
-
       // Destroy any chart if existing
       if (this.chart) { this.chart.destroy(); }
 
       // create pie chart
       const lineChart = new LineChart(
-        'chartCanvas',                                                      // Context
-        'Population over the years',                            // Chart title
-        population,               // Data
-         years,                                                             // Labels
-        Colors.populationOverYearsColor    // Colors
+        'chartCanvas',
+        'Population over the years',
+        population,
+        years,
+        Colors.populationOverYearsColor
       );
-
       this.chart = lineChart.chart;
-
     });
-
   }
 
-  loadAulaterraRoad () {
+  loadAulaterraRoad() {
 
+    this.latlngBounds = {
+      north: 6.6448,
+      east: -1.4223,
+      south: 6.604,
+      west: -1.490
+    };
 
+    this.mapService.loadData('kwasoKorase.geojson').subscribe(resLineData => {
+      this.aulaTerraRoad = resLineData;
+      console.log('Loading aulaTerra road...\n', this.aulaTerraRoad);
+    });
 
-    if(!this.aulaTerra){
-      this.mapService.loadData('kwasoKorase.geojson').subscribe(resLineData => {
-        this.aulaTerra = resLineData;
-        this.mapService.loadStyles('mapStylesAulaTerra.json').subscribe(data => this.customMapStylesAulaTerra = data );
-
-        console.log('Loading aulaTerra data...\n', this.aulaTerra);
-      });
-    }
-    else this.aulaTerra = null;
+    this.mapService.loadData('aulaTerraMarkers.json').subscribe(resData => {
+      this.aulaTerraMarkers = resData['content'].filter(marker => marker.type !== 'technology');
+      console.log('Loading aula terra markers...\n', this.aulaTerraMarkers);
+    });
 
     this.customMapStyles = this.customMapStyles.map(feature => {
-      //console.log(feature);
       if (feature.elementType === 'geometry' && feature.featureType === 'road') {
-        console.log(feature);
-        return {
-          featureType: 'road',
-          elementType: 'geometry',
-          stylers: [
-            {
-              visibility: 'on'
-            },
-            {
-              color: '#7f8d89'
-            }
-          ]
-        };
-      } else {
-        return feature;
-
-      }
+        return {featureType: 'road', elementType: 'geometry', stylers: [{visibility: 'on'}, {color: '#7f8d89'}]};
+      } else {return feature; }
     });
   }
 
@@ -476,6 +402,12 @@ export class MapComponent implements OnInit {
   // load Technology config
   loadTechnologyConfig() {
     this.resetMap();
+
+    this.mapService.loadData('aulaTerraMarkers.json').subscribe(resData => {
+      this.aulaTerraMarkers = resData['content'].filter(marker => marker.type === 'technology');
+      console.log('Loading technology markers...\n', this.aulaTerraMarkers);
+    });
+
     this.latlngBounds = {
       north: 18,
       east: 20,
@@ -498,34 +430,13 @@ export class MapComponent implements OnInit {
     }
   }
 
-  // load ghost config
-  loadGhostConfig() {
-    this.resetMap();
-    this.latlngBounds = {
-      north: 9,
-      east: -0.28,
-      south: 5.62,
-      west: -2.64
-    };
-  }
-// load aulaterra config
-
-  loadAulaTerraConfig() {
-      this.resetMap();
-      this.latlngBounds = {
-        north: 6.6448,
-        east: -1.4223,
-        south: 6.604,
-        west: -1.490
-      };
-  }
-
   // used to hide the info window when random location on map is clicked
-  clickedMap() {
+  clickedMap(event) {
+    console.log('Clicked map...');
     this.infoVisible = false;
-    this.markerVisible = false;
-    this.techmarkerVisible = false;
-    this.aulaTerra = false;
+    //this.markerVisible = false;
+    //this.techmarkerVisible = false;
+    this.aulaTerraRoad = false;
   }
 
   zoomChange(actualZoom) {
@@ -555,19 +466,6 @@ export class MapComponent implements OnInit {
 
   }
 
-  clickedAulaTerraRoad(event) {
-    console.log(event);
-
-    this.markerVisible = true;
-    this.markerVisible = null;
-  }
-
-  clickedTechnology(event) {
-    console.log(event);
-    this.techmarkerVisible = true;
-
-  }
-
   clickedDistricts(event, type) {
 
     // add clicked district to chart data
@@ -586,11 +484,8 @@ export class MapComponent implements OnInit {
     // remove first data point if too many
     if (this.chart.data.labels.length >= 3) removeFirstDataPoint(this.chart);
 
-    console.log(type);
-
     switch (type) {
       case 'primaryschool': addData(this.chart, event.feature.l.adm2, event.feature.l.primaryschool); break;
-      //case 'middleschool': addData(this.chart, event.feature.l.adm2, event.feature.l.middleschool); break;
       case 'highschool': addData(this.chart, event.feature.l.adm2, event.feature.l.highschool); break;
       case 'university': addData(this.chart, event.feature.l.adm2, event.feature.l.university); break;
     }
@@ -628,7 +523,6 @@ export class MapComponent implements OnInit {
     }
 
     updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
-
   }
 
 
@@ -652,214 +546,50 @@ export class MapComponent implements OnInit {
     object.radius = this.getStdRadius(this.zoom);
   }
 
-  loadziplineimage() {
-    if (this.showziplineimg) this.showziplineimg = false;
-    else {
-      this.showziplineimg = true;
-      this.showmkopaimg = false;
-      this.showpegafricaimg = false;
-      this.showdroneimg = false;
-    }
-
+  loadMediaSource(src, type) {
+    this.mediaSource.src = src;
+    this.mediaSource.type = type;
   }
-
-  loadmkopaimage() {
-    if (this.showmkopaimg) this.showmkopaimg = false;
-    else {
-      this.showmkopaimg = true;
-      this.showziplineimg = false;
-      this.showpegafricaimg = false;
-      this.showdroneimg = false;
-    }
-  }
-
-  loaddroneimage() {
-    if (this.showdroneimg) this.showdroneimg = false;
-    else {
-      this.showdroneimg = true;
-      this.showziplineimg = false;
-      this.showmkopaimg = false;
-      this.showpegafricaimg = false;
-    }
-  }
-
-  loadpegafricaimage() {
-    if (this.showpegafricaimg) this.showpegafricaimg = false;
-    else {
-      this.showpegafricaimg = true;
-      this.showmkopaimg = false;
-      this.showziplineimg = false;
-      this.showdroneimg = false;
-
-    }
-  }
-
-  loadaulaterraschool() {
-    if (this.showaulaterraimg) this.showaulaterraimg = false;
-    else {
-      this.showBikeFilm = false;
-      this.showaulaterraimg = true;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-  loadKwasoRoad() {
-    if (this.showKwasoRoad) this.showKwasoRoad = false;
-    else {
-      this.showBikeFilm = false;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = true;
-
-    }
-  }
-
-  loadKwasoKorase() {
-    if (this.showKwasoKoraseimg) this.showKwasoKoraseimg = false;
-    else {
-      this.showBikeFilm = false;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = true;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-  loadKwasoKoraseWater() {
-    if (this.showKwasoKoraseWaterimg) this.showKwasoKoraseWaterimg = false;
-    else {
-      this.showBikeFilm = false;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = true;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-  loadKwasoKoraseFilm() {
-    if (this.showKwasoKoraseFilm) this.showKwasoKoraseFilm = false;
-    else {
-      this.showBikeFilm = false;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = true;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-  loadKoraseEntry() {
-    if (this.showKoraseEntry) this.showKoraseEntry = false;
-    else {
-      this.showBikeFilm = false;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = true;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-  loadWaterFilm() {
-    if (this.showWaterFilm) this.showWaterFilm = false;
-    else {
-      this.showBikeFilm = false;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = true;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-  loadBikeFilm() {
-    if (this.showBikeFilm) this.showBikeFilm = false;
-    else {
-      this.showBikeFilm = true;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-  loadSolarImg() {
-    if (this.showSolarImg) this.showSolarImg = false;
-    else {
-      this.showSolarImg = true;
-      this.showBikeFilm = false;
-      this.showaulaterraimg = false;
-      this.showKwasoKoraseimg = false;
-      this.showKwasoKoraseWaterimg = false;
-      this.showKwasoKoraseFilm = false;
-      this.showKoraseEntry = false;
-      this.showWaterFilm = false;
-      this.showKwasoRoad = false;
-
-    }
-  }
-
-
 
   getStdRadius(zoom) {
     // calculation for reasonable results for circle radius when zooming in
     return Math.round((15000000) / (zoom ** 4));
   }
 
-
   resetMap() {
+
+    this.mapService.loadStyles('mapStyles.json').subscribe(data => {
+      console.log('Loading map styles ...');
+      this.customMapStyles = data;
+    });
+
+    this.latlngBounds = {
+      north: 11,
+      east: 0,
+      south: 4,
+      west: -7
+    };
+
     this.educationMode = false;
     this.healthMode = false;
     this.infoGeoJsonObject = null;
-    this.markerVisible = false;
-    this.techmarkerVisible = false;
     this.foreCastMode = false;
-   //
+
+    // POINT
     this.healthSites = null;
-    this.filteredHealthSites= null;
+    this.filteredHealthSites = null;
     this.powerPlants = null;
     this.airports = null;
+    this.aulaTerraMarkers = null;
 
     // LINE
     this.powerLines = null;
     this.roadData = null;
-    this.aulaTerra = null;
+    this.aulaTerraRoad = null;
 
     // POLYGON
     this.populationTiles = null;
     this.districtsPrimarySchools = null;
-    //this.districtsMiddleSchools= null;
     this.districtsHighSchools = null;
     this.districtsUniversities = null;
 
