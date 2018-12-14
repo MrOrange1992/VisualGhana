@@ -84,6 +84,7 @@ export class MapComponent implements OnInit {
   };
   foreCastMode = false;
   aulaTerraMode = false;
+  populationMode = false;
 
   constructor(
     private mapService: MapService,
@@ -162,6 +163,8 @@ export class MapComponent implements OnInit {
           site.type === 'District Hospital' ||
           site.type === 'Health Centre' ||
           site.type === 'Regional Hospital');
+
+          console.log(this.filteredHealthSites);
 
         break;
 
@@ -296,11 +299,66 @@ export class MapComponent implements OnInit {
     });
   }
 
-  loadPopulationTiles() {
+  preparePopulation() {
+
+    this.populationMode = true;
     this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
       this.populationTiles = resPolygonData;
       // console.log('Loading populationDensity data...\n', this.populationTiles);
     });
+  }
+
+    /*loadPopulationTiles() {
+      this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
+        this.populationTiles = resPolygonData;
+        console.log('Loading populationDensity data...\n', this.populationTiles);
+      });*/
+
+    loadPopulationPyramide(){
+
+      this.mapService.loadData('populationPyramide.json').subscribe(resData => {
+        const total = resData['total'];
+        const maleCount = resData['distribution'].filter(entry => entry.gender === 'Male').map(entry => entry.count);
+        const femaleCount = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.count);
+        const labels = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.years);
+
+        if (this.chart) {
+          this.chart.destroy();
+        }
+
+        this.chart = new Chart('chartCanvas', {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                // label: data,
+                data: femaleCount,
+                backgroundColor: '#113951'
+              },
+              {
+                // label: data,
+                data: maleCount,
+                backgroundColor: '#806315'
+              }]
+          },
+          options: {
+            legend: {
+              display: false,
+              labels: {
+                fontColor: 'white'
+              }
+            },
+            title: {
+              display: true,
+              text: 'Population Pyramide',
+              fontColor: 'white'
+            }
+          }
+
+        });
+      });
+
 
   }
 
@@ -323,6 +381,7 @@ export class MapComponent implements OnInit {
         Colors.populationOverYearsColor
       );
       this.chart = lineChart.chart;
+
     });
   }
 
@@ -534,6 +593,7 @@ export class MapComponent implements OnInit {
     this.healthMode = false;
     this.infoGeoJsonObject = null;
     this.foreCastMode = false;
+    this.populationMode = false;
 
     // POINT
     this.healthSites = null;
@@ -554,6 +614,9 @@ export class MapComponent implements OnInit {
     // MISC
     this.mediaSource.src = null;
 
+    //MISC
+    this.mediaSource.src = null;
+    this.mediaSource.type = null;
     if (this.chart) this.chart.destroy();
   }
 }

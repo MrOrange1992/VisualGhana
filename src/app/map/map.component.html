@@ -161,7 +161,7 @@
     <button class="loadButton loadEducation" (click)="prepareEducation()">
        Education
     </button>
-    <button class="loadButton loadPopulation" (click)="loadPopulationTiles()" (click)="loadPopOverYears()">
+    <button class="loadButton loadPopulation" (click)="preparePopulation()">
        Population Density
     </button>
 
@@ -217,8 +217,25 @@
       </button>
     </div>
 
+    <div *ngIf="populationMode" class="infoPanelSection clickable">
+      <button
+        class="loadButton"
+        (click)="loadPopulationPyramide()"
+        [ngStyle]="{'background-color': colors.hospitalColor}">
+        Population Pyramid
+      </button>
+
+      <button
+        class="loadButton"
+        (click)="loadPopOverYears()"
+        [ngStyle]="{'background-color': colors.hospitalColor}">
+        Population over years
+      </button>
+    </div>
+
+
     <div *ngIf="mediaSource.src">
-      <img *ngIf="mediaSource.type == 'image'" src={{mediaSource.src}} width="100%">
+      <img *ngIf="mediaSource.type == 'image' || mediaSource.type == 'technology'" src={{mediaSource.src}} width="100%">
       <video *ngIf="mediaSource.type == 'video'" width="100%" controls Autoplay=autoplay src="{{mediaSource.src}}"></video>
     </div>
 

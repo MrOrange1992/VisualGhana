@@ -1,0 +1,221 @@
+{
+	"total": 29280235,
+	"distribution": [
+		{
+		"gender": "Male",
+		"years": "0-4",
+		"percentage": 7.3,
+		"count": 2137457
+		},
+		{
+		"gender": "Male",
+		"years": "5-9",
+		"percentage": 6.6,
+		"count": 1932496
+		},
+		{
+		"gender": "Male",
+		"years": "10-14",
+		"percentage": 5.7,
+		"count": 1668973
+		},
+		{
+		"gender": "Male",
+		"years": "15-19",
+		"percentage": 5.1,
+		"count": 1493292
+		},
+		{
+		"gender": "Male",
+		"years": "20-24",
+		"percentage": 4.6,
+		"count": 1346891
+		},
+		{
+		"gender": "Male",
+		"years": "25-29",
+		"percentage": 4.2,
+		"count": 1229770
+		},
+		{
+		"gender": "Male",
+		"years": "30-34",
+		"percentage": 3.5,
+		"count": 1024808
+		},
+		{
+		"gender": "Male",
+		"years": "35-39",
+		"percentage": 2.9,
+		"count": 849127
+		},
+		{
+		"gender": "Male",
+		"years": "40-44",
+		"percentage": 2.5,
+		"count": 732006
+		},
+		{
+		"gender": "Male",
+		"years": "45-49",
+		"percentage": 2,
+		"count": 585605
+		},
+		{
+		"gender": "Male",
+		"years": "50-54",
+		"percentage": 1.6,
+		"count": 468484
+		},
+		{
+		"gender": "Male",
+		"years": "55-59",
+		"percentage": 1.3,
+		"count": 380643
+		},
+		{
+		"gender": "Male",
+		"years": "60-64",
+		"percentage": 0.9,
+		"count": 263522
+		},
+		{
+		"gender": "Male",
+		"years": "65-69",
+		"percentage": 0.7,
+		"count": 204962
+		},
+		{
+		"gender": "Male",
+		"years": "70-74",
+		"percentage": 0.5,
+		"count": 146401
+		},
+		{
+		"gender": "Male",
+		"years": "75-79",
+		"percentage": 0.2,
+		"count": 58560
+		},
+		{
+		"gender": "Male",
+		"years": "80-84",
+		"percentage": 0.1,
+		"count": 29280
+		},
+		{
+		"gender": "Male",
+		"years": "85-89",
+		"percentage": 0,
+		"count": 0
+		},
+		{
+		"gender": "Female",
+		"years": "0-4",
+		"percentage": "7",
+		"count": 2049616
+		},
+		{
+		"gender": "Female",
+		"years": "5-9",
+		"percentage": 6.3,
+		"count": 1844655
+		},
+		{
+		"gender": "Female",
+		"years": "10-14",
+		"percentage": 5.5,
+		"count": 1610413
+		},
+		{
+		"gender": "Female",
+		"years": "15-19",
+		"percentage": 4.9,
+		"count": 1434732
+		},
+		{
+		"gender": "Female",
+		"years": "20-24",
+		"percentage": 4.4,
+		"count": 1288330
+		},
+		{
+		"gender": "Female",
+		"years": "25-29",
+		"percentage": 4.1,
+		"count": 1200490
+		},
+		{
+		"gender": "Female",
+		"years": "30-34",
+		"percentage": 3.7,
+		"count": 1083369
+		},
+		{
+		"gender": "Female",
+		"years": "35-39",
+		"percentage": 3.3,
+		"count": 966248
+		},
+		{
+		"gender": "Female",
+		"years": "40-44",
+		"percentage": 2.7,
+		"count": 790566
+		},
+		{
+		"gender": "Female",
+		"years": "45-49",
+		"percentage": 2.2,
+		"count": 644165
+		},
+		{
+		"gender": "Female",
+		"years": "50-54",
+		"percentage": 1.8,
+		"count": 527044
+		},
+		{
+		"gender": "Female",
+		"years": "55-59",
+		"percentage": 1.4,
+		"count": 409923
+		},
+		{
+		"gender": "Female",
+		"years": "60-64",
+		"percentage": 1.1,
+		"count": 322083
+		},
+		{
+		"gender": "Female",
+		"years": "65-69",
+		"percentage": 0.8,
+		"count": 234242
+		},
+		{
+		"gender": "Female",
+		"years": "70-74",
+		"percentage": 0.5,
+		"count": 146401
+		},
+		{
+		"gender": "Female",
+		"years": "75-79",
+		"percentage": 0.3,
+		"count": 87841
+		},
+		{
+		"gender": "Female",
+		"years": "80-84",
+		"percentage": 0.2,
+		"count": 58560
+		},
+		{
+		"gender": "Female",
+		"years": "85-89",
+		"percentage": 0.1,
+		"count": 29280
+		}
+	]
+}

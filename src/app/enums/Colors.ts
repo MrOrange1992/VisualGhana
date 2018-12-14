@@ -9,6 +9,7 @@ export enum Colors {
   powerLinesColor = '#FFF15E',
   airPortColor = '#806315',
   roadPavedColor = '#6A6969',
+  roadUnpavedColor = '#000',
   educationColor = '#953255',
   populationDensityColor = '#FF0000',
   populationOverYearsColor = '#FF0000',
