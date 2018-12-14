@@ -121,10 +121,9 @@ export class MapComponent implements OnInit {
 
     this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
 
-      const healthSiteData = resPointData;
-      // console.log('Loading healthsites...', healthSiteData);
+      // console.log('Loading healthsites...', resPointData);
 
-      this.healthSites = healthSiteData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
+      this.healthSites = resPointData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
 
       // Destroy any chart if existing
       if (this.chart) this.chart.destroy();
@@ -467,7 +466,7 @@ export class MapComponent implements OnInit {
     this.zoom = actualZoom;
     this.stdRadius = this.getStdRadius(actualZoom);
     if (this.healthSites) { this.healthSites.forEach(site => site.radius = this.getStdRadius(actualZoom)); }
-    if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom)); }
+    if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom) + plant.capacity * 100); }
     if (this.airports) { this.airports.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
   }
 
@@ -544,7 +543,7 @@ export class MapComponent implements OnInit {
     updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
   }
 
-
+/*
   mouseOverObject(object) {
     // console.log('Mouse over object!\n', object);
 
@@ -560,10 +559,12 @@ export class MapComponent implements OnInit {
     }
   }
 
+
   mouseOutObject(object) {
     // console.log('Mouse out object!\n', object);
     object.radius = this.getStdRadius(this.zoom);
   }
+  */
 
   loadMediaSource(src, type) {
     this.mediaSource.src = src;

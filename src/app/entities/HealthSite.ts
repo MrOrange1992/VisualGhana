@@ -7,14 +7,19 @@ export class HealthSite {
   type: string;
   ownership: string;
   district: string;
+  region: string;
   private _color: string;
   private _radius: number;
 
   constructor(feature, radius: number) {
-    this.name = feature.properties.FaciltyName;
+    this.name = feature.properties.FacilityName;
     this.latitude = +feature.geometry.coordinates[1];
     this.longitude = +feature.geometry.coordinates[0];
     this.type = feature.properties.Type;
+    this.ownership = feature.properties.Ownership;
+    this.district = feature.properties.District;
+    this.region = feature.properties.Region;
+
     this._radius = radius;
 
     if (feature.properties.Type === 'Clinic') {

@@ -17,7 +17,7 @@ export class PowerPlant {
     this.latitude = +feature.geometry.coordinates[1];
     this.community = feature.properties.community;
     this.capacity = +feature.properties['capacity(MW)'];
-    this._radius = radius; // +feature.properties['capacity(MW)'] * 100;
+    this._radius = radius + feature.properties['capacity(MW)'] * 100;
     this.yearCompleted = feature.properties.yearCompleted;
     this.type = feature.properties.type;
 

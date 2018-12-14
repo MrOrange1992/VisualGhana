@@ -76,7 +76,11 @@
     <agm-info-window [disableAutoPan]="true" [isOpen]="infoVisible" #infoWindow>
       <div *ngIf="infoGeoJsonObject">
         <ul *ngFor="let property of objectKeys(infoGeoJsonObject)">
-          <li>
+          <li *ngIf=" property != '_color' &&
+                      property != 'color' &&
+
+                      property != 'longitude' &&
+                      property != 'latitude'">
             {{property}}: {{infoGeoJsonObject[property]}}
           </li>
         </ul>
@@ -95,8 +99,6 @@
                 [fillOpacity]="0.8"
                 [radius]="powerPlant.radius"
                 (circleClick)="clickedObject(powerPlant)"
-                (mouseOver)="mouseOverObject(powerPlant)"
-                (mouseOut)="mouseOutObject(powerPlant)"
     ></agm-circle>
 
 

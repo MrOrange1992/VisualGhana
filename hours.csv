@@ -28,4 +28,8 @@ fera,25-11-2018,3,"Work on education distribution -> districts, colors, charts",
 mast,30-11-2018,7,"Power forecast, Timeline,new Healtsites file,new district boundaries",
 fera,30-11-2018,7,"Power forecast, Timeline,new Healtsites file,new district boundaries",
 fera,01-12-2018,3,"Update power chart on year change, corrected districts data",
+fera,12-12-2018,6,"code clean up, refactor work education",
+mast,12-12-2018,6,"refactor population data to match adm2",
+fera,14-12-2018,4,"python script to extend district data",
+mast,14-12-2018,4,"python script to extend district data",
 
