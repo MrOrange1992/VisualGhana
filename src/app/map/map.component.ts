@@ -45,26 +45,16 @@ export class MapComponent implements OnInit {
   // POLYGON
   overlay;
   populationTiles;
-  districtsPrimarySchools;
-  districtsHighSchools;
-  districtsUniversities;
+  districts;
 
   // ONMAP INFO
   infoVisible = false;
   infoLatitude;
   infoLongitude;
   infoGeoJsonObject: Object;
-  //markerVisible = false;
-  //techmarkerVisible = true;
 
   // CHART
   chart;
-
-  //IMAGE/VIDEO
-  mediaSource = {
-    type: null,
-    src: null
-  };
 
   // MISC
   objectKeys = Object.keys;
@@ -88,7 +78,10 @@ export class MapComponent implements OnInit {
     2040,
     2050
   );
-
+  mediaSource = {
+    type: null,
+    src: null
+  };
   foreCastMode = false;
   aulaTerraMode = false;
 
@@ -106,12 +99,12 @@ export class MapComponent implements OnInit {
     console.log('Loading map and data, please wait ...');
 
     this.mapService.loadStyles('mapStyles.json').subscribe(data => {
-      console.log('Loading map styles ...');
+      // console.log('Loading map styles ...');
       this.customMapStyles = data;
     });
 
     this.mapService.loadData('africaBorders.geojson').subscribe(response => {
-      console.log('Loading overlay data ...');
+      // console.log('Loading overlay data ...');
       this.overlay = response;
     });
 
@@ -128,8 +121,7 @@ export class MapComponent implements OnInit {
     this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
 
       const healthSiteData = resPointData;
-      console.log('Loading healthsites...', healthSiteData);
-
+      // console.log('Loading healthsites...', healthSiteData);
 
       this.healthSites = healthSiteData['features'].map(feature => new HealthSite(feature, this.getStdRadius(this.zoom)));
 
@@ -172,19 +164,23 @@ export class MapComponent implements OnInit {
           site.type === 'Regional Hospital');
 
         break;
+
       case 'Clinic':
-        console.log(this.healthSites.length);
+        // console.log(this.healthSites.length);
         this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
         break;
+
       case 'Children Healthcare':
         this.filteredHealthSites = this.healthSites.filter(site =>
           site.type === 'Maternity Home' ||
           site.type === 'RCH');
         break;
+
       case 'Others':
         this.filteredHealthSites = this.healthSites.filter(site =>
           site.type === 'CHPS');
         break;
+
       default:
         console.log('Unknown healthsite type specified: ' + type.toString());
     }
@@ -194,29 +190,14 @@ export class MapComponent implements OnInit {
   loadTransportation() {
 
     this.mapService.loadData('ghanaRoads.geojson').subscribe(result => {
-      console.log('Loading road data ...');
+      // console.log('Loading road data ...');
       this.roadData = result;
     });
 
     this.mapService.loadData('ghanaAirports.geojson').subscribe(resPointData => {
-      console.log('Loading airport data ...');
+      // console.log('Loading airport data ...');
       this.airports = resPointData['features'].map(feature => new Airport(feature, this.getStdRadius(this.zoom)));
     });
-    /*
-    this.customMapStyles = this.customMapStyles.map(feature => {
-      if (feature.elementType === 'geometry' && feature.featureType === 'road') {
-        return {
-          featureType: 'road',
-          elementType: 'geometry',
-          stylers: [{visibility: 'on'}, {color: '#7f8d89'}]
-        };
-      } else {
-        return feature;
-      }
-    });
-    */
-
-      //this.mapService.loadStyles('mapStyles.json').subscribe(data => this.customMapStyles = data );
   }
 
   /**
@@ -228,14 +209,13 @@ export class MapComponent implements OnInit {
     this.mapService.loadData('ghanaPowerLines.geojson').subscribe(resLineData => {
       this.powerLines = resLineData;
 
-      console.log('Loading powerline data...\n', this.powerLines);
+      // console.log('Loading powerline data...\n', this.powerLines);
     });
 
     // Load power plant data and pasre to PowerPlant objects
     this.mapService.loadData('ghanaPowerPlants.geojson').subscribe(resPointData => {
-      const powerPlantData = resPointData;
-      console.log('Loading powerplants...\n', powerPlantData);
-      this.powerPlants = powerPlantData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));
+      // console.log('Loading powerplants...\n', powerPlantData);
+      this.powerPlants = resPointData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));
 
       // Destroy any chart if existing
       if (this.chart) { this.chart.destroy(); }
@@ -265,17 +245,6 @@ export class MapComponent implements OnInit {
         .map(powerPlant => powerPlant.type)
         .filter((index, value, plant) => plant.indexOf(index) === value);
 
-
-      /*
-      type tupleType = [string, number];
-
-      const thermalTuple: tupleType = ['Thermal', +thermalCapacity];
-      const hydroTuple: tupleType = ['Thermal', +hydroCapacity];
-      const solarTuple: tupleType = ['Thermal', +solarCapacity];
-
-      const values = Array(thermalTuple, hydroTuple, solarTuple).sort(((n1[2], n2[2]) => n1[2] - n2[2]));
-      */
-
       // create pie chart
       const barChart = new BarChart(
         'chartCanvas',                                                      // Context
@@ -284,58 +253,53 @@ export class MapComponent implements OnInit {
         labels,                                                             // Labels
         [Colors.powerThermalplantColor, Colors.powerHydroplantColor, Colors.powerSolarplantColor]    // Colors
       );
-      if (this.chart) {
-        console.log('Destroying active chart...\n', this.chart);
-        this.chart.destroy();
-      }
+
       this.chart = barChart.chart;
     });
   }
 
   prepareEducation() {
-
     this.educationMode = true;
   }
 
   loadEducationDistribution(type) {
-    this.districtsPrimarySchools = null;
-    this.districtsHighSchools = null;
-    this.districtsUniversities = null;
 
-    switch (type) {
-      case 'primaryschool': {
-        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
-          this.districtsPrimarySchools = resPolygonData;
-          if (this.chart) { this.chart.destroy(); }
-          this.chart = new BarChart('chartCanvas', 'Primary school distribution', [], [], Colors.educationPrimarySchoolColor).chart;
-        });
-        break;
-      }
+    this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+      this.districts = resPolygonData;
 
-      case 'highschool': {
-        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
-          this.districtsHighSchools = resPolygonData;
-          if (this.chart) { this.chart.destroy(); }
-          this.chart = new BarChart('chartCanvas', 'High school distribution', [], [], Colors.educationHighSchoolColor).chart;
-        });
-        break;
-      }
+      if (this.chart) { this.chart.destroy(); }
 
-      case 'university': {
-        this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
-          this.districtsUniversities = resPolygonData;
-          if (this.chart) { this.chart.destroy(); }
-          this.chart = new BarChart('chartCanvas', 'University distribution', [], [], Colors.educationUniversityColor).chart;
-        });
-        break;
-      }
-    }
+      this.districts['features'] = this.districts['features'].map(feature => {
+
+        switch (type) {
+          case 'primaryschool':
+          {
+            feature.properties.active = feature.properties.primaryschool;
+            this.chart = new BarChart('chartCanvas', 'Primaryschool distribution', [], [], Colors.educationColor).chart;
+            break;
+          }
+          case 'highschool':
+          {
+            feature.properties.active = feature.properties.highschool;
+            this.chart = new BarChart('chartCanvas', 'Highschool distribution', [], [], Colors.educationColor).chart;
+            break;
+          }
+          case 'university':
+          {
+            feature.properties.active = feature.properties.university;
+            this.chart = new BarChart('chartCanvas', 'University distribution', [], [], Colors.educationColor).chart;
+            break;
+          }
+        }
+        return feature;
+      });
+    });
   }
 
   loadPopulationTiles() {
     this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
       this.populationTiles = resPolygonData;
-      console.log('Loading populationDensity data...\n', this.populationTiles);
+      // console.log('Loading populationDensity data...\n', this.populationTiles);
     });
 
   }
@@ -345,7 +309,7 @@ export class MapComponent implements OnInit {
 
       const population = resPointData['content'].map(line => line.Population);
       const years = resPointData['content'].map(line => line.Year);
-      console.log(population, years);
+      // console.log(population, years);
 
       // Destroy any chart if existing
       if (this.chart) { this.chart.destroy(); }
@@ -373,12 +337,12 @@ export class MapComponent implements OnInit {
 
     this.mapService.loadData('kwasoKorase.geojson').subscribe(resLineData => {
       this.aulaTerraRoad = resLineData;
-      console.log('Loading aulaTerra road...\n', this.aulaTerraRoad);
+      // console.log('Loading aulaTerra road...\n', this.aulaTerraRoad);
     });
 
     this.mapService.loadData('aulaTerraMarkers.json').subscribe(resData => {
       this.aulaTerraMarkers = resData['content'].filter(marker => marker.type !== 'technology');
-      console.log('Loading aula terra markers...\n', this.aulaTerraMarkers);
+      // console.log('Loading aula terra markers...\n', this.aulaTerraMarkers);
     });
 
     this.customMapStyles = this.customMapStyles.map(feature => {
@@ -405,7 +369,7 @@ export class MapComponent implements OnInit {
 
     this.mapService.loadData('aulaTerraMarkers.json').subscribe(resData => {
       this.aulaTerraMarkers = resData['content'].filter(marker => marker.type === 'technology');
-      console.log('Loading technology markers...\n', this.aulaTerraMarkers);
+      // console.log('Loading technology markers...\n', this.aulaTerraMarkers);
     });
 
     this.latlngBounds = {
@@ -466,7 +430,7 @@ export class MapComponent implements OnInit {
 
   }
 
-  clickedDistricts(event, type) {
+  clickedDistricts(event) {
 
     // add clicked district to chart data
     function addData(chart, label, data) {
@@ -484,11 +448,7 @@ export class MapComponent implements OnInit {
     // remove first data point if too many
     if (this.chart.data.labels.length >= 3) removeFirstDataPoint(this.chart);
 
-    switch (type) {
-      case 'primaryschool': addData(this.chart, event.feature.l.adm2, event.feature.l.primaryschool); break;
-      case 'highschool': addData(this.chart, event.feature.l.adm2, event.feature.l.highschool); break;
-      case 'university': addData(this.chart, event.feature.l.adm2, event.feature.l.university); break;
-    }
+    addData(this.chart, event.feature.l.adm2, event.feature.l.active);
   }
 
   clickedYear(year) {
@@ -527,7 +487,7 @@ export class MapComponent implements OnInit {
 
 
   mouseOverObject(object) {
-    console.log('Mouse over object!\n', object);
+    // console.log('Mouse over object!\n', object);
 
     if (this.zoom < 11) {
       const newRadius = object.capacity * this.getStdRadius(this.zoom) / 10;
@@ -542,7 +502,7 @@ export class MapComponent implements OnInit {
   }
 
   mouseOutObject(object) {
-    console.log('Mouse out object!\n', object);
+    // console.log('Mouse out object!\n', object);
     object.radius = this.getStdRadius(this.zoom);
   }
 
@@ -559,7 +519,7 @@ export class MapComponent implements OnInit {
   resetMap() {
 
     this.mapService.loadStyles('mapStyles.json').subscribe(data => {
-      console.log('Loading map styles ...');
+      // console.log('Loading map styles ...');
       this.customMapStyles = data;
     });
 
@@ -589,9 +549,10 @@ export class MapComponent implements OnInit {
 
     // POLYGON
     this.populationTiles = null;
-    this.districtsPrimarySchools = null;
-    this.districtsHighSchools = null;
-    this.districtsUniversities = null;
+    this.districts = null;
+
+    // MISC
+    this.mediaSource.src = null;
 
     if (this.chart) this.chart.destroy();
   }

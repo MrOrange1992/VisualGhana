@@ -118,50 +118,14 @@ export class StylesService {
   // So the district with the highest amount of observations will have 1
   // others will have less than one relative to the max element
 
-  loadPrimarySchoolsDistributionStyles(feature) {
+  loadDistributionStyles(feature) {
 
     return {
       strokeColor: '#000000',
       strokeOpacity: 0.8,
       strokeWeight: 0.8,
-      fillColor: Colors.educationPrimarySchoolColor,
-      fillOpacity: feature.l.primaryschool / 100
-    }
+      fillColor: Colors.educationColor,
+      fillOpacity: feature.l.active / 100
+    };
   }
-
-  loadMiddleSchoolsDistributionStyles(feature) {
-
-    return {
-      strokeColor: '#000000',
-      strokeOpacity: 0.8,
-      strokeWeight: 0.8,
-      fillColor: Colors.educationMiddleSchoolColor,
-      fillOpacity: feature.l.middleschool / 10
-    }
-  }
-
-  loadHighSchoolsDistributionStyles(feature) {
-
-    return {
-      strokeColor: '#000000',
-      strokeOpacity: 0.8,
-      strokeWeight: 0.8,
-      fillColor: Colors.educationHighSchoolColor,
-      fillOpacity: feature.l.highschool / 100
-    }
-  }
-
-  loadUniversitiesDistributionStyles(feature) {
-
-    return {
-      strokeColor: '#000000',
-      strokeOpacity: 0.8,
-      strokeWeight: 0.8,
-      fillColor: Colors.educationUniversityColor,
-      fillOpacity: feature.l.university / 100
-    }
-  }
-
-
-
 }

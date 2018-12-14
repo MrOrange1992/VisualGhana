@@ -54,23 +54,10 @@
   ></agm-data-layer>
 
   <!-- EDUCATION DISTRIBUTION -->
-
   <agm-data-layer
-    [style]="stylesService.loadPrimarySchoolsDistributionStyles"
-    [geoJson]=districtsPrimarySchools
-    (layerClick)="clickedDistricts($event, 'primaryschool')"
-  ></agm-data-layer>
-
-  <agm-data-layer
-    [style]="stylesService.loadHighSchoolsDistributionStyles"
-    [geoJson]=districtsHighSchools
-    (layerClick)="clickedDistricts($event, 'highschool')"
-  ></agm-data-layer>
-
-  <agm-data-layer
-    [style]="stylesService.loadUniversitiesDistributionStyles"
-    [geoJson]=districtsUniversities
-    (layerClick)="clickedDistricts($event, 'university')"
+    [style]="stylesService.loadDistributionStyles"
+    [geoJson]=districts
+    (layerClick)="clickedDistricts($event)"
   ></agm-data-layer>
 
   <!---------------------------- POINTS ----------------------------->
@@ -186,19 +173,19 @@
       <button
         class="loadButton"
         (click)="loadEducationDistribution('primaryschool')"
-        [ngStyle]="{'background-color': colors.educationPrimarySchoolColor}">
+        [ngStyle]="{'background-color': colors.educationColor}">
         Primary Schools
       </button>
       <button
         class="loadButton"
         (click)="loadEducationDistribution('highschool')"
-        [ngStyle]="{'background-color': colors.educationHighSchoolColor}">
+        [ngStyle]="{'background-color': colors.educationColor}">
         High Schools
       </button>
       <button
         class="loadButton"
         (click)="loadEducationDistribution('university')"
-        [ngStyle]="{'background-color': colors.educationUniversityColor}">
+        [ngStyle]="{'background-color': colors.educationColor}">
         Universities
       </button>
     </div>
