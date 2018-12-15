@@ -171,6 +171,22 @@
 
   <div class="infoPanelSection info">
 
+    <div *ngIf="energyMode" class="infoPanelSection clickable">
+
+      <button
+        class="loadButton"
+        (click)="loadPower()"
+        [ngStyle]="{'background-color': colors.powerHydroplantColor}">
+        Powerplant distribution
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadAccessToElectricity()"
+        [ngStyle]="{'background-color': colors.powerHydroplantColor}">
+        Access to electricity
+      </button>
+    </div>
+
     <div *ngIf="educationMode" class="infoPanelSection clickable">
       <button
         class="loadButton"

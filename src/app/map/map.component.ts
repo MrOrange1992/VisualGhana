@@ -62,6 +62,7 @@ export class MapComponent implements OnInit {
   latlngBounds: LatLngBoundsLiteral;
   educationMode = false;
   healthMode = false;
+  energyMode = false;
   stdRadius;
   activeTimeLineYear = 2018;
   years: number[] =  Array(
@@ -205,7 +206,10 @@ export class MapComponent implements OnInit {
   /**
    * Load / reset data for power related data to be displayed
    */
+
   loadPower() {
+
+    this.energyMode = true;
 
     // Load power line data
     this.mapService.loadData('ghanaPowerLines.geojson').subscribe(resLineData => {
@@ -257,6 +261,29 @@ export class MapComponent implements OnInit {
       );
 
       this.chart = barChart.chart;
+    });
+  }
+
+  loadAccessToElectricity() {
+    this.mapService.loadData('accessToElectricity.json').subscribe(resPointData => {
+
+      const year = resPointData['content'].map(line => line.Year);
+      const access = resPointData['content'].map(line => line.Access);
+      // console.log(population, years);
+
+      // Destroy any chart if existing
+      if (this.chart) { this.chart.destroy(); }
+
+      // create pie chart
+      const lineChart = new LineChart(
+        'chartCanvas',
+        'Access to electricity',
+        year,
+        access,
+        Colors.powerLinesColor
+      );
+      this.chart = lineChart.chart;
+
     });
   }
 
@@ -592,6 +619,7 @@ export class MapComponent implements OnInit {
 
     this.educationMode = false;
     this.healthMode = false;
+    this.energyMode = false;
     this.infoGeoJsonObject = null;
     this.foreCastMode = false;
     this.populationMode = false;
