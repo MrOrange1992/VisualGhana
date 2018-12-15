@@ -235,6 +235,33 @@
       </button>
     </div>
 
+    <div *ngIf="healthDistributionMode" class="infoPanelSection clickable">
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('District Hospitals')"
+        [ngStyle]="{'background-color': colors.hospitalColor}">
+        District Hospitals
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('RCHs')"
+        [ngStyle]="{'background-color': colors.clinicColor}">
+        RCHs
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('CHPS')"
+        [ngStyle]="{'background-color': colors.maternityColor}">
+        CHPS
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('Others')"
+        [ngStyle]="{'background-color': '#000'}">
+        CHPS
+      </button>
+    </div>
+
     <div *ngIf="populationMode" class="infoPanelSection clickable">
       <button
         class="loadButton"

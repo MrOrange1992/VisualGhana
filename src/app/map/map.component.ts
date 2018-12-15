@@ -62,6 +62,7 @@ export class MapComponent implements OnInit {
   latlngBounds: LatLngBoundsLiteral;
   educationMode = false;
   healthMode = false;
+  healthDistributionMode = false;
   energyMode = false;
   stdRadius;
   activeTimeLineYear = 2018;
@@ -119,6 +120,7 @@ export class MapComponent implements OnInit {
   prepareHealthSites() {
 
     this.healthMode = true;
+    this.healthDistributionMode = true;
 
     this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
 
@@ -151,6 +153,40 @@ export class MapComponent implements OnInit {
       );
 
       this.chart = pieChart.chart;
+    });
+  }
+
+  loadHealthDistribution(type) {
+
+    this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+      this.districts = resPolygonData;
+
+      if (this.chart) { this.chart.destroy(); }
+
+      this.districts['features'] = this.districts['features'].map(feature => {
+
+        switch (type) {
+          case 'District Hospitals':
+          {
+            feature.properties.active = feature.properties.DistrictHospitals;
+            this.chart = new BarChart('chartCanvas', 'District Hospital distribution', [], [], Colors.hospitalColor).chart;
+            break;
+          }
+          case 'RCHs':
+          {
+            feature.properties.active = feature.properties.RCHs;
+            this.chart = new BarChart('chartCanvas', 'Maternity Homes distribution', [], [], Colors.hospitalColor).chart;
+            break;
+          }
+          case 'CHPS':
+          {
+            feature.properties.active = feature.properties.CHPS;
+            this.chart = new BarChart('chartCanvas', 'CHPS distribution', [], [], Colors.hospitalColor).chart;
+            break;
+          }
+        }
+        return feature;
+      });
     });
   }
 
@@ -620,6 +656,7 @@ export class MapComponent implements OnInit {
     this.educationMode = false;
     this.healthMode = false;
     this.energyMode = false;
+    this.healthDistributionMode = false;
     this.infoGeoJsonObject = null;
     this.foreCastMode = false;
     this.populationMode = false;
