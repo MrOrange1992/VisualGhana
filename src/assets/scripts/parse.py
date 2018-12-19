@@ -1,6 +1,6 @@
 import json
 
-with open ('populationByDistricts.json','r') as populationFile, open ('ghanaDistricts.geojson','r') as districtsFile:
+with open ('../data/populationByDistricts.json','r') as populationFile, open ('../data/ghanaDistricts.geojson','r') as districtsFile:
 	
 	populationData = json.loads(populationFile.read())
 
@@ -31,7 +31,7 @@ with open ('populationByDistricts.json','r') as populationFile, open ('ghanaDist
 		print(feature.get('properties'))
 
 
-	with open('ghanaDistricts2.geojson','w') as districtoutput:
+	with open('../data/ghanaDistricts2.geojson','w') as districtoutput:
 		districtoutput.write(json.dumps(districtsData, indent = 4))
 			
 

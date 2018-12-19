@@ -113,11 +113,14 @@ export class MapComponent implements OnInit {
 
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
+
+
     }
 
 
 
   prepareHealthSites() {
+
 
     this.healthMode = true;
     this.healthDistributionMode = true;

@@ -1,0 +1,1507 @@
+[
+  {
+    "adm1": "Ashanti",
+    "adm2": "",
+    "population": 5661728,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Abura/Asebu/Kwamankese",
+    "population": 126313,
+    "0-14 years": 47524,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Accra",
+    "population": 2036889,
+    "0-14 years": 531719,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ada East",
+    "population": 84224,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ada West",
+    "population": 69631,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Adaklu Anyigbe",
+    "population": 43292,
+    "0-14 years": 23769,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Adansi North",
+    "population": 125015,
+    "0-14 years": 45205,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Adansi South",
+    "population": 136389,
+    "0-14 years": 49404,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Adenta Municipal",
+    "population": 91285,
+    "0-14 years": 24584,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Afadzato South",
+    "population": 114597,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Afigya Kwabre",
+    "population": 159111,
+    "0-14 years": 55699,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Afigya Sekyere",
+    "population": 113658,
+    "0-14 years": 38034,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Agona East",
+    "population": 100735,
+    "0-14 years": 35368,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Agona",
+    "population": 134245,
+    "0-14 years": 44659,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Agotime Ziope",
+    "population": 35722,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ahafo Ano North",
+    "population": 113659,
+    "0-14 years": 38695,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ahafo Ano South",
+    "population": 142078,
+    "0-14 years": 52325,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ahanta West",
+    "population": 136044,
+    "0-14 years": 44014,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ajumako Enyan",
+    "population": 149789,
+    "0-14 years": 57924,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Akatsi",
+    "population": 114599,
+    "0-14 years": 48402,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Akatsi North",
+    "population": 40738,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Akwapim North",
+    "population": 165271,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Akwapim South",
+    "population": 44492,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Akyem Mansa",
+    "population": 117588,
+    "0-14 years": 41033,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Amansie Central",
+    "population": 108049,
+    "0-14 years": 38964,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Amansie West",
+    "population": 159117,
+    "0-14 years": 55450,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Aowin Suaman",
+    "population": 151173,
+    "0-14 years": 56262,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asante Akim Central Municipal",
+    "population": 85239,
+    "0-14 years": 37058,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asante Akim North",
+    "population": "79,551",
+    "0-14 years": 18529,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asante Akim South",
+    "population": 142060,
+    "0-14 years": 48814,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ashaiman Municipal",
+    "population": 226139,
+    "0-14 years": 60863,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asikuma/Odoben/Brakwa",
+    "population": 132000,
+    "0-14 years": 48906,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asokore Mampong Municipal",
+    "population": 363692,
+    "0-14 years": 35578,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Assin North",
+    "population": 190219,
+    "0-14 years": 67688,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Assin South",
+    "population": "122,482",
+    "0-14 years": 44839,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asunafo North",
+    "population": 150701,
+    "0-14 years": 52193,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asunafo South",
+    "population": 114462,
+    "0-14 years": 40775,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asuogyaman",
+    "population": 117597,
+    "0-14 years": 36621,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Asutifi",
+    "population": 128503,
+    "0-14 years": 41336,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Atebubu",
+    "population": 128430,
+    "0-14 years": 45583,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Atiwa",
+    "population": 133482,
+    "0-14 years": 44111,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Atwima Kwanwoma",
+    "population": 107963,
+    "0-14 years": 36874,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Atwima Mponua",
+    "population": 142065,
+    "0-14 years": 51008,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Atwima Nwabiagya",
+    "population": 176171,
+    "0-14 years": 57862,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Awutu/Efutu/Senya",
+    "population": 127689,
+    "0-14 years": 77505,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ayensuano",
+    "population": 92156,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Banda",
+    "population": 25125,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bawku East",
+    "population": 116912,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bawku West",
+    "population": 111940,
+    "0-14 years": 22071,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bekwai Municipal",
+    "population": 121069,
+    "0-14 years": 24259,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Berekum",
+    "population": 156349,
+    "0-14 years": 24962,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bia",
+    "population": 145119,
+    "0-14 years": 24849,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Biakoye",
+    "population": 78934,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Binduri",
+    "population": 73382,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Birim Municipal",
+    "population": 174807,
+    "0-14 years": 28585,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Birim North",
+    "population": 95345,
+    "0-14 years": 16192,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Birim South",
+    "population": 143014,
+    "0-14 years": 24655,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bodi",
+    "population": 66513,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bole",
+    "population": 74786,
+    "0-14 years": 13688,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bolgatanga",
+    "population": 156678,
+    "0-14 years": 24624,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bongo",
+    "population": 100741,
+    "0-14 years": 18462,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bosome Freho",
+    "population": 73877,
+    "0-14 years": 13256,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bosomtwi",
+    "population": 113664,
+    "0-14 years": 19257,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Builsa North",
+    "population": 110724,
+    "0-14 years": 19347,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Bunkpurugu Yonyo",
+    "population": 146565,
+    "0-14 years": 29975,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Cape Coast",
+    "population": 183937,
+    "0-14 years": 23872,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Central Tongu",
+    "population": 71302,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Chereponi",
+    "population": 65796,
+    "0-14 years": 13805,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Daffiama Bussie",
+    "population": 38894,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Denkyembuor",
+    "population": 95339,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Dormaa Central Municipal",
+    "population": 61439,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Dormaa Municipal",
+    "population": 136812,
+    "0-14 years": 31276,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Dormaa West",
+    "population": 58626,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "East Akim",
+    "population": 203403,
+    "0-14 years": 30954,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "East Gonja",
+    "population": 164513,
+    "0-14 years": 3122,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Effutu Municipal",
+    "population": 80776,
+    "0-14 years": 11211,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ejusu/Juabeni",
+    "population": 170471,
+    "0-14 years": 29062,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ejura Sekye Dumasi",
+    "population": 102291,
+    "0-14 years": 18208,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ekumfi",
+    "population": 60296,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ellembelle",
+    "population": 111881,
+    "0-14 years": 17397,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ewutu Senya",
+    "population": 101631,
+    "0-14 years": 38685,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Fanteakwa",
+    "population": 130295,
+    "0-14 years": 22076,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ga Central Municipal",
+    "population": 138114,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ga East",
+    "population": 175248,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ga South",
+    "population": 510145,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ga West",
+    "population": 262585,
+    "0-14 years": 43171,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Garu Tempane",
+    "population": 154214,
+    "0-14 years": 31261,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Gomoa",
+    "population": 505907,
+    "0-14 years": 44642,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Gushiegu",
+    "population": 134599,
+    "0-14 years": 26315,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ho",
+    "population": 328546,
+    "0-14 years": 45032,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Hohoe",
+    "population": 201190,
+    "0-14 years": 48918,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Jaman North",
+    "population": 100514,
+    "0-14 years": 16786,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Jaman South",
+    "population": 111676,
+    "0-14 years": 18955,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Jasikan",
+    "population": 71310,
+    "0-14 years": 11426,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Jirapa/Lambussie",
+    "population": 104273,
+    "0-14 years": 10505,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Jomoro",
+    "population": 190435,
+    "0-14 years": 30711,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Juabeso",
+    "population": 75593,
+    "0-14 years": 23626,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kadjebi",
+    "population": 71301,
+    "0-14 years": 11876,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Karaga",
+    "population": 92719,
+    "0-14 years": 18297,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kasena/Nankani",
+    "population": 215178,
+    "0-14 years": 40057,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Keta",
+    "population": 178252,
+    "0-14 years": 26072,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ketu",
+    "population": 313292,
+    "0-14 years": 49816,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kintampo North",
+    "population": 114482,
+    "0-14 years": 20582,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kintampo South",
+    "population": 97716,
+    "0-14 years": 17836,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Komenda/Edina Aguafo",
+    "population": 157291,
+    "0-14 years": 29503,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kpandai",
+    "population": 131602,
+    "0-14 years": 26861,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kpandu",
+    "population": 63661,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kpone Katamanso",
+    "population": 129324,
+    "0-14 years": 19566,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Krachi East",
+    "population": 140066,
+    "0-14 years": 27417,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Krachi Nchumuru",
+    "population": 86575,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Krachi West",
+    "population": 58570,
+    "0-14 years": 28265,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kumasi",
+    "population": 2057084,
+    "0-14 years": 337653,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kumbumgu",
+    "population": 47856,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kwabre",
+    "population": 136390,
+    "0-14 years": 22840,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kwaebibirem",
+    "population": 136655,
+    "0-14 years": 38795,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kwahu Afram Plains North",
+    "population": 123941,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kwahu Afram Plains South",
+    "population": 139836,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kwahu East",
+    "population": 92165,
+    "0-14 years": 15840,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kwahu South",
+    "population": 82626,
+    "0-14 years": 13886,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Kwahu West Municipal",
+    "population": 114409,
+    "0-14 years": 17945,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "La Dade Kotopon Municipal",
+    "population": 216605,
+    "0-14 years": 26590,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "La Nkwantanang Madina Municipal",
+    "population": 132002,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Lambussie Karni",
+    "population": 61233,
+    "0-14 years": 11809,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Lawra",
+    "population": 64543,
+    "0-14 years": 20663,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ledzokuku/Krowor Municipal",
+    "population": 269379,
+    "0-14 years": 35441,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Lower Manya",
+    "population": 108049,
+    "0-14 years": 15536,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Mampong Municipal",
+    "population": 102288,
+    "0-14 years": 17899,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Mamprugu Moagduri",
+    "population": 56834,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Mamprusi East",
+    "population": 146569,
+    "0-14 years": 29479,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Mamprusi West",
+    "population": 146561,
+    "0-14 years": 39803,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Mfantsiman",
+    "population": 158033,
+    "0-14 years": 39510,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Mion",
+    "population": 99143,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Mpohor Wassa",
+    "population": 54421,
+    "0-14 years": 26760,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nabdam",
+    "population": 39798,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nadowli",
+    "population": 72828,
+    "0-14 years": 19784,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nandom",
+    "population": 54618,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nanumba North",
+    "population": 170488,
+    "0-14 years": 34348,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nanumba South",
+    "population": 114166,
+    "0-14 years": 22702,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "New Juaben",
+    "population": 222459,
+    "0-14 years": 28228,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Ningo Prampram",
+    "population": 83603,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nkoranza",
+    "population": 192629,
+    "0-14 years": 16160,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nkwanta",
+    "population": 218996,
+    "0-14 years": 42492,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "North Dayi",
+    "population": 48382,
+    "0-14 years": 17340,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "North Gonja",
+    "population": 53844,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "North Tongu",
+    "population": 106957,
+    "0-14 years": 28490,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nsawam Adoagyiri Municipal",
+    "population": 104873,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Nzema East",
+    "population": 78671,
+    "0-14 years": 12802,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Obuasi Municipal",
+    "population": 198904,
+    "0-14 years": 30330,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Offinso",
+    "population": 90916,
+    "0-14 years": 16293,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Offinso North",
+    "population": 68193,
+    "0-14 years": 12954,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Prestea/Huni Valley",
+    "population": 202577,
+    "0-14 years": 32879,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Pru",
+    "population": 156336,
+    "0-14 years": 30093,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Pusiga",
+    "population": 68406,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Saboba/Chereponi",
+    "population": 80761,
+    "0-14 years": 16616,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sagnerigu Municipal",
+    "population": 175321,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Savelgu/Nanton",
+    "population": 167491,
+    "0-14 years": 31173,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sawla/Tuna/Kalba",
+    "population": 119639,
+    "0-14 years": 24867,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sefwi Akontombra",
+    "population": 105821,
+    "0-14 years": 18220,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sefwi Bibiani-Ahwiaso Bekwai",
+    "population": 157217,
+    "0-14 years": 24710,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sefwi-Wiawso",
+    "population": 178387,
+    "0-14 years": 29130,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sekyere Afram Plains (Sekyere Kumawu)",
+    "population": 79560,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sekyere Afram Plains North",
+    "population": 34099,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sekyere West",
+    "population": 85241,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sekyere East",
+    "population": 73864,
+    "0-14 years": 12900,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sene",
+    "population": 142389,
+    "0-14 years": 27716,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Shai Osudoku (Dangme West)",
+    "population": 60915,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Shama",
+    "population": 102809,
+    "0-14 years": 17112,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Shama Ahanta East",
+    "population": 710517,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sissala East",
+    "population": 67029,
+    "0-14 years": 12101,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sissala West",
+    "population": 58741,
+    "0-14 years": 11621,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "South Dayi",
+    "population": 56027,
+    "0-14 years": 9142,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "South Tongu",
+    "population": 106947,
+    "0-14 years": 17376,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Suaman",
+    "population": 27212,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Suhum/Kraboa/Coaltar",
+    "population": 108053,
+    "0-14 years": 33758,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sunyani",
+    "population": 147982,
+    "0-14 years": 19724,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Sunyani West",
+    "population": 103308,
+    "0-14 years": 16507,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Tain",
+    "population": 106094,
+    "0-14 years": 22226,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Talensi-Nabdam",
+    "population": 97010,
+    "0-14 years": 24573,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Tamale",
+    "population": 269227,
+    "0-14 years": 24257,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Tano North",
+    "population": 97723,
+    "0-14 years": 16356,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Tano South",
+    "population": 94928,
+    "0-14 years": 16922,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Tatale",
+    "population": 71791,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Techiman",
+    "population": 178691,
+    "0-14 years": 40523,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Techiman North",
+    "population": 72593,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Tema",
+    "population": 345622,
+    "0-14 years": 60822,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Tolon/Kumbungu",
+    "population": 86736,
+    "0-14 years": 25682,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Twifo Ati Morkwa",
+    "population": 72969,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Twifu Heman/Lower Denkyira",
+    "population": 65150,
+    "0-14 years": 24915,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Upper Denkyira",
+    "population": 85994,
+    "0-14 years": 14000,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Upper Denkyira West",
+    "population": 70354,
+    "0-14 years": 12747,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Upper Manya",
+    "population": 85810,
+    "0-14 years": 14998,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Upper West Akyem",
+    "population": 104885,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wa East",
+    "population": 85233,
+    "0-14 years": 17555,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wa Municipal",
+    "population": 126609,
+    "0-14 years": 18667,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wa West",
+    "population": 95983,
+    "0-14 years": 19505,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wassa Amenfi Central",
+    "population": 87686,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wassa Amenfi East",
+    "population": 105833,
+    "0-14 years": 18115,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wassa Amenfi West",
+    "population": 117923,
+    "0-14 years": 34797,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wassa East",
+    "population": 102802,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Wenchi",
+    "population": 108892,
+    "0-14 years": 18451,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "West Akim",
+    "population": 130305,
+    "0-14 years": 40119,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "West Gonja",
+    "population": 50504,
+    "0-14 years": 19780,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Yendi",
+    "population": 143576,
+    "0-14 years": 45566,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Yilo Krobo",
+    "population": 104888,
+    "0-14 years": 16465,
+    "": ""
+  },
+  {
+    "adm1": "",
+    "adm2": "Zabzugu/Tatale",
+    "population": 77775,
+    "0-14 years": 29498,
+    "": ""
+  },
+  {
+    "adm1": "Brong Ahafo",
+    "adm2": "",
+    "population": 2786400,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Central",
+    "adm2": "",
+    "population": 2521118,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Eastern",
+    "adm2": "",
+    "population": 3171740,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Greater Accra",
+    "adm2": "",
+    "population": 4831710,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Northern",
+    "adm2": "",
+    "population": 2993889,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Upper East",
+    "adm2": "",
+    "population": 1244983,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Upper West",
+    "adm2": "",
+    "population": 829984,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Volta",
+    "adm2": "",
+    "population": 2549256,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Western",
+    "adm2": "",
+    "population": 3023529,
+    "0-14 years": "",
+    "": ""
+  },
+  {
+    "adm1": "Tarkwa Nsuaem Municipal",
+    "adm2": "",
+    "population": 114895,
+    "0-14 years": "",
+    "": ""
+  }
+]
