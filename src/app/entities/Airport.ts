@@ -15,7 +15,7 @@ export class Airport {
     this.latitude = +feature.geometry.coordinates[1];
     this.type = feature.properties.type;
     this.color = Colors.airPortColor;
-    this._radius = radius;
+    this._radius = radius * 2;
   }
 
   get radius(): number { return this._radius; }

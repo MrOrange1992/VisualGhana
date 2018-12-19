@@ -27,9 +27,16 @@ export class BarChart {
           display: true,
           text: titleText,
           fontColor: 'white'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
         }
-      }
 
+      },
     });
   }
 }

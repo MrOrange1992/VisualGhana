@@ -395,18 +395,20 @@ export class MapComponent implements OnInit {
             datasets: [
               {
                 // label: data,
+                label: 'Female',
                 data: femaleCount,
                 backgroundColor: '#113951'
               },
               {
                 // label: data,
+                label: 'Male',
                 data: maleCount,
                 backgroundColor: '#806315'
               }]
           },
           options: {
             legend: {
-              display: false,
+              display: true,
               labels: {
                 fontColor: 'white'
               }

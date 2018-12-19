@@ -65,7 +65,7 @@ export class StylesService {
     } else if (feature['l'].voltage_kV === 330) {
       return { clickable: true, strokeWeight: 3, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     } else {
-      return { clickable: false, strokeWeight: 0.2, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
+      return { clickable: false, strokeWeight: 0.5, strokeOpacity: 0.6, strokeColor: Colors.powerLinesColor };
     }
   }
 
@@ -125,7 +125,7 @@ export class StylesService {
       strokeOpacity: 0.8,
       strokeWeight: 0.8,
       fillColor: Colors.educationColor,
-      fillOpacity: feature.l.active / 100
+      fillOpacity: feature.l.active / 80
     };
   }
 }
