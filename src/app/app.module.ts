@@ -9,10 +9,12 @@ import {APP_ROUTES} from './app.routes';
 import {MapService} from './map/map.service';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MglTimelineModule} from 'angular-mgl-timeline';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StylesService} from './map/styles.service';
 import {EventService} from './map/event.service';
-import { FilteryearPipe } from './pipes/filteryear.pipe';
+import {FilteryearPipe} from './pipes/filteryear.pipe';
+
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { FilteryearPipe } from './pipes/filteryear.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MglTimelineModule,
     AgmCoreModule.forRoot( {
       apiKey: GoogleMapsData.apiKey
       }

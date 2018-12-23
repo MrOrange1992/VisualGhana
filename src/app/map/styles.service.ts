@@ -1,5 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {Colors} from '../enums/Colors';
+import {MapComponent} from "./map.component";
 
 
 @Injectable()
@@ -114,7 +115,6 @@ export class StylesService {
     */
   }
 
-  // TODO -> district styles calc fillOpacity -> _/max(all_features)
   // So the district with the highest amount of observations will have 1
   // others will have less than one relative to the max element
 
@@ -125,7 +125,7 @@ export class StylesService {
       strokeOpacity: 0.8,
       strokeWeight: 0.8,
       fillColor: Colors.educationColor,
-      fillOpacity: feature.l.active / 80
+      fillOpacity: (feature.l.active / feature.l.maxOpacity)
     };
   }
 }

@@ -78,7 +78,7 @@
         <ul *ngFor="let property of objectKeys(infoGeoJsonObject)">
           <li *ngIf=" property != '_color' &&
                       property != 'color' &&
-
+                      property != '_radius' &&
                       property != 'longitude' &&
                       property != 'latitude'">
             {{property}}: {{infoGeoJsonObject[property]}}
@@ -238,7 +238,7 @@
     <div *ngIf="healthDistributionMode" class="infoPanelSection clickable">
       <button
         class="loadButton"
-        (click)="loadHealthDistribution('District Hospitals')"
+        (click)="loadHealthDistribution('DistrictHospitals')"
         [ngStyle]="{'background-color': colors.hospitalColor}">
         District Hospitals
       </button>
@@ -252,12 +252,6 @@
         class="loadButton"
         (click)="loadHealthDistribution('CHPS')"
         [ngStyle]="{'background-color': colors.maternityColor}">
-        CHPS
-      </button>
-      <button
-        class="loadButton"
-        (click)="loadHealthDistribution('Others')"
-        [ngStyle]="{'background-color': '#000'}">
         CHPS
       </button>
     </div>
@@ -296,36 +290,30 @@
 
   </div>
 
-
-
-
-
 </div>
+
+
 
 <div *ngIf="foreCastMode" class="timeLineWindow">
 
-  <!--div id="timeline"-->
-  <div>
-
-    <!--ul  *ngFor="let year of years">
-      <!--li><a href="#1965" class="selected">1965</a></li>
-      <li><a href="#{{year}}">{{year}}</a></li>
-
-
-    </ul-->
-    <ul *ngFor="let year of years">
-      <!--li id="1965" class="selected">
-        <h1>1965</h1>
-      </li-->
-      <li id="{{year}}">
-        <h1 (click)="clickedYear(year)">{{year}}</h1>
-      </li>
-    </ul>
-
-    <!--a href="#" id="next">+</a>
-    <a href="#" id="prev">-</a-->
-  </div>
+  <mgl-timeline [alternate]=true>
+    <mgl-timeline-entry *ngFor="let year of years; let i = index;" (expand)="onExpandEntry($event, i)">
+      <mgl-timeline-entry-header (click)="clickedYear(year)">
+        <div>{{year}}</div>
+      </mgl-timeline-entry-header>
+      <mgl-timeline-entry-content>
+        <div>
+          <div>Dummy1</div>
+          <div>Dummy2</div>
+        </div>
+      </mgl-timeline-entry-content>
+      <!--mgl-timeline-entry-dot
+        [class]= colors.powerLinesColor
+        [size]= 40
+        (click)="onDotClick($event)"
+      ></mgl-timeline-entry-dot-->
+    </mgl-timeline-entry>
+  </mgl-timeline>
 
 </div>
-
 

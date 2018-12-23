@@ -13,6 +13,7 @@ import {EventService} from './event.service';
 import {LineChart} from '../charts/LineChart';
 
 
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -87,6 +88,17 @@ export class MapComponent implements OnInit {
   foreCastMode = false;
   aulaTerraMode = false;
   populationMode = false;
+
+  // TIMELINE
+  color: boolean = false;
+  expandEnabled: boolean = true;
+
+  entries = [
+    {
+      header: 'header',
+      content: 'content'
+    }
+  ];
 
   constructor(
     private mapService: MapService,
@@ -166,24 +178,32 @@ export class MapComponent implements OnInit {
 
       if (this.chart) { this.chart.destroy(); }
 
+      const maxOpacity = resPolygonData['features']
+        .map(entry => entry.properties[type])
+        .reduce((current, next) => { if (next > current) return next; else return current; } );
+
+
       this.districts['features'] = this.districts['features'].map(feature => {
 
         switch (type) {
-          case 'District Hospitals':
+          case 'DistrictHospitals':
           {
             feature.properties.active = feature.properties.DistrictHospitals;
+            feature.properties.maxOpacity = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'District Hospital distribution', [], [], Colors.hospitalColor).chart;
             break;
           }
           case 'RCHs':
           {
             feature.properties.active = feature.properties.RCHs;
+            feature.properties.maxOpacity = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'Maternity Homes distribution', [], [], Colors.hospitalColor).chart;
             break;
           }
           case 'CHPS':
           {
             feature.properties.active = feature.properties.CHPS;
+            feature.properties.maxOpacity = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'CHPS distribution', [], [], Colors.hospitalColor).chart;
             break;
           }
@@ -337,24 +357,31 @@ export class MapComponent implements OnInit {
 
       if (this.chart) { this.chart.destroy(); }
 
+      const maxOpacity = resPolygonData['features']
+        .map(entry => entry.properties[type])
+        .reduce((current, next) => { if (next > current) return next; else return current; } );
+
       this.districts['features'] = this.districts['features'].map(feature => {
 
         switch (type) {
           case 'primaryschool':
           {
             feature.properties.active = feature.properties.primaryschool;
+            feature.properties.maxOpacity = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'Primaryschool distribution', [], [], Colors.educationColor).chart;
             break;
           }
           case 'highschool':
           {
             feature.properties.active = feature.properties.highschool;
+            feature.properties.maxOpacity = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'Highschool distribution', [], [], Colors.educationColor).chart;
             break;
           }
           case 'university':
           {
             feature.properties.active = feature.properties.university;
+            feature.properties.maxOpacity = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'University distribution', [], [], Colors.educationColor).chart;
             break;
           }
@@ -579,6 +606,8 @@ export class MapComponent implements OnInit {
 
   clickedYear(year) {
 
+    if (!this.powerPlants) return;
+
     console.log('clicked Timeline: ' + year.toString());
     this.activeTimeLineYear = year;
 
@@ -609,6 +638,19 @@ export class MapComponent implements OnInit {
     }
 
     updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
+  }
+
+  onDotClick(event) {
+      console.log("onDotClick");
+    if (!this.expandEnabled) {
+      console.log("onDotClickInner");
+
+      event.stopPropagation();
+    }
+  }
+
+  onExpandEntry(expanded, index) {
+    console.log(`Expand status of entry #${index} changed to ${expanded}`)
   }
 
 /*
