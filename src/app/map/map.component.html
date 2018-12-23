@@ -295,25 +295,39 @@
 
 
 <div *ngIf="foreCastMode" class="timeLineWindow">
-
-  <mgl-timeline [alternate]=true>
-    <mgl-timeline-entry *ngFor="let year of years; let i = index;" (expand)="onExpandEntry($event, i)">
-      <mgl-timeline-entry-header (click)="clickedYear(year)">
-        <div>{{year}}</div>
-      </mgl-timeline-entry-header>
-      <mgl-timeline-entry-content>
-        <div>
-          <div>Dummy1</div>
-          <div>Dummy2</div>
+  <div class="timeline">
+    <div class="timeline-body" *ngFor="let year of years">
+      <div class="timeline-item" (click)="clickedYear(year)">
+        <div class="timeline-content">
+          <h2 class="timeline-title">{{year}}</h2>
+          <p *ngIf="year == activeTimeLineYear">
+            Content...
+          </p>
         </div>
-      </mgl-timeline-entry-content>
-      <!--mgl-timeline-entry-dot
-        [class]= colors.powerLinesColor
-        [size]= 40
-        (click)="onDotClick($event)"
-      ></mgl-timeline-entry-dot-->
-    </mgl-timeline-entry>
-  </mgl-timeline>
-
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+<!--mgl-timeline class="mainTimeLine" [alternate]=true>
+  <mgl-timeline-entry *ngFor="let year of years; let i = index;" (expand)="onExpandEntry($event, i)">
+    <mgl-timeline-entry-header (click)="clickedYear(year)">
+      <div>{{year}}</div>
+    </mgl-timeline-entry-header>
+    <mgl-timeline-entry-content>
+      <div>
+        <div>Dummy1</div>
+        <div>Dummy2</div>
+      </div>
+    </mgl-timeline-entry-content>
+    <mgl-timeline-entry-dot
+      [class]= colors.powerLinesColor
+      [size]= 40
+      (click)="onDotClick($event)"
+    ></mgl-timeline-entry-dot>
+  </mgl-timeline-entry>
+</mgl-timeline-->
 

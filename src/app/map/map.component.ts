@@ -17,7 +17,7 @@ import {LineChart} from '../charts/LineChart';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'],
+  styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
 
@@ -34,7 +34,6 @@ export class MapComponent implements OnInit {
   filteredHealthSites: HealthSite[];
   powerPlants: PowerPlant[];
   airports: Airport[];
-  popOverYearData;
   aulaTerraMarkers;
 
   // LINE
@@ -89,20 +88,12 @@ export class MapComponent implements OnInit {
   aulaTerraMode = false;
   populationMode = false;
 
-  // TIMELINE
-  color: boolean = false;
-  expandEnabled: boolean = true;
 
-  entries = [
-    {
-      header: 'header',
-      content: 'content'
-    }
-  ];
+
 
   constructor(
     private mapService: MapService,
-    private stylesService: StylesService,
+    public stylesService: StylesService,
     private eventService: EventService)
   {}
 
@@ -188,22 +179,22 @@ export class MapComponent implements OnInit {
         switch (type) {
           case 'DistrictHospitals':
           {
-            feature.properties.active = feature.properties.DistrictHospitals;
-            feature.properties.maxOpacity = maxOpacity;
+            feature.properties['active'] = feature.properties.DistrictHospitals;
+            feature.properties['maxOpacity'] = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'District Hospital distribution', [], [], Colors.hospitalColor).chart;
             break;
           }
           case 'RCHs':
           {
-            feature.properties.active = feature.properties.RCHs;
-            feature.properties.maxOpacity = maxOpacity;
+            feature.properties['active'] = feature.properties.RCHs;
+            feature.properties['maxOpacity'] = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'Maternity Homes distribution', [], [], Colors.hospitalColor).chart;
             break;
           }
           case 'CHPS':
           {
-            feature.properties.active = feature.properties.CHPS;
-            feature.properties.maxOpacity = maxOpacity;
+            feature.properties['active'] = feature.properties.CHPS;
+            feature.properties['maxOpacity'] = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'CHPS distribution', [], [], Colors.hospitalColor).chart;
             break;
           }
@@ -337,8 +328,8 @@ export class MapComponent implements OnInit {
       const lineChart = new LineChart(
         'chartCanvas',
         'Access to electricity',
-        year,
         access,
+        year,
         Colors.powerLinesColor
       );
       this.chart = lineChart.chart;
@@ -366,22 +357,22 @@ export class MapComponent implements OnInit {
         switch (type) {
           case 'primaryschool':
           {
-            feature.properties.active = feature.properties.primaryschool;
-            feature.properties.maxOpacity = maxOpacity;
+            feature.properties['active'] = feature.properties.primaryschool;
+            feature.properties['maxOpacity'] = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'Primaryschool distribution', [], [], Colors.educationColor).chart;
             break;
           }
           case 'highschool':
           {
-            feature.properties.active = feature.properties.highschool;
-            feature.properties.maxOpacity = maxOpacity;
+            feature.properties['active'] = feature.properties.highschool;
+            feature.properties['maxOpacity'] = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'Highschool distribution', [], [], Colors.educationColor).chart;
             break;
           }
           case 'university':
           {
-            feature.properties.active = feature.properties.university;
-            feature.properties.maxOpacity = maxOpacity;
+            feature.properties['active'] = feature.properties.university;
+            feature.properties['maxOpacity'] = maxOpacity;
             this.chart = new BarChart('chartCanvas', 'University distribution', [], [], Colors.educationColor).chart;
             break;
           }
@@ -638,19 +629,6 @@ export class MapComponent implements OnInit {
     }
 
     updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
-  }
-
-  onDotClick(event) {
-      console.log("onDotClick");
-    if (!this.expandEnabled) {
-      console.log("onDotClickInner");
-
-      event.stopPropagation();
-    }
-  }
-
-  onExpandEntry(expanded, index) {
-    console.log(`Expand status of entry #${index} changed to ${expanded}`)
   }
 
 /*

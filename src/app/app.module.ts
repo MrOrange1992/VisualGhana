@@ -15,7 +15,6 @@ import {StylesService} from './map/styles.service';
 import {EventService} from './map/event.service';
 import {FilteryearPipe} from './pipes/filteryear.pipe';
 
-
 @NgModule({
   imports: [
     BrowserModule,
