@@ -123,7 +123,7 @@ agm-map {
 .technologyButton {
   background-color: #AA5439A6;
 }
-.concepteButton {
+.forecastButton {
   background-color: #806315A6;
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -342,11 +342,17 @@ p
       {
         margin: 40px;
         padding-bottom: 40px;
-        border-bottom: 1px dashed #555;
+        //border-bottom: 1px dashed #555;
 
         .timeline-title
         {
           font-weight: 500;
+          margin-bottom: 15px;
+
+        }
+        .timeline-title:checked
+        {
+          font-weight: 800;
           margin-bottom: 15px;
 
         }

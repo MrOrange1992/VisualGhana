@@ -142,7 +142,7 @@
     <div class="szenarioButton technologyButton" (click)="loadTechnologyConfig()" >
         Technology
     </div>
-    <div class="szenarioButton concepteButton" (click)="loadConceptConfig()">
+    <div class="szenarioButton forecastButton" (click)="loadForecastConfig()">
         Forecast
     </div>
     <div class="szenarioButton aulaterraButton" (click)="loadAulaterraRoad()">
@@ -231,7 +231,7 @@
         class="loadButton"
         (click)="loadHealthSiteType('Others')"
         [ngStyle]="{'background-color': '#000'}">
-        CHPS
+        Others
       </button>
     </div>
 
@@ -296,12 +296,12 @@
 
 <div *ngIf="foreCastMode" class="timeLineWindow">
   <div class="timeline">
-    <div class="timeline-body" *ngFor="let year of years">
-      <div class="timeline-item" (click)="clickedYear(year)">
+    <div class="timeline-body" *ngFor="let timeLineContent of timeLineContents">
+      <div class="timeline-item" (click)="clickedYear(timeLineContent.year)">
         <div class="timeline-content">
-          <h2 class="timeline-title">{{year}}</h2>
-          <p *ngIf="year == activeTimeLineYear">
-            Content...
+          <h2 class="timeline-title">{{timeLineContent.year}}</h2>
+          <p *ngIf="timeLineContent.year == activeTimeLineYear">
+            {{timeLineContent.content}}
           </p>
         </div>
       </div>

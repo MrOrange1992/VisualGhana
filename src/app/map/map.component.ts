@@ -11,6 +11,7 @@ import {BarChart} from '../charts/BarChart';
 import {StylesService} from './styles.service';
 import {EventService} from './event.service';
 import {LineChart} from '../charts/LineChart';
+import {getResponseURL} from "@angular/http/src/http_utils";
 
 
 
@@ -66,6 +67,7 @@ export class MapComponent implements OnInit {
   energyMode = false;
   stdRadius;
   activeTimeLineYear = 2018;
+  timeLineContents;
   years: number[] =  Array(
     1965,
     1982,
@@ -116,14 +118,9 @@ export class MapComponent implements OnInit {
 
     // start in infrastructure configuration
     this.loadInfrastructureConfig();
-
-
-    }
-
-
+  }
 
   prepareHealthSites() {
-
 
     this.healthMode = true;
     this.healthDistributionMode = true;
@@ -397,54 +394,51 @@ export class MapComponent implements OnInit {
         console.log('Loading populationDensity data...\n', this.populationTiles);
       });*/
 
-    loadPopulationPyramide(){
+  loadPopulationPyramide(){
 
-      this.mapService.loadData('populationPyramide.json').subscribe(resData => {
-        const total = resData['total'];
-        const maleCount = resData['distribution'].filter(entry => entry.gender === 'Male').map(entry => entry.count);
-        const femaleCount = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.count);
-        const labels = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.years);
+    this.mapService.loadData('populationPyramide.json').subscribe(resData => {
+      const total = resData['total'];
+      const maleCount = resData['distribution'].filter(entry => entry.gender === 'Male').map(entry => entry.count);
+      const femaleCount = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.count);
+      const labels = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.years);
 
-        if (this.chart) {
-          this.chart.destroy();
-        }
+      if (this.chart) {
+        this.chart.destroy();
+      }
 
-        this.chart = new Chart('chartCanvas', {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                // label: data,
-                label: 'Female',
-                data: femaleCount,
-                backgroundColor: '#113951'
-              },
-              {
-                // label: data,
-                label: 'Male',
-                data: maleCount,
-                backgroundColor: '#806315'
-              }]
-          },
-          options: {
-            legend: {
-              display: true,
-              labels: {
-                fontColor: 'white'
-              }
+      this.chart = new Chart('chartCanvas', {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              // label: data,
+              label: 'Female',
+              data: femaleCount,
+              backgroundColor: '#113951'
             },
-            title: {
-              display: true,
-              text: 'Population Pyramide',
+            {
+              // label: data,
+              label: 'Male',
+              data: maleCount,
+              backgroundColor: '#806315'
+            }]
+        },
+        options: {
+          legend: {
+            display: true,
+            labels: {
               fontColor: 'white'
             }
+          },
+          title: {
+            display: true,
+            text: 'Population Pyramide',
+            fontColor: 'white'
           }
-
-        });
+        }
       });
-
-
+    });
   }
 
   loadPopOverYears() {
@@ -524,7 +518,7 @@ export class MapComponent implements OnInit {
     };
   }
   // load Concept config
-  loadConceptConfig() {
+  loadForecastConfig() {
     this.resetMap();
     this.latlngBounds = {
       north: 11,
@@ -532,10 +526,11 @@ export class MapComponent implements OnInit {
       south: 4,
       west: -7
     };
-    if (this.foreCastMode) this.foreCastMode = false;
-    else {
-      this.foreCastMode = true;
-    }
+    this.foreCastMode = true;
+
+    this.mapService.loadData('timeLineContents.json').subscribe(resData => {
+      this.timeLineContents = resData['contents'];
+    });
   }
 
   // used to hide the info window when random location on map is clicked
