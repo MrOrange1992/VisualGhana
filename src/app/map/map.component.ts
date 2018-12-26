@@ -406,39 +406,42 @@ export class MapComponent implements OnInit {
         this.chart.destroy();
       }
 
-      this.chart = new Chart('chartCanvas', {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              // label: data,
-              label: 'Female',
-              data: femaleCount,
-              backgroundColor: '#113951'
+        this.chart = new Chart('chartCanvas', {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                // label: data,
+                label: 'Female',
+                data: femaleCount,
+                backgroundColor: '#1179BE'
+              },
+              {
+                // label: data,
+                label: 'Male',
+                data: maleCount,
+                backgroundColor: '#124FC6'
+              }]
+          },
+          options: {
+            legend: {
+              display: true,
+              labels: {
+                fontColor: 'white'
+              }
             },
-            {
-              // label: data,
-              label: 'Male',
-              data: maleCount,
-              backgroundColor: '#806315'
-            }]
-        },
-        options: {
-          legend: {
-            display: true,
-            labels: {
+            title: {
+              display: true,
+              text: 'Population Pyramide',
               fontColor: 'white'
             }
-          },
-          title: {
-            display: true,
-            text: 'Population Pyramide',
-            fontColor: 'white'
           }
-        }
+
+        });
       });
-    });
+
+
   }
 
   loadPopOverYears() {
@@ -680,6 +683,7 @@ export class MapComponent implements OnInit {
     this.infoGeoJsonObject = null;
     this.foreCastMode = false;
     this.populationMode = false;
+    this.activeTimeLineYear = null;
 
     // POINT
     this.healthSites = null;

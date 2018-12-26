@@ -1,7 +1,9 @@
 #install.packages("rjson")
 library('rjson')
 library(tidyverse)
+library(ggplot2)
 
+data(tips, package = "reshape2")
 # load the json file
 result <- fromJSON(file = "../../data/ghanaDistricts.geojson")
 
@@ -23,6 +25,7 @@ extract_data <- function(entry)
     pop_kids <- NA
   }
   
+  
   tibble (
     adm1 = entry$properties$adm1,
     adm2 = entry$properties$adm2, 
@@ -42,6 +45,7 @@ extract_data <- function(entry)
   )
 }
 
+
 # 
 ghanaDistricts <- map_dfr(result$features, extract_data)
 
@@ -53,7 +57,49 @@ ghanaDistricts %>%
   mutate(kids_pct = pop_0_14/population * 100) %>% 
   group_by(adm1) %>% 
   summarise(mean_kids_pct = mean(kids_pct, na.rm = TRUE)) %>% 
-  ggplot(aes(x = adm1, y = mean_kids_pct)) + geom_bar(stat = 'identity')
+  ggplot(aes(x = reorder(adm1, -mean_kids_pct), y = mean_kids_pct)) + geom_bar(stat = 'identity', fill="steelblue")
 
+#Bar plot to show the prim_schools per population 0-14 grouped by region
+ghanaDistricts %>% 
+  mutate(schoolpropop = prim_schools/pop_0_14) %>% 
+  group_by(adm1) %>% 
+  summarise(schoolpropop = sum(schoolpropop, na.rm = TRUE)) %>% 
+  ggplot(aes(x = reorder(adm1, -schoolpropop), y = schoolpropop)) + geom_bar(stat = 'identity', fill="steelblue")
 
+#Bar plot to show the prim_schools per area grouped by region
+ghanaDistricts %>% 
+  mutate(schoolproarea = prim_schools/area) %>% 
+  group_by(adm1) %>% 
+  summarise(schoolproarea = sum(schoolproarea, na.rm = TRUE)) %>% 
+  ggplot(aes(x = reorder(adm1, -schoolproarea), y = schoolproarea)) + geom_bar(stat = 'identity', fill="steelblue")
 
+# test scatterplot
+ghanaDistricts %>%
+  #group_by(adm1) %>%
+  ggplot(aes(x=prim_schools, y=area, shape=adm1)) + geom_point()
+
+# test scatterplot
+ghanaDistricts %>%
+  #group_by(adm1) %>%
+  ggplot(aes(x=population, y=prim_schools)) + geom_point() + scale_x_continuous(limits=c(0, 250000))
+
+# test bubbleplot
+ghanaDistricts %>%
+  group_by(adm2) %>%
+  ggplot(aes(x=adm1, y=area, size=population, fill = prim_schools)) + geom_point(shape = 21) +
+  scale_size_continuous(range = c(1,15)) + 
+  scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
+  theme(legend.position="bottom", legend.direction="horizontal")
+        
+# test bubbleplot
+  ghanaDistricts %>%
+    group_by(adm2) %>%
+    ggplot(aes(x=adm1, y=area, size=population, fill = prim_schools)) + geom_point(shape = 21) +
+    scale_size_continuous(range = c(1,15)) + 
+    scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
+    theme(legend.position="bottom", legend.direction="horizontal",       
+        
+        
+                                                                                                                                                                                                               legend.box = "horizontal",
+                                                                                                                                                                                                               legend.key.size = unit(1, "cm"))
+  
