@@ -57,7 +57,10 @@ ghanaDistricts %>%
   mutate(kids_pct = pop_0_14/population * 100) %>% 
   group_by(adm1) %>% 
   summarise(mean_kids_pct = mean(kids_pct, na.rm = TRUE)) %>% 
-  ggplot(aes(x = reorder(adm1, -mean_kids_pct), y = mean_kids_pct)) + geom_bar(stat = 'identity', fill="steelblue")
+  ggplot(aes(x = reorder(adm1, -mean_kids_pct), y = mean_kids_pct)) + 
+  geom_bar(stat = 'identity', fill="steelblue") + 
+  labs(x = "Regions", y = "Percentage under 14 years") +
+  ggtitle("Pct of total pop under 14")
 
 #Bar plot to show the prim_schools per population 0-14 grouped by region
 ghanaDistricts %>% 
@@ -66,17 +69,52 @@ ghanaDistricts %>%
   summarise(schoolpropop = sum(schoolpropop, na.rm = TRUE)) %>% 
   ggplot(aes(x = reorder(adm1, -schoolpropop), y = schoolpropop)) + geom_bar(stat = 'identity', fill="steelblue")
 
+
+
+#Bar plot to show the prim_schools per population 0-14 grouped by districts
+ghanaDistricts %>% 
+  mutate(schoolProPop = prim_schools/pop_0_14 * 100) %>% 
+  filter(schoolProPop > 0) %>% 
+  arrange(schoolProPop) %>% 
+  head(10) %>% 
+  ggplot(aes(x = reorder(adm2, schoolProPop), y = schoolProPop)) + geom_bar(stat = 'identity', fill="steelblue")
+
+#Bar plot to show the hospitals per population grouped by districts
+ghanaDistricts %>% 
+  filter(hospitals > 0) %>% 
+  head(10) %>% 
+  ggplot(aes(x = reorder(adm2, hospitals), y = hospitals)) + geom_bar(stat = 'identity', fill="steelblue")
+
 #Bar plot to show the prim_schools per area grouped by region
 ghanaDistricts %>% 
-  mutate(schoolproarea = prim_schools/area) %>% 
+  mutate(schoolProPopProArea = prim_schools / (pop_0_14 / area)) %>% 
   group_by(adm1) %>% 
-  summarise(schoolproarea = sum(schoolproarea, na.rm = TRUE)) %>% 
-  ggplot(aes(x = reorder(adm1, -schoolproarea), y = schoolproarea)) + geom_bar(stat = 'identity', fill="steelblue")
+  summarise(schoolProPopProArea = sum(schoolProPopProArea, na.rm = TRUE)) %>% 
+  ggplot(aes(x = reorder(adm1, -schoolProPopProArea), y = schoolProPopProArea)) + geom_bar(stat = 'identity', fill="steelblue")
+
+
+#Bar plot to show the prim_schools per area grouped by districts
+ghanaDistricts %>% 
+  mutate(schoolProPopProArea = prim_schools / (pop_0_14 / area)) %>% 
+  filter(schoolProPopProArea > 0) %>% 
+  arrange(schoolProPopProArea) %>% 
+  head(10) %>% 
+  ggplot(aes(x = reorder(adm2, schoolProPopProArea), y = schoolProPopProArea)) + geom_bar(stat = 'identity', fill="steelblue")
+
+#Bar plot to show the hospitals per area grouped by districts
+ghanaDistricts %>% 
+  mutate(hospitalsProPopProArea = hospitals / (population / area)) %>% 
+  #filter(hospitalsProPopProArea > 0) %>% 
+  arrange(hospitalsProPopProArea) %>% 
+  head(10) %>% 
+  ggplot(aes(x = reorder(adm2, hospitalsProPopProArea), y = hospitalsProPopProArea)) + geom_bar(stat = 'identity', fill="steelblue")
+
+
 
 # test scatterplot
 ghanaDistricts %>%
   #group_by(adm1) %>%
-  ggplot(aes(x=prim_schools, y=area, shape=adm1)) + geom_point()
+  ggplot(aes(x=prim_schools, y=area, color=adm1)) + geom_point()
 
 # test scatterplot
 ghanaDistricts %>%
@@ -91,6 +129,18 @@ ghanaDistricts %>%
   theme(legend.position="bottom", legend.direction="horizontal")
         
 
+# test bubbleplot
+ghanaDistricts %>%
+  group_by(adm1) %>% 
+  top_n(2, wt=population) %>% 
+  ggplot(aes(x=adm1, y=area, size=population, fill = prim_schools)) + 
+  geom_point(shape = 21) +
+  geom_text(aes(label=adm2),hjust=0, vjust=0)
+  scale_size_continuous(range = c(1,15)) + 
+  scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
+  theme(legend.position="bottom", legend.direction="horizontal")
+
+
 ghanaDistricts %>%
   group_by(adm1) %>% 
   summarise(
@@ -102,5 +152,6 @@ ghanaDistricts %>%
   mutate(education = prim_schools + high_schools + universities) %>% 
   select(education, population, adm1) %>%
   ggplot(aes(x=education, y=adm1)) + geom_point()
-                                                                                                                                                                                                               legend.key.size = unit(1, "cm"))
-  
+
+
+

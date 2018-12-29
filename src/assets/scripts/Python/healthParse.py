@@ -1,6 +1,6 @@
 import json
 
-with open('ghanaHealthsites.geojson', 'r') as ghanaHealthsitesFile, open('ghanaDistricts.geojson', 'r') as ghanaDistrictsFile:
+with open('../../data/ghanaHealthsites.geojson', 'r') as ghanaHealthsitesFile, open('../../data/ghanaDistricts.geojson', 'r') as ghanaDistrictsFile:
 
 	ghanaDistrictsData = json.loads(ghanaDistrictsFile.read())
 
@@ -9,6 +9,7 @@ with open('ghanaHealthsites.geojson', 'r') as ghanaHealthsitesFile, open('ghanaD
 	for feature in ghanaDistrictsData.get('features'):
 
 		hosps = 0
+		clinics = 0
 		dist_hosps = 0
 		health_centre = 0
 		regionsl_hosp = 0
@@ -22,7 +23,8 @@ with open('ghanaHealthsites.geojson', 'r') as ghanaHealthsitesFile, open('ghanaD
 
 				h_type = healthsite.get('properties').get('Type')
 
-				if h_type == 'Hospitals': hosps += 1
+				if h_type == 'Hospital': hosps += 1
+				elif h_type == 'Clinic': clinics += 1
 				elif h_type == 'District Hospital': dist_hosps += 1
 				elif h_type == 'Health Centre': health_centre += 1
 				elif h_type == 'Regional Hospital': regionsl_hosp += 1
@@ -32,6 +34,7 @@ with open('ghanaHealthsites.geojson', 'r') as ghanaHealthsitesFile, open('ghanaD
 
 
 		feature.get('properties')['Hospitals'] = hosps
+		feature.get('properties')['Clinic'] = clinics
 		feature.get('properties')['District Hospitals'] = dist_hosps
 		feature.get('properties')['Health Centres'] = health_centre
 		feature.get('properties')['Regional Hospitals'] = regionsl_hosp
@@ -43,12 +46,12 @@ with open('ghanaHealthsites.geojson', 'r') as ghanaHealthsitesFile, open('ghanaD
 	for feature in ghanaDistrictsData.get('features'):
 		print(feature.get('properties')) 
 
-	with open('newDistricts.geojson', 'w') as newDistrictsFile:
+	with open('../../data/newDistricts.geojson', 'w') as newDistrictsFile:
 		newDistrictsFile.write(json.dumps(ghanaDistrictsData, indent=4))
 
 
 
-	# Hospitals
+	# Hospital
 	# District Hospital
 	# Health Centre
 	# Regional Hospital
