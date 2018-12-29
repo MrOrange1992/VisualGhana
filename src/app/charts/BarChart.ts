@@ -5,7 +5,7 @@ export class BarChart {
   chart: Chart;
   type: string;
 
-  constructor (context: string, titleText: string, data: number[], labels: string[], colors: any) {
+  constructor (context: string, titleText: string, data: number[], labels: string[], colors: any, xAxisLabel: string, yAxisLabel: string) {
     this.chart = new Chart(context, {
       type: 'bar',
       data: {
@@ -29,9 +29,19 @@ export class BarChart {
           fontColor: 'white'
         },
         scales: {
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: xAxisLabel
+            }
+          }],
           yAxes: [{
             ticks: {
               beginAtZero: true
+            },
+            scaleLabel: {
+              display: true,
+              labelString: yAxisLabel
             }
           }]
         }

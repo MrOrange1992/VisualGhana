@@ -6,7 +6,7 @@
   [disableDefaultUI]="true"
   [mapDraggable]="true"
   [zoomControl]="false"
-  [scaleControl]="false"
+  [scaleControl]="true"
   [streetViewControl]="false"
   [rotateControl]="false"
   [fullscreenControl]="false"
@@ -238,7 +238,7 @@
       </button>
     </div>
 
-    <div *ngIf="healthDistributionMode" class="infoPanelSection clickable">
+    <div *ngIf="healthMode" class="infoPanelSection clickable">
       <button
         class="loadButton"
         (click)="loadHealthDistribution('DistrictHospitals')"

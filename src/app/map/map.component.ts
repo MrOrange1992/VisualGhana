@@ -11,7 +11,7 @@ import {BarChart} from '../charts/BarChart';
 import {StylesService} from './styles.service';
 import {EventService} from './event.service';
 import {LineChart} from '../charts/LineChart';
-import {getResponseURL} from "@angular/http/src/http_utils";
+import {ControlPosition, MapTypeControlStyle} from "@agm/core/services/google-maps-types";
 
 
 
@@ -28,6 +28,10 @@ export class MapComponent implements OnInit {
   // property for custom map styles, edit in file ../assets/mapStyles.json
   public customMapStyles;
   public educationDistributionStyles;
+
+  scaleStyles = {
+    "position": ControlPosition.TOP_CENTER
+  };
 
   // AGM DATA LAYER OBJECTS
   // POINT
@@ -63,25 +67,10 @@ export class MapComponent implements OnInit {
   latlngBounds: LatLngBoundsLiteral;
   educationMode = false;
   healthMode = false;
-  healthDistributionMode = false;
   energyMode = false;
   stdRadius;
-  activeTimeLineYear = 2018;
+  activeTimeLineYear: number = 2018;
   timeLineContents;
-  years: number[] =  Array(
-    1965,
-    1982,
-    2000,
-    2008,
-    2010,
-    2013,
-    2016,
-    2017,
-    2020,
-    2030,
-    2040,
-    2050
-  );
   mediaSource = {
     type: null,
     src: null
@@ -123,7 +112,12 @@ export class MapComponent implements OnInit {
   prepareHealthSites() {
 
     this.healthMode = true;
-    this.healthDistributionMode = true;
+    this.populationMode = false;
+    this.educationMode = false;
+    this.energyMode = false;
+    if (this.chart) this.chart.destroy();
+
+
 
     this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
 
@@ -162,6 +156,8 @@ export class MapComponent implements OnInit {
   loadHealthDistribution(type) {
 
     this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+      resPolygonData['features'].forEach(feature => feature.properties['color'] = Colors.hospitalColor);
+
       this.districts = resPolygonData;
 
       if (this.chart) { this.chart.destroy(); }
@@ -178,21 +174,45 @@ export class MapComponent implements OnInit {
           {
             feature.properties['active'] = feature.properties.DistrictHospitals;
             feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart('chartCanvas', 'District Hospital distribution', [], [], Colors.hospitalColor).chart;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'District Hospital distribution',
+              [],
+              [],
+              Colors.hospitalColor,
+              "Districts",
+              "Count")
+              .chart;
             break;
           }
           case 'RCHs':
           {
             feature.properties['active'] = feature.properties.RCHs;
             feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart('chartCanvas', 'Maternity Homes distribution', [], [], Colors.hospitalColor).chart;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Maternity Homes distribution',
+              [],
+              [],
+              Colors.hospitalColor,
+              "Districts",
+              "Count"
+            ).chart;
             break;
           }
           case 'CHPS':
           {
             feature.properties['active'] = feature.properties.CHPS;
             feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart('chartCanvas', 'CHPS distribution', [], [], Colors.hospitalColor).chart;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'CHPS distribution',
+              [],
+              [],
+              Colors.hospitalColor,
+              "Districts",
+              "Count")
+              .chart;
             break;
           }
         }
@@ -239,6 +259,12 @@ export class MapComponent implements OnInit {
 
   loadTransportation() {
 
+    this.populationMode = false;
+    this.educationMode = false;
+    this.energyMode = false;
+    this.healthMode = false;
+    if (this.chart) this.chart.destroy();
+
     this.mapService.loadData('ghanaRoads.geojson').subscribe(result => {
       // console.log('Loading road data ...');
       this.roadData = result;
@@ -256,7 +282,10 @@ export class MapComponent implements OnInit {
 
   loadPower() {
 
+    this.populationMode = false;
+    this.educationMode = false;
     this.energyMode = true;
+    this.healthMode = false;
 
     // Load power line data
     this.mapService.loadData('ghanaPowerLines.geojson').subscribe(resLineData => {
@@ -268,7 +297,7 @@ export class MapComponent implements OnInit {
     // Load power plant data and pasre to PowerPlant objects
     this.mapService.loadData('ghanaPowerPlants.geojson').subscribe(resPointData => {
       // console.log('Loading powerplants...\n', powerPlantData);
-      this.powerPlants = resPointData['features'].map(feature => new PowerPlant(feature, this.getStdRadius(this.zoom)));
+      this.powerPlants = resPointData['features'].map(feature => new PowerPlant(feature));
 
       // Destroy any chart if existing
       if (this.chart) { this.chart.destroy(); }
@@ -304,7 +333,9 @@ export class MapComponent implements OnInit {
         'Powerplant capacity distribution [MW]',                            // Chart title
         [+thermalCapacity, +hydroCapacity, +solarCapacity],                 // Data
         labels,                                                             // Labels
-        [Colors.powerThermalplantColor, Colors.powerHydroplantColor, Colors.powerSolarplantColor]    // Colors
+        [Colors.powerThermalplantColor, Colors.powerHydroplantColor, Colors.powerSolarplantColor],    // Colors
+        "Power plant type",
+        "MW"
       );
 
       this.chart = barChart.chart;
@@ -327,7 +358,9 @@ export class MapComponent implements OnInit {
         'Access to electricity',
         access,
         year,
-        Colors.powerLinesColor
+        Colors.powerLinesColor,
+        "Years",
+        "Access [%]"
       );
       this.chart = lineChart.chart;
 
@@ -335,12 +368,19 @@ export class MapComponent implements OnInit {
   }
 
   prepareEducation() {
+    this.populationMode = false;
     this.educationMode = true;
+    this.energyMode = false;
+    this.healthMode = false;
+    if (this.chart) this.chart.destroy();
+
   }
 
   loadEducationDistribution(type) {
 
     this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
+      resPolygonData['features'].forEach(feature => feature.properties['color'] = Colors.educationColor);
+
       this.districts = resPolygonData;
 
       if (this.chart) { this.chart.destroy(); }
@@ -356,21 +396,46 @@ export class MapComponent implements OnInit {
           {
             feature.properties['active'] = feature.properties.primaryschool;
             feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart('chartCanvas', 'Primaryschool distribution', [], [], Colors.educationColor).chart;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Primaryschool distribution',
+              [],
+              [],
+              Colors.educationColor,
+              "District",
+              "Count"
+            ).chart
+            ;
             break;
           }
           case 'highschool':
           {
             feature.properties['active'] = feature.properties.highschool;
             feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart('chartCanvas', 'Highschool distribution', [], [], Colors.educationColor).chart;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Highschool distribution',
+              [],
+              [],
+              Colors.educationColor,
+              "District",
+              "Count"
+            ).chart;
             break;
           }
           case 'university':
           {
             feature.properties['active'] = feature.properties.university;
             feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart('chartCanvas', 'University distribution', [], [], Colors.educationColor).chart;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'University distribution',
+              [],
+              [],
+              Colors.educationColor,
+              "District",
+              "Count"
+            ).chart;
             break;
           }
         }
@@ -382,6 +447,11 @@ export class MapComponent implements OnInit {
   preparePopulation() {
 
     this.populationMode = true;
+    this.educationMode = false;
+    this.energyMode = false;
+    this.healthMode = false;
+    if (this.chart) this.chart.destroy();
+
     this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
       this.populationTiles = resPolygonData;
       // console.log('Loading populationDensity data...\n', this.populationTiles);
@@ -435,6 +505,23 @@ export class MapComponent implements OnInit {
               display: true,
               text: 'Population Pyramide',
               fontColor: 'white'
+            },
+            scales: {
+              xAxes: [{
+                scaleLabel: {
+                  display: true,
+                  labelString: "Age"
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Count"
+                }
+              }]
             }
           }
 
@@ -457,10 +544,12 @@ export class MapComponent implements OnInit {
       // create pie chart
       const lineChart = new LineChart(
         'chartCanvas',
-        'Population over the years',
+        'Population over years',
         population,
         years,
-        Colors.populationOverYearsColor
+        Colors.populationOverYearsColor,
+        "Year",
+        "Population"
       );
       this.chart = lineChart.chart;
 
@@ -550,7 +639,7 @@ export class MapComponent implements OnInit {
     this.zoom = actualZoom;
     this.stdRadius = this.getStdRadius(actualZoom);
     if (this.healthSites) { this.healthSites.forEach(site => site.radius = this.getStdRadius(actualZoom)); }
-    if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom) + plant.capacity * 100); }
+    //if (this.powerPlants) { this.powerPlants.forEach(plant => plant.radius = this.getStdRadius(actualZoom) + plant.capacity * 100); }
     if (this.airports) { this.airports.forEach(port => port.radius = this.getStdRadius(actualZoom)); }
   }
 
@@ -629,6 +718,7 @@ export class MapComponent implements OnInit {
     updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
   }
 
+
 /*
   mouseOverObject(object) {
     // console.log('Mouse over object!\n', object);
@@ -679,11 +769,10 @@ export class MapComponent implements OnInit {
     this.educationMode = false;
     this.healthMode = false;
     this.energyMode = false;
-    this.healthDistributionMode = false;
     this.infoGeoJsonObject = null;
     this.foreCastMode = false;
     this.populationMode = false;
-    this.activeTimeLineYear = null;
+    this.activeTimeLineYear = 2018;
 
     // POINT
     this.healthSites = null;

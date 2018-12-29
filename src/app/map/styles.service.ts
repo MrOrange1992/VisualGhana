@@ -124,7 +124,7 @@ export class StylesService {
       strokeColor: '#000000',
       strokeOpacity: 0.8,
       strokeWeight: 0.8,
-      fillColor: Colors.educationColor,
+      fillColor: feature.l.color,
       fillOpacity: (feature.l.active / feature.l.maxOpacity)
     };
   }

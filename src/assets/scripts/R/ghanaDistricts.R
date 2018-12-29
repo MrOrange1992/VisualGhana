@@ -85,21 +85,22 @@ ghanaDistricts %>%
 
 # test bubbleplot
 ghanaDistricts %>%
-  group_by(adm2) %>%
   ggplot(aes(x=adm1, y=area, size=population, fill = prim_schools)) + geom_point(shape = 21) +
   scale_size_continuous(range = c(1,15)) + 
   scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
   theme(legend.position="bottom", legend.direction="horizontal")
         
-# test bubbleplot
-  ghanaDistricts %>%
-    group_by(adm2) %>%
-    ggplot(aes(x=adm1, y=area, size=population, fill = prim_schools)) + geom_point(shape = 21) +
-    scale_size_continuous(range = c(1,15)) + 
-    scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
-    theme(legend.position="bottom", legend.direction="horizontal",       
-        
-        
-                                                                                                                                                                                                               legend.box = "horizontal",
+
+ghanaDistricts %>%
+  group_by(adm1) %>% 
+  summarise(
+    population = sum(population, na.rm = TRUE), 
+    pop_0_14 = sum(pop_0_14,na.rm = TRUE), 
+    prim_schools = sum(prim_schools), 
+    high_schools = sum(high_schools), 
+    universities = sum(universities)) %>% 
+  mutate(education = prim_schools + high_schools + universities) %>% 
+  select(education, population, adm1) %>%
+  ggplot(aes(x=education, y=adm1)) + geom_point()
                                                                                                                                                                                                                legend.key.size = unit(1, "cm"))
   

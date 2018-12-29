@@ -11,13 +11,14 @@ export class PowerPlant {
   type: string;
   private _color: string;
 
-  constructor(feature, radius: number) {
+  constructor(feature) {
     this.name = feature.properties.name;
     this.longitude = +feature.geometry.coordinates[0];
     this.latitude = +feature.geometry.coordinates[1];
     this.community = feature.properties.community;
     this.capacity = +feature.properties['capacity(MW)'];
-    this._radius = radius + feature.properties['capacity(MW)'] * 100;
+    this._radius = this.categorizeRadius(feature);
+    //this._radius = radius + feature.properties['capacity(MW)'] * 100;
     this.yearCompleted = feature.properties.yearCompleted;
     this.type = feature.properties.type;
 
@@ -40,4 +41,25 @@ export class PowerPlant {
   get color(): string { return this._color; }
 
   set color(value: string) { this._color = value; }
+
+  private categorizeRadius(feature) {
+    const capacity = feature.properties['capacity(MW)'];
+
+    if (capacity > 1000)
+    {
+      return 50000
+    }
+    else if (capacity <= 1000 && capacity > 500)
+    {
+      return 10000
+    }
+    else if (capacity <= 500 && capacity > 100)
+    {
+      return 8000
+    }
+    else {
+
+      return 5000
+    }
+  }
 }
