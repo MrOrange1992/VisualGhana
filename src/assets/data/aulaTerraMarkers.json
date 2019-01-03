@@ -41,14 +41,6 @@
       "iconUrl": "../../assets/img/camera.png"
     },
     {
-      "name": "Kwaso korase water",
-      "latitude": 6.6226304607304955,
-      "longitude:": -1.437610387802124,
-      "src": "../../assets/img/kwasoKoraseWater.jpg",
-      "type": "image",
-      "iconUrl": "../../assets/img/camera.png"
-    },
-    {
       "name": "Kwaso korase water film",
       "latitude": 6.623680198310998,
       "longitude": -1.4390158653259277,
@@ -63,6 +55,14 @@
       "src": "../../assets/img/roadPeople.mp4",
       "type": "video",
       "iconUrl": "../../assets/img/film.png"
+    },
+    {
+      "name": "Kwaso korase water",
+      "latitude": 6.6226304607304955,
+      "longitude": -1.437610387802124,
+      "src": "../../assets/img/kwasoKoraseWater.jpg",
+      "type": "image",
+      "iconUrl": "../../assets/img/camera.png"
     },
     {
       "name": "Bike",

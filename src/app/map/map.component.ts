@@ -25,6 +25,8 @@ export class MapComponent implements OnInit {
   // MAP CONFIG / STYLES
   map;
   zoom;
+  latlngBounds: LatLngBoundsLiteral;
+
   // property for custom map styles, edit in file ../assets/mapStyles.json
   public customMapStyles;
   public educationDistributionStyles;
@@ -64,7 +66,6 @@ export class MapComponent implements OnInit {
   // MISC
   objectKeys = Object.keys;
   colors = Colors;
-  latlngBounds: LatLngBoundsLiteral;
   educationMode = false;
   healthMode = false;
   energyMode = false;
@@ -589,7 +590,7 @@ export class MapComponent implements OnInit {
     this.latlngBounds = {
       north: 11,
       east: 0,
-      south: 4,
+      south: 5.5,
       west: -7
     };
   }
@@ -615,7 +616,7 @@ export class MapComponent implements OnInit {
     this.latlngBounds = {
       north: 11,
       east: 0,
-      south: 4,
+      south: 5.5,
       west: -7
     };
     this.foreCastMode = true;
