@@ -30,18 +30,25 @@ export class BarChart {
         },
         scales: {
           xAxes: [{
+            ticks: {
+              fontColor: "white"
+            },
             scaleLabel: {
               display: true,
-              labelString: xAxisLabel
+              labelString: xAxisLabel,
+              fontColor: 'white'
             }
           }],
           yAxes: [{
             ticks: {
+              fontColor: "white",
+
               beginAtZero: true
             },
             scaleLabel: {
               display: true,
-              labelString: yAxisLabel
+              labelString: yAxisLabel,
+              fontColor: 'white'
             }
           }]
         }

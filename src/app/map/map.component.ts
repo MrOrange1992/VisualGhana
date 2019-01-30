@@ -78,6 +78,7 @@ export class MapComponent implements OnInit {
     src: null
   };
   foreCastMode = false;
+  foreCastType = null;
   aulaTerraMode = false;
   populationMode = false;
 
@@ -592,18 +593,24 @@ export class MapComponent implements OnInit {
             },
             scales: {
               xAxes: [{
+                ticks: {
+                  fontColor: "white",
+                },
                 scaleLabel: {
                   display: true,
-                  labelString: "Age"
+                  labelString: "Age",
+                  fontColor: 'white'
                 }
               }],
               yAxes: [{
                 ticks: {
+                  fontColor: "white",
                   beginAtZero: true
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: "Count"
+                  labelString: "Count",
+                  fontColor: 'white'
                 }
               }]
             }
@@ -855,6 +862,7 @@ export class MapComponent implements OnInit {
     this.energyMode = false;
     this.infoGeoJsonObject = null;
     this.foreCastMode = false;
+    this.foreCastType = null;
     this.populationMode = false;
     this.activeTimeLineYear = 2018;
 

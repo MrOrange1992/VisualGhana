@@ -330,6 +330,8 @@
     </div>
 
 
+
+
     <div *ngIf="mediaSource.src">
       <img *ngIf="mediaSource.type == 'image' || mediaSource.type == 'technology'" src={{mediaSource.src}} width="100%">
       <video *ngIf="mediaSource.type == 'video'" width="100%" controls Autoplay=autoplay src="{{mediaSource.src}}"></video>
@@ -352,9 +354,23 @@
 
 
 <div *ngIf="foreCastMode" class="timeLineWindow">
+  <div *ngIf="foreCastMode" class="infoPanelSection clickable">
+    <button
+      class="loadButton loadSolar"
+      (click)="foreCastType = 'solar'; loadPower()"
+    >
+      Solar
+    </button>
+    <button
+      class="loadButton loadDrone"
+      (click)="foreCastType = 'drone'"
+    >
+      Drones
+    </button>
+  </div>
   <div class="timeline">
     <div class="timeline-body" *ngFor="let timeLineContent of timeLineContents">
-      <div class="timeline-item" (click)="clickedYear(timeLineContent.year)">
+      <div *ngIf="(foreCastType == 'solar' && timeLineContent.solar == true) || (foreCastType == 'drone' && timeLineContent.drone == true)" class="timeline-item" (click)="clickedYear(timeLineContent.year)">
         <div class="timeline-content">
           <h2 class="timeline-title">{{timeLineContent.year}}</h2>
           <p *ngIf="timeLineContent.year == activeTimeLineYear">

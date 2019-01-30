@@ -2,50 +2,69 @@
   "contents": [
     {
       "year": 1965,
-      "content": "Hydroelectric power station in Akosombo finished, providing 1038 Megawatts..."
+      "content": "Hydroelectric power station in Akosombo finished, providing 1038 Megawatts...",
+      "solar": true,
+      "drone": false
     },
     {
       "year": 1982,
-      "content": "Hydroelectric Powerstation in Kpong was completed..."
+      "content": "Hydroelectric Powerstation in Kpong was completed...",
+      "solar": true,
+      "drone": false
     },
     {
       "year": 2000,
-      "content": "Lorem ipsum blabla"
+      "content": "Lorem ipsum blabla",
+      "solar": true,
+      "drone": false
     },
     {
       "year": 2008,
-      "content": "Lorem ipsum blabla"
+      "content": "Lorem ipsum blabla",
+      "solar": true,
+      "drone": false
     },
     {
       "year": 2010,
-      "content": "Lorem ipsum blabla"
+      "content": "Lorem ipsum blabla",
+      "solar": true,
+      "drone": false
     },
     {
       "year": 2013,
-      "content": "Lorem ipsum blabla"
+      "content": "Lorem ipsum blabla",
+      "solar": true,
+      "drone": false
     },
     {
       "year": 2016,
-      "content": "Lorem ipsum blabla"
-    },{
-      "year": 2017,
-      "content": "Lorem ipsum blabla"
+      "content": "Lorem ipsum blabla",
+      "solar": true,
+      "drone": false
+    },
+    {
+      "year": 2018,
+      "content": "Lorem ipsum blabla",
+      "solar": true,
+      "drone": false
+    },
+    {
+      "year": 2019,
+      "content": "Lorem ipsum blabla",
+      "solar": false,
+      "drone": true
     },
     {
       "year": 2020,
-      "content": ""
+      "content": "",
+      "solar": true,
+      "drone": true
     },
     {
       "year": 2030,
-      "content": ""
-    },
-    {
-      "year": 2040,
-      "content": ""
-    },
-    {
-      "year": 2050,
-      "content": ""
+      "content": "",
+      "solar": true,
+      "drone": false
     }
   ]
 }

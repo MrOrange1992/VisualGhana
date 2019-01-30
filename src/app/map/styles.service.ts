@@ -28,7 +28,7 @@ export class StylesService {
 
   loadPopulationTileStyles(feature) {
     // parsing popdens distribution values for usage as opacity factor
-    let avg = feature['l'].avg * 4000;
+    let avg = feature['l'].avg * 2000;
 
     //observing starnge render behaviour if opacity > 1
     //values > 1 occur sporadically for larger city locations
