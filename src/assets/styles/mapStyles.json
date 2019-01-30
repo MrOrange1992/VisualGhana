@@ -34,7 +34,7 @@
         "lightness": 40
       },
       {
-        "visibility": "off"
+        "visibility": "on"
       }
     ]
   },
@@ -43,7 +43,7 @@
     "elementType": "labels.text.stroke",
     "stylers": [
       {
-        "visibility": "off"
+        "visibility": "on"
       },
       {
         "color": "#000000"
@@ -58,7 +58,7 @@
     "elementType": "labels.icon",
     "stylers": [
       {
-        "visibility": "off"
+        "visibility": "on"
       }
     ]
   },

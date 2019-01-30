@@ -24,16 +24,20 @@ export class HealthSite {
 
     if (feature.properties.Type === 'Clinic') {
       this._color = Colors.clinicColor;
-    } else if (feature.properties.Type === 'Hospital' ||
-      feature.properties.Type === 'District Hospital' ||
-      feature.properties.Type === 'Health Centre' ||
-      feature.properties.Type === 'Regional Hospital') {
-      this._color =  Colors.hospitalColor;
-    } else if (feature.properties.Type === 'Maternity Home' ||
-      feature.properties.Type === 'RCH')
+    } else if (feature.properties.Type === 'Hospital') {
+      this._color = Colors.hospitalColor;
+    }  else if (feature.properties.Type === 'District Hospital') {
+      this._color = Colors.districtHospitalColor;
+    } else if (feature.properties.Type === 'Regional Hospital') {
+       this._color = Colors.regionalHospitalColor;
+    } else if (feature.properties.Type === 'Health Centre') {
+       this._color = Colors.healthCentreColor;
+    } else if (feature.properties.Type === 'Maternity Home') {
       this._color = Colors.maternityColor;
-    else {
-      this._color =  '#000';
+    } else if (feature.properties.Type === 'RCH') {
+      this._color = Colors.rchColor;
+    } else {
+      this._color = Colors.chpsColor;
     }
   }
 

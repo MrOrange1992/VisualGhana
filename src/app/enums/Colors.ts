@@ -1,8 +1,13 @@
 export enum Colors {
 
   hospitalColor = '#551400',
-  clinicColor = '#802F15',
-  maternityColor = '#AA5439',
+  healthCentreColor= '#64220E',
+  districtHospitalColor = '#74311D',
+  regionalHospitalColor = '#84402B',
+  clinicColor = '#944F3A',
+  maternityColor = '#A45E49',
+  rchColor = '#B36D57',
+  chpsColor = '#371B12',
   powerThermalplantColor = '#802F15',
   powerHydroplantColor = '#113951',
   powerSolarplantColor = '#FFC219',

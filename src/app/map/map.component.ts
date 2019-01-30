@@ -47,7 +47,7 @@ export class MapComponent implements OnInit {
   powerLines;
   roadData;
   aulaTerraRoad;
-  popOverYears;
+
 
   // POLYGON
   overlay;
@@ -62,6 +62,7 @@ export class MapComponent implements OnInit {
 
   // CHART
   chart;
+  popOverYears;
 
   // MISC
   objectKeys = Object.keys;
@@ -132,22 +133,22 @@ export class MapComponent implements OnInit {
       const data = this.healthSites.map(site => site.type);
 
       const clinicCount = data.filter(res => res === 'Clinic').length;
-      const hospitalCount = data.filter(res =>
-        res === 'Hospitals' ||
-        res === 'District Hospital' ||
-        res === 'Health Centre' ||
-        res === 'Regional Hospital').length;
-      const maternityCount = data.filter(res => res === 'Maternity Home' || res === 'RCH').length;
-      const otherlenght = data.length - clinicCount - hospitalCount - maternityCount;
+      const hospitalCount = data.filter(res => res === 'Hospital').length;
+      const districtHospitalCount = data.filter(res => res === 'District Hospital').length;
+      const regionalHospitalCount = data.filter(res => res === 'Regional Hospital').length;
+      const healthCentreCount = data.filter(res => res === 'Health Centre').length;
+      const rchCount = data.filter(res => res === 'RCH').length;
+      const maternityCount = data.filter(res => res === 'Maternity Home').length;
+      const chpsCount = data.filter(res => res === 'CHPS').length;
       // console.log(data, clinicCount, hospitalCount);
 
       const pieChart = new PieChart(
         'chartCanvas',
         'doughnut',
         'Healthsite Type Distribution',
-        [clinicCount, hospitalCount, maternityCount, otherlenght],
-        ['Clinic', 'Hospital', 'Children Healthcare', 'Others'],
-        [Colors.clinicColor, Colors.hospitalColor, Colors.maternityColor, '#000']
+        [hospitalCount, healthCentreCount, districtHospitalCount, regionalHospitalCount, clinicCount, maternityCount, rchCount, chpsCount, ],
+        ['Hospital', 'Health Centre', 'District Hospital', 'Regional Hospital','Clinic', 'Maternity Homes', 'RCH', 'CHPS'],
+        [Colors.hospitalColor, Colors.healthCentreColor, Colors.districtHospitalColor, Colors.regionalHospitalColor, Colors.clinicColor, Colors.maternityColor, Colors.rchColor, Colors.chpsColor ]
       );
 
       this.chart = pieChart.chart;
@@ -171,6 +172,51 @@ export class MapComponent implements OnInit {
       this.districts['features'] = this.districts['features'].map(feature => {
 
         switch (type) {
+          case 'Hospitals':
+          {
+            feature.properties['active'] = feature.properties.Hospitals;
+            feature.properties['maxOpacity'] = maxOpacity;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Hospital distribution',
+              [],
+              [],
+              Colors.hospitalColor,
+              "Districts",
+              "Count")
+              .chart;
+            break;
+          }
+          case 'Clinic':
+          {
+            feature.properties['active'] = feature.properties.Clinic;
+            feature.properties['maxOpacity'] = maxOpacity;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Clinic distribution',
+              [],
+              [],
+              Colors.clinicColor,
+              "Districts",
+              "Count")
+              .chart;
+            break;
+          }
+          case 'HealthCentres':
+          {
+            feature.properties['active'] = feature.properties.HealthCentres;
+            feature.properties['maxOpacity'] = maxOpacity;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Health Centre distribution',
+              [],
+              [],
+              Colors.healthCentreColor,
+              "Districts",
+              "Count")
+              .chart;
+            break;
+          }
           case 'DistrictHospitals':
           {
             feature.properties['active'] = feature.properties.DistrictHospitals;
@@ -180,7 +226,37 @@ export class MapComponent implements OnInit {
               'District Hospital distribution',
               [],
               [],
-              Colors.hospitalColor,
+              Colors.districtHospitalColor,
+              "Districts",
+              "Count")
+              .chart;
+            break;
+          }
+          case 'RegionalHospitals':
+          {
+            feature.properties['active'] = feature.properties.RegionalHospitals;
+            feature.properties['maxOpacity'] = maxOpacity;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Regional Hospital distribution',
+              [],
+              [],
+              Colors.regionalHospitalColor,
+              "Districts",
+              "Count")
+              .chart;
+            break;
+          }
+          case 'MaternityHomes':
+          {
+            feature.properties['active'] = feature.properties.MaternityHomes;
+            feature.properties['maxOpacity'] = maxOpacity;
+            this.chart = new BarChart(
+              'chartCanvas',
+              'Maternity Homes distribution',
+              [],
+              [],
+              Colors.maternityColor,
               "Districts",
               "Count")
               .chart;
@@ -192,10 +268,10 @@ export class MapComponent implements OnInit {
             feature.properties['maxOpacity'] = maxOpacity;
             this.chart = new BarChart(
               'chartCanvas',
-              'Maternity Homes distribution',
+              'RCH distribution',
               [],
               [],
-              Colors.hospitalColor,
+              Colors.rchColor,
               "Districts",
               "Count"
             ).chart;
@@ -210,7 +286,7 @@ export class MapComponent implements OnInit {
               'CHPS distribution',
               [],
               [],
-              Colors.hospitalColor,
+              Colors.chpsColor,
               "Districts",
               "Count")
               .chart;
@@ -226,14 +302,19 @@ export class MapComponent implements OnInit {
     this.filteredHealthSites = null;
     switch (type) {
       case 'Hospital':
-        this.filteredHealthSites = this.healthSites.filter(site =>
-          site.type === 'Hospitals' ||
-          site.type === 'District Hospital' ||
-          site.type === 'Health Centre' ||
-          site.type === 'Regional Hospital');
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
+        break;
 
-          console.log(this.filteredHealthSites);
+      case 'District Hospital':
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
+        break;
 
+      case 'Regional Hospital':
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
+        break;
+
+      case 'Health Centre':
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
         break;
 
       case 'Clinic':
@@ -241,13 +322,15 @@ export class MapComponent implements OnInit {
         this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
         break;
 
-      case 'Children Healthcare':
-        this.filteredHealthSites = this.healthSites.filter(site =>
-          site.type === 'Maternity Home' ||
-          site.type === 'RCH');
+      case 'Maternity Home':
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
         break;
 
-      case 'Others':
+      case 'RCH':
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
+        break;
+
+      case 'CHPS':
         this.filteredHealthSites = this.healthSites.filter(site =>
           site.type === 'CHPS');
         break;
@@ -588,10 +671,10 @@ export class MapComponent implements OnInit {
   loadInfrastructureConfig() {
     this.resetMap();
     this.latlngBounds = {
-      north: 11,
-      east: 0,
-      south: 5.5,
-      west: -7
+      north: 10.5,
+      east: -4,
+      south: 5,
+      west: -4.2
     };
   }
   // load Technology config

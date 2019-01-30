@@ -78,7 +78,7 @@ agm-map {
   position: relative;
   display: flex;
   width: 20%;
-  height: 50%;
+  height: 45%;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
   border-radius: 2px;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -159,7 +159,7 @@ agm-map {
   justify-content: space-evenly;
   border: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 80%;
+  font-size: 70%;
 }
 
 .loadButton::after {
@@ -175,6 +175,43 @@ agm-map {
 }
 
 .loadButton:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+}
+
+.loadButtonCategory {
+  position: relative;
+  display: flex;
+  width: 20%;
+  height: 50%;
+  background: #28536C;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
+  border-radius: 2px;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: white;
+  float: left;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  border: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 80%;
+}
+
+.loadButtonCategory::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 50%;
+  /*box-shadow: 3px 3px 3px rgba(0, 0, 0, 3);*/
+  opacity: 0;
+}
+
+.loadButtonCategory:hover {
   -webkit-transform: scale(1.05, 1.05);
   transform: scale(1.05, 1.05);
 }
@@ -202,7 +239,7 @@ agm-map {
 }
 
 .loadEducation {
-  background-color: #694513A6;
+  background-color: #97BFB2A6;
 }
 
 .loadPopulation {
@@ -230,7 +267,7 @@ agm-map {
 .aulaterraButton {
   position: relative;
   width: 20%;
-  height: 50%;
+  height: 45%;
   background: #FFFFFFA6;
   /*box-shadow: 3px 3px 3px rgba(0, 0, 0, 1);*/
   border-radius: 2px;

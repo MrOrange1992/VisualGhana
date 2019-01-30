@@ -41,7 +41,8 @@ extract_data <- function(entry)
     help_cents = entry$properties$HealthCentres,
     mat_homes = entry$properties$MaternityHomes,
     rchs = entry$properties$RCHs,
-    chps = entry$properties$CHPS
+    chps = entry$properties$CHPS,
+    clinics= entry$properties$Clinic
   )
 }
 
@@ -109,6 +110,14 @@ ghanaDistricts %>%
   head(10) %>% 
   ggplot(aes(x = reorder(adm2, hospitalsProPopProArea), y = hospitalsProPopProArea)) + geom_bar(stat = 'identity', fill="steelblue")
 
+#Bar plot to show the dist_hosp per area grouped by districts
+ghanaDistricts %>% 
+  mutate(distHospProPopProArea = dist_hosp / (population / area)) %>% 
+  filter(distHospProPopProArea > 0) %>% 
+  arrange(distHospProPopProArea) %>% 
+  head(10) %>% 
+  ggplot(aes(x = reorder(adm2, distHospProPopProArea), y = distHospProPopProArea)) + geom_bar(stat = 'identity', fill="steelblue")
+
 
 
 # test scatterplot
@@ -116,29 +125,213 @@ ghanaDistricts %>%
   #group_by(adm1) %>%
   ggplot(aes(x=prim_schools, y=area, color=adm1)) + geom_point()
 
-# test scatterplot
-ghanaDistricts %>%
-  #group_by(adm1) %>%
-  ggplot(aes(x=population, y=prim_schools)) + geom_point() + scale_x_continuous(limits=c(0, 250000))
 
-# test bubbleplot
-ghanaDistricts %>%
-  ggplot(aes(x=adm1, y=area, size=population, fill = prim_schools)) + geom_point(shape = 21) +
-  scale_size_continuous(range = c(1,15)) + 
-  scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
-  theme(legend.position="bottom", legend.direction="horizontal")
-        
 
-# test bubbleplot
+# test bubbleplot prim_schools per area and population grouped by adm1
 ghanaDistricts %>%
-  group_by(adm1) %>% 
-  top_n(2, wt=population) %>% 
   ggplot(aes(x=adm1, y=area, size=population, fill = prim_schools)) + 
   geom_point(shape = 21) +
-  geom_text(aes(label=adm2),hjust=0, vjust=0)
   scale_size_continuous(range = c(1,15)) + 
   scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
   theme(legend.position="bottom", legend.direction="horizontal")
+
+
+#----------schools--------------
+        
+
+#  bubbleplot  prim_schools per area and pop 0-14 grouped by adm2
+ghanaDistricts %>%
+  group_by(adm1) %>% 
+  #filter(prim_schools > 0) %>%
+  mutate(primSchoolProPopProArea = prim_schools / (pop_0_14 / area)) %>%
+  mutate(newarea=area/100000) %>%
+  #top_n(2, wt=primSchoolProPopProArea) %>% 
+  ggplot(aes(x=adm1, y=newarea, size=pop_0_14, fill =  prim_schools)) + 
+  geom_point(shape = 21) +
+  ggtitle("Primary Schools in relation to area and population") +
+  labs(x = "Regions", y = "Area (km^2)") +
+  geom_text(aes(label=adm2),hjust=0, vjust=0, cex=1.5)+
+  scale_size_continuous(range = c(1,15)) + 
+  scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
+  theme(legend.position="right", legend.direction="vertical") +
+  theme_minimal()
+  
+  #  bubbleplot   high_schools per area and population grouped by adm2
+ghanaDistricts %>%
+  group_by(adm1) %>% 
+  mutate(highSchoolsProPopProArea = high_schools / (population / area)) %>%
+  mutate(newarea=area/100000) %>%
+  #filter(universities > 0) %>% 
+  #top_n(2, wt=universitiesProPopProArea) %>%
+  ggplot(aes(x=adm1, y=newarea, size=population, fill =  high_schools)) + 
+  geom_point(shape = 21) +
+  ggtitle("High Schools in relation to area and population") +
+  labs(x = "Regions", y = "Area (km^2)") +
+  geom_text(aes(label=adm2),hjust=0, vjust=0, cex = 1.5)
+  scale_size_continuous(range = c(1,15)) + 
+  scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
+  theme(legend.position="right", legend.direction="vertical") +
+  theme_minimal()
+  
+  #  bubbleplot   universities per area and population grouped by adm2
+  ghanaDistricts %>%
+    group_by(adm1) %>% 
+    mutate(universitiesProPopProArea = universities / (population / area)) %>%
+    mutate(newarea=area/100000) %>%
+    #filter(universities > 0) %>% 
+    #top_n(2, wt=universitiesProPopProArea) %>%
+    ggplot(aes(x=adm1, y=newarea, size=population, fill =  universities)) + 
+    geom_point(shape = 21) +
+    ggtitle("Universities in relation to area and population") +
+    labs(x = "Regions", y = "Area (km^2)") +
+    geom_text(aes(label=adm2),hjust=0, vjust=0, cex = 1.5)
+    scale_size_continuous(range = c(1,15)) + 
+    scale_fill_continuous(low = "steelblue1", high = "steelblue4") + 
+    theme(legend.position="bottom", legend.direction="horizontal") +
+    theme_minimal()
+   
+    #----------Healthsites--------------
+    
+     
+    #  bubbleplot  hospitals per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+      #filter(hospitals > 0) %>%
+      mutate(hospitalsProPopProArea = hospitals / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  hospitals)) + 
+      geom_point(shape = 21) +
+      ggtitle("Hospitals in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+    
+    #  bubbleplot  dist_hosp per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+      filter(dist_hosp > 0) %>%
+      mutate(disthospProPopProArea = dist_hosp / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  dist_hosp)) + 
+      geom_point(shape = 21) +
+      ggtitle("District Hospitals in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+    
+    #  bubbleplot  reg_hosp per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+      filter(reg_hosp > 0) %>%
+      mutate(reghospProPopProArea = reg_hosp / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  reg_hosp)) + 
+      geom_point(shape = 21) +
+      ggtitle("Regional Hospitals in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+   
+     #  bubbleplot  help_cents per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+      #filter(help_cents > 0) %>%
+      mutate(help_centsProPopProArea = help_cents / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  help_cents)) + 
+      geom_point(shape = 21) +
+      ggtitle("Health Centres in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+    
+    #  bubbleplot  clinics per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+      #filter(clinics > 0) %>%
+      mutate(clinicsProPopProArea = clinics / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  clinics)) + 
+      geom_point(shape = 21) +
+      ggtitle("Clinics  in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+    
+    #  bubbleplot  mat_homes per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+      #filter(mat_homes > 0) %>%
+      mutate(mathomesProPopProArea = mat_homes / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  mat_homes)) + 
+      geom_point(shape = 21) +
+      ggtitle("Maternity Homes in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+    
+    #  bubbleplot  rchs per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+     # filter(rchs > 0) %>%
+      mutate(rchsProPopProArea = rchs / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  rchs)) + 
+      geom_point(shape = 21) +
+      ggtitle("RCH in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+    
+    
+    
+    #  bubbleplot  CHPS per area and population grouped by adm2
+    ghanaDistricts %>%
+      group_by(adm1) %>%
+      #filter(chps > 0) %>%
+      mutate(chpsProPopProArea = chps / (population / area)) %>%
+      mutate(newarea=area/100000) %>%
+      #top_n(2, wt=hospitalsProPopProArea) %>% 
+      ggplot(aes(x=adm1, y=newarea, size=population, fill =  chps)) + 
+      geom_point(shape = 21) +
+      ggtitle("CHPS  in relation to area and population") +
+      labs(x = "Regions", y = "Area (km^2)") +
+      geom_text(aes(label=adm2),hjust=0, vjust=0, cex=2) +
+      scale_size_continuous(range = c(1,15)) + 
+      scale_fill_continuous(low = "coral", high = "coral3") + 
+      theme(legend.position="right", legend.direction="vertical") +
+      theme_minimal()
+      
+      
 
 
 ghanaDistricts %>%

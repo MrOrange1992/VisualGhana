@@ -154,19 +154,19 @@
 
 
   <div class="infoPanelSection clickable">
-    <button class="loadButton loadPower" (click)="loadPower()">
+    <button class="loadButtonCategory loadPower" (click)="loadPower()">
        Power
     </button>
-    <button class="loadButton loadHealthSite" (click)="prepareHealthSites()">
+    <button class="loadButtonCategory loadHealthSite" (click)="prepareHealthSites()">
        Health Sites
     </button>
-    <button class="loadButton loadTransportation" (click)="loadTransportation()">
+    <button class="loadButtonCategory loadTransportation" (click)="loadTransportation()">
        Transportation
     </button>
-    <button class="loadButton loadEducation" (click)="prepareEducation()">
+    <button class="loadButtonCategory loadEducation" (click)="prepareEducation()">
        Education
     </button>
-    <button class="loadButton loadPopulation" (click)="preparePopulation()">
+    <button class="loadButtonCategory loadPopulation" (click)="preparePopulation()">
        Population Density
     </button>
 
@@ -194,19 +194,19 @@
       <button
         class="loadButton"
         (click)="loadEducationDistribution('primaryschool')"
-        [ngStyle]="{'background-color': colors.educationColor}">
+        [ngStyle]="{'background-color': '#97BFB2'}">
         Primary Schools
       </button>
       <button
         class="loadButton"
         (click)="loadEducationDistribution('highschool')"
-        [ngStyle]="{'background-color': colors.educationColor}">
+        [ngStyle]="{'background-color': '#97BFB2'}">
         High Schools
       </button>
       <button
         class="loadButton"
         (click)="loadEducationDistribution('university')"
-        [ngStyle]="{'background-color': colors.educationColor}">
+        [ngStyle]="{'background-color': '#97BFB2'}">
         Universities
       </button>
     </div>
@@ -220,41 +220,95 @@
     </button>
       <button
         class="loadButton"
+        (click)="loadHealthSiteType('Health Centre')"
+        [ngStyle]="{'background-color': colors.healthCentreColor}">
+        Health Centre
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthSiteType('District Hospital')"
+        [ngStyle]="{'background-color': colors.districtHospitalColor}">
+        District Hospitals
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthSiteType('Regional Hospital')"
+        [ngStyle]="{'background-color': colors.regionalHospitalColor}">
+        Regional Hospitals
+      </button>
+      <button
+        class="loadButton"
         (click)="loadHealthSiteType('Clinic')"
         [ngStyle]="{'background-color': colors.clinicColor}">
         Clinics
       </button>
       <button
         class="loadButton"
-        (click)="loadHealthSiteType('Children Healthcare')"
+        (click)="loadHealthSiteType('Maternity Home')"
         [ngStyle]="{'background-color': colors.maternityColor}">
-        Children Healthcare
+        Maternity Homes
       </button>
       <button
         class="loadButton"
-        (click)="loadHealthSiteType('Others')"
-        [ngStyle]="{'background-color': '#000'}">
-        Others
+        (click)="loadHealthSiteType('RCH')"
+        [ngStyle]="{'background-color': colors.rchColor}">
+        RCH
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthSiteType('CHPS')"
+        [ngStyle]="{'background-color': colors.chpsColor}">
+        CHPS
       </button>
     </div>
 
     <div *ngIf="healthMode" class="infoPanelSection clickable">
       <button
         class="loadButton"
-        (click)="loadHealthDistribution('DistrictHospitals')"
+        (click)="loadHealthDistribution('Hospitals')"
         [ngStyle]="{'background-color': colors.hospitalColor}">
+         Hospitals
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('HealthCentres')"
+        [ngStyle]="{'background-color': colors.healthCentreColor}">
+        Health Centres
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('DistrictHospitals')"
+        [ngStyle]="{'background-color': colors.districtHospitalColor}">
         District Hospitals
       </button>
       <button
         class="loadButton"
-        (click)="loadHealthDistribution('RCHs')"
+        (click)="loadHealthDistribution('RegionalHospitals')"
+        [ngStyle]="{'background-color': colors.regionalHospitalColor}">
+        Regional Hospitals
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('Clinic')"
         [ngStyle]="{'background-color': colors.clinicColor}">
+        Clinics
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('MaternityHomes')"
+        [ngStyle]="{'background-color': colors.maternityColor}">
+        MaternityHomes
+      </button>
+      <button
+        class="loadButton"
+        (click)="loadHealthDistribution('RCHs')"
+        [ngStyle]="{'background-color': colors.rchColor}">
         RCHs
       </button>
       <button
         class="loadButton"
         (click)="loadHealthDistribution('CHPS')"
-        [ngStyle]="{'background-color': colors.maternityColor}">
+        [ngStyle]="{'background-color': colors.chpsColor}">
         CHPS
       </button>
     </div>
