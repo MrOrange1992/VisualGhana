@@ -21,5 +21,6 @@ export enum Colors {
   universityColor = '#79521C',
   populationDensityColor = '#1924B1',
   populationOverYearsColor = '#1924B1',
-  aulaTerraColor = '#8A6E4A'
+  aulaTerraColor = '#8A6E4A',
+  yendiLines = '#000'
 }

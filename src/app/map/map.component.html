@@ -41,7 +41,7 @@
 <!----Polylines---->
 
   <agm-data-layer
-    [style]="stylesService.loadAulaTerraRoadStyles"
+    [style]="colors.yendiLines"
     [geoJson]=drone2019POI
   ></agm-data-layer>
 
@@ -379,13 +379,13 @@
   <div *ngIf="foreCastMode" class="infoPanelSection clickable">
     <button
       class="loadButton loadSolar"
-      (click)="foreCastType = 'solar'; loadPower()"
+      (click)="resetMap(); loadTimelineContents(); foreCastMode = true; foreCastType = 'solar'; loadPower()"
     >
       Solar
     </button>
     <button
       class="loadButton loadDrone"
-      (click)="foreCastType = 'drone'"
+      (click)="resetMap(); loadTimelineContents(); foreCastMode = true; foreCastType = 'drone'"
     >
       Drones
     </button>

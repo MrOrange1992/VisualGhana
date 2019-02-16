@@ -712,10 +712,14 @@ export class MapComponent implements OnInit {
     };
     this.foreCastMode = true;
 
+    this.loadTimelineContents();
+
+  }
+
+  loadTimelineContents() {
     this.mapService.loadData('timeLineContents.json').subscribe(resData => {
       this.timeLineContents = resData['contents'];
     });
-
   }
 
   loadDrone2019Config() {
@@ -734,16 +738,34 @@ export class MapComponent implements OnInit {
 
     this.foreCastType = 'drone';
 
-    this.mapService.loadData('timeLineContents.json').subscribe(resData => {
-      this.timeLineContents = resData['contents'];
-    });
+    this.loadTimelineContents();
 
     this.mapService.loadStyles('mapStylesDrones2019.json').subscribe(data => {
       this.customMapStyles = data;
     });
+  }
 
+  loadDrone2020Config() {
+    this.resetMap();
+    this.mapService.loadData('drone2019POI.geojson').subscribe(resData => {
+      this.drone2019POI = resData;
+    });
+    this.latlngBounds = {
+      north: 11,
+      east: 0,
+      south: 5.5,
+      west: -7
+    };
 
+    this.foreCastMode = true;
 
+    this.foreCastType = 'drone';
+
+    this.loadTimelineContents();
+
+    this.mapService.loadStyles('mapStylesDrones2019.json').subscribe(data => {
+      this.customMapStyles = data;
+    });
   }
 
   // used to hide the info window when random location on map is clicked
@@ -810,12 +832,16 @@ export class MapComponent implements OnInit {
       chart.update();
     }
 
-    this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
+    if (forecastType == 'drone')
+    {
+      this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
 
-      this.filteredHealthSites = resPointData['features']
-        .filter(feature => feature.properties.Type == "District Hospital" || feature.properties.Type == "CHPS")
-        .map(filteredSites => new HealthSite(filteredSites, this.getStdRadius(this.zoom)));
-    });
+        this.filteredHealthSites = resPointData['features']
+          .filter(feature => feature.properties.Type == "District Hospital" || feature.properties.Type == "CHPS")
+          .map(filteredSites => new HealthSite(filteredSites, this.getStdRadius(this.zoom)));
+      });
+
+    }
 
     if (forecastType == 'solar')
     {
