@@ -42,12 +42,13 @@ export class MapComponent implements OnInit {
   powerPlants: PowerPlant[];
   airports: Airport[];
   aulaTerraMarkers;
+  yendiPoint = { longitude: -0.011462, latitude: 9.44 };
 
   // LINE
   powerLines;
   roadData;
   aulaTerraRoad;
-
+  drone2019POI;
 
   // POLYGON
   overlay;
@@ -714,6 +715,35 @@ export class MapComponent implements OnInit {
     this.mapService.loadData('timeLineContents.json').subscribe(resData => {
       this.timeLineContents = resData['contents'];
     });
+
+  }
+
+  loadDrone2019Config() {
+    this.resetMap();
+    this.mapService.loadData('drone2019POI.geojson').subscribe(resData => {
+      this.drone2019POI = resData;
+    });
+    this.latlngBounds = {
+      north: 9.767,
+      east: 0.38,
+      south: 9.377,
+      west: -0.19
+    };
+
+    this.foreCastMode = true;
+
+    this.foreCastType = 'drone';
+
+    this.mapService.loadData('timeLineContents.json').subscribe(resData => {
+      this.timeLineContents = resData['contents'];
+    });
+
+    this.mapService.loadStyles('mapStylesDrones2019.json').subscribe(data => {
+      this.customMapStyles = data;
+    });
+
+
+
   }
 
   // used to hide the info window when random location on map is clicked
@@ -773,40 +803,64 @@ export class MapComponent implements OnInit {
     addData(this.chart, event.feature.l.adm2, event.feature.l.active);
   }
 
-  clickedYear(year) {
-
-    if (!this.powerPlants) return;
-
-    console.log('clicked Timeline: ' + year.toString());
-    this.activeTimeLineYear = year;
-
-    // Prepare data for pie chart
-    const thermalCapacity = this.powerPlants
-      .filter(res => res.type === 'Thermal')
-      .filter(res => res.yearCompleted <= this.activeTimeLineYear)
-      .map(a => a.capacity)
-      .reduceRight((first, next) => first + next, 0);
-
-    const hydroCapacity = this.powerPlants
-      .filter(res => res.type === 'Hydroelectric')
-      .filter(res => res.yearCompleted <= this.activeTimeLineYear)
-      .map(a => a.capacity)
-      .reduceRight((first, next) => first + next, 0);
-
-    const solarCapacity = this.powerPlants
-      .filter(res => res.type === 'Solar Power')
-      .filter(res => res.yearCompleted <= this.activeTimeLineYear)
-      .map(a => a.capacity)
-      .reduceRight((first, next) => first + next, 0)
-      .toFixed(0);
-
+  clickedYear(year, forecastType) {
     // add clicked district to chart data
     function updateChartData(chart, data) {
       chart.data.datasets.forEach((dataset) => dataset.data = data);
       chart.update();
     }
 
-    updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
+    this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
+
+      this.filteredHealthSites = resPointData['features']
+        .filter(feature => feature.properties.Type == "District Hospital" || feature.properties.Type == "CHPS")
+        .map(filteredSites => new HealthSite(filteredSites, this.getStdRadius(this.zoom)));
+    });
+
+    if (forecastType == 'solar')
+    {
+      if (!this.powerPlants) return;
+
+      console.log('clicked Timeline: ' + year.toString());
+      this.activeTimeLineYear = year;
+
+      // Prepare data for pie chart
+      const thermalCapacity = this.powerPlants
+        .filter(res => res.type === 'Thermal')
+        .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+        .map(a => a.capacity)
+        .reduceRight((first, next) => first + next, 0);
+
+      const hydroCapacity = this.powerPlants
+        .filter(res => res.type === 'Hydroelectric')
+        .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+        .map(a => a.capacity)
+        .reduceRight((first, next) => first + next, 0);
+
+      const solarCapacity = this.powerPlants
+        .filter(res => res.type === 'Solar Power')
+        .filter(res => res.yearCompleted <= this.activeTimeLineYear)
+        .map(a => a.capacity)
+        .reduceRight((first, next) => first + next, 0)
+        .toFixed(0);
+
+      updateChartData(this.chart, [+thermalCapacity, +hydroCapacity, +solarCapacity]);
+    }
+
+    else
+    {
+      this.activeTimeLineYear = year;
+
+      console.log(this.activeTimeLineYear);
+
+
+      if (year == 2019)
+      {
+        this.loadDrone2019Config();
+      }
+
+    }
+
   }
 
 
@@ -873,10 +927,12 @@ export class MapComponent implements OnInit {
     this.airports = null;
     this.aulaTerraMarkers = null;
 
+
     // LINE
     this.powerLines = null;
     this.roadData = null;
     this.aulaTerraRoad = null;
+    this.drone2019POI = null;
 
     // POLYGON
     this.populationTiles = null;

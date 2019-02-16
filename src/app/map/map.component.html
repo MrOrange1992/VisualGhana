@@ -38,6 +38,14 @@
 
   ></agm-data-layer>
 
+<!----Polylines---->
+
+  <agm-data-layer
+    [style]="stylesService.loadAulaTerraRoadStyles"
+    [geoJson]=drone2019POI
+  ></agm-data-layer>
+
+
   <!---------------------------- POLYGONS ----------------------------->
 
 
@@ -124,6 +132,20 @@
               [(radius)]="airport.radius"
               (circleClick)="clickedObject(airport)"
   ></agm-circle>
+
+
+  <ng-container *ngIf="foreCastType == 'drone'">
+    <agm-circle
+      [latitude]="yendiPoint.latitude"
+      [longitude]="yendiPoint.longitude"
+      [circleDraggable]="false"
+      [editable]="false"
+      [fillColor]= "colors.educationColor"
+      [fillOpacity]="0.2"
+      [radius]='50000'
+    ></agm-circle>
+  </ng-container>
+
 
 </agm-map>
 
@@ -370,7 +392,7 @@
   </div>
   <div class="timeline">
     <div class="timeline-body" *ngFor="let timeLineContent of timeLineContents">
-      <div *ngIf="(foreCastType == 'solar' && timeLineContent.solar == true) || (foreCastType == 'drone' && timeLineContent.drone == true)" class="timeline-item" (click)="clickedYear(timeLineContent.year)">
+      <div *ngIf="(foreCastType == 'solar' && timeLineContent.solar == true) || (foreCastType == 'drone' && timeLineContent.drone == true)" class="timeline-item" (click)="clickedYear(timeLineContent.year, foreCastType)">
         <div class="timeline-content">
           <h2 class="timeline-title">{{timeLineContent.year}}</h2>
           <p *ngIf="timeLineContent.year == activeTimeLineYear">

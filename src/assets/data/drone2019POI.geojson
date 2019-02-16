@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+           -0.011462,
+            9.44
+          ],
+          [0.313582,
+          9.708675]
+          ]
+      },
+      "properties": {
+        "Town":"Yendi-Saboba"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.011462,
+            9.44
+          ],
+          [0.103619,
+            9.738730]
+        ]
+      },
+      "properties": {
+        "Town":"Yendi-Wapuli"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.011462,
+            9.44
+          ],
+          [0.2228099,
+            9.542206]
+        ]
+      },
+      "properties": {
+        "Town":"Yendi-Kpalpa"
+      }
+    }
+    ]}
