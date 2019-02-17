@@ -43,6 +43,7 @@ export class MapComponent implements OnInit {
   airports: Airport[];
   aulaTerraMarkers;
   yendiPoint = { longitude: -0.011462, latitude: 9.44 };
+  forecastSites: HealthSite[];
 
   // LINE
   powerLines;
@@ -170,8 +171,73 @@ export class MapComponent implements OnInit {
         .map(entry => entry.properties[type])
         .reduce((current, next) => { if (next > current) return next; else return current; } );
 
-
       this.districts['features'] = this.districts['features'].map(feature => {
+
+        /*
+        function prepareCase(typeName, color) {
+          feature.properties['maxOpacity'] = maxOpacity;
+          this.chart = new BarChart(
+            'chartCanvas',
+            typeName + ' distribution',
+            [],
+            [],
+            color,
+            "Districts",
+            "Count")
+            .chart;
+        }
+
+        switch (type) {
+          case 'Hospitals':
+          {
+            feature.properties['active'] = feature.properties.Hospitals;
+            prepareCase('Hospital', Colors.hospitalColor);
+            break;
+          }
+          case 'Clinic':
+          {
+            feature.properties['active'] = feature.properties.Clinic;
+            prepareCase('Clinic', Colors.clinicColor);
+            break;
+          }
+          case 'HealthCentres':
+          {
+            feature.properties['active'] = feature.properties.HealthCentres;
+            prepareCase('Health Centre', Colors.healthCentreColor);
+            break;
+          }
+          case 'DistrictHospitals':
+          {
+            feature.properties['active'] = feature.properties.DistrictHospitals;
+            prepareCase('District Hospital', Colors.districtHospitalColor);
+            break;
+          }
+          case 'RegionalHospitals':
+          {
+            feature.properties['active'] = feature.properties.RegionalHospitals;
+            prepareCase('Regional Hospital', Colors.regionalHospitalColor);
+            break;
+          }
+          case 'MaternityHomes':
+          {
+            feature.properties['active'] = feature.properties.MaternityHomes;
+            prepareCase('Materbity Homes', Colors.maternityColor);
+            break;
+          }
+          case 'RCHs':
+          {
+            feature.properties['active'] = feature.properties.RCHs;
+            prepareCase('RCH', Colors.rchColor);
+            break;
+          }
+          case 'CHPS':
+          {
+            feature.properties['active'] = feature.properties.CHPS;
+            prepareCase('CHPS', Colors.chpsColor);
+            break;
+          }
+        }
+         */
 
         switch (type) {
           case 'Hospitals':
@@ -297,11 +363,18 @@ export class MapComponent implements OnInit {
         }
         return feature;
       });
+      console.log(this.districts['features']);
     });
   }
 
   loadHealthSiteType(type) {
-    this.filteredHealthSites = null;
+    // this.filteredHealthSites = null;
+
+    this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
+
+    console.log(this.filteredHealthSites);
+
+    /*
     switch (type) {
       case 'Hospital':
         this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
@@ -320,7 +393,6 @@ export class MapComponent implements OnInit {
         break;
 
       case 'Clinic':
-        // console.log(this.healthSites.length);
         this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
         break;
 
@@ -333,14 +405,13 @@ export class MapComponent implements OnInit {
         break;
 
       case 'CHPS':
-        this.filteredHealthSites = this.healthSites.filter(site =>
-          site.type === 'CHPS');
+        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
         break;
 
       default:
         console.log('Unknown healthsite type specified: ' + type.toString());
     }
-
+  */
   }
 
   loadTransportation() {
@@ -351,13 +422,9 @@ export class MapComponent implements OnInit {
     this.healthMode = false;
     if (this.chart) this.chart.destroy();
 
-    this.mapService.loadData('ghanaRoads.geojson').subscribe(result => {
-      // console.log('Loading road data ...');
-      this.roadData = result;
-    });
+    this.mapService.loadData('ghanaRoads.geojson').subscribe(result => this.roadData = result);
 
     this.mapService.loadData('ghanaAirports.geojson').subscribe(resPointData => {
-      // console.log('Loading airport data ...');
       this.airports = resPointData['features'].map(feature => new Airport(feature, this.getStdRadius(this.zoom)));
     });
   }
@@ -365,7 +432,6 @@ export class MapComponent implements OnInit {
   /**
    * Load / reset data for power related data to be displayed
    */
-
   loadPower() {
 
     this.populationMode = false;
@@ -544,12 +610,6 @@ export class MapComponent implements OnInit {
     });
   }
 
-    /*loadPopulationTiles() {
-      this.mapService.loadData('ghanaPopulationDensity.geojson').subscribe(resPolygonData => {
-        this.populationTiles = resPolygonData;
-        console.log('Loading populationDensity data...\n', this.populationTiles);
-      });*/
-
   loadPopulationPyramide(){
 
     this.mapService.loadData('populationPyramide.json').subscribe(resData => {
@@ -558,9 +618,7 @@ export class MapComponent implements OnInit {
       const femaleCount = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.count);
       const labels = resData['distribution'].filter(entry => entry.gender === 'Female').map(entry => entry.years);
 
-      if (this.chart) {
-        this.chart.destroy();
-      }
+      if (this.chart) this.chart.destroy();
 
         this.chart = new Chart('chartCanvas', {
           type: 'bar',
@@ -619,8 +677,6 @@ export class MapComponent implements OnInit {
 
         });
       });
-
-
   }
 
   loadPopOverYears() {
@@ -644,7 +700,6 @@ export class MapComponent implements OnInit {
         "Population"
       );
       this.chart = lineChart.chart;
-
     });
   }
 
@@ -747,9 +802,7 @@ export class MapComponent implements OnInit {
 
   loadDrone2020Config() {
     this.resetMap();
-    this.mapService.loadData('drone2019POI.geojson').subscribe(resData => {
-      this.drone2019POI = resData;
-    });
+
     this.latlngBounds = {
       north: 11,
       east: 0,
@@ -758,14 +811,9 @@ export class MapComponent implements OnInit {
     };
 
     this.foreCastMode = true;
-
     this.foreCastType = 'drone';
 
     this.loadTimelineContents();
-
-    this.mapService.loadStyles('mapStylesDrones2019.json').subscribe(data => {
-      this.customMapStyles = data;
-    });
   }
 
   // used to hide the info window when random location on map is clicked
@@ -806,6 +854,8 @@ export class MapComponent implements OnInit {
 
   clickedDistricts(event) {
 
+    console.log(event);
+
     // add clicked district to chart data
     function addData(chart, label, data) {
       chart.data.labels.push(label);
@@ -830,17 +880,6 @@ export class MapComponent implements OnInit {
     function updateChartData(chart, data) {
       chart.data.datasets.forEach((dataset) => dataset.data = data);
       chart.update();
-    }
-
-    if (forecastType == 'drone')
-    {
-      this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
-
-        this.filteredHealthSites = resPointData['features']
-          .filter(feature => feature.properties.Type == "District Hospital" || feature.properties.Type == "CHPS")
-          .map(filteredSites => new HealthSite(filteredSites, this.getStdRadius(this.zoom)));
-      });
-
     }
 
     if (forecastType == 'solar')
@@ -875,43 +914,32 @@ export class MapComponent implements OnInit {
 
     else
     {
+      this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
+
+        this.filteredHealthSites = resPointData['features']
+          .filter(feature => feature.properties.Type == "District Hospital" || feature.properties.Type == "CHPS")
+          .map(filteredSites => new HealthSite(filteredSites, this.getStdRadius(this.zoom)));
+      });
+
       this.activeTimeLineYear = year;
-
-      console.log(this.activeTimeLineYear);
-
 
       if (year == 2019)
       {
         this.loadDrone2019Config();
       }
+      else if (year == 2020)
+      {
+        this.loadDrone2020Config();
 
-    }
+        this.mapService.loadData('ghanaHealthsites.geojson').subscribe(resPointData => {
 
-  }
-
-
-/*
-  mouseOverObject(object) {
-    // console.log('Mouse over object!\n', object);
-
-    if (this.zoom < 11) {
-      const newRadius = object.capacity * this.getStdRadius(this.zoom) / 10;
-
-      if (newRadius > 30000) {
-        object.radius = 30000;
-      } else if (newRadius < this.getStdRadius(this.zoom)) {
-      } else {
-        object.radius = object.capacity * this.getStdRadius(this.zoom) / 10;
+          this.forecastSites = resPointData['features']
+            .filter(feature => feature.properties.Type == "District Hospital" && +feature.geometry.coordinates[1] > 8)
+            .map(filteredSites => new HealthSite(filteredSites, this.getStdRadius(this.zoom)));
+        });
       }
     }
   }
-
-
-  mouseOutObject(object) {
-    // console.log('Mouse out object!\n', object);
-    object.radius = this.getStdRadius(this.zoom);
-  }
-  */
 
   loadMediaSource(src, type) {
     this.mediaSource.src = src;
@@ -952,7 +980,7 @@ export class MapComponent implements OnInit {
     this.powerPlants = null;
     this.airports = null;
     this.aulaTerraMarkers = null;
-
+    this.forecastSites = null;
 
     // LINE
     this.powerLines = null;

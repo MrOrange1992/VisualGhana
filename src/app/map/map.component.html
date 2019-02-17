@@ -38,8 +38,7 @@
 
   ></agm-data-layer>
 
-<!----Polylines---->
-
+  <!-- YENDI LINES -->
   <agm-data-layer
     [style]="colors.yendiLines"
     [geoJson]=drone2019POI
@@ -145,6 +144,17 @@
       [radius]='50000'
     ></agm-circle>
   </ng-container>
+
+  <agm-circle *ngFor="let healthSite of forecastSites"
+              [latitude]="healthSite.latitude"
+              [longitude]="healthSite.longitude"
+              [circleDraggable]="false"
+              [editable]="false"
+              [fillColor]="healthSite.color"
+              [fillOpacity]="0.2"
+              [radius]="50000"
+              (circleClick)="clickedObject(healthSite)"
+  ></agm-circle>
 
 
 </agm-map>
@@ -376,7 +386,7 @@
 
 
 <div *ngIf="foreCastMode" class="timeLineWindow">
-  <div *ngIf="foreCastMode" class="infoPanelSection clickable">
+  <div class="infoPanelSection clickable">
     <button
       class="loadButton loadPower"
       (click)="resetMap(); loadTimelineContents(); foreCastMode = true; foreCastType = 'solar'; loadPower()"

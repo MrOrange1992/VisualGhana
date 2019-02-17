@@ -1,6 +1,6 @@
 import json
 
-with open ('ghanaHealthsites.geojson','r') as healthFile, open ('ghanaDistricts.geojson','r') as districtsFile:
+with open ('../../data/ghanaHealthsites.geojson','r') as healthFile, open ('../../data/ghanaDistricts.geojson','r') as districtsFile:
 	
 	healthData = json.loads(healthFile.read())
 
@@ -13,6 +13,21 @@ with open ('ghanaHealthsites.geojson','r') as healthFile, open ('ghanaDistricts.
 
 	healthNameList = {obj.get('properties').get('District') for obj in healthData.get('features')}
 
+
+	sortedDistricts = districtsNameList.sort()
+
+	sortedHealth = list(healthNameList).sort()
+
+
+	for bla in sortedDistricts:
+		print(bla)
+
+	print("\n\n\n\n")
+
+	for bla in sortedHealth: 
+		print(bla)
+
+"""
 	#print(healthNameList)
 
 	count = 0
@@ -27,7 +42,7 @@ with open ('ghanaHealthsites.geojson','r') as healthFile, open ('ghanaDistricts.
 
 
 	print(count)
-
+"""
 
 			
 

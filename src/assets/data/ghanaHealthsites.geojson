@@ -54,7 +54,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Aboabogya Health Centre",
     "Type":"Health Centre",
     "Town":"Aboabogya",
@@ -174,7 +174,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Adom Hospital",
     "Type":"Hospital",
     "Town":"Akratiebesa",
@@ -189,7 +189,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Adom Maternity Home",
     "Type":"Maternity Home",
     "Town":"Adinyana",
@@ -204,7 +204,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Adwumakase Kese Health Centre",
     "Type":"Health Centre",
     "Town":"Adwumakase Kese",
@@ -249,7 +249,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Afrancho Health Centre",
     "Type":"Health Centre",
     "Town":"Afrancho",
@@ -264,7 +264,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Agogo Presby Hospital",
     "Type":"Hospital",
     "Town":"Agogo",
@@ -339,7 +339,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Ahenkro Health Centre",
     "Type":"Health Centre",
     "Town":"Ahenkro",
@@ -564,7 +564,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Akwasiase Dressing Station",
     "Type":"Clinic",
     "Town":"Akwasiase",
@@ -579,7 +579,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Alice Memorial Maternity Clinic",
     "Type":"Maternity Home",
     "Town":"Tepa",
@@ -639,7 +639,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Amantenaman Health Centre",
     "Type":"Health Centre",
     "Town":"Nyinamponase",
@@ -684,7 +684,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Anane Aya Maternity Home",
     "Type":"Maternity Home",
     "Town":"Akwasiase",
@@ -699,7 +699,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Ananekrom Health Centre",
     "Type":"Health Centre",
     "Town":"Ananekrom",
@@ -954,7 +954,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Anyinasuso Health Centre",
     "Type":"Health Centre",
     "Town":"Anyinasuso",
@@ -969,7 +969,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Anyinasuso Maternity Home",
     "Type":"Maternity Home",
     "Town":"Anyinasuso",
@@ -1359,7 +1359,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Banka Health Centre",
     "Type":"Health Centre",
     "Town":"Banka",
@@ -1389,7 +1389,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Banso SDA Clinic",
     "Type":"Clinic",
     "Town":"Banso",
@@ -1434,7 +1434,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Bebome Health Centre",
     "Type":"Health Centre",
     "Town":"Bebome",
@@ -1524,7 +1524,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Betiako Health Centre",
     "Type":"Health Centre",
     "Town":"Betiako",
@@ -1569,7 +1569,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Boamang Health Centre",
     "Type":"Health Centre",
     "Town":"Boamang",
@@ -1629,7 +1629,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Bompata Health Centre",
     "Type":"Health Centre",
     "Town":"Bompata",
@@ -1824,7 +1824,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Daasebre Maternity Home",
     "Type":"Maternity Home",
     "Town":"Ahenebronuum",
@@ -1974,7 +1974,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Dwease Health Centre",
     "Type":"Health Centre",
     "Town":"Dwease",
@@ -1989,7 +1989,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Dwendwenase Health Centre",
     "Type":"Health Centre",
     "Town":"Dwendwenase",
@@ -2109,7 +2109,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Ejuratia Health Centre",
     "Type":"Health Centre",
     "Town":"Ejuratia",
@@ -2154,7 +2154,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Essienkyem Health Centre",
     "Type":"Health Centre",
     "Town":"Essienkyem",
@@ -2199,7 +2199,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Family Care Hospital",
     "Type":"Hospital",
     "Town":"Mowre",
@@ -2289,7 +2289,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Gladys Maternity Home",
     "Type":"Maternity Home",
     "Town":"Kodie",
@@ -2469,7 +2469,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Jalua  Maternity Home",
     "Type":"Maternity Home",
     "Town":"Nkukua Buoho",
@@ -2574,7 +2574,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Juansa Health Centre",
     "Type":"Health Centre",
     "Town":"Juansa",
@@ -2589,7 +2589,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Juaso District Hospital",
     "Type":"District Hospital",
     "Town":"Juaso",
@@ -2694,7 +2694,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Konongo-Odumasi Government Hospital",
     "Type":"District Hospital",
     "Town":"Konongo",
@@ -2739,7 +2739,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Komeso Health Centre",
     "Type":"Health Centre",
     "Town":"Kumeso",
@@ -2754,7 +2754,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Kwamang Health Centre",
     "Type":"Health Centre",
     "Town":"Kwamang",
@@ -2814,7 +2814,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Kyekyewere Health Centre",
     "Type":"Health Centre",
     "Town":"Kyekyewere",
@@ -2829,7 +2829,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Life Land Clinic",
     "Type":"Clinic",
     "Town":"Abosomtweagya",
@@ -2859,7 +2859,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Matang Clinic",
     "Type":"Clinic",
     "Town":"Matang",
@@ -2949,7 +2949,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Manfo Health Centre",
     "Type":"Health Centre",
     "Town":"Manfo",
@@ -2964,7 +2964,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Mankranso Hospital",
     "Type":"Hospital",
     "Town":"Mankranso",
@@ -3099,7 +3099,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Methodist Faith Healing Hospital",
     "Type":"District Hospital",
     "Town":"Ankaase",
@@ -3129,7 +3129,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Morso Clinic",
     "Type":"Clinic",
     "Town":"Morso",
@@ -3159,7 +3159,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Mpasaso Health Centre",
     "Type":"Health Centre",
     "Town":"Mpasaso",
@@ -3189,7 +3189,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Mpobi RCH",
     "Type":"RCH",
     "Town":"Mpobi",
@@ -3204,7 +3204,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Muranaim Health Centre",
     "Type":"Health Centre",
     "Town":"Muronam",
@@ -3384,7 +3384,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Nnadieso Health Centre",
     "Type":"Health Centre",
     "Town":"Nnadieso",
@@ -3459,7 +3459,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Nutrition Rehabilitation Centre",
     "Type":"Clinic",
     "Town":"Konongo",
@@ -3519,7 +3519,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Obogu Health Centre",
     "Type":"Health Centre",
     "Town":"Obogu",
@@ -3594,7 +3594,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Ofoase Health Centre",
     "Type":"Health Centre",
     "Town":"Ofoase",
@@ -3639,7 +3639,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Owusua Maternity Home",
     "Type":"Maternity Home",
     "Town":"Bronkong",
@@ -3729,7 +3729,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Pokukrom Health Centre",
     "Type":"Health Centre",
     "Town":"Pokukrom",
@@ -3744,7 +3744,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Praaso Health Centre",
     "Type":"Health Centre",
     "Town":"Praaso",
@@ -3834,7 +3834,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Rose Maternity Home",
     "Type":"Maternity Home",
     "Town":"Obogu",
@@ -3849,7 +3849,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Sabronum  Health Centre",
     "Type":"Health Centre",
     "Town":"Sabronum",
@@ -4149,7 +4149,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"St. Anns Maternity Home",
     "Type":"Maternity Home",
     "Town":"Essibey Nkwata",
@@ -4179,7 +4179,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"St. Edwards Clinic",
     "Type":"Health Centre",
     "Town":"Adwinyama",
@@ -4194,7 +4194,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"St. Johns Clinic",
     "Type":"Health Centre",
     "Town":"Domeabra",
@@ -4299,7 +4299,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"St. Michael Clinic",
     "Type":"Clinic",
     "Town":"Dwenwoho",
@@ -4389,7 +4389,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"St. Theresa's Maternity Home",
     "Type":"Maternity Home",
     "Town":"Atimatim",
@@ -4434,7 +4434,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Subriso Health Centre",
     "Type":"Health Centre",
     "Town":"Subriso",
@@ -4479,7 +4479,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Tepa District Hospital",
     "Type":"District Hospital",
     "Town":"Tepa",
@@ -4494,7 +4494,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Tetrem Health Centre",
     "Type":"Health Centre",
     "Town":"Tetrem",
@@ -4689,7 +4689,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Wioso Methodist Clinic",
     "Type":"Clinic",
     "Town":"Wioso",
@@ -4764,7 +4764,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Agogo Nurses Training Coll",
     "Type":"Training Institution",
     "Town":"Agogo",
@@ -4824,7 +4824,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Tepa Health Assistants Training School",
     "Type":"Training Institution",
     "Town":"Tepa",
@@ -4839,7 +4839,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Juaso SABS Hospital",
     "Type":"Hospital",
     "Town":"Juaso",
@@ -4854,7 +4854,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim South",
+    "District":"Asante Akim South",
     "FacilityName":"Pra River Apostolic Clinic",
     "Type":"Clinic",
     "Town":"Pra River",
@@ -4989,7 +4989,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Ante Amma Maternity Home",
     "Type":"Maternity Home",
     "Town":"Abonsuaso",
@@ -5004,7 +5004,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Adom Nyame Clinic",
     "Type":"Clinic",
     "Town":"Abonsuaso",
@@ -5019,7 +5019,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano North",
+    "District":"Ahafo Ano North",
     "FacilityName":"Janet Maternity Home",
     "Type":"Maternity Home",
     "Town":"Anyinasuso",
@@ -5184,7 +5184,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Atimatim osei Yeboah Clinic",
     "Type":"Clinic",
     "Town":"Atimatim",
@@ -5259,7 +5259,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Biemso Health Centre",
     "Type":"Health Centre",
     "Town":"Biemso",
@@ -5274,7 +5274,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Wioso Health Centre",
     "Type":"Health Centre",
     "Town":"Wioso",
@@ -5289,7 +5289,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Anitemfe Health Centre",
     "Type":"Health Centre",
     "Town":"Anitemfe",
@@ -5304,7 +5304,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Ahafo-Ano South",
+    "District":"Ahafo Ano South",
     "FacilityName":"Asuadei Eno Mary Maternity Home",
     "Type":"Clinic",
     "Town":"Asuadei",
@@ -5544,7 +5544,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Konongo Adom Hospital",
     "Type":"Hospital",
     "Town":"Konongo",
@@ -5559,7 +5559,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Asante-Akim North Municipal",
+    "District":"Asante Akim North",
     "FacilityName":"Konongo Patience Clinic",
     "Type":"Clinic",
     "Town":"Konongo",
@@ -9759,7 +9759,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Brofoyedru Health Centre",
     "Type":"Health Centre",
     "Town":"Brofoyedru",
@@ -9774,7 +9774,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"PACKS Hospital",
     "Type":"Hospital",
     "Town":"Afrancho",
@@ -9789,7 +9789,7 @@
     },
     "properties": {
     "Region":"Ashanti",
-    "District":"Afigya-Kwabre",
+    "District":"Afigya Sekyere",
     "FacilityName":"Hilltop Hospital",
     "Type":"Hospital",
     "Town":"Buoho",
@@ -15099,7 +15099,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Abura Dunkwa RCH",
     "Type":"RCH",
     "Town":"Abura Dunkwa",
@@ -15114,7 +15114,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Baa Salvation Army Clinic",
     "Type":"Clinic",
     "Town":"Ajumako Ba",
@@ -15129,7 +15129,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ekukrom CHPS",
     "Type":"Clinic",
     "Town":"Ekukrom",
@@ -15144,7 +15144,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Nkodwo Nkojo CHPS",
     "Type":"CHPS",
     "Town":"Nkodwo",
@@ -15159,7 +15159,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Our Lady of Grace",
     "Type":"Hospital",
     "Town":"Breman Asikuma",
@@ -15174,7 +15174,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Odoben Health Centre",
     "Type":"Health Centre",
     "Town":"Odoben",
@@ -16449,7 +16449,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Abakrampa Health Centre",
     "Type":"Health Centre",
     "Town":"Abakrampa",
@@ -16464,7 +16464,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Nkwantanan CHPS",
     "Type":"CHPS",
     "Town":"Nkwantanan",
@@ -16479,7 +16479,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Abura-Asebu-Kwamankese District Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Abura Dunkwa",
@@ -16494,7 +16494,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Obohen CHPS",
     "Type":"CHPS",
     "Town":"Obohen",
@@ -16509,7 +16509,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Kwamankese CHPS",
     "Type":"CHPS",
     "Town":"Kwamankese",
@@ -16524,7 +16524,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Abura Dunkwa Hospital",
     "Type":"District Hospital",
     "Town":"Abura Dunkwa",
@@ -16539,7 +16539,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Gyabankrom CHPS",
     "Type":"CHPS",
     "Town":"Abura Gyabankrom",
@@ -16554,7 +16554,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Ayeldu CHPS",
     "Type":"CHPS",
     "Town":"Ayeldu",
@@ -16569,7 +16569,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Asomdwee CHPS",
     "Type":"CHPS",
     "Town":"Asomdwee",
@@ -16584,7 +16584,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Asuansi Rural Clinic",
     "Type":"Clinic",
     "Town":"Bronyi Krom",
@@ -16599,7 +16599,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Asomdwee Clinic",
     "Type":"Clinic",
     "Town":"Nyamedom",
@@ -16614,7 +16614,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Moree Health Centre",
     "Type":"Health Centre",
     "Town":"Moree",
@@ -16629,7 +16629,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Putubiw CHPS",
     "Type":"CHPS",
     "Town":"Putubiw",
@@ -16644,7 +16644,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Amosima CHPS",
     "Type":"CHPS",
     "Town":"Aosima",
@@ -16659,7 +16659,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Asebu CHPS",
     "Type":"CHPS",
     "Town":"Asebu",
@@ -16674,7 +16674,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Asuansi CHPS",
     "Type":"CHPS",
     "Town":"Asuansi",
@@ -16689,7 +16689,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Abura-Asebu-Kwamankese",
+    "District":"Abura/Asebu/Kwamankese",
     "FacilityName":"Nyanfeku CHPS",
     "Type":"CHPS",
     "Town":"Nyanfeku",
@@ -17139,7 +17139,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ajumako Hospital",
     "Type":"District Hospital",
     "Town":"Ajumako",
@@ -17154,7 +17154,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ann's Maternity Home",
     "Type":"Maternity Home",
     "Town":"Ajumako Entumbil",
@@ -17169,7 +17169,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ajumako-Enyan-Essiam District Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Ajumako",
@@ -17184,7 +17184,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Bisease Health Centre",
     "Type":"Health Centre",
     "Town":"Ajumako Bisease",
@@ -17199,7 +17199,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Enyan Abaasa Health Centre",
     "Type":"Health Centre",
     "Town":"Enyan Abaasa",
@@ -17214,7 +17214,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Kwanyako Community Clinic",
     "Type":"Clinic",
     "Town":"Kwanyako",
@@ -17229,7 +17229,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Sunkwa Community Clinic",
     "Type":"Clinic",
     "Town":"Etsi Sonkwaa",
@@ -17244,7 +17244,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Zion Clinic",
     "Type":"Clinic",
     "Town":"Zion Denkyira",
@@ -17259,7 +17259,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Enyan-Maim Community Clinic",
     "Type":"Clinic",
     "Town":"Enyan Maim",
@@ -17274,7 +17274,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Nkwantanum Health Centre",
     "Type":"Health Centre",
     "Town":"Nkwantanum",
@@ -17289,7 +17289,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Abaasa Health Centre",
     "Type":"Health Centre",
     "Town":"Abaasa",
@@ -17304,7 +17304,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ajumako RCH",
     "Type":"RCH",
     "Town":"Abaasa",
@@ -17319,7 +17319,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ahomakormbua CHPS",
     "Type":"CHPS",
     "Town":"Ahomakormbua",
@@ -17334,7 +17334,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ayinasu CHPS",
     "Type":"CHPS",
     "Town":"Ayinasu",
@@ -17349,7 +17349,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Ekwamase CHPS",
     "Type":"CHPS",
     "Town":"Ekwamase",
@@ -17364,7 +17364,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Kromaim CHPS",
     "Type":"CHPS",
     "Town":"Kromaim",
@@ -17379,7 +17379,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Mando CHPS",
     "Type":"CHPS",
     "Town":"Mando",
@@ -17394,7 +17394,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Obontsir CHPS",
     "Type":"CHPS",
     "Town":"Obontsir",
@@ -17409,7 +17409,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Ajumako-Enyan-Essiam",
+    "District":"Ajumako Enyan",
     "FacilityName":"Yeboah CHPS",
     "Type":"CHPS",
     "Town":"Yeboah",
@@ -17424,7 +17424,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Anhwiam CHPS",
     "Type":"CHPS",
     "Town":"Anhwiam",
@@ -17439,7 +17439,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Asikuma RCH",
     "Type":"RCH",
     "Town":"Asikuma",
@@ -17454,7 +17454,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Bedum CHPS",
     "Type":"Clinic",
     "Town":"Bedum",
@@ -17469,7 +17469,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Asikuma-Odoben-Brakwa District Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Asikuma",
@@ -17484,7 +17484,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Brakwa Health Centre",
     "Type":"Health Centre",
     "Town":"Breman Brakwa",
@@ -17499,7 +17499,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Amanfopong CHPS",
     "Type":"Clinic",
     "Town":"Breman Amanfopong",
@@ -17514,7 +17514,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Ocran Maternity Home",
     "Type":"Maternity Home",
     "Town":"",
@@ -17529,7 +17529,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Ayipey CHPS",
     "Type":"CHPS",
     "Town":"Ayipey",
@@ -17544,7 +17544,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Jamra CHPS",
     "Type":"CHPS",
     "Town":"Jamra",
@@ -17559,7 +17559,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Nankese CHPS",
     "Type":"CHPS",
     "Town":"Nankese",
@@ -17574,7 +17574,7 @@
     },
     "properties": {
     "Region":"Central",
-    "District":"Asikuma-Odoben-Brakwa",
+    "District":"Asikuma/Odoben/Brakwa",
     "FacilityName":"Sowotuom CHPS",
     "Type":"CHPS",
     "Town":"Sowotuom",
@@ -25329,7 +25329,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Arakan Maternity Home",
     "Type":"Maternity Home",
     "Town":"Burma Camp",
@@ -25344,7 +25344,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Arakan Medical Centre",
     "Type":"Clinic",
     "Town":"Burma Camp",
@@ -25359,7 +25359,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"1st Foundation Clinic",
     "Type":"Clinic",
     "Town":"Dansoman (Control market)",
@@ -25374,7 +25374,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"37 Military Hospital",
     "Type":"Psychiatric Hospital",
     "Town":"37",
@@ -25389,7 +25389,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"441 Welfare Association Clinic",
     "Type":"Clinic",
     "Town":"Nima",
@@ -25404,7 +25404,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Ablekuma Sub Metro Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Mamprobi",
@@ -25419,7 +25419,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Abodwe Clinic (Star of the sea clinic)",
     "Type":"Clinic",
     "Town":"Mamprobi",
@@ -25449,7 +25449,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Abora Clinic",
     "Type":"Clinic",
     "Town":"Asylum Down",
@@ -25479,7 +25479,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Accra Metro Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Adabraka",
@@ -25494,7 +25494,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Accra Psychiatric Hospital",
     "Type":"Psychiatric Hospital",
     "Town":"Adabraka",
@@ -25509,7 +25509,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Acheampong Memorial Clinic",
     "Type":"Clinic",
     "Town":"La",
@@ -25554,7 +25554,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Adabraka Polyclinic",
     "Type":"Polyclinic",
     "Town":"Adabraka",
@@ -25569,7 +25569,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Adehye Clinic",
     "Type":"Clinic",
     "Town":"Okaishie",
@@ -25599,7 +25599,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Adjabeng Leprosy Clinic",
     "Type":"Clinic",
     "Town":"Adjabeng",
@@ -25629,7 +25629,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Adwoa Boatema Memorial Clinic",
     "Type":"Clinic",
     "Town":"Mamprobi (near mytrs of Uganda)",
@@ -25689,7 +25689,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Airport Clinic Ltd",
     "Type":"Clinic",
     "Town":"Airport",
@@ -25704,7 +25704,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Akai House Clinic",
     "Type":"Clinic",
     "Town":"Roman Ridge (near Jack and Jill)",
@@ -25719,7 +25719,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Akai House Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -25749,7 +25749,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Alajo Clinic",
     "Type":"Clinic",
     "Town":"Alajo",
@@ -25764,7 +25764,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Al-ayar Clinic & Maternity Home",
     "Type":"Hospital",
     "Town":"Akweteman",
@@ -25794,7 +25794,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Alfred Memorial Clinic",
     "Type":"Clinic",
     "Town":"Abossey Okai",
@@ -25854,7 +25854,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Amanda Maternity Home & Clinic (formerly Abaya Clinic & Maternity Home)",
     "Type":"Maternity Home",
     "Town":"East Legon",
@@ -25884,7 +25884,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Amazing Grace Clinic",
     "Type":"Clinic",
     "Town":"Kaneshie",
@@ -25959,7 +25959,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Apaak Traditional Clinic",
     "Type":"Clinic",
     "Town":"Asylum Down",
@@ -25989,7 +25989,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Apex Medical Centre",
     "Type":"Clinic",
     "Town":"Awudome",
@@ -26004,7 +26004,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Asamoah Clinic",
     "Type":"Hospital",
     "Town":"Abelemkpe",
@@ -26019,7 +26019,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Asare Odei Hospital",
     "Type":"Hospital",
     "Town":"East Legon",
@@ -26079,7 +26079,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Asomdwehene Maternity Home",
     "Type":"Maternity Home",
     "Town":"Odorkor",
@@ -26094,7 +26094,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Asylum Down Dental Clinic (near Abora Clinic)",
     "Type":"Clinic",
     "Town":"Asylum Down",
@@ -26109,7 +26109,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Atta Quarshie Morton Memorial Hospital",
     "Type":"Clinic",
     "Town":"Adabraka",
@@ -26124,7 +26124,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Aviation Road Clinic",
     "Type":"Clinic",
     "Town":"Airport residential area",
@@ -26139,7 +26139,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Ayawaso Sub Metro Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Maamobi",
@@ -26154,7 +26154,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Baeta Clinic",
     "Type":"Clinic",
     "Town":"Dzorwulu",
@@ -26169,7 +26169,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Bank of Ghana Clinic",
     "Type":"Clinic",
     "Town":"Ridge",
@@ -26184,7 +26184,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Bart-Plange Memorial Clinic",
     "Type":"Hospital",
     "Town":"Agbogbloshie",
@@ -26199,7 +26199,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Beach Community Clinic (Ga Mantse Community Clinic)",
     "Type":"Clinic",
     "Town":"James Town",
@@ -26214,7 +26214,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Beijing Chinese Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -26244,7 +26244,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Bennette Memorial Clinic",
     "Type":"Hospital",
     "Town":"New Town",
@@ -26304,7 +26304,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Biomedical Department",
     "Type":"Hospital",
     "Town":"Korle-bu",
@@ -26349,7 +26349,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Bostal Clinic",
     "Type":"Clinic",
     "Town":"Bostal Institution",
@@ -26409,7 +26409,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Castle Drive Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -26424,7 +26424,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Cathedral Clinic & Laboratory",
     "Type":"Clinic",
     "Town":"High Street",
@@ -26439,7 +26439,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Cedar Clinic",
     "Type":"Clinic",
     "Town":"Abelemkpe",
@@ -26454,7 +26454,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Central Achimota Clinic",
     "Type":"Clinic",
     "Town":"Achimota",
@@ -26484,7 +26484,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Clecom Memorial Specialist Hospital",
     "Type":"Hospital",
     "Town":"Dzorwulu",
@@ -26499,7 +26499,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Club Road Clinic",
     "Type":"Clinic",
     "Town":"Opera Square",
@@ -26514,7 +26514,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Beth's Clinic",
     "Type":"Clinic",
     "Town":"Lartebiokorshie (near Nkruma flats)",
@@ -26559,7 +26559,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Central Dansoman Clinic",
     "Type":"Clinic",
     "Town":"Dansoman",
@@ -26574,7 +26574,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Central Medical Lab",
     "Type":"Clinic",
     "Town":"Lartebiokoshie (k'shie mamprobi rd)",
@@ -26589,7 +26589,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Christ The King Mat Home & Clinic",
     "Type":"Maternity Home",
     "Town":"Bubuashie (Atico last stop)",
@@ -26604,7 +26604,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Christian Medical Centre",
     "Type":"Hospital",
     "Town":"Nungua",
@@ -26619,7 +26619,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Cocoa Clinic",
     "Type":"Hospital",
     "Town":"North Kaneshie",
@@ -26634,7 +26634,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Community clinic",
     "Type":"Clinic",
     "Town":"Abossey Okai",
@@ -26664,7 +26664,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Blessings Clinic",
     "Type":"Hospital",
     "Town":"Tesano",
@@ -26724,7 +26724,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Community Clinic",
     "Type":"Clinic",
     "Town":"Abossey Okai (near Mosque)",
@@ -26739,7 +26739,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Community Clinic & Maternity Home",
     "Type":"Maternity Home",
     "Town":"Glefe (Behing the largoon)",
@@ -26829,7 +26829,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Dansoman Health Centre",
     "Type":"Clinic",
     "Town":"Dansoman",
@@ -26889,7 +26889,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Delta Clinic (Korle-bu behind mobil filing station)",
     "Type":"Clinic",
     "Town":"Korle-bu",
@@ -26934,7 +26934,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Derban Clinic",
     "Type":"Clinic",
     "Town":"Dzorwulu",
@@ -26964,7 +26964,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Dr Eustace Akwei Memorial Clinic",
     "Type":"Clinic",
     "Town":"Lartebiokorshie",
@@ -26979,7 +26979,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Dua Clinic & Lab",
     "Type":"Clinic",
     "Town":"Asylum Down",
@@ -26994,7 +26994,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Duala Medical Centre",
     "Type":"Clinic",
     "Town":"Burma Camp",
@@ -27009,7 +27009,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"East Legon Clinic",
     "Type":"Hospital",
     "Town":"East Legon",
@@ -27024,7 +27024,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Eden Specialist Hospital",
     "Type":"Hospital",
     "Town":"North Kaneshie",
@@ -27054,7 +27054,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Efan Victory Clinic",
     "Type":"Clinic",
     "Town":"Pig Farm (lorry station)",
@@ -27084,7 +27084,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"El-Rapha Clinic",
     "Type":"Hospital",
     "Town":"Mataheko",
@@ -27114,7 +27114,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Emmanuel Eye Clinic",
     "Type":"Clinic",
     "Town":"East Legon",
@@ -27129,7 +27129,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Emmanuel Maternity Home & Clinic",
     "Type":"Maternity Home",
     "Town":"Awoshie",
@@ -27144,7 +27144,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Esidem Medical Centre",
     "Type":"Clinic",
     "Town":"Maamobi (near market)",
@@ -27189,7 +27189,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Eye Gye Nyame Clinic",
     "Type":"Hospital",
     "Town":"Nima (Mallam atta gutter. market road)",
@@ -27204,7 +27204,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Fahd Al-Marzouq Clinic",
     "Type":"Clinic",
     "Town":"Nima",
@@ -27219,7 +27219,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Fair Lady Clinic",
     "Type":"Clinic",
     "Town":"East Legon (towards America house -Social X'tian centre)",
@@ -27234,7 +27234,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Faith Evangelical Hospital",
     "Type":"Hospital",
     "Town":"Bubuashie",
@@ -27264,7 +27264,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Family Health Hospital",
     "Type":"Hospital",
     "Town":"Korle-bu (before mortuary turn right to korlebu flats)",
@@ -27294,7 +27294,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Felidan Maternity Home",
     "Type":"Maternity Home",
     "Town":"Chemuna (Chorkor)",
@@ -27384,7 +27384,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Egon German Clinic",
     "Type":"Hospital",
     "Town":"Abelemkpe",
@@ -27399,7 +27399,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"El Shadai Mat Home & Clinic",
     "Type":"Maternity Home",
     "Town":"Nyamekye (Darkuman)",
@@ -27414,7 +27414,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Emmanuel Clinic (ENT Specialist)",
     "Type":"Clinic",
     "Town":"Nungua",
@@ -27444,7 +27444,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Faith Medical Centre",
     "Type":"Hospital",
     "Town":"Alajo (near T junction)",
@@ -27459,7 +27459,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Fire Medical Centre (Old site)",
     "Type":"Hospital",
     "Town":"James Town",
@@ -27474,7 +27474,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Fralena Health Centre",
     "Type":"Health Centre",
     "Town":"Kaneshie",
@@ -27549,7 +27549,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Gak Clinic",
     "Type":"Hospital",
     "Town":"Osu (Nyaniba Estate)",
@@ -27609,7 +27609,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Ghana Police Clinic",
     "Type":"Clinic",
     "Town":"37 Licencing Office",
@@ -27624,7 +27624,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Regional Health Directorate",
     "Type":"Regional Health Directorate",
     "Town":"Adabraka",
@@ -27639,7 +27639,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Regional Health Directorate (new site)",
     "Type":"Regional Health Directorate",
     "Town":"Adabraka",
@@ -27654,7 +27654,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Gimpa Clinic",
     "Type":"Clinic",
     "Town":"Greenhill",
@@ -27699,7 +27699,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Gloria's Maternity Home",
     "Type":"Maternity Home",
     "Town":"New Town",
@@ -27744,7 +27744,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Golden Sourveinier Clinic",
     "Type":"Clinic",
     "Town":"Tesano",
@@ -27759,7 +27759,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Goodwill Maternity Home",
     "Type":"Maternity Home",
     "Town":"Asylum Down",
@@ -27804,7 +27804,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Grace Baah Memorial Clinic",
     "Type":"Clinic",
     "Town":"Russia",
@@ -27834,7 +27834,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Grace Maternity Home & Clinic",
     "Type":"Maternity Home",
     "Town":"Awoshie (last stop)",
@@ -27849,7 +27849,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Grasam Clinic",
     "Type":"Clinic",
     "Town":"Mempeasem",
@@ -27879,7 +27879,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Green Hand Clinic",
     "Type":"Clinic",
     "Town":"North Kaneshie",
@@ -27909,7 +27909,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Hajj Abdulai Yaro's Memorial Clinic",
     "Type":"Hospital",
     "Town":"Nima",
@@ -27924,7 +27924,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Hams Clinic",
     "Type":"Clinic",
     "Town":"Mataheko",
@@ -27939,7 +27939,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Hannah Larbie's Maternity Home",
     "Type":"Maternity Home",
     "Town":"Chorkor (near Abodwe)",
@@ -27984,7 +27984,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Hebron Maternity & Clinic",
     "Type":"Maternity Home",
     "Town":"La",
@@ -27999,7 +27999,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Henrietta Clinic & Maternity Home",
     "Type":"Maternity Home",
     "Town":"Lartebiokorshie (near Nkruma flats)",
@@ -28014,7 +28014,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Highway Dental Clinic",
     "Type":"Clinic",
     "Town":"Maamobi (near market)",
@@ -28029,7 +28029,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Hobats Clinic",
     "Type":"Clinic",
     "Town":"Tesano",
@@ -28044,7 +28044,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Holy Cross Clinic & Maternity Home",
     "Type":"Clinic",
     "Town":"Lartebiokoshie",
@@ -28059,7 +28059,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Holy Height Clinic",
     "Type":"Clinic",
     "Town":"Kokomlemle",
@@ -28074,7 +28074,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Holy Trinity Medical Centre",
     "Type":"Hospital",
     "Town":"North Kaneshie",
@@ -28089,7 +28089,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"International Health Care Centre",
     "Type":"Clinic",
     "Town":"Roman Ridge (near Ghana inst of engineers buidling)",
@@ -28104,7 +28104,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Iran Clinic",
     "Type":"Hospital",
     "Town":"Circle",
@@ -28119,7 +28119,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"James Camp Borstral Clinic",
     "Type":"Clinic",
     "Town":"Roman Ridge",
@@ -28134,7 +28134,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"James Fort Prison's Clinic",
     "Type":"Clinic",
     "Town":"James Town",
@@ -28149,7 +28149,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"James Town Maternity Home",
     "Type":"Maternity Home",
     "Town":"James Town",
@@ -28164,7 +28164,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Jesus Saves Clinic",
     "Type":"Clinic",
     "Town":"Okaishie",
@@ -28194,7 +28194,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Johpat Hospital",
     "Type":"Hospital",
     "Town":"Dzorwulu",
@@ -28224,7 +28224,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Jordan's Maternity Home",
     "Type":"Maternity Home",
     "Town":"La",
@@ -28269,7 +28269,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Juliana Aku Clegg Maternity home",
     "Type":"Maternity Home",
     "Town":"Zongo junction",
@@ -28284,7 +28284,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Kaneshie Market Clinic",
     "Type":"Clinic",
     "Town":"Kaneshie",
@@ -28299,7 +28299,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Kaneshie Polyclinic",
     "Type":"Polyclinic",
     "Town":"Kaneshie",
@@ -28314,7 +28314,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Kaneshie School Clinic",
     "Type":"Clinic",
     "Town":"Kaneshie",
@@ -28329,7 +28329,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Karikari Brobbey Hospital",
     "Type":"Hospital",
     "Town":"Agege (Agege road -Karikari area)",
@@ -28359,7 +28359,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Keep Smiling clinic",
     "Type":"Clinic",
     "Town":"Mamprobi (opposite mtyr uganda)",
@@ -28374,7 +28374,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"King David Hospital",
     "Type":"Hospital",
     "Town":"Kotobabi",
@@ -28419,7 +28419,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu Polyclinic",
     "Type":"Polyclinic",
     "Town":"Korle-Bu",
@@ -28434,7 +28434,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu Teaching Hospital",
     "Type":"Teaching Hospital",
     "Town":"Korle-bu",
@@ -28464,7 +28464,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Kpeshie Sub Metro Health Directorate",
     "Type":"District Health Directorate",
     "Town":"La",
@@ -28479,7 +28479,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Kumorji Hospital",
     "Type":"Hospital",
     "Town":"Cantoments",
@@ -28494,7 +28494,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"La General Hospital",
     "Type":"Hospital",
     "Town":"La",
@@ -28509,7 +28509,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Labadi Road Dental Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -28524,7 +28524,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Lagoon Clinic",
     "Type":"Clinic",
     "Town":"Chemuna (Chorkor)",
@@ -28554,7 +28554,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Lagoon Clinic & Maternity home",
     "Type":"Maternity Home",
     "Town":"Mpoase (off Glefe rd)",
@@ -28569,7 +28569,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Lakeside Clinic",
     "Type":"Hospital",
     "Town":"Tesano",
@@ -28584,7 +28584,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Lapaz Community Clinic",
     "Type":"Hospital",
     "Town":"Abaka Lapas",
@@ -28599,7 +28599,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Laura's Maternity Home & Clinic",
     "Type":"Maternity Home",
     "Town":"Darkuman",
@@ -28629,7 +28629,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Link Road Hospital",
     "Type":"Hospital",
     "Town":"Lartebiokorshie",
@@ -28659,7 +28659,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Maamobi Polyclinic",
     "Type":"Polyclinic",
     "Town":"Maamobi",
@@ -28674,7 +28674,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mega Care Clinic (Annex)",
     "Type":"Clinic",
     "Town":"Abossey Okai",
@@ -28689,7 +28689,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Liha Medical Clinic",
     "Type":"Clinic",
     "Town":"East Legon (before America house road)",
@@ -28704,7 +28704,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Maabs Dental Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -28719,7 +28719,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Megavest Medical Centre",
     "Type":"Hospital",
     "Town":"North Kaneshie",
@@ -28749,7 +28749,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Lession Clinic",
     "Type":"Clinic",
     "Town":"Nima",
@@ -28764,7 +28764,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Limb Fitting Centre",
     "Type":"Others",
     "Town":"Tema Station (near Lotteries)",
@@ -28779,7 +28779,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mab Medicare Centre",
     "Type":"Hospital",
     "Town":"Nyamekye (Darkuman)",
@@ -28809,7 +28809,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Larkai Medical Centre",
     "Type":"Clinic",
     "Town":"Nima (near Police station)",
@@ -28824,7 +28824,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Life Line Clinic",
     "Type":"Clinic",
     "Town":"Nima 441 (area near bridge)",
@@ -28839,7 +28839,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Living Clinic & Laboratory",
     "Type":"Clinic",
     "Town":"Agbogbloshie",
@@ -28884,7 +28884,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Makola Government Clinic",
     "Type":"Clinic",
     "Town":"Makola",
@@ -28899,7 +28899,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Makola Plaza Clinic",
     "Type":"Clinic",
     "Town":"Makola",
@@ -28914,7 +28914,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mallam Atta Market Clinic",
     "Type":"Clinic",
     "Town":"Mallam Atta",
@@ -28944,7 +28944,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mamprobi Polyclinic",
     "Type":"Polyclinic",
     "Town":"Mamprobi",
@@ -28989,7 +28989,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Manna Mission Hospital",
     "Type":"Hospital",
     "Town":"Teshie",
@@ -29019,7 +29019,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Martin Memorial Hospital",
     "Type":"Hospital",
     "Town":"Dzorwulu",
@@ -29049,7 +29049,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"May Day Clinic",
     "Type":"Clinic",
     "Town":"Lartebiokorshie",
@@ -29064,7 +29064,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"May Day Clinic",
     "Type":"Clinic",
     "Town":"Agbogbloshie",
@@ -29079,7 +29079,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"May Fair Clinic",
     "Type":"Clinic",
     "Town":"Lartebiokoshie",
@@ -29094,7 +29094,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"May's Ear Nose & Throat clinic",
     "Type":"Clinic",
     "Town":"Lartebiokorshie (Nkrumah flats)",
@@ -29109,7 +29109,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Medifem Hospital",
     "Type":"Hospital",
     "Town":"Dzorwulu",
@@ -29139,7 +29139,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mercedarian Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -29154,7 +29154,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Midway Clinic Ltd",
     "Type":"Hospital",
     "Town":"Abofu (Achimota)",
@@ -29169,7 +29169,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu Midwifery Training School",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -29229,7 +29229,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mother's Pride Clinic & Maternity Home",
     "Type":"Maternity Home",
     "Town":"Mamprobi (off juncion before salvation army)",
@@ -29244,7 +29244,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Motorway Clinic",
     "Type":"Hospital",
     "Town":"Abeka Lapas",
@@ -29259,7 +29259,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mt Sinai Clinic",
     "Type":"Clinic",
     "Town":"Nyamekye (Darkuman)",
@@ -29274,7 +29274,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"N M's Dental Clinic",
     "Type":"Clinic",
     "Town":"Dzorwulu (junction)",
@@ -29289,7 +29289,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mercy Clinic",
     "Type":"Hospital",
     "Town":"Mataheko",
@@ -29304,7 +29304,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mercy Maternity Home & Clinic",
     "Type":"Maternity Home",
     "Town":"Agege (Glefe near largoon)",
@@ -29334,7 +29334,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Mission Clinic",
     "Type":"Clinic",
     "Town":"Caprice (Near carprice hotel)",
@@ -29424,7 +29424,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"National Cold Room",
     "Type":"Others",
     "Town":"Korle-bu",
@@ -29439,7 +29439,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nelleville Clinic",
     "Type":"Clinic",
     "Town":"Nungua",
@@ -29484,7 +29484,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"New Achimota Clinic",
     "Type":"Hospital",
     "Town":"New Achimota (mile 7)",
@@ -29499,7 +29499,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"New Cross Clinic",
     "Type":"Clinic",
     "Town":"Nima",
@@ -29559,7 +29559,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"New Town Clinic",
     "Type":"Clinic",
     "Town":"New Town (Nkasan-Djan junction)",
@@ -29574,7 +29574,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"New Town School Dental Clinic",
     "Type":"Clinic",
     "Town":"New Town ( school compound)",
@@ -29589,7 +29589,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"New World Dental Clinic",
     "Type":"Clinic",
     "Town":"Asylum Down",
@@ -29619,7 +29619,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nightingale Clinic",
     "Type":"Hospital",
     "Town":"Dansoman (Sahara)",
@@ -29634,7 +29634,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nima Government Clinic",
     "Type":"Clinic",
     "Town":"Nima",
@@ -29649,7 +29649,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nima Highway Specialist Clinic",
     "Type":"Clinic",
     "Town":"Nima (near Gutter)",
@@ -29664,7 +29664,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"North Kaneshie Maternity Home",
     "Type":"Maternity Home",
     "Town":"Demond (North Kaneshie)",
@@ -29709,7 +29709,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"North Ridge Clinic",
     "Type":"Hospital",
     "Town":"North Ridge",
@@ -29724,7 +29724,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"North Teshie Clinic & Maternity Home",
     "Type":"Clinic",
     "Town":"Teshie",
@@ -29769,7 +29769,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nungua Community Clinic",
     "Type":"Clinic",
     "Town":"Nungua",
@@ -29784,7 +29784,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu Nurses Training College",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -29799,7 +29799,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nyaho Medical Centre",
     "Type":"Clinic",
     "Town":"Airport residential area",
@@ -29814,7 +29814,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nima Clinic",
     "Type":"Clinic",
     "Town":"Nima",
@@ -29859,7 +29859,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Odorna Clinic",
     "Type":"Clinic",
     "Town":"Odorna (Adabraka)",
@@ -29889,7 +29889,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Oman Clinic",
     "Type":"Clinic",
     "Town":"Kaneshie (Sports Complex)",
@@ -29919,7 +29919,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Omni Health Care",
     "Type":"Clinic",
     "Town":"Dzorwulu",
@@ -29934,7 +29934,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Opoku Ware Clinic",
     "Type":"Hospital",
     "Town":"Dansoman",
@@ -29949,7 +29949,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Osu Government Maternity Home",
     "Type":"Maternity Home",
     "Town":"Osu",
@@ -29994,7 +29994,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Owusu Medical Centre",
     "Type":"Clinic",
     "Town":"Alajo (ask at Faith medical centre for direction)",
@@ -30069,7 +30069,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Opec Clinic (Teshie Health Centre)",
     "Type":"Clinic",
     "Town":"Teshie",
@@ -30084,7 +30084,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nyameadom Maternity Clinic",
     "Type":"Maternity Home",
     "Town":"Dansoman (before sahara)",
@@ -30129,7 +30129,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Okai Koi Sub Metro Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Kaneshie",
@@ -30249,7 +30249,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Parliament Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -30264,7 +30264,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Peace Clinic",
     "Type":"Clinic",
     "Town":"Mataheko",
@@ -30294,7 +30294,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Peoga Maternity Home",
     "Type":"Maternity Home",
     "Town":"Nungua",
@@ -30309,7 +30309,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"PML Hospital",
     "Type":"Hospital",
     "Town":"Paladium",
@@ -30324,7 +30324,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Police Hospital",
     "Type":"Hospital",
     "Town":"Cantoments",
@@ -30339,7 +30339,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"PPAG Clinic",
     "Type":"Clinic",
     "Town":"Lartebiokoshie",
@@ -30399,7 +30399,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Prince of Peace Maternity Home & Clinic",
     "Type":"Maternity Home",
     "Town":"Fadama",
@@ -30414,7 +30414,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Queen's Medical Centre",
     "Type":"Hospital",
     "Town":"Kokomlemle",
@@ -30444,7 +30444,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Sunrise Clinic",
     "Type":"Clinic",
     "Town":"Kaneshie (near mkt)",
@@ -30459,7 +30459,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Tooth Home Clinic",
     "Type":"Clinic",
     "Town":"Nima (near Police station)",
@@ -30504,7 +30504,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Purswani Memorial Clinic",
     "Type":"Clinic",
     "Town":"Asylum Down",
@@ -30534,7 +30534,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Louis Memorial Clinic",
     "Type":"Clinic",
     "Town":"Nima",
@@ -30579,7 +30579,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu School of Hygiene",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -30624,7 +30624,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Ussher Polyclinic",
     "Type":"Polyclinic",
     "Town":"James Town",
@@ -30654,7 +30654,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Rabito Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -30759,7 +30759,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Rehoboth Maternity Home",
     "Type":"Maternity Home",
     "Town":"Darkuman",
@@ -30774,7 +30774,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Richmond Clinic",
     "Type":"Clinic",
     "Town":"Zongo (near night mkt)",
@@ -30789,7 +30789,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Ridge Hospital",
     "Type":"Hospital",
     "Town":"Ridge",
@@ -30819,7 +30819,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Rose Clinic",
     "Type":"Clinic",
     "Town":"Russia",
@@ -30834,7 +30834,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Rosina Memorial Clinic",
     "Type":"Clinic",
     "Town":"Abofu (Achimota)",
@@ -30879,7 +30879,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Salvation Army Urban Aid Clinic",
     "Type":"Hospital",
     "Town":"Maamobi (near market)",
@@ -30909,7 +30909,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Sape Agbo Memorial Hospital",
     "Type":"Hospital",
     "Town":"New Town",
@@ -30939,7 +30939,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu School of Medical Laboratory Technology",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -30954,7 +30954,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu School of Radiology",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -30984,7 +30984,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Shwectzer Clinic",
     "Type":"Clinic",
     "Town":"Accra",
@@ -30999,7 +30999,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"SIC Bob Freeman Clinic",
     "Type":"Hospital",
     "Town":"Adabraka (near Goil headoffice)",
@@ -31074,7 +31074,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Specialist Hospital & Family Planning Centre",
     "Type":"Hospital",
     "Town":"Dansoman (SSNIT flats)",
@@ -31119,7 +31119,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Andrews Clinic",
     "Type":"Clinic",
     "Town":"Adabraka (near NCR Offices & cinema area)",
@@ -31134,7 +31134,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Andrews Clinic",
     "Type":"Clinic",
     "Town":"Roman Ridge",
@@ -31164,7 +31164,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Bernard Eye Clinic",
     "Type":"Clinic",
     "Town":"Kokomlemle",
@@ -31194,7 +31194,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Gloria's Clinic & Maternity Home",
     "Type":"Clinic",
     "Town":"Agege (Karikari area)",
@@ -31224,7 +31224,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Luke's Clinic",
     "Type":"Clinic",
     "Town":"Airport residential area",
@@ -31239,7 +31239,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Martin's Clinic",
     "Type":"Clinic",
     "Town":"Nima (near gutter )",
@@ -31254,7 +31254,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Mathew's Clinic",
     "Type":"Hospital",
     "Town":"New Achimota (mile 7)",
@@ -31269,7 +31269,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"St Maurice Maternity Home",
     "Type":"Maternity Home",
     "Town":"La",
@@ -31344,7 +31344,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Sulemana Memorial Hospital Ltd (formerly Islamic Foundation Clinic)",
     "Type":"Hospital",
     "Town":"Maamobi",
@@ -31389,7 +31389,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Su-san Clinic",
     "Type":"Clinic",
     "Town":"Sukura",
@@ -31404,7 +31404,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Swan Clinic",
     "Type":"Clinic",
     "Town":"Adenta",
@@ -31479,7 +31479,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Tee's Maternity Home",
     "Type":"Maternity Home",
     "Town":"La",
@@ -31599,7 +31599,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Teshie Community Clinic",
     "Type":"Clinic",
     "Town":"Teshie",
@@ -31629,7 +31629,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"The Clinic",
     "Type":"Clinic",
     "Town":"Zongo junction",
@@ -31644,7 +31644,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"The Finger of God Maternity Home",
     "Type":"Maternity Home",
     "Town":"Teshie",
@@ -31674,7 +31674,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"The King & 1 Eye Clinic",
     "Type":"Clinic",
     "Town":"East Legon (before America house road)",
@@ -31689,7 +31689,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"The Oak Street Clinic",
     "Type":"Clinic",
     "Town":"Teshie/Nungua",
@@ -31704,7 +31704,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"The Rock Hospital",
     "Type":"Hospital",
     "Town":"Odorkor",
@@ -31749,7 +31749,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Trust Hospital (SSNIT Hospital)",
     "Type":"Hospital",
     "Town":"Osu",
@@ -31764,7 +31764,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"TUC Clinic",
     "Type":"Clinic",
     "Town":"Adabraka",
@@ -31779,7 +31779,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Unicorn Memorial Clinic",
     "Type":"Hospital",
     "Town":"Teshie",
@@ -31809,7 +31809,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"University Hospital (Legon Hospital)",
     "Type":"Hospital",
     "Town":"Legon",
@@ -31824,7 +31824,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"University of Ghana Medical School",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -31869,7 +31869,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Vicon Specialist Hospital / Mat home",
     "Type":"Hospital",
     "Town":"Dansoman (Sahara)",
@@ -31884,7 +31884,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Vic's Maternity Home",
     "Type":"Maternity Home",
     "Town":"New Town",
@@ -31899,7 +31899,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Victor's Maternity & Child Health Clinic",
     "Type":"Maternity Home",
     "Town":"Bubuashie",
@@ -31944,7 +31944,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"VRA Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -31989,7 +31989,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"White House Clinic",
     "Type":"Clinic",
     "Town":"Dansoman (Ebenezer rd)",
@@ -32004,7 +32004,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Zoti Clinic",
     "Type":"Clinic",
     "Town":"Lartebiokorshie (opposite hope sch)",
@@ -32019,7 +32019,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Memorial Clinic",
     "Type":"Clinic",
     "Town":"5th Bank Lane (Near Bank of Ghana)",
@@ -32034,7 +32034,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"James Camp Borstral Clinic",
     "Type":"Clinic",
     "Town":"Roman Ridge",
@@ -32049,7 +32049,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Joana Clinic",
     "Type":"Clinic",
     "Town":"Kokomlemle",
@@ -32064,7 +32064,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Twumasi-Waah Memorial Hospital",
     "Type":"Hospital",
     "Town":"East Legon (before America house road)",
@@ -32079,7 +32079,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Eye Link",
     "Type":"Clinic",
     "Town":"Abelenkpe",
@@ -32094,7 +32094,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Save the Nation Sight",
     "Type":"Clinic",
     "Town":"Atraco",
@@ -32109,7 +32109,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Family Health Ltd.",
     "Type":"Hospital",
     "Town":"Teshie",
@@ -32124,7 +32124,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Dental Clinic",
     "Type":"Clinic",
     "Town":"Teshie/Nungua Estate (branch off at A-Life junction)",
@@ -32139,7 +32139,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"North Labone Dental Clinic",
     "Type":"Clinic",
     "Town":"North Labone",
@@ -32154,7 +32154,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"S & S Medical Centre",
     "Type":"Clinic",
     "Town":"Labadi",
@@ -32169,7 +32169,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Philips Clinic",
     "Type":"Clinic",
     "Town":"Airport",
@@ -32184,7 +32184,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Teshie Health Assistants Training School",
     "Type":"Training Institution",
     "Town":"Teshie",
@@ -32199,7 +32199,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"C & J Medicare",
     "Type":"Hospital",
     "Town":"Tudu",
@@ -32214,7 +32214,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Charisma Dental Clinic",
     "Type":"Clinic",
     "Town":"Osu (Oxford Street)",
@@ -32229,7 +32229,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Nuffield Clinic",
     "Type":"Clinic",
     "Town":"Osu RE",
@@ -32244,7 +32244,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Executive Health Care Unit",
     "Type":"Clinic",
     "Town":"Ringway Estate (Angola Rd.)",
@@ -32259,7 +32259,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Spaes Dental Clinic",
     "Type":"Clinic",
     "Town":"Ringway Estate",
@@ -32274,7 +32274,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Ayifua Clinic",
     "Type":"Clinic",
     "Town":"Nyaniba Estate (Osu)",
@@ -32289,7 +32289,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Otoo Memorial Dental Clinic",
     "Type":"Clinic",
     "Town":"Adabraka (94 Kojo Thompson Rd. - Premises of Avenida Hotel)",
@@ -32304,7 +32304,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Family Clinic",
     "Type":"Clinic",
     "Town":"Adabraka",
@@ -32319,7 +32319,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Civil Service Clinic",
     "Type":"Clinic",
     "Town":"Osu",
@@ -32334,7 +32334,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Obenfo Hospital",
     "Type":"Hospital",
     "Town":"Mataheko",
@@ -32349,7 +32349,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Hanson Medical Centre",
     "Type":"Clinic",
     "Town":"North Odorkor",
@@ -32364,7 +32364,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Aroma Dental Clinic",
     "Type":"Clinic",
     "Town":"Zongo (near night market)",
@@ -32379,7 +32379,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Bethany Medical Centre",
     "Type":"Clinic",
     "Town":"Kaneshie",
@@ -32394,7 +32394,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Lighthouse Mission",
     "Type":"Clinic",
     "Town":"Tesano",
@@ -32409,7 +32409,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Achimota Hospital",
     "Type":"Hospital",
     "Town":"Achimota",
@@ -32424,7 +32424,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Fire Medical Centre",
     "Type":"Clinic",
     "Town":"James Town",
@@ -32769,7 +32769,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu Opthamalmic",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -32784,7 +32784,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu Pery Operative",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -32799,7 +32799,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Korle-Bu Public Health",
     "Type":"Training Institution",
     "Town":"Korle-Bu",
@@ -32814,7 +32814,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Military Nurses Training College",
     "Type":"Training Institution",
     "Town":"37",
@@ -32874,7 +32874,7 @@
     },
     "properties": {
     "Region":"Greater Accra",
-    "District":"Accra Metropolitan",
+    "District":"Accra",
     "FacilityName":"Martin Luther Health Assistants Training School",
     "Type":"Training Institution",
     "Town":"Odorkor",
@@ -34509,7 +34509,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Industrial Area Health Centre",
     "Type":"Health Centre",
     "Town":"Industrial Area",
@@ -34524,7 +34524,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Bilpela Health Centre",
     "Type":"Health Centre",
     "Town":"Bulpela",
@@ -34539,7 +34539,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Deahas Maternity Home",
     "Type":"Maternity Home",
     "Town":"Lamashegu",
@@ -34554,7 +34554,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Kpanvo Health Centre",
     "Type":"Health Centre",
     "Town":"Kpanvo",
@@ -34569,7 +34569,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Choggu RCH",
     "Type":"RCH",
     "Town":"Choggu",
@@ -34584,7 +34584,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Shekina Health Centre",
     "Type":"Health Centre",
     "Town":"Gurugu",
@@ -34599,7 +34599,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Fulera Maternity Home",
     "Type":"Maternity Home",
     "Town":"Choggu Yapalsi",
@@ -34614,7 +34614,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"As-Salam Materniyt Home",
     "Type":"Maternity Home",
     "Town":"Sabonjida",
@@ -34629,7 +34629,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Bagabaga Clinic",
     "Type":"Clinic",
     "Town":"Bagabaga",
@@ -34644,7 +34644,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Nyohini  Clinic",
     "Type":"Clinic",
     "Town":"Nyohini",
@@ -34659,7 +34659,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Gariziegu Clinic",
     "Type":"Clinic",
     "Town":"Gariziegu",
@@ -34674,7 +34674,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Sanerigu RCH",
     "Type":"RCH",
     "Town":"Nyohini",
@@ -34689,7 +34689,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Rev. Tyers Momeral Clinic",
     "Type":"Clinic",
     "Town":"Kalpohini",
@@ -34704,7 +34704,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"ABF Medical Center",
     "Type":"Health Centre",
     "Town":"Kamina",
@@ -34719,7 +34719,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale School of Hygiene",
     "Type":"Training Institution",
     "Town":"Zagyuri",
@@ -34734,7 +34734,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Kalpohini Health Centre",
     "Type":"Health Centre",
     "Town":"Kalpohini",
@@ -34749,7 +34749,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tania Specialist",
     "Type":"Hospital",
     "Town":"Jusonayilli",
@@ -34764,7 +34764,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"6mrs Kamina Health Centre",
     "Type":"Health Centre",
     "Town":"Kamina",
@@ -34779,7 +34779,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Haj Adams Health Centre",
     "Type":"Health Centre",
     "Town":"Sabonjida",
@@ -34794,7 +34794,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale West Hospital",
     "Type":"District Hospital",
     "Town":"Zogyele",
@@ -34809,7 +34809,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale Metropolitan Health Directorate",
     "Type":"Metropolitan Health Directorate",
     "Town":"Agric",
@@ -34824,7 +34824,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Regional Health Directorate",
     "Type":"Regional Health Directorate",
     "Town":"Ministries",
@@ -34839,7 +34839,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale Central RCH",
     "Type":"RCH",
     "Town":"Changli",
@@ -34854,7 +34854,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Rabito Clinic",
     "Type":"Clinic",
     "Town":"Rivoly",
@@ -34869,7 +34869,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"SDA Hospital",
     "Type":"Hospital",
     "Town":"Tamale",
@@ -34884,7 +34884,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale Central  Hospital",
     "Type":"Regional Hospital",
     "Town":"Zobogu",
@@ -34899,7 +34899,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale Nutrition Rehab Center",
     "Type":"RCH",
     "Town":"Tamale Central",
@@ -34914,7 +34914,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale Community Health Nurses Training School",
     "Type":"Training Institution",
     "Town":"Sangani",
@@ -34929,7 +34929,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale Nurses Training School",
     "Type":"Training Institution",
     "Town":"Tamale",
@@ -34944,7 +34944,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Vitting RCH",
     "Type":"Health Centre",
     "Town":"Vitting/Dabogbh",
@@ -34959,7 +34959,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Lahagu Health Centre",
     "Type":"Health Centre",
     "Town":"Lahagu",
@@ -34974,7 +34974,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Kotingli  CHPS",
     "Type":"CHPS",
     "Town":"Kotingli",
@@ -34989,7 +34989,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tamale Teaching Hospital",
     "Type":"Teaching Hospital",
     "Town":"Tamale Central",
@@ -36489,7 +36489,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Fooshegu CHPS",
     "Type":"CHPS",
     "Town":"Fooshegu",
@@ -36504,7 +36504,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Gods Care Clinic",
     "Type":"Clinic",
     "Town":"Kasaligu",
@@ -36519,7 +36519,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Tania Specialist Hospital",
     "Type":"Hospital",
     "Town":"Kanvilli",
@@ -36534,7 +36534,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Malshegu CHPS",
     "Type":"CHPS",
     "Town":"Malshegu",
@@ -36549,7 +36549,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"St. Lucy Polyclinic",
     "Type":"Polyclinic",
     "Town":"Choggu kpalsi",
@@ -36564,7 +36564,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Taha CHPS",
     "Type":"CHPS",
     "Town":"Taha",
@@ -36579,7 +36579,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Zuo CHPS",
     "Type":"CHPS",
     "Town":"Zuo",
@@ -36594,7 +36594,7 @@
     },
     "properties": {
     "Region":"Northern",
-    "District":"Tamale Metropolitan",
+    "District":"Tamale",
     "FacilityName":"Kanvili Clinic",
     "Type":"Clinic",
     "Town":"Kanvilli",
@@ -42789,7 +42789,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Adaklu Hlekpe Health Centre",
     "Type":"Health Centre",
     "Town":"Adaklu Hlekpe",
@@ -42804,7 +42804,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Ziope Health Centre",
     "Type":"Health Centre",
     "Town":"Ziope",
@@ -42819,7 +42819,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Adaklu Ahunda Health Centre",
     "Type":"Health Centre",
     "Town":"Adaklu Ahunda",
@@ -42834,7 +42834,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Kpetoe Health Centre",
     "Type":"Health Centre",
     "Town":"Kpetoe",
@@ -42849,7 +42849,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Adaklu Waya   Health Centre",
     "Type":"Health Centre",
     "Town":"Adaklu Waya",
@@ -42864,7 +42864,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Salvation Army Clinic",
     "Type":"Health Centre",
     "Town":"Adaklu Sopa",
@@ -42879,7 +42879,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Keyime Health Centre",
     "Type":"Health Centre",
     "Town":"Keyime",
@@ -42894,7 +42894,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Wudzedeke Health Centre",
     "Type":"Health Centre",
     "Town":"Wudzedeke",
@@ -42909,7 +42909,7 @@
     },
     "properties": {
     "Region":"Volta",
-    "District":"Adaklu-Anyigbe",
+    "District":"Adaklu Anyigbe",
     "FacilityName":"Adaklu-Anyigbe District Health Directorate",
     "Type":"District Health Directorate",
     "Town":"Kpetoe",
