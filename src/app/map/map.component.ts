@@ -760,10 +760,10 @@ export class MapComponent implements OnInit {
   loadForecastConfig() {
     this.resetMap();
     this.latlngBounds = {
-      north: 11,
-      east: 0,
-      south: 5.5,
-      west: -7
+      north: 10.5,
+      east: -4,
+      south: 5,
+      west: -4.2
     };
     this.foreCastMode = true;
 
@@ -804,10 +804,10 @@ export class MapComponent implements OnInit {
     this.resetMap();
 
     this.latlngBounds = {
-      north: 11,
-      east: 0,
-      south: 5.5,
-      west: -7
+      north: 10.5,
+      east: -4,
+      south: 5,
+      west: -4.2
     };
 
     this.foreCastMode = true;

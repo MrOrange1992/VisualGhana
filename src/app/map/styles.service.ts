@@ -22,7 +22,7 @@ export class StylesService {
     return {
       strokeColor: Colors.aulaTerraColor,
       strokeOpacity: 1,
-      strokeWeight: 3
+      strokeWeight: 5
     };
   }
 
