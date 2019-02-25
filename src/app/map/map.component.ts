@@ -158,6 +158,35 @@ export class MapComponent implements OnInit {
     });
   }
 
+  /*
+    Health distribution helper functions
+   */
+   prepareCase(typeName, color) {
+    this.chart = new BarChart(
+      'chartCanvas',
+      typeName + ' distribution',
+      [],
+      [],
+      color,
+      "Districts",
+      "Count")
+      .chart;
+  }
+
+  filterOutliers(array) {
+
+    const values = array.concat().sort( (a, b) =>  a - b);
+
+    const q1 = values[Math.floor((values.length / 4))];
+    const q3 = values[Math.ceil((values.length * (3 / 4)))];
+    const iqr = q3 - q1;
+
+    const maxValue = q3 + iqr*1.5;
+    const minValue = q1 - iqr*1.5;
+
+    return values.filter(x =>  (x <= maxValue) && (x >= minValue));
+  }
+
   loadHealthDistribution(type) {
 
     this.mapService.loadData('ghanaDistricts.geojson').subscribe(resPolygonData => {
@@ -167,252 +196,70 @@ export class MapComponent implements OnInit {
 
       if (this.chart) { this.chart.destroy(); }
 
-      const maxOpacity = resPolygonData['features']
-        .map(entry => entry.properties[type])
+      const maxOpacity = this.filterOutliers(resPolygonData['features']
+        .map(entry => entry.properties[type]))
         .reduce((current, next) => { if (next > current) return next; else return current; } );
 
       this.districts['features'] = this.districts['features'].map(feature => {
 
-        /*
-        function prepareCase(typeName, color) {
-          feature.properties['maxOpacity'] = maxOpacity;
-          this.chart = new BarChart(
-            'chartCanvas',
-            typeName + ' distribution',
-            [],
-            [],
-            color,
-            "Districts",
-            "Count")
-            .chart;
-        }
+        feature.properties['maxOpacity'] = maxOpacity;
 
         switch (type) {
           case 'Hospitals':
           {
             feature.properties['active'] = feature.properties.Hospitals;
-            prepareCase('Hospital', Colors.hospitalColor);
+            this.prepareCase('Hospital', Colors.hospitalColor);
             break;
           }
           case 'Clinic':
           {
             feature.properties['active'] = feature.properties.Clinic;
-            prepareCase('Clinic', Colors.clinicColor);
+            this.prepareCase('Clinic', Colors.clinicColor);
             break;
           }
           case 'HealthCentres':
           {
             feature.properties['active'] = feature.properties.HealthCentres;
-            prepareCase('Health Centre', Colors.healthCentreColor);
+            this.prepareCase('Health Centre', Colors.healthCentreColor);
             break;
           }
           case 'DistrictHospitals':
           {
             feature.properties['active'] = feature.properties.DistrictHospitals;
-            prepareCase('District Hospital', Colors.districtHospitalColor);
+            this.prepareCase('District Hospital', Colors.districtHospitalColor);
             break;
           }
           case 'RegionalHospitals':
           {
             feature.properties['active'] = feature.properties.RegionalHospitals;
-            prepareCase('Regional Hospital', Colors.regionalHospitalColor);
+            this.prepareCase('Regional Hospital', Colors.regionalHospitalColor);
             break;
           }
           case 'MaternityHomes':
           {
             feature.properties['active'] = feature.properties.MaternityHomes;
-            prepareCase('Materbity Homes', Colors.maternityColor);
+            this.prepareCase('Materbity Homes', Colors.maternityColor);
             break;
           }
           case 'RCHs':
           {
             feature.properties['active'] = feature.properties.RCHs;
-            prepareCase('RCH', Colors.rchColor);
+            this.prepareCase('RCH', Colors.rchColor);
             break;
           }
           case 'CHPS':
           {
             feature.properties['active'] = feature.properties.CHPS;
-            prepareCase('CHPS', Colors.chpsColor);
-            break;
-          }
-        }
-         */
-
-        switch (type) {
-          case 'Hospitals':
-          {
-            feature.properties['active'] = feature.properties.Hospitals;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'Hospital distribution',
-              [],
-              [],
-              Colors.hospitalColor,
-              "Districts",
-              "Count")
-              .chart;
-            break;
-          }
-          case 'Clinic':
-          {
-            feature.properties['active'] = feature.properties.Clinic;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'Clinic distribution',
-              [],
-              [],
-              Colors.clinicColor,
-              "Districts",
-              "Count")
-              .chart;
-            break;
-          }
-          case 'HealthCentres':
-          {
-            feature.properties['active'] = feature.properties.HealthCentres;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'Health Centre distribution',
-              [],
-              [],
-              Colors.healthCentreColor,
-              "Districts",
-              "Count")
-              .chart;
-            break;
-          }
-          case 'DistrictHospitals':
-          {
-            feature.properties['active'] = feature.properties.DistrictHospitals;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'District Hospital distribution',
-              [],
-              [],
-              Colors.districtHospitalColor,
-              "Districts",
-              "Count")
-              .chart;
-            break;
-          }
-          case 'RegionalHospitals':
-          {
-            feature.properties['active'] = feature.properties.RegionalHospitals;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'Regional Hospital distribution',
-              [],
-              [],
-              Colors.regionalHospitalColor,
-              "Districts",
-              "Count")
-              .chart;
-            break;
-          }
-          case 'MaternityHomes':
-          {
-            feature.properties['active'] = feature.properties.MaternityHomes;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'Maternity Homes distribution',
-              [],
-              [],
-              Colors.maternityColor,
-              "Districts",
-              "Count")
-              .chart;
-            break;
-          }
-          case 'RCHs':
-          {
-            feature.properties['active'] = feature.properties.RCHs;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'RCH distribution',
-              [],
-              [],
-              Colors.rchColor,
-              "Districts",
-              "Count"
-            ).chart;
-            break;
-          }
-          case 'CHPS':
-          {
-            feature.properties['active'] = feature.properties.CHPS;
-            feature.properties['maxOpacity'] = maxOpacity;
-            this.chart = new BarChart(
-              'chartCanvas',
-              'CHPS distribution',
-              [],
-              [],
-              Colors.chpsColor,
-              "Districts",
-              "Count")
-              .chart;
+            this.prepareCase('CHPS', Colors.chpsColor);
             break;
           }
         }
         return feature;
       });
-      console.log(this.districts['features']);
     });
   }
 
-  loadHealthSiteType(type) {
-    // this.filteredHealthSites = null;
-
-    this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-
-    console.log(this.filteredHealthSites);
-
-    /*
-    switch (type) {
-      case 'Hospital':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      case 'District Hospital':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      case 'Regional Hospital':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      case 'Health Centre':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      case 'Clinic':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      case 'Maternity Home':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      case 'RCH':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      case 'CHPS':
-        this.filteredHealthSites = this.healthSites.filter(site => site.type === type);
-        break;
-
-      default:
-        console.log('Unknown healthsite type specified: ' + type.toString());
-    }
-  */
-  }
+  loadHealthSiteType(type) { this.filteredHealthSites = this.healthSites.filter(site => site.type === type); }
 
   loadTransportation() {
 
